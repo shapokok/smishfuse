@@ -1,5 +1,7 @@
 """Merges Kaggle kernel outputs into results/ and rebuilds results/metrics.csv.
 
+Only for full-run kernels: smoke-test outputs (reduced data) must never be merged.
+
   python scripts/collect_results.py KERNEL [KERNEL ...]   # merge results/kaggle_runs/<KERNEL>/results
   python scripts/collect_results.py                       # only rebuild metrics.csv
 
@@ -23,12 +25,14 @@ from eval.metrics import compute_metrics  # noqa: E402
 from eval.registry import MODEL_ORDER  # noqa: E402
 
 RESULTS = ROOT / "results"
-MERGE_DIRS = ["raw", "tuning", "best_params", "seed_runs", "job_times", "runtime", "errors", "logs"]
+MERGE_DIRS = ["raw", "tuning", "best_params", "seed_runs", "job_times", "runtime", "errors", "logs", "llm_cache_check"]
 METRIC_ORDER = ["accuracy", "macro_f1", "weighted_f1", "balanced_accuracy", "pr_auc", "recall_at_fpr_1pct", "ece",
                 "invalid_rate"]
 
 
 def merge(kernel: str) -> None:
+    if "smoke" in kernel:
+        raise SystemExit(f"{kernel}: smoke-test outputs use reduced data and are never merged into results/")
     src = RESULTS / "kaggle_runs" / kernel / "results"
     if not src.exists():
         raise SystemExit(f"{src} not found; run scripts/kaggle_sync.py output {kernel} first")

@@ -77,7 +77,8 @@ def run_neural(kernel: str, spec: dict, env_vars: dict) -> list[int]:
             continue
         env = {**os.environ, **env_vars, "CUDA_VISIBLE_DEVICES": str(i)}
         cmd = [sys.executable, str(CODE / "src" / "neural" / "run.py"), "--mode", spec["mode"],
-               "--jobs", json.dumps(queue), "--worker", f"{kernel}_gpu{i}"]
+               "--jobs", json.dumps(queue), "--worker", f"{kernel}_gpu{i}",
+               "--overrides", json.dumps(spec.get("overrides", {}))]
         procs.append(subprocess.Popen(cmd, env=env))
     return [p.wait() for p in procs]
 

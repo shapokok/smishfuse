@@ -1,0 +1,14 @@
+[smishfuse-smoke2_gpu1] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/qwen_fewshot] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/qwen_fewshot] DEFERRED: super_sms_clean_binary/qwen_fewshot seed 1: 32/612 messages, deadline
+[smishfuse-smoke2_gpu1] session deadline reached; remaining jobs left for the next session
+[smishfuse-smoke2_gpu1] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/qwen_fewshot] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/qwen_fewshot] seed 1: resuming, 32 messages already answered
+[super_sms_clean_binary/qwen_fewshot] seed 1: test macro F1 0.8134, invalid 0.000%, 52s
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 612/612 messages
+[super_sms_clean_binary/qwen_fewshot] seed 2: test macro F1 0.8956, invalid 0.000%, 49s
+[mendeley_3class/qwen_fewshot] cache check: 200/200 identical answers, max |dp| 2.78e-02, 106s -> 45s
+[mendeley_binary/qwen_fewshot] cache check: 200/200 identical answers, max |dp| 3.62e-03, 96s -> 38s
+[moz_binary/qwen_fewshot] cache check: 200/200 identical answers, max |dp| 7.38e-03, 90s -> 41s
+[super_sms_clean_binary/qwen_fewshot] cache check: 200/200 identical answers, max |dp| 1.46e-02, 88s -> 37s

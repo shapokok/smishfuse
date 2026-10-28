@@ -1,0 +1,20 @@
+[smishfuse-smoke2_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/bert] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/bert] trial 0: val macro F1 0.9966 (4 epochs, 151s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] DEFERRED: super_sms_clean_binary/bert: tuning stopped at the session deadline
+[smishfuse-smoke2_gpu0] session deadline reached; remaining jobs left for the next session
+[smishfuse-smoke2_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/bert] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/bert] resuming tuning: 1 trials already done
+[super_sms_clean_binary/bert] trial 1: val macro F1 0.9932 (5 epochs, 181s) {'lr': 1.3033305235071816e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/bert] trial 2: val macro F1 0.9898 (4 epochs, 61s) {'lr': 1.069088909826674e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] best trial 0: val macro F1 0.9966
+[super_sms_clean_binary/bert] seed 1: test macro F1 0.9881 (61s)
+[super_sms_clean_binary/bert] seed 2: test macro F1 0.9881 (76s)
+[moz_binary/textcnn] mode smoke: train 88, val 13, test 25
+[moz_binary/textcnn] trial 0: val macro F1 0.4348 (4 epochs, 1s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'num_filters': 64, 'kernel_sizes': '3,4,5', 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[moz_binary/textcnn] trial 1: val macro F1 1.0000 (10 epochs, 0s) {'lr': 0.0005958389350068958, 'batch_size': 128, 'embed_dim': 300, 'num_filters': 128, 'kernel_sizes': '3,4,5', 'dropout': 0.1185801650879991, 'max_len': 64, 'min_freq': 2}
+[moz_binary/textcnn] trial 2: val macro F1 1.0000 (6 epochs, 0s) {'lr': 0.0026690431824362526, 'batch_size': 32, 'embed_dim': 100, 'num_filters': 256, 'kernel_sizes': '3,4,5', 'dropout': 0.2246844304357644, 'max_len': 128, 'min_freq': 2}
+[moz_binary/textcnn] best trial 1: val macro F1 1.0000
+[moz_binary/textcnn] seed 1: test macro F1 0.9322 (0s)
+[moz_binary/textcnn] seed 2: test macro F1 0.9322 (0s)

@@ -1,0 +1,12 @@
+{
+  "model": "qwen_fewshot",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 134.342854202,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_binary",
+  "worker": "smishfuse-smoke2_gpu1"
+}

@@ -32,3 +32,65 @@ kernels:
            {task: moz_binary, model: bert}, {task: super_sms_clean_binary, model: bert}]
         - [{task: mendeley_3class, model: qwen_fewshot}, {task: mendeley_binary, model: qwen_fewshot},
            {task: moz_binary, model: qwen_fewshot}, {task: super_sms_clean_binary, model: qwen_fewshot}]
+
+  # Second smoke test: session deadline + resume + GPU split + LLM prefix-cache check.
+  # Run A with budget_hours 0.07 (deadline hits mid-tuning and mid-LLM-seed), then
+  # run B with budget_hours 1.0 resuming from the state of run A.
+  smishfuse-smoke2:
+    accelerator: NvidiaTeslaT4
+    pip: gpu
+    spec:
+      kind: neural
+      mode: smoke
+      budget_hours: 1.0
+      overrides: {n_trials: 3, eval_seeds: [1, 2]}
+      queues:
+        - [{task: super_sms_clean_binary, model: bert}, {task: moz_binary, model: textcnn}]
+        - [{task: super_sms_clean_binary, model: qwen_fewshot},
+           {task: mendeley_3class, model: qwen_fewshot, check_cache: true},
+           {task: mendeley_binary, model: qwen_fewshot, check_cache: true},
+           {task: moz_binary, model: qwen_fewshot, check_cache: true},
+           {task: super_sms_clean_binary, model: qwen_fewshot, check_cache: true}]
+
+  # ---- Full step-3 run (approved 2026-10-29). Each worker stops taking new work after
+  # budget_hours; a re-push continues from the smishfuse-state dataset.
+  smishfuse-full-bert-distil:
+    accelerator: NvidiaTeslaT4
+    pip: gpu
+    spec:
+      kind: neural
+      mode: full
+      budget_hours: 8.5
+      queues:
+        - [{task: super_sms_clean_binary, model: bert}]
+        - [{task: super_sms_clean_binary, model: distilbert}, {task: mendeley_3class, model: distilbert},
+           {task: mendeley_binary, model: distilbert}, {task: moz_binary, model: distilbert}]
+
+  smishfuse-full-llm-bert:
+    accelerator: NvidiaTeslaT4
+    pip: gpu
+    spec:
+      kind: neural
+      mode: full
+      budget_hours: 8.5
+      queues:
+        - [{task: super_sms_clean_binary, model: qwen_fewshot, seeds: [1, 2, 3]},
+           {task: mendeley_3class, model: qwen_fewshot}, {task: mendeley_binary, model: qwen_fewshot}]
+        - [{task: super_sms_clean_binary, model: qwen_fewshot, seeds: [4, 5]},
+           {task: moz_binary, model: qwen_fewshot},
+           {task: mendeley_3class, model: bert}, {task: mendeley_binary, model: bert},
+           {task: moz_binary, model: bert}]
+
+  smishfuse-full-rnn-cnn:
+    accelerator: NvidiaTeslaT4
+    pip: gpu
+    spec:
+      kind: neural
+      mode: full
+      budget_hours: 8.5
+      queues:
+        - [{task: super_sms_clean_binary, model: bilstm}]
+        - [{task: mendeley_3class, model: bilstm}, {task: mendeley_binary, model: bilstm},
+           {task: moz_binary, model: bilstm}, {task: mendeley_3class, model: textcnn},
+           {task: mendeley_binary, model: textcnn}, {task: moz_binary, model: textcnn},
+           {task: super_sms_clean_binary, model: textcnn}]

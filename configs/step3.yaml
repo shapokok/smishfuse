@@ -65,5 +65,8 @@ models:
     checkpoint: Qwen/Qwen2.5-7B-Instruct
     prompt_file: configs/llm_prompt.yaml
     # No tuning: the prompt is fixed; each eval seed draws a different set of shots.
+    # prefix_cache: reuse the KV cache of system + shots (see src/neural/llm.py); used only if
+    # cache_equivalence_check gives identical answers on cache_check_messages val messages.
     fixed: {n_shots: 8, load_in_4bit: true, bnb_4bit_quant_type: nf4, compute_dtype: float16,
-            max_new_tokens: 6, batch_size: 8, checkpoint_every_batches: 50}
+            max_new_tokens: 6, batch_size: 8, prefix_cache: true, cache_batch_size: 32,
+            cache_check_messages: 200, checkpoint_every_batches: 20}

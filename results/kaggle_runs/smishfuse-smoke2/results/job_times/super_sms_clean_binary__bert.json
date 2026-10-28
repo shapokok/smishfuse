@@ -1,0 +1,17 @@
+{
+  "model": "bert",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 151.43778078100001,
+      "status": "deferred"
+    },
+    {
+      "mode": "smoke",
+      "seconds": 383.612953878,
+      "status": "ok"
+    }
+  ],
+  "task": "super_sms_clean_binary",
+  "worker": "smishfuse-smoke2_gpu0"
+}

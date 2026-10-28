@@ -1,0 +1,14 @@
+{
+  "all_identical": true,
+  "batch_size_cache": 32,
+  "batch_size_no_cache": 8,
+  "identical_normalized_answers": 200,
+  "identical_raw_answers": 200,
+  "max_abs_prob_diff": 0.027824878692626953,
+  "mismatches": [],
+  "n_messages": 200,
+  "seconds_cache": 45.432874328000025,
+  "seconds_no_cache": 105.66742620499997,
+  "seed_of_shots": 1,
+  "task": "mendeley_3class"
+}

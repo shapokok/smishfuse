@@ -25,7 +25,7 @@ KAGGLE = ROOT / ".venv" / "bin" / "kaggle"
 BUILD = ROOT / "kaggle" / "build"
 CFG = yaml.safe_load((ROOT / "configs" / "kaggle_kernels.yaml").read_text(encoding="utf-8"))
 OWNER = CFG["owner"]
-CODE_PARTS = ["src", "configs", "tests", "requirements.txt"]
+CODE_PARTS = ["src", "configs", "tests", "requirements.txt", "results/best_params"]
 OUTPUT_PATTERN = r"^(?!.*(/models/|^models/|/code/|^code/)).*$"
 
 
@@ -99,10 +99,11 @@ def cmd_code():
         return
     folder = fresh(BUILD / "smishfuse-code")
     for p in parts:
-        dst = folder / p.name
+        dst = folder / p.relative_to(ROOT)
         if p.is_dir():
             shutil.copytree(p, dst, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
         else:
+            dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(p, dst)
     (folder / "CODE_SHA256").write_text(digest + "\n")
     upload("smishfuse-code", folder, f"code {digest[:12]}")

@@ -143,8 +143,8 @@ def final_seed(task_name, task, model_name, mcfg, data, best, seed, proto, devic
     log(f"[{task_name}/{model_name}] seed {seed}: test macro F1 {m['macro_f1']:.4f} ({t.seconds:.0f}s)")
 
 
-def run_job(job: dict, mode: str, device) -> None:
-    from neural.llm import run_llm_seed
+def run_job(job: dict, mode: str, device, overrides: dict) -> None:
+    from neural.llm import cache_equivalence_check, run_llm_seed
 
     step2, step3 = load_configs()
     proto = dict(step3["protocol"])
@@ -152,9 +152,20 @@ def run_job(job: dict, mode: str, device) -> None:
     if mode == "smoke":
         proto.update({k: v for k, v in step3["smoke"].items() if k in ("n_trials", "eval_seeds")})
         fraction = step3["smoke"]["data_fraction"]
+    proto.update(overrides)  # e.g. smoke test of resume: more trials than the default smoke
     task_name, model_name = job["task"], job["model"]
     task = step2["tasks"][task_name]
     mcfg = step3["models"][model_name]
+    if job.get("check_cache"):
+        # Always on full-size train/val: the check needs cache_check_messages val messages.
+        out = RESULTS / "llm_cache_check" / f"{task_name}.json"
+        if out.exists():
+            log(f"[{task_name}/{model_name}] cache check already done, skipped")
+            return
+        cache_equivalence_check(task_name, task, model_name, mcfg, load_split(task, "train"),
+                                load_split(task, "val"), mcfg["fixed"]["cache_check_messages"],
+                                proto["eval_seeds"][0], log)
+        return
     data = {s: load_split(task, s, fraction) for s in ["train", "val", "test"]}
     log(f"[{task_name}/{model_name}] mode {mode}: train {len(data['train'][2])}, val {len(data['val'][2])}, "
         f"test {len(data['test'][2])}")
@@ -204,6 +215,7 @@ def main():
     ap.add_argument("--mode", choices=["smoke", "full"], required=True)
     ap.add_argument("--jobs", required=True, help="JSON list of {task, model}")
     ap.add_argument("--worker", default="worker")
+    ap.add_argument("--overrides", default="{}", help="JSON protocol overrides (n_trials, eval_seeds)")
     args = ap.parse_args()
     optuna.logging.set_verbosity(optuna.logging.WARNING)
     LOG = RESULTS / "logs" / f"{args.worker}.log"
@@ -215,7 +227,7 @@ def main():
     for job in json.loads(args.jobs):
         with Timer() as t:
             try:
-                run_job(job, args.mode, device)
+                run_job(job, args.mode, device, json.loads(args.overrides))
                 status = "ok"
             except Deferred as e:
                 status = "deferred"
@@ -227,7 +239,7 @@ def main():
                 err.parent.mkdir(parents=True, exist_ok=True)
                 err.write_text(traceback.format_exc(), encoding="utf-8")
                 log(f"[{job['task']}/{job['model']}] FAILED, traceback in {err}")
-        timing = RESULTS / "job_times" / f"{job['task']}__{job['model']}.json"
+        timing = RESULTS / "job_times" / f"{job['task']}__{job['model']}{'__check' if job.get('check_cache') else ''}.json"
         prev = read_json(timing)["sessions"] if timing.exists() else []
         write_json({"task": job["task"], "model": job["model"], "worker": args.worker,
                     "sessions": prev + [{"mode": args.mode, "seconds": t.seconds, "status": status}]}, timing)

@@ -1,0 +1,83 @@
+{
+  "best_epoch": 6,
+  "device": "cuda",
+  "encode_seconds": 0.0012450250000028973,
+  "epochs_run": 10,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.12219883400007348,
+      "val_macro_f1": 0.43478260869565216,
+      "val_seconds": 0.016803249000076903
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.009257983999987118,
+      "val_macro_f1": 0.43478260869565216,
+      "val_seconds": 0.003825160000019423
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.009595505999982379,
+      "val_macro_f1": 0.43478260869565216,
+      "val_seconds": 0.0036397159999523865
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.009191841999950157,
+      "val_macro_f1": 0.7045454545454546,
+      "val_seconds": 0.003280772999914916
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.009078337999994801,
+      "val_macro_f1": 0.8761904761904762,
+      "val_seconds": 0.0033118899999635687
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.009097773999997116,
+      "val_macro_f1": 0.8761904761904762,
+      "val_seconds": 0.003423225000005914
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.008921387999976105,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.0033610489999773563
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.00896705499997097,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.003367452000020421
+    },
+    {
+      "epoch": 8,
+      "train_seconds": 0.009171905000016523,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.0033507880000342993
+    },
+    {
+      "epoch": 9,
+      "train_seconds": 0.009162064999941322,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.003172212999970725
+    }
+  ],
+  "n_train": 88,
+  "n_val": 13,
+  "number": 1,
+  "params": {
+    "batch_size": 128,
+    "dropout": 0.1185801650879991,
+    "embed_dim": 300,
+    "kernel_sizes": "3,4,5",
+    "lr": 0.0005958389350068958,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_filters": 128
+  },
+  "seconds": 0.27007362799997736,
+  "value": 1.0
+}
