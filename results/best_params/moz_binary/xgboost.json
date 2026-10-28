@@ -1,0 +1,21 @@
+{
+  "model": "xgboost",
+  "model_params": {
+    "class_weight": "balanced",
+    "colsample_bytree": 0.43220166821274597,
+    "learning_rate": 0.06692776381915634,
+    "max_depth": 3,
+    "min_child_weight": 1.7077184321207517,
+    "n_estimators": 100,
+    "reg_lambda": 9.26711269742515,
+    "subsample": 0.839326766401399
+  },
+  "task": "moz_binary",
+  "trial": 15,
+  "val_macro_f1": 0.9703698498582906,
+  "vectorizer": {
+    "features": "word+char",
+    "max_features": 100000,
+    "min_df": 1
+  }
+}

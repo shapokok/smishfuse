@@ -1,0 +1,15 @@
+{
+  "model": "logreg",
+  "model_params": {
+    "C": 22.77879214255308,
+    "class_weight": "balanced"
+  },
+  "task": "super_sms_clean_binary",
+  "trial": 14,
+  "val_macro_f1": 0.9908042628091528,
+  "vectorizer": {
+    "features": "word+char",
+    "max_features": 20000,
+    "min_df": 1
+  }
+}

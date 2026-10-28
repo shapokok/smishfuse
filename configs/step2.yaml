@@ -1,0 +1,92 @@
+# Step 2: classical baselines. Read by src/baselines/classic.py and scripts/*.py.
+
+protocol:
+  n_trials: 20             # Optuna trials per (model, task), tuned on val only
+  tuning_seed: 42          # TPE sampler seed and model random_state during tuning
+  eval_seeds: [1, 2, 3, 4, 5]  # final runs: model random_state + shuffling of the train order
+  objective: macro_f1
+  n_jobs: 8                # threads for RandomForest / XGBoost (fixed for reproducibility)
+  latency_messages: 1000   # batch-1 latency, median over this many test messages (cycled if fewer)
+  latency_warmup: 20
+  ece_bins: 15
+  fpr_target: 0.01         # recall at FPR = 1% (binary tasks, positive = malicious)
+  bootstrap_n: 10000
+  bootstrap_seed: 42
+  significance_seed: 1     # predictions of this seed are used for significance tests
+  alpha: 0.05
+
+tasks:
+  mendeley_3class:
+    dataset: mendeley
+    label_column: label
+    classes: [ham, smishing, spam]   # class index = position in this list
+    label_map: {ham: ham, smishing: smishing, spam: spam}
+    positive: null
+  mendeley_binary:
+    dataset: mendeley
+    label_column: label_binary
+    classes: [benign, malicious]
+    label_map: {"0": benign, "1": malicious}
+    positive: malicious
+  moz_binary:
+    dataset: moz_smishing
+    label_column: label
+    classes: [benign, malicious]
+    label_map: {ham: benign, smishing: malicious}
+    positive: malicious
+  super_sms_clean_binary:
+    dataset: super_sms_clean
+    label_column: label
+    classes: [benign, malicious]
+    label_map: {ham: benign, spam: malicious}
+    positive: malicious
+
+# Search spaces. Parameter spec:
+#   {type: float, low, high, log}  {type: int, low, high, step}  {type: categorical, choices}
+# "class_weight: balanced" for XGBoost is implemented with per-sample weights.
+vectorizer_space:
+  features:      {type: categorical, choices: [word, char, word+char]}  # word 1-2 grams, char 3-5 grams
+  max_features:  {type: categorical, choices: [20000, 50000, 100000]}   # per feature block
+  min_df:        {type: categorical, choices: [1, 2]}
+
+vectorizer_fixed:
+  word_ngram_range: [1, 2]
+  char_ngram_range: [3, 5]
+  char_analyzer: char
+  lowercase: true
+  sublinear_tf: true
+
+models:
+  logreg:
+    space:
+      C:            {type: float, low: 0.01, high: 1000.0, log: true}
+      class_weight: {type: categorical, choices: [null, balanced]}
+    fixed: {solver: lbfgs, max_iter: 5000}
+  linear_svm:
+    space:
+      C:            {type: float, low: 0.001, high: 100.0, log: true}
+      class_weight: {type: categorical, choices: [null, balanced]}
+    # LinearSVC has no probabilities: it is wrapped in CalibratedClassifierCV
+    # (sigmoid). ensemble=false: the sigmoid is fitted on 5-fold out-of-fold decision
+    # values from train, the final model is ONE LinearSVC refit on all of train.
+    # Predictions = argmax of calibrated probabilities.
+    fixed: {max_iter: 10000, calibration_method: sigmoid, calibration_cv: 5, calibration_ensemble: false}
+  random_forest:
+    space:
+      n_estimators:     {type: int, low: 100, high: 500, step: 50}
+      max_depth:        {type: categorical, choices: [null, 20, 50, 100]}
+      max_features:     {type: categorical, choices: [sqrt, log2]}
+      min_samples_leaf: {type: int, low: 1, high: 4}
+      class_weight:     {type: categorical, choices: [null, balanced, balanced_subsample]}
+    fixed: {}
+  xgboost:
+    space:
+      n_estimators:     {type: int, low: 100, high: 600, step: 50}
+      max_depth:        {type: int, low: 3, high: 10}
+      learning_rate:    {type: float, low: 0.02, high: 0.3, log: true}
+      subsample:        {type: float, low: 0.6, high: 1.0}
+      colsample_bytree: {type: float, low: 0.3, high: 1.0}
+      min_child_weight: {type: float, low: 1.0, high: 10.0, log: true}
+      reg_lambda:       {type: float, low: 0.01, high: 10.0, log: true}
+      class_weight:     {type: categorical, choices: [null, balanced]}
+    fixed: {tree_method: hist}

@@ -1,0 +1,18 @@
+{
+  "model": "random_forest",
+  "model_params": {
+    "class_weight": null,
+    "max_depth": 100,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "n_estimators": 300
+  },
+  "task": "moz_binary",
+  "trial": 3,
+  "val_macro_f1": 0.9699560622253889,
+  "vectorizer": {
+    "features": "word+char",
+    "max_features": 100000,
+    "min_df": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "cpu_count": 15,
+  "machine": "arm64",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.16",
+  "versions": {
+    "numpy": "2.4.6",
+    "optuna": "5.0.0",
+    "pandas": "3.1.0",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "xgboost": "3.2.0"
+  }
+}

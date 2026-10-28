@@ -1,0 +1,15 @@
+{
+  "model": "linear_svm",
+  "model_params": {
+    "C": 2.6945287728134715,
+    "class_weight": "balanced"
+  },
+  "task": "mendeley_binary",
+  "trial": 12,
+  "val_macro_f1": 0.9869405956362478,
+  "vectorizer": {
+    "features": "char",
+    "max_features": 100000,
+    "min_df": 1
+  }
+}

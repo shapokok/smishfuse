@@ -1,0 +1,18 @@
+{
+  "model": "random_forest",
+  "model_params": {
+    "class_weight": "balanced",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "n_estimators": 100
+  },
+  "task": "mendeley_3class",
+  "trial": 12,
+  "val_macro_f1": 0.9195803480040942,
+  "vectorizer": {
+    "features": "char",
+    "max_features": 20000,
+    "min_df": 1
+  }
+}

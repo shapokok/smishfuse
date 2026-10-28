@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{moz\_binary: mean $\pm$ std over 5 seeds (test). Best in bold, second underlined.}
+\label{tab:moz_binary}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & Macro F1 & Accuracy & Weighted F1 & Balanced acc. & PR-AUC & Recall@FPR=1\% & ECE & Recall malicious \\
+\midrule
+TF-IDF + LogReg & 0.9769 $\pm$ 0.0000 & 0.9842 $\pm$ 0.0000 & 0.9844 $\pm$ 0.0000 & \textbf{0.9899 $\pm$ 0.0000} & \textbf{0.9812 $\pm$ 0.0000} & 0.8879 $\pm$ 0.0000 & \underline{0.0125 $\pm$ 0.0000} & \textbf{1.0000 $\pm$ 0.0000} \\
+TF-IDF + LinearSVM & \underline{0.9774 $\pm$ 0.0013} & \underline{0.9846 $\pm$ 0.0009} & \underline{0.9847 $\pm$ 0.0009} & \underline{0.9895 $\pm$ 0.0018} & \underline{0.9793 $\pm$ 0.0000} & \textbf{0.9439 $\pm$ 0.0000} & \textbf{0.0099 $\pm$ 0.0018} & \underline{0.9981 $\pm$ 0.0042} \\
+TF-IDF + RandomForest & \textbf{0.9825 $\pm$ 0.0000} & \textbf{0.9881 $\pm$ 0.0000} & \textbf{0.9882 $\pm$ 0.0000} & 0.9890 $\pm$ 0.0000 & 0.9782 $\pm$ 0.0017 & \underline{0.9346 $\pm$ 0.0229} & 0.0525 $\pm$ 0.0009 & 0.9907 $\pm$ 0.0000 \\
+TF-IDF + XGBoost & 0.9745 $\pm$ 0.0013 & 0.9826 $\pm$ 0.0009 & 0.9828 $\pm$ 0.0009 & 0.9862 $\pm$ 0.0021 & 0.9736 $\pm$ 0.0032 & 0.7701 $\pm$ 0.0441 & 0.0179 $\pm$ 0.0028 & 0.9925 $\pm$ 0.0042 \\
+\bottomrule
+\end{tabular}
+\end{table}

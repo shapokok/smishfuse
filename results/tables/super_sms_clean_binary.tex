@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{super\_sms\_clean\_binary: mean $\pm$ std over 5 seeds (test). Best in bold, second underlined.}
+\label{tab:super_sms_clean_binary}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & Macro F1 & Accuracy & Weighted F1 & Balanced acc. & PR-AUC & Recall@FPR=1\% & ECE & Recall malicious \\
+\midrule
+TF-IDF + LogReg & \underline{0.9912 $\pm$ 0.0000} & \underline{0.9916 $\pm$ 0.0000} & \underline{0.9916 $\pm$ 0.0000} & \underline{0.9906 $\pm$ 0.0000} & \textbf{0.9991 $\pm$ 0.0000} & \underline{0.9924 $\pm$ 0.0000} & 0.0026 $\pm$ 0.0000 & \underline{0.9859 $\pm$ 0.0000} \\
+TF-IDF + LinearSVM & \textbf{0.9927 $\pm$ 0.0000} & \textbf{0.9930 $\pm$ 0.0000} & \textbf{0.9930 $\pm$ 0.0000} & \textbf{0.9923 $\pm$ 0.0000} & \textbf{0.9991 $\pm$ 0.0000} & \textbf{0.9941 $\pm$ 0.0000} & \textbf{0.0014 $\pm$ 0.0001} & \textbf{0.9892 $\pm$ 0.0001} \\
+TF-IDF + RandomForest & 0.9861 $\pm$ 0.0006 & 0.9866 $\pm$ 0.0005 & 0.9866 $\pm$ 0.0005 & 0.9865 $\pm$ 0.0005 & 0.9981 $\pm$ 0.0001 & 0.9836 $\pm$ 0.0004 & 0.1451 $\pm$ 0.0010 & 0.9856 $\pm$ 0.0006 \\
+TF-IDF + XGBoost & 0.9895 $\pm$ 0.0003 & 0.9899 $\pm$ 0.0003 & 0.9899 $\pm$ 0.0003 & 0.9890 $\pm$ 0.0003 & \underline{0.9986 $\pm$ 0.0001} & 0.9883 $\pm$ 0.0008 & \underline{0.0016 $\pm$ 0.0004} & 0.9845 $\pm$ 0.0004 \\
+\bottomrule
+\end{tabular}
+\end{table}

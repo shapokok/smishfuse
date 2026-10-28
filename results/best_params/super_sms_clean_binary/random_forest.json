@@ -1,0 +1,18 @@
+{
+  "model": "random_forest",
+  "model_params": {
+    "class_weight": "balanced_subsample",
+    "max_depth": null,
+    "max_features": "log2",
+    "min_samples_leaf": 2,
+    "n_estimators": 200
+  },
+  "task": "super_sms_clean_binary",
+  "trial": 15,
+  "val_macro_f1": 0.9870702560875502,
+  "vectorizer": {
+    "features": "char",
+    "max_features": 50000,
+    "min_df": 1
+  }
+}

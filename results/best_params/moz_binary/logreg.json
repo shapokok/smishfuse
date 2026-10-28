@@ -1,0 +1,15 @@
+{
+  "model": "logreg",
+  "model_params": {
+    "C": 12.899966080084143,
+    "class_weight": null
+  },
+  "task": "moz_binary",
+  "trial": 13,
+  "val_macro_f1": 0.9703698498582906,
+  "vectorizer": {
+    "features": "char",
+    "max_features": 20000,
+    "min_df": 2
+  }
+}

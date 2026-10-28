@@ -1,0 +1,15 @@
+{
+  "model": "linear_svm",
+  "model_params": {
+    "C": 72.9022309521425,
+    "class_weight": null
+  },
+  "task": "moz_binary",
+  "trial": 13,
+  "val_macro_f1": 0.9767676767676767,
+  "vectorizer": {
+    "features": "char",
+    "max_features": 50000,
+    "min_df": 2
+  }
+}
