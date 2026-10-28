@@ -1,0 +1,90 @@
+[{"stream_name":"stderr","time":8.095370256,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.095443238,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":9.299053595,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.299088659,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.299094964,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.299100026,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.119691644,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.119730644,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.119736556,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.119741644,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.945141098,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":65.297628029,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":65.297666376,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":65.297674686,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297680964,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297686653,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297692966,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297699041,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297704534,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297723191,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297729168,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.29773506,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.297741186,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501498738,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":65.501539115,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":65.501545156,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501549576,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501553824,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501558098,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.50156247,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501566665,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501570723,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501574854,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501579063,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501583235,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.50158724,"data":"\n"}
+,{"stream_name":"stderr","time":65.501591028,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":65.50159544,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":65.501599803,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501603993,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.50160799,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501612302,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.50161638,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501621906,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501625922,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501630212,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.501634295,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":65.50164281,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stdout","time":65.882797058,"data":"[entry] kernel smishfuse-svm-cpu, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":81.757316004,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":81.758376622,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":83.794458004,"data":"[mendeley_3class] train 4017, val 574, test 1148\n"}
+,{"stream_name":"stdout","time":139.270281943,"data":"[mendeley_3class/linear_svm] tuned in 55s: val macro F1 0.9167 {'features': 'word+char', 'max_features': 20000, 'min_df': 1} {'C': 0.5826538409545282, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":147.224358879,"data":"  [mendeley_3class/linear_svm] seed 1: macro F1 0.9284, train 3.2s\n"}
+,{"stream_name":"stdout","time":155.214299478,"data":"  [mendeley_3class/linear_svm] seed 2: macro F1 0.9260, train 3.2s\n"}
+,{"stream_name":"stdout","time":163.127492606,"data":"  [mendeley_3class/linear_svm] seed 3: macro F1 0.9260, train 3.1s\n"}
+,{"stream_name":"stdout","time":171.01938621,"data":"  [mendeley_3class/linear_svm] seed 4: macro F1 0.9230, train 3.1s\n"}
+,{"stream_name":"stdout","time":178.94459391,"data":"  [mendeley_3class/linear_svm] seed 5: macro F1 0.9260, train 3.2s\n"}
+,{"stream_name":"stdout","time":178.986558619,"data":"[mendeley_binary] train 4017, val 574, test 1148\n"}
+,{"stream_name":"stdout","time":211.546101714,"data":"[mendeley_binary/linear_svm] tuned in 33s: val macro F1 0.9869 {'features': 'char', 'max_features': 100000, 'min_df': 1} {'C': 2.6945287728134715, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":218.516965251,"data":"  [mendeley_binary/linear_svm] seed 1: macro F1 0.9886, train 2.7s\n"}
+,{"stream_name":"stdout","time":225.454033562,"data":"  [mendeley_binary/linear_svm] seed 2: macro F1 0.9886, train 2.7s\n"}
+,{"stream_name":"stdout","time":232.427736336,"data":"  [mendeley_binary/linear_svm] seed 3: macro F1 0.9886, train 2.7s\n"}
+,{"stream_name":"stdout","time":239.33145784,"data":"  [mendeley_binary/linear_svm] seed 4: macro F1 0.9871, train 2.8s\n"}
+,{"stream_name":"stdout","time":246.412282295,"data":"  [mendeley_binary/linear_svm] seed 5: macro F1 0.9886, train 2.8s\n"}
+,{"stream_name":"stdout","time":246.471230217,"data":"[moz_binary] train 1765, val 253, test 505\n"}
+,{"stream_name":"stdout","time":261.343279563,"data":"[moz_binary/linear_svm] tuned in 15s: val macro F1 0.9768 {'features': 'char', 'max_features': 50000, 'min_df': 2} {'C': 72.9022309521425, 'class_weight': None}\n"}
+,{"stream_name":"stdout","time":265.704842584,"data":"  [moz_binary/linear_svm] seed 1: macro F1 0.9797, train 1.4s\n"}
+,{"stream_name":"stdout","time":269.962290469,"data":"  [moz_binary/linear_svm] seed 2: macro F1 0.9769, train 1.4s\n"}
+,{"stream_name":"stdout","time":274.14775751,"data":"  [moz_binary/linear_svm] seed 3: macro F1 0.9769, train 1.2s\n"}
+,{"stream_name":"stdout","time":278.288300211,"data":"  [moz_binary/linear_svm] seed 4: macro F1 0.9768, train 1.3s\n"}
+,{"stream_name":"stdout","time":282.53366622,"data":"  [moz_binary/linear_svm] seed 5: macro F1 0.9769, train 1.3s\n"}
+,{"stream_name":"stdout","time":282.897074634,"data":"[super_sms_clean_binary] train 42857, val 6123, test 12245\n"}
+,{"stream_name":"stdout","time":581.017219893,"data":"[super_sms_clean_binary/linear_svm] tuned in 298s: val macro F1 0.9920 {'features': 'word+char', 'max_features': 50000, 'min_df': 2} {'C': 0.34308720856284747, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":613.110719571,"data":"  [super_sms_clean_binary/linear_svm] seed 1: macro F1 0.9927, train 23.3s\n"}
+,{"stream_name":"stdout","time":644.168682892,"data":"  [super_sms_clean_binary/linear_svm] seed 2: macro F1 0.9927, train 22.2s\n"}
+,{"stream_name":"stdout","time":675.25228622,"data":"  [super_sms_clean_binary/linear_svm] seed 3: macro F1 0.9926, train 22.1s\n"}
+,{"stream_name":"stdout","time":706.042865516,"data":"  [super_sms_clean_binary/linear_svm] seed 4: macro F1 0.9927, train 22.0s\n"}
+,{"stream_name":"stdout","time":737.158803081,"data":"  [super_sms_clean_binary/linear_svm] seed 5: macro F1 0.9927, train 22.2s\n"}
+,{"stream_name":"stdout","time":737.59056161,"data":"[entry] done in 0.19 h, return codes [0]\n"}
+,{"stream_name":"stdout","time":737.608044925,"data":"exit code 0\n"}
+,{"stream_name":"stderr","time":741.090070524,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":741.090109564,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":741.320688304,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":741.320721486,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":742.351169771,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":742.459197206,"data":"[NbConvertApp] Writing 9350 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":745.874915253,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":746.571660784,"data":"[NbConvertApp] Writing 288079 bytes to __results__.html\n"}
+]

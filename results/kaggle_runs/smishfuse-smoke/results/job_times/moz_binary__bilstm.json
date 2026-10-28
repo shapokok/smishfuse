@@ -1,0 +1,12 @@
+{
+  "model": "bilstm",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 1.3601880429999937,
+      "status": "ok"
+    }
+  ],
+  "task": "moz_binary",
+  "worker": "smishfuse-smoke_gpu0"
+}

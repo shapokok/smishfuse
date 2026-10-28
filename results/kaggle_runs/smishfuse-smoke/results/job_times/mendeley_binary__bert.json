@@ -1,0 +1,12 @@
+{
+  "model": "bert",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 15.205170206000048,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_binary",
+  "worker": "smishfuse-smoke_gpu0"
+}

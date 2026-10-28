@@ -1,0 +1,12 @@
+{
+  "model": "qwen_fewshot",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 263.76348908299985,
+      "status": "ok"
+    }
+  ],
+  "task": "super_sms_clean_binary",
+  "worker": "smishfuse-smoke_gpu1"
+}

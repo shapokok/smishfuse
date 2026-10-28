@@ -1,0 +1,45 @@
+# Fixed few-shot prompt for qwen_fewshot (no tuning). Used by src/neural/llm.py.
+#
+# Format: chat template of the model. System message = `system` with the task's
+# label description; then n_shots example turns (user: message, assistant: label);
+# then the target message as the final user turn. Greedy decoding.
+# The answer is valid only if, after lowercasing and stripping whitespace and
+# trailing punctuation, it equals one of the task's answer words. Any other
+# answer is an error (prediction "invalid") and is counted in the invalid rate.
+#
+# Shots: drawn from train, balanced over classes (n_shots // K per class, the
+# remainder assigned to classes chosen by the seed), shuffled by the seed.
+
+system: |
+  You are a security analyst who classifies SMS text messages.
+  {label_description}
+  Reply with exactly one word from this list: {answer_list}. Do not explain.
+
+user_template: "SMS: {text}"
+
+tasks:
+  mendeley_3class:
+    answers: {ham: ham, smishing: smishing, spam: spam}   # answer word -> class name
+    label_description: |
+      Labels:
+      - ham: a legitimate, harmless message.
+      - spam: unsolicited advertising or bulk promotion that does not try to steal data or money.
+      - smishing: SMS phishing that tries to trick the recipient into giving personal or financial
+        information, clicking a malicious link, calling a number or paying money.
+  mendeley_binary:
+    answers: {legitimate: benign, malicious: malicious}
+    label_description: &binary_desc |
+      Labels:
+      - legitimate: a harmless message, including normal personal and service messages.
+      - malicious: spam or SMS phishing (smishing), i.e. unsolicited promotion or a scam that tries
+        to obtain data or money.
+  moz_binary:
+    answers: {legitimate: benign, malicious: malicious}
+    label_description: |
+      The messages are mostly in Portuguese (Mozambique) and often concern mobile money (e.g. M-Pesa).
+      Labels:
+      - legitimate: a harmless message, including genuine mobile money notifications.
+      - malicious: a scam (smishing) that tries to obtain money, transfers or personal data.
+  super_sms_clean_binary:
+    answers: {legitimate: benign, malicious: malicious}
+    label_description: *binary_desc

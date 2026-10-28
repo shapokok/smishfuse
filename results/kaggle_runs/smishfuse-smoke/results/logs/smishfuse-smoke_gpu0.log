@@ -1,0 +1,65 @@
+[smishfuse-smoke_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[mendeley_3class/textcnn] mode smoke: train 201, val 28, test 57
+[mendeley_3class/textcnn] trial 0: val macro F1 0.3077 (4 epochs, 8s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'num_filters': 64, 'kernel_sizes': '3,4,5', 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[mendeley_3class/textcnn] best trial 0: val macro F1 0.3077
+[mendeley_3class/textcnn] seed 1: test macro F1 0.3048 (0s)
+[mendeley_binary/textcnn] mode smoke: train 201, val 29, test 57
+[mendeley_binary/textcnn] trial 0: val macro F1 0.4528 (4 epochs, 0s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'num_filters': 64, 'kernel_sizes': '3,4,5', 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[mendeley_binary/textcnn] best trial 0: val macro F1 0.4528
+[mendeley_binary/textcnn] seed 1: test macro F1 0.4571 (0s)
+[moz_binary/textcnn] mode smoke: train 88, val 13, test 25
+[moz_binary/textcnn] trial 0: val macro F1 0.4348 (4 epochs, 0s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'num_filters': 64, 'kernel_sizes': '3,4,5', 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[moz_binary/textcnn] best trial 0: val macro F1 0.4348
+[moz_binary/textcnn] seed 1: test macro F1 0.4444 (0s)
+[super_sms_clean_binary/textcnn] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/textcnn] trial 0: val macro F1 0.9691 (14 epochs, 6s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'num_filters': 64, 'kernel_sizes': '3,4,5', 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/textcnn] best trial 0: val macro F1 0.9691
+[super_sms_clean_binary/textcnn] seed 1: test macro F1 0.9507 (3s)
+[mendeley_3class/bilstm] mode smoke: train 201, val 28, test 57
+[mendeley_3class/bilstm] trial 0: val macro F1 0.3077 (5 epochs, 1s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[mendeley_3class/bilstm] best trial 0: val macro F1 0.3077
+[mendeley_3class/bilstm] seed 1: test macro F1 0.3048 (1s)
+[mendeley_binary/bilstm] mode smoke: train 201, val 29, test 57
+[mendeley_binary/bilstm] trial 0: val macro F1 0.4528 (4 epochs, 1s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[mendeley_binary/bilstm] best trial 0: val macro F1 0.4528
+[mendeley_binary/bilstm] seed 1: test macro F1 0.4571 (2s)
+[moz_binary/bilstm] mode smoke: train 88, val 13, test 25
+[moz_binary/bilstm] trial 0: val macro F1 0.7833 (4 epochs, 1s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[moz_binary/bilstm] best trial 0: val macro F1 0.7833
+[moz_binary/bilstm] seed 1: test macro F1 0.4444 (1s)
+[super_sms_clean_binary/bilstm] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/bilstm] trial 0: val macro F1 0.9795 (7 epochs, 18s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] best trial 0: val macro F1 0.9795
+[super_sms_clean_binary/bilstm] seed 1: test macro F1 0.9591 (14s)
+[mendeley_3class/distilbert] mode smoke: train 201, val 28, test 57
+[mendeley_3class/distilbert] trial 0: val macro F1 0.3077 (3 epochs, 49s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] best trial 0: val macro F1 0.3077
+[mendeley_3class/distilbert] seed 1: test macro F1 0.5714 (6s)
+[mendeley_binary/distilbert] mode smoke: train 201, val 29, test 57
+[mendeley_binary/distilbert] trial 0: val macro F1 1.0000 (4 epochs, 5s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/distilbert] best trial 0: val macro F1 1.0000
+[mendeley_binary/distilbert] seed 1: test macro F1 0.8848 (5s)
+[moz_binary/distilbert] mode smoke: train 88, val 13, test 25
+[moz_binary/distilbert] trial 0: val macro F1 0.7045 (5 epochs, 8s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] best trial 0: val macro F1 0.7045
+[moz_binary/distilbert] seed 1: test macro F1 0.4444 (5s)
+[super_sms_clean_binary/distilbert] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/distilbert] trial 0: val macro F1 0.9966 (5 epochs, 44s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] best trial 0: val macro F1 0.9966
+[super_sms_clean_binary/distilbert] seed 1: test macro F1 0.9830 (27s)
+[mendeley_3class/bert] mode smoke: train 201, val 28, test 57
+[mendeley_3class/bert] trial 0: val macro F1 0.7154 (5 epochs, 11s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/bert] best trial 0: val macro F1 0.7154
+[mendeley_3class/bert] seed 1: test macro F1 0.3048 (6s)
+[mendeley_binary/bert] mode smoke: train 201, val 29, test 57
+[mendeley_binary/bert] trial 0: val macro F1 1.0000 (4 epochs, 7s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] best trial 0: val macro F1 1.0000
+[mendeley_binary/bert] seed 1: test macro F1 0.9273 (7s)
+[moz_binary/bert] mode smoke: train 88, val 13, test 25
+[moz_binary/bert] trial 0: val macro F1 0.8762 (5 epochs, 10s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/bert] best trial 0: val macro F1 0.8762
+[moz_binary/bert] seed 1: test macro F1 0.4444 (4s)
+[super_sms_clean_binary/bert] mode smoke: train 2143, val 306, test 612
+[super_sms_clean_binary/bert] trial 0: val macro F1 0.9966 (4 epochs, 63s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] best trial 0: val macro F1 0.9966
+[super_sms_clean_binary/bert] seed 1: test macro F1 0.9881 (63s)

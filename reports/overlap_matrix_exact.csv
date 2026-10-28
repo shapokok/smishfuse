@@ -1,0 +1,6 @@
+dataset,mendeley,moz_smishing,super_sms,super_sms_clean,uci_sms
+mendeley,5739,0,3933,0,4805
+moz_smishing,0,2523,0,0,0
+super_sms,3933,0,65656,61225,4070
+super_sms_clean,0,0,61225,61225,0
+uci_sms,4805,0,4070,0,5108

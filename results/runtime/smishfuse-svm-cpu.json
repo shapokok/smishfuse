@@ -1,0 +1,39 @@
+{
+  "sessions": [
+    {
+      "kernel": "smishfuse-svm-cpu",
+      "spec": {
+        "kind": "classic",
+        "models": [
+          "linear_svm"
+        ]
+      },
+      "restored_files": 0,
+      "environment": {
+        "python": "3.13.15",
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "cpu_count": 4,
+        "gpus": "",
+        "packages": {
+          "torch": "2.11.0+cpu",
+          "transformers": "5.16.1",
+          "bitsandbytes": "",
+          "accelerate": "1.14.0",
+          "optuna": "5.0.0",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.4.6",
+          "pandas": "3.1.0",
+          "xgboost": "3.2.0",
+          "scipy": "1.17.1"
+        }
+      },
+      "start_unix": 1793209225.0176456,
+      "end_unix": 1793209896.7782693,
+      "wall_seconds": 671.7606244087219,
+      "return_codes": [
+        0
+      ]
+    }
+  ]
+}

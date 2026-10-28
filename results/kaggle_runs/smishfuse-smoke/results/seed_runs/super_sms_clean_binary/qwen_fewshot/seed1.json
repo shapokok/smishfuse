@@ -1,0 +1,38 @@
+{
+  "checkpoint": "Qwen/Qwen2.5-7B-Instruct",
+  "device": "cuda",
+  "generation_seconds": 263.5140224690001,
+  "invalid_rate": 0.0,
+  "metrics": {
+    "accuracy": 0.8366013071895425,
+    "balanced_accuracy": 0.7979536228660402,
+    "ece": 0.12715909216139046,
+    "f1_benign": 0.8792270531400966,
+    "f1_malicious": 0.7474747474747475,
+    "macro_f1": 0.8133509003074221,
+    "pr_auc": 0.9610324607355929,
+    "precision_benign": 0.789587852494577,
+    "precision_malicious": 0.9801324503311258,
+    "recall_at_fpr_1pct": 0.6326530612244898,
+    "recall_benign": 0.9918256130790191,
+    "recall_malicious": 0.6040816326530613,
+    "weighted_f1": 0.8264830745649161
+  },
+  "model": "qwen_fewshot",
+  "model_load_seconds": 3.0889999607097707e-06,
+  "n_test": 612,
+  "new_messages_this_session": 612,
+  "prompt_tokens_this_session": 314203,
+  "seed": 1,
+  "shot_train_ids": [
+    "super_sms_50713",
+    "super_sms_34472",
+    "super_sms_31659",
+    "super_sms_63483",
+    "super_sms_57625",
+    "super_sms_17005",
+    "super_sms_21302",
+    "super_sms_62899"
+  ],
+  "task": "super_sms_clean_binary"
+}

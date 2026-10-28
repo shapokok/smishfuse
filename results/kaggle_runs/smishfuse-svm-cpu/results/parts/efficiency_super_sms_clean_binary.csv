@@ -1,0 +1,6 @@
+task,model,seed,train_time_s,latency_ms_median_batch1,model_size_mb,n_train
+super_sms_clean_binary,linear_svm,1,23.263620063000076,3.495244500015815,4.056061,42857
+super_sms_clean_binary,linear_svm,2,22.231345389000012,3.5042045000182043,4.056061,42857
+super_sms_clean_binary,linear_svm,3,22.13644255700001,3.538365499991869,4.056061,42857
+super_sms_clean_binary,linear_svm,4,22.03701111199996,3.50200150001001,4.056061,42857
+super_sms_clean_binary,linear_svm,5,22.21611717600001,3.566341000009743,4.056061,42857

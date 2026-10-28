@@ -1,0 +1,15 @@
+{
+  "model": "linear_svm",
+  "model_params": {
+    "C": 0.34308720856284747,
+    "class_weight": "balanced"
+  },
+  "task": "super_sms_clean_binary",
+  "trial": 18,
+  "val_macro_f1": 0.9919979552563849,
+  "vectorizer": {
+    "features": "word+char",
+    "max_features": 50000,
+    "min_df": 2
+  }
+}

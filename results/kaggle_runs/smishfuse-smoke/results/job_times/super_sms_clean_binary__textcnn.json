@@ -1,0 +1,12 @@
+{
+  "model": "textcnn",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 9.540907964999974,
+      "status": "ok"
+    }
+  ],
+  "task": "super_sms_clean_binary",
+  "worker": "smishfuse-smoke_gpu0"
+}

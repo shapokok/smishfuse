@@ -1,0 +1,47 @@
+{
+  "best_epoch": 0,
+  "device": "cuda",
+  "epochs_run": 3,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.8356448819999969,
+      "val_macro_f1": 0.43478260869565216,
+      "val_seconds": 0.08752541900003052
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.8460704380000834,
+      "val_macro_f1": 0.43478260869565216,
+      "val_seconds": 0.08657319999997526
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.7244727620000049,
+      "val_macro_f1": 0.43478260869565216,
+      "val_seconds": 0.0866270159999658
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.8,
+    "balanced_accuracy": 0.5,
+    "ece": 0.06185579299926756,
+    "f1_benign": 0.8888888888888888,
+    "f1_malicious": 0.0,
+    "macro_f1": 0.4444444444444444,
+    "pr_auc": 0.24929971988795518,
+    "precision_benign": 0.8,
+    "precision_malicious": 0.0,
+    "recall_at_fpr_1pct": 0.0,
+    "recall_benign": 1.0,
+    "recall_malicious": 0.0,
+    "weighted_f1": 0.7111111111111111
+  },
+  "model": "bert",
+  "n_test": 25,
+  "n_train": 88,
+  "seed": 1,
+  "task": "moz_binary",
+  "test_predict_seconds": 0.033291888999997354,
+  "train_seconds": 4.04951465900001
+}

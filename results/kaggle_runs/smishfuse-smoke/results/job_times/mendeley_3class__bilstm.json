@@ -1,0 +1,12 @@
+{
+  "model": "bilstm",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 2.049101164999911,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_3class",
+  "worker": "smishfuse-smoke_gpu0"
+}

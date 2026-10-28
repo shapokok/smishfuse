@@ -1,0 +1,53 @@
+{
+  "best_epoch": 1,
+  "device": "cuda",
+  "epochs_run": 4,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.9419581359999256,
+      "val_macro_f1": 0.4528301886792453,
+      "val_seconds": 0.03949401900001703
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.9320957969999881,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.03794749199994385
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.9290645739999945,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.04054459600001792
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.9019598889999543,
+      "val_macro_f1": 1.0,
+      "val_seconds": 0.04002180700001645
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9473684210526315,
+    "balanced_accuracy": 0.8333333333333333,
+    "ece": 0.0723612057535272,
+    "f1_benign": 0.9696969696969697,
+    "f1_malicious": 0.8,
+    "macro_f1": 0.8848484848484849,
+    "pr_auc": 1.0000000000000002,
+    "precision_benign": 0.9411764705882353,
+    "precision_malicious": 1.0,
+    "recall_at_fpr_1pct": 1.0,
+    "recall_benign": 1.0,
+    "recall_malicious": 0.6666666666666666,
+    "weighted_f1": 0.942902711323764
+  },
+  "model": "distilbert",
+  "n_test": 57,
+  "n_train": 201,
+  "seed": 1,
+  "task": "mendeley_binary",
+  "test_predict_seconds": 0.04311993999999686,
+  "train_seconds": 4.606398036000087
+}

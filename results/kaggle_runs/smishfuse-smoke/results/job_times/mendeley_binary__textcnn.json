@@ -1,0 +1,12 @@
+{
+  "model": "textcnn",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 0.7246534390000079,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_binary",
+  "worker": "smishfuse-smoke_gpu0"
+}

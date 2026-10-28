@@ -1,0 +1,43 @@
+{
+  "checkpoint": "Qwen/Qwen2.5-7B-Instruct",
+  "device": "cuda",
+  "generation_seconds": 21.414273081000033,
+  "invalid_rate": 0.0,
+  "metrics": {
+    "accuracy": 0.9298245614035088,
+    "balanced_accuracy": 0.7166666666666667,
+    "ece": 0.0697335517197325,
+    "f1_ham": 0.9896907216494846,
+    "f1_smishing": 0.5,
+    "f1_spam": 0.6666666666666666,
+    "macro_f1": 0.7187857961053837,
+    "pr_auc": 0.8630158730158729,
+    "pr_auc_ham": 1.0,
+    "pr_auc_smishing": 0.7961904761904761,
+    "pr_auc_spam": 0.7928571428571428,
+    "precision_ham": 0.9795918367346939,
+    "precision_smishing": 0.6666666666666666,
+    "precision_spam": 0.6,
+    "recall_ham": 1.0,
+    "recall_smishing": 0.4,
+    "recall_spam": 0.75,
+    "weighted_f1": 0.9240670404533671
+  },
+  "model": "qwen_fewshot",
+  "model_load_seconds": 143.61738598,
+  "n_test": 57,
+  "new_messages_this_session": 57,
+  "prompt_tokens_this_session": 30082,
+  "seed": 1,
+  "shot_train_ids": [
+    "mendeley_04668",
+    "mendeley_05746",
+    "mendeley_00993",
+    "mendeley_00216",
+    "mendeley_01010",
+    "mendeley_01973",
+    "mendeley_04468",
+    "mendeley_00956"
+  ],
+  "task": "mendeley_3class"
+}

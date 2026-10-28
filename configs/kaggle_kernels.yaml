@@ -1,0 +1,34 @@
+# Kaggle kernels for steps 2-3. scripts/make_kernels.py writes kaggle/kernels/<name>/.
+owner: shapok
+datasets: [smishfuse-data, smishfuse-code, smishfuse-state]
+
+pip:
+  # CPU notebooks re-run step-2 code: same versions as requirements.txt.
+  cpu: [scikit-learn==1.9.1, scipy==1.17.1, numpy==2.4.6, pandas==3.1.0, optuna==5.0.0, xgboost==3.2.0,
+        pyyaml==6.0.3, joblib==1.6.0]
+  # GPU notebooks keep Kaggle's torch/transformers; only missing packages are installed.
+  gpu: [optuna, bitsandbytes, accelerate]
+
+kernels:
+  smishfuse-svm-cpu:
+    accelerator: none
+    pip: cpu
+    spec: {kind: classic, models: [linear_svm]}
+
+  smishfuse-smoke:
+    accelerator: NvidiaTeslaT4
+    pip: gpu
+    spec:
+      kind: neural
+      mode: smoke
+      queues:
+        - [{task: mendeley_3class, model: textcnn}, {task: mendeley_binary, model: textcnn},
+           {task: moz_binary, model: textcnn}, {task: super_sms_clean_binary, model: textcnn},
+           {task: mendeley_3class, model: bilstm}, {task: mendeley_binary, model: bilstm},
+           {task: moz_binary, model: bilstm}, {task: super_sms_clean_binary, model: bilstm},
+           {task: mendeley_3class, model: distilbert}, {task: mendeley_binary, model: distilbert},
+           {task: moz_binary, model: distilbert}, {task: super_sms_clean_binary, model: distilbert},
+           {task: mendeley_3class, model: bert}, {task: mendeley_binary, model: bert},
+           {task: moz_binary, model: bert}, {task: super_sms_clean_binary, model: bert}]
+        - [{task: mendeley_3class, model: qwen_fewshot}, {task: mendeley_binary, model: qwen_fewshot},
+           {task: moz_binary, model: qwen_fewshot}, {task: super_sms_clean_binary, model: qwen_fewshot}]

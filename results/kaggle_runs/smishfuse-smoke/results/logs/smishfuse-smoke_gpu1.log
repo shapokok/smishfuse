@@ -1,0 +1,10 @@
+[smishfuse-smoke_gpu1] device cuda Tesla T4, torch 2.11.0+cu128
+[mendeley_3class/qwen_fewshot] mode smoke: train 201, val 28, test 57
+[mendeley_3class/qwen_fewshot] seed 1: test macro F1 0.7188, invalid 0.000%, 21s
+[mendeley_binary/qwen_fewshot] mode smoke: train 201, val 29, test 57
+[mendeley_binary/qwen_fewshot] seed 1: test macro F1 1.0000, invalid 0.000%, 20s
+[moz_binary/qwen_fewshot] mode smoke: train 88, val 13, test 25
+[moz_binary/qwen_fewshot] seed 1: test macro F1 0.8441, invalid 0.000%, 10s
+[super_sms_clean_binary/qwen_fewshot] mode smoke: train 2143, val 306, test 612
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 400/612 messages
+[super_sms_clean_binary/qwen_fewshot] seed 1: test macro F1 0.8134, invalid 0.000%, 264s

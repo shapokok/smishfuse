@@ -1,0 +1,12 @@
+{
+  "model": "distilbert",
+  "sessions": [
+    {
+      "mode": "smoke",
+      "seconds": 71.68499772300004,
+      "status": "ok"
+    }
+  ],
+  "task": "super_sms_clean_binary",
+  "worker": "smishfuse-smoke_gpu0"
+}
