@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "actual": 67010,
+      "expected": 67018,
+      "match": false,
+      "what": "total rows in raw file"
+    },
+    {
+      "actual": 67008,
+      "expected": 67018,
+      "match": false,
+      "what": "valid rows after load"
+    },
+    {
+      "actual": 40830,
+      "expected": 40837,
+      "match": false,
+      "what": "label 'ham'"
+    },
+    {
+      "actual": 26178,
+      "expected": 26181,
+      "match": false,
+      "what": "label 'spam'"
+    }
+  ],
+  "dataset": "super_sms",
+  "invalid_rows": {
+    "empty_text": 1,
+    "missing_label": 1
+  },
+  "labels": {
+    "ham": 40830,
+    "spam": 26178
+  },
+  "languages": {
+    "af": 141,
+    "ca": 47,
+    "cs": 7,
+    "cy": 103,
+    "da": 39,
+    "de": 51,
+    "en": 65681,
+    "es": 21,
+    "et": 30,
+    "fi": 21,
+    "fr": 136,
+    "hr": 17,
+    "hu": 4,
+    "id": 86,
+    "it": 76,
+    "lt": 4,
+    "lv": 1,
+    "nl": 101,
+    "no": 60,
+    "pl": 17,
+    "pt": 22,
+    "ro": 16,
+    "sk": 10,
+    "sl": 3,
+    "so": 150,
+    "sq": 8,
+    "sv": 39,
+    "sw": 15,
+    "tl": 77,
+    "tr": 19,
+    "unknown": 2,
+    "vi": 4
+  },
+  "mean_len_chars": 96.1,
+  "median_len_chars": 89.0,
+  "non_utf8_bytes_decoded_as_cp1252": 2,
+  "raw_label_values": {
+    "": 2,
+    "0": 40830,
+    "1": 26178
+  },
+  "raw_rows": 67010,
+  "rows_lowercase_alnum_only": 14949,
+  "rows_with_C1_control_chars": 166,
+  "valid_rows": 67008
+}

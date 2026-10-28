@@ -1,0 +1,44 @@
+{
+  "columns": [
+    "id",
+    "text",
+    "label",
+    "dataset",
+    "language"
+  ],
+  "dataset": "moz_smishing",
+  "fractions": {
+    "test": 0.2,
+    "train": 0.7,
+    "val": 0.1
+  },
+  "labels": {
+    "test": {
+      "ham": 398,
+      "smishing": 107
+    },
+    "train": {
+      "ham": 1389,
+      "smishing": 376
+    },
+    "val": {
+      "ham": 199,
+      "smishing": 54
+    }
+  },
+  "leakage_check": {
+    "cross_split_pairs": [],
+    "exact_duplicate_texts_remaining": 0,
+    "jaccard_threshold": 0.9,
+    "lsh_candidate_threshold": 0.5,
+    "near_pairs_across_splits": 0,
+    "near_pairs_found_in_clean_data": 0,
+    "near_pairs_within_split": 0
+  },
+  "seed": 42,
+  "sizes": {
+    "test": 505,
+    "train": 1765,
+    "val": 253
+  }
+}

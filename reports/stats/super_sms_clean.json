@@ -1,0 +1,29 @@
+{
+  "dataset": "super_sms_clean",
+  "labels_after": {
+    "ham": 36745,
+    "spam": 24480
+  },
+  "labels_before": {
+    "ham": 40599,
+    "spam": 25057
+  },
+  "mean_len_chars_after": 96.1,
+  "references": {
+    "mendeley": "data/processed/mendeley/unified.csv",
+    "uci_sms": "data/processed/uci_sms/unified.csv"
+  },
+  "removed": {
+    "match_mendeley": 47,
+    "match_mendeley_and_uci_sms": 4274,
+    "match_uci_sms": 110
+  },
+  "removed_by_label": {
+    "ham": 3854,
+    "spam": 577
+  },
+  "removed_with_best_jaccard_1": 4123,
+  "rows_after": 61225,
+  "rows_before": 65656,
+  "source": "data/processed/super_sms/clean.csv"
+}

@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "actual": 5574,
+      "expected": 5574,
+      "match": true,
+      "what": "total rows in raw file"
+    },
+    {
+      "actual": 5574,
+      "expected": 5574,
+      "match": true,
+      "what": "valid rows after load"
+    },
+    {
+      "actual": 4827,
+      "expected": 4827,
+      "match": true,
+      "what": "label 'ham'"
+    },
+    {
+      "actual": 747,
+      "expected": 747,
+      "match": true,
+      "what": "label 'spam'"
+    }
+  ],
+  "dataset": "uci_sms",
+  "invalid_rows": {},
+  "labels": {
+    "ham": 4827,
+    "spam": 747
+  },
+  "languages": {
+    "af": 79,
+    "ca": 17,
+    "cs": 1,
+    "cy": 34,
+    "da": 14,
+    "de": 22,
+    "en": 5049,
+    "es": 8,
+    "et": 12,
+    "fi": 2,
+    "fr": 40,
+    "hr": 7,
+    "id": 29,
+    "it": 54,
+    "lt": 1,
+    "nl": 37,
+    "no": 38,
+    "pl": 7,
+    "pt": 5,
+    "ro": 3,
+    "sk": 7,
+    "sl": 7,
+    "so": 37,
+    "sq": 7,
+    "sv": 12,
+    "sw": 13,
+    "tl": 19,
+    "tr": 4,
+    "unknown": 3,
+    "vi": 6
+  },
+  "mean_len_chars": 80.5,
+  "median_len_chars": 62.0,
+  "raw_rows": 5574,
+  "valid_rows": 5574
+}

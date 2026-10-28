@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "actual": 5971,
+      "expected": 5971,
+      "match": true,
+      "what": "total rows in raw file"
+    },
+    {
+      "actual": 5971,
+      "expected": 5971,
+      "match": true,
+      "what": "valid rows after load"
+    },
+    {
+      "actual": 4844,
+      "expected": 4844,
+      "match": true,
+      "what": "label 'ham'"
+    },
+    {
+      "actual": 489,
+      "expected": 489,
+      "match": true,
+      "what": "label 'spam'"
+    },
+    {
+      "actual": 638,
+      "expected": 638,
+      "match": true,
+      "what": "label 'smishing'"
+    }
+  ],
+  "dataset": "mendeley",
+  "invalid_rows": {},
+  "labels": {
+    "ham": 4844,
+    "smishing": 638,
+    "spam": 489
+  },
+  "languages": {
+    "af": 73,
+    "ca": 16,
+    "cs": 1,
+    "cy": 35,
+    "da": 15,
+    "de": 26,
+    "en": 5490,
+    "es": 8,
+    "et": 11,
+    "fi": 2,
+    "fr": 37,
+    "hr": 7,
+    "id": 27,
+    "it": 26,
+    "lt": 1,
+    "nl": 33,
+    "no": 37,
+    "pl": 6,
+    "pt": 5,
+    "ro": 4,
+    "sk": 6,
+    "sl": 8,
+    "so": 37,
+    "sq": 8,
+    "sv": 11,
+    "sw": 13,
+    "tl": 18,
+    "tr": 3,
+    "unknown": 2,
+    "vi": 5
+  },
+  "mean_len_chars": 83.2,
+  "median_len_chars": 66.0,
+  "raw_label_values": {
+    "Smishing": 616,
+    "Spam": 23,
+    "ham": 4844,
+    "smishing": 22,
+    "spam": 466
+  },
+  "raw_rows": 5971,
+  "rows_starting_with_tab": 153,
+  "rows_with_U+FFFD": 145,
+  "rows_with_leading_or_trailing_whitespace": 254,
+  "valid_rows": 5971
+}

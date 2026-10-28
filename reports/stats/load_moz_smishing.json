@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "actual": 2561,
+      "expected": 2561,
+      "match": true,
+      "what": "total rows in raw file"
+    },
+    {
+      "actual": 2561,
+      "expected": 2561,
+      "match": true,
+      "what": "valid rows after load"
+    },
+    {
+      "actual": 2009,
+      "expected": 2009,
+      "match": true,
+      "what": "label 'ham'"
+    },
+    {
+      "actual": 552,
+      "expected": 552,
+      "match": true,
+      "what": "label 'smishing'"
+    }
+  ],
+  "dataset": "moz_smishing",
+  "invalid_rows": {},
+  "labels": {
+    "ham": 2009,
+    "smishing": 552
+  },
+  "languages": {
+    "af": 3,
+    "ca": 52,
+    "cs": 1,
+    "cy": 2,
+    "de": 4,
+    "en": 36,
+    "es": 57,
+    "et": 4,
+    "fi": 3,
+    "fr": 9,
+    "hr": 1,
+    "hu": 1,
+    "id": 13,
+    "it": 13,
+    "lt": 4,
+    "lv": 1,
+    "nl": 2,
+    "pl": 1,
+    "pt": 2314,
+    "ro": 9,
+    "sk": 8,
+    "sl": 4,
+    "so": 7,
+    "sq": 2,
+    "sv": 4,
+    "sw": 3,
+    "tl": 3
+  },
+  "mean_len_chars": 102.7,
+  "median_len_chars": 95.0,
+  "raw_ids_unique": true,
+  "raw_label_values": {
+    "Legitimate": 2009,
+    "Smishing": 552
+  },
+  "raw_rows": 2561,
+  "raw_source_values": {
+    "fb": 400,
+    "sms": 2161
+  },
+  "valid_rows": 2561
+}

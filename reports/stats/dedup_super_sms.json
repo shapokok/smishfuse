@@ -1,0 +1,101 @@
+{
+  "conflict_groups": {
+    "near": 1
+  },
+  "conflict_resolution": {
+    "majority": 1
+  },
+  "conflict_rows_by_label": {
+    "ham": 1,
+    "spam": 36
+  },
+  "dataset": "super_sms",
+  "duplicate_groups": 983,
+  "exact_only_groups": 84,
+  "groups_with_near_duplicates": 899,
+  "labels_after": {
+    "ham": 40599,
+    "spam": 25057
+  },
+  "labels_before": {
+    "ham": 40830,
+    "spam": 26178
+  },
+  "languages_after": {
+    "af": 141,
+    "ca": 47,
+    "cs": 7,
+    "cy": 102,
+    "da": 39,
+    "de": 48,
+    "en": 64338,
+    "es": 21,
+    "et": 29,
+    "fi": 21,
+    "fr": 136,
+    "hr": 17,
+    "hu": 4,
+    "id": 86,
+    "it": 75,
+    "lt": 4,
+    "lv": 1,
+    "nl": 99,
+    "no": 60,
+    "pl": 17,
+    "pt": 21,
+    "ro": 16,
+    "sk": 10,
+    "sl": 3,
+    "so": 150,
+    "sq": 8,
+    "sv": 39,
+    "sw": 15,
+    "tl": 77,
+    "tr": 19,
+    "unknown": 2,
+    "vi": 4
+  },
+  "largest_group": 37,
+  "mean_len_chars_after": 95.0,
+  "removed": {
+    "exact_duplicate": 91,
+    "label_conflict_minority": 1,
+    "near_duplicate": 1260
+  },
+  "removed_by_label_and_reason": [
+    {
+      "label": "ham",
+      "n": 10,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 81,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "ham",
+      "n": 1,
+      "reason": "label_conflict_minority"
+    },
+    {
+      "label": "ham",
+      "n": 220,
+      "reason": "near_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 1040,
+      "reason": "near_duplicate"
+    }
+  ],
+  "rows_after": 65656,
+  "rows_after_drop_whole_group_rule": 65655,
+  "rows_before": 67008,
+  "rows_saved_by_label": {
+    "spam": 1
+  },
+  "rows_saved_vs_drop_whole_group_rule": 1,
+  "unique_normalized_texts": 66913,
+  "verified_near_pairs_between_unique_texts": 1946
+}

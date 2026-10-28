@@ -1,0 +1,124 @@
+{
+  "conflict_groups": {
+    "exact": 34,
+    "near": 7
+  },
+  "conflict_resolution": {
+    "majority": 1,
+    "tie": 40
+  },
+  "conflict_rows_by_label": {
+    "smishing": 43,
+    "spam": 41
+  },
+  "dataset": "mendeley",
+  "duplicate_groups": 166,
+  "exact_only_groups": 121,
+  "groups_with_near_duplicates": 45,
+  "labels_after": {
+    "ham": 4825,
+    "smishing": 495,
+    "spam": 419
+  },
+  "labels_before": {
+    "ham": 4844,
+    "smishing": 638,
+    "spam": 489
+  },
+  "languages_after": {
+    "af": 72,
+    "ca": 15,
+    "cs": 1,
+    "cy": 35,
+    "da": 15,
+    "de": 26,
+    "en": 5260,
+    "es": 8,
+    "et": 11,
+    "fi": 2,
+    "fr": 37,
+    "hr": 7,
+    "id": 27,
+    "it": 26,
+    "lt": 1,
+    "nl": 33,
+    "no": 37,
+    "pl": 6,
+    "pt": 5,
+    "ro": 4,
+    "sk": 6,
+    "sl": 8,
+    "so": 37,
+    "sq": 8,
+    "sv": 11,
+    "sw": 13,
+    "tl": 18,
+    "tr": 3,
+    "unknown": 2,
+    "vi": 5
+  },
+  "largest_group": 8,
+  "mean_len_chars_after": 81.1,
+  "removed": {
+    "exact_duplicate": 100,
+    "label_conflict_minority": 1,
+    "label_conflict_tie": 80,
+    "near_duplicate": 51
+  },
+  "removed_by_label_and_reason": [
+    {
+      "label": "ham",
+      "n": 9,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "smishing",
+      "n": 71,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 20,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 1,
+      "reason": "label_conflict_minority"
+    },
+    {
+      "label": "smishing",
+      "n": 40,
+      "reason": "label_conflict_tie"
+    },
+    {
+      "label": "spam",
+      "n": 40,
+      "reason": "label_conflict_tie"
+    },
+    {
+      "label": "ham",
+      "n": 10,
+      "reason": "near_duplicate"
+    },
+    {
+      "label": "smishing",
+      "n": 32,
+      "reason": "near_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 9,
+      "reason": "near_duplicate"
+    }
+  ],
+  "rows_after": 5739,
+  "rows_after_drop_whole_group_rule": 5738,
+  "rows_before": 5971,
+  "rows_saved_by_label": {
+    "smishing": 1
+  },
+  "rows_saved_vs_drop_whole_group_rule": 1,
+  "unique_normalized_texts": 5831,
+  "verified_near_pairs_between_unique_texts": 56
+}

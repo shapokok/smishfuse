@@ -1,0 +1,99 @@
+{
+  "conflict_groups": {
+    "exact": 4
+  },
+  "conflict_resolution": {
+    "tie": 4
+  },
+  "conflict_rows_by_label": {
+    "ham": 4,
+    "smishing": 4
+  },
+  "dataset": "moz_smishing",
+  "duplicate_groups": 27,
+  "exact_only_groups": 7,
+  "groups_with_near_duplicates": 20,
+  "labels_after": {
+    "ham": 1986,
+    "smishing": 537
+  },
+  "labels_before": {
+    "ham": 2009,
+    "smishing": 552
+  },
+  "languages_after": {
+    "af": 3,
+    "ca": 51,
+    "cs": 1,
+    "cy": 2,
+    "de": 4,
+    "en": 36,
+    "es": 57,
+    "et": 4,
+    "fi": 3,
+    "fr": 9,
+    "hr": 1,
+    "hu": 1,
+    "id": 13,
+    "it": 13,
+    "lt": 4,
+    "lv": 1,
+    "nl": 2,
+    "pl": 1,
+    "pt": 2277,
+    "ro": 9,
+    "sk": 8,
+    "sl": 4,
+    "so": 7,
+    "sq": 2,
+    "sv": 4,
+    "sw": 3,
+    "tl": 3
+  },
+  "largest_group": 8,
+  "mean_len_chars_after": 102.4,
+  "removed": {
+    "exact_duplicate": 3,
+    "label_conflict_tie": 8,
+    "near_duplicate": 27
+  },
+  "removed_by_label_and_reason": [
+    {
+      "label": "ham",
+      "n": 1,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "smishing",
+      "n": 2,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "ham",
+      "n": 4,
+      "reason": "label_conflict_tie"
+    },
+    {
+      "label": "smishing",
+      "n": 4,
+      "reason": "label_conflict_tie"
+    },
+    {
+      "label": "ham",
+      "n": 18,
+      "reason": "near_duplicate"
+    },
+    {
+      "label": "smishing",
+      "n": 9,
+      "reason": "near_duplicate"
+    }
+  ],
+  "rows_after": 2523,
+  "rows_after_drop_whole_group_rule": 2523,
+  "rows_before": 2561,
+  "rows_saved_by_label": {},
+  "rows_saved_vs_drop_whole_group_rule": 0,
+  "unique_normalized_texts": 2554,
+  "verified_near_pairs_between_unique_texts": 38
+}

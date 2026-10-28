@@ -1,0 +1,14 @@
+# Python 3.11 (tested with CPython 3.11.16)
+# XGBoost on macOS also needs the OpenMP runtime: brew install libomp
+pandas==3.1.0
+numpy==2.4.6
+datasketch==2.0.0
+scikit-learn==1.9.1
+scipy==1.17.1
+langdetect==1.0.9
+requests==2.34.2
+optuna==5.0.0
+xgboost==3.2.0
+joblib==1.6.0
+pyyaml==6.0.3
+pytest==9.2.0

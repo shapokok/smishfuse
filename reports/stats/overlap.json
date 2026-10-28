@@ -1,0 +1,130 @@
+{
+  "matrix_exact": {
+    "mendeley": {
+      "mendeley": 5739,
+      "moz_smishing": 0,
+      "super_sms": 3933,
+      "super_sms_clean": 0,
+      "uci_sms": 4805
+    },
+    "moz_smishing": {
+      "mendeley": 0,
+      "moz_smishing": 2523,
+      "super_sms": 0,
+      "super_sms_clean": 0,
+      "uci_sms": 0
+    },
+    "super_sms": {
+      "mendeley": 3933,
+      "moz_smishing": 0,
+      "super_sms": 65656,
+      "super_sms_clean": 61225,
+      "uci_sms": 4070
+    },
+    "super_sms_clean": {
+      "mendeley": 0,
+      "moz_smishing": 0,
+      "super_sms": 61225,
+      "super_sms_clean": 61225,
+      "uci_sms": 0
+    },
+    "uci_sms": {
+      "mendeley": 4805,
+      "moz_smishing": 0,
+      "super_sms": 4070,
+      "super_sms_clean": 0,
+      "uci_sms": 5108
+    }
+  },
+  "matrix_exact_or_near": {
+    "mendeley": {
+      "mendeley": 5739,
+      "moz_smishing": 0,
+      "super_sms": 4276,
+      "super_sms_clean": 0,
+      "uci_sms": 4914
+    },
+    "moz_smishing": {
+      "mendeley": 0,
+      "moz_smishing": 2523,
+      "super_sms": 0,
+      "super_sms_clean": 0,
+      "uci_sms": 0
+    },
+    "super_sms": {
+      "mendeley": 4280,
+      "moz_smishing": 0,
+      "super_sms": 65656,
+      "super_sms_clean": 61225,
+      "uci_sms": 4381
+    },
+    "super_sms_clean": {
+      "mendeley": 0,
+      "moz_smishing": 0,
+      "super_sms": 61225,
+      "super_sms_clean": 61225,
+      "uci_sms": 0
+    },
+    "uci_sms": {
+      "mendeley": 4915,
+      "moz_smishing": 0,
+      "super_sms": 4377,
+      "super_sms_clean": 0,
+      "uci_sms": 5108
+    }
+  },
+  "mendeley_uci": [
+    {
+      "data": "before_dedup",
+      "label_crosstab_mendeley_vs_best_uci_match": [
+        {
+          "mendeley_label": "ham",
+          "n": 4402,
+          "uci_label": "ham"
+        },
+        {
+          "mendeley_label": "smishing",
+          "n": 385,
+          "uci_label": "spam"
+        },
+        {
+          "mendeley_label": "spam",
+          "n": 356,
+          "uci_label": "spam"
+        }
+      ],
+      "mendeley_rows": 5971,
+      "mendeley_rows_in_uci_exact": 5025,
+      "mendeley_rows_in_uci_exact_or_near": 5143,
+      "uci_rows": 5574,
+      "uci_rows_in_mendeley_exact": 5200,
+      "uci_rows_in_mendeley_exact_or_near": 5329
+    },
+    {
+      "data": "clean",
+      "label_crosstab_mendeley_vs_best_uci_match": [
+        {
+          "mendeley_label": "ham",
+          "n": 4385,
+          "uci_label": "ham"
+        },
+        {
+          "mendeley_label": "smishing",
+          "n": 242,
+          "uci_label": "spam"
+        },
+        {
+          "mendeley_label": "spam",
+          "n": 287,
+          "uci_label": "spam"
+        }
+      ],
+      "mendeley_rows": 5739,
+      "mendeley_rows_in_uci_exact": 4805,
+      "mendeley_rows_in_uci_exact_or_near": 4914,
+      "uci_rows": 5108,
+      "uci_rows_in_mendeley_exact": 4805,
+      "uci_rows_in_mendeley_exact_or_near": 4915
+    }
+  ]
+}

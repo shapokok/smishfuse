@@ -1,0 +1,84 @@
+{
+  "conflict_groups": {},
+  "conflict_resolution": {},
+  "conflict_rows_by_label": {},
+  "dataset": "uci_sms",
+  "duplicate_groups": 321,
+  "exact_only_groups": 273,
+  "groups_with_near_duplicates": 48,
+  "labels_after": {
+    "ham": 4510,
+    "spam": 598
+  },
+  "labels_before": {
+    "ham": 4827,
+    "spam": 747
+  },
+  "languages_after": {
+    "af": 58,
+    "ca": 15,
+    "cs": 1,
+    "cy": 34,
+    "da": 14,
+    "de": 22,
+    "en": 4655,
+    "es": 8,
+    "et": 12,
+    "fi": 2,
+    "fr": 36,
+    "hr": 7,
+    "id": 27,
+    "it": 24,
+    "lt": 1,
+    "nl": 34,
+    "no": 34,
+    "pl": 6,
+    "pt": 5,
+    "ro": 3,
+    "sk": 7,
+    "sl": 7,
+    "so": 37,
+    "sq": 7,
+    "sv": 11,
+    "sw": 13,
+    "tl": 16,
+    "tr": 3,
+    "unknown": 3,
+    "vi": 6
+  },
+  "largest_group": 30,
+  "mean_len_chars_after": 78.6,
+  "removed": {
+    "exact_duplicate": 407,
+    "near_duplicate": 59
+  },
+  "removed_by_label_and_reason": [
+    {
+      "label": "ham",
+      "n": 305,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 102,
+      "reason": "exact_duplicate"
+    },
+    {
+      "label": "ham",
+      "n": 12,
+      "reason": "near_duplicate"
+    },
+    {
+      "label": "spam",
+      "n": 47,
+      "reason": "near_duplicate"
+    }
+  ],
+  "rows_after": 5108,
+  "rows_after_drop_whole_group_rule": 5108,
+  "rows_before": 5574,
+  "rows_saved_by_label": {},
+  "rows_saved_vs_drop_whole_group_rule": 0,
+  "unique_normalized_texts": 5159,
+  "verified_near_pairs_between_unique_texts": 54
+}
