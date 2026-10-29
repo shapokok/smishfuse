@@ -1,4 +1,4 @@
-"""Training loop of the SmishFuse variants (shared by steps 4a and 4b).
+"""Training loop of the SmishFuse variants (shared by steps 4a, 4b and 4c).
 
 fp16 autocast + GradScaler, AdamW with the encoder at the text lr and the new layers
 at head_lr, linear schedule, gradient clipping, evaluation on val after every epoch,
@@ -14,7 +14,6 @@ import torch
 import torch.nn as nn
 from sklearn.metrics import f1_score
 
-from fusion.features import FEATURES
 from fusion.model import SmishFuse
 from neural.common import set_seed
 
@@ -67,12 +66,14 @@ def predict_texts(model, tok, texts, F, device, cfg):
 
 
 def fit(mode: str, cfg: dict, train, val, n_classes: int, seed: int, device, checkpoint: str,
-        ham_index: int | None, model=None, tok=None) -> dict:
+        ham_index: int | None, model=None, tok=None, train_epoch=None) -> dict:
     """Train one variant. train / val = (texts, y, standardized features).
 
     ham_index: index of `ham` for the auxiliary binary head (ham vs malicious); None for a
     binary task, where the auxiliary head would repeat the main one and is not trained.
     model / tok: continue training an existing model (fine-tuning); otherwise a new one is built.
+    train_epoch: optional callable epoch -> (texts, features) giving the training inputs of that
+    epoch (augmentation); labels and order stay those of `train`. It must not use torch RNG.
     """
     from transformers import AutoTokenizer, get_linear_schedule_with_warmup
 
@@ -84,7 +85,7 @@ def fit(mode: str, cfg: dict, train, val, n_classes: int, seed: int, device, che
     train_b = Batches(encode(tok, tr_texts, tc["max_len"]), Ftr, ytr, tok)
     val_b = Batches(encode(tok, va_texts, tc["max_len"]), Fva, yva, tok)
     if model is None:
-        model = SmishFuse(mode, len(FEATURES), fc["d"], fc["feature_mlp_hidden"], fc["dropout"], n_classes,
+        model = SmishFuse(mode, Ftr.shape[1], fc["d"], fc["feature_mlp_hidden"], fc["dropout"], n_classes,
                           checkpoint).to(device)
     if mode == "features":
         fo = cfg["features_only"]
@@ -114,6 +115,9 @@ def fit(mode: str, cfg: dict, train, val, n_classes: int, seed: int, device, che
     t_start = time.perf_counter()
     for epoch in range(epochs):
         t0 = time.perf_counter()
+        if train_epoch is not None:
+            ep_texts, ep_F = train_epoch(epoch)
+            train_b = Batches(encode(tok, ep_texts, tc["max_len"]), ep_F, ytr, tok)
         model.train()
         perm = torch.randperm(len(ytr), generator=gen).numpy()
         for s in range(0, len(perm), bs):

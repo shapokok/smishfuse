@@ -84,13 +84,14 @@ def run_neural(kernel: str, spec: dict, env_vars: dict) -> list[int]:
 
 
 def run_stress(kernel: str, spec: dict, env_vars: dict) -> list[int]:
-    """Step 4b: one worker per GPU, each running a list of conditions (src/fusion/stress.py)."""
+    """Steps 4b / 4c: one worker per GPU, each running its queue with spec["script"]
+    (default src/fusion/stress.py: conditions; src/fusion/v2.py: models)."""
     procs = []
     for i, conditions in enumerate(spec["queues"]):
         if not conditions:
             continue
         env = {**os.environ, **env_vars, "CUDA_VISIBLE_DEVICES": str(i)}
-        cmd = [sys.executable, str(CODE / "src" / "fusion" / "stress.py"), "--conditions", json.dumps(conditions),
+        cmd = [sys.executable, str(CODE / spec.get("script", "src/fusion/stress.py")), "--queue", json.dumps(conditions),
                "--worker", f"{kernel}_gpu{i}"]
         procs.append(subprocess.Popen(cmd, env=env))
     return [p.wait() for p in procs]

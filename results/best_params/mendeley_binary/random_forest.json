@@ -5,13 +5,13 @@
     "max_depth": null,
     "max_features": "sqrt",
     "min_samples_leaf": 2,
-    "n_estimators": 450
+    "n_estimators": 300
   },
   "task": "mendeley_binary",
-  "trial": 12,
+  "trial": 5,
   "val_macro_f1": 0.9625670668445234,
   "vectorizer": {
-    "features": "word+char",
+    "features": "char",
     "max_features": 50000,
     "min_df": 1
   }

@@ -1,0 +1,32 @@
+# Step 4c: SmishFuse v2, the second and last design iteration. VAL ONLY: no test split is read.
+# No hyperparameter search. Text branch, fusion layers, gate, heads and loss = step 4a
+# (configs/step4a.yaml); LinearSVM C / class weight = best step-2 LinearSVM on mendeley_3class.
+task: mendeley_3class
+seeds: [1, 2, 3]
+model_config: configs/step4a.yaml
+
+# Training augmentation (TRAIN types of src/eval/obfuscation.py: substitutions, spaces inside words):
+# each message with probability p, at a level drawn uniformly from [0, max_level]. Neural models draw
+# a new augmentation every epoch; LinearSVM gets one augmented copy of train per seed (replacing it).
+augmentation: {p: 0.5, max_level: 0.20}
+
+# Evaluation: clean val, TRAIN-type and HELD-OUT-type obfuscation (homoglyphs, doubled letters,
+# deleted vowels; never used in training) at these levels; one fixed obfuscation per level.
+eval_levels: [0.05, 0.10, 0.20]
+
+# Character branch of SmishFuse v2 and the char LinearSVM: TF-IDF over character 2-5-grams fitted on
+# the clean train only; v2: TruncatedSVD(256) fitted on the clean train only, then the 14 hand-crafted
+# features of step 4a appended; the 270-dim vector is standardized with clean-train mean / std.
+char_branch: {ngram_range: [2, 5], lowercase: true, sublinear_tf: true, min_df: 1, svd_components: 256}
+
+# key: what it is
+models:
+  smishfuse_v2_aug: {kind: fusion, mode: gated, features: char+hand, augment: true}
+  smishfuse_v2:     {kind: fusion, mode: gated, features: char+hand, augment: false}
+  distilbert_aug:   {kind: fusion, mode: text, features: none, augment: true}
+  distilbert:       {kind: fusion, mode: text, features: none, augment: false}
+  smishfuse_v1:     {kind: fusion, mode: gated, features: hand, augment: false}
+  bert:             {kind: step3, augment: false}       # best step-3 BERT, the best clean baseline of step 4b
+  svm_char_aug:     {kind: svm_char, augment: true}
+  svm_char:         {kind: svm_char, augment: false}
+  svm_step2:        {kind: svm_step2, augment: false}   # best step-2 LinearSVM (word+char TF-IDF)

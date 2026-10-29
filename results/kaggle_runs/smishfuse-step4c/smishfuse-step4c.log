@@ -1,0 +1,536 @@
+[{"stream_name":"stderr","time":6.29811599,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.298157212,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":7.159419516,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.159446935,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.159451397,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.159454999,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.766585208,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.7666127320000005,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.766617897,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.7666220809999995,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":37.374566719,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":74.032141719,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":74.032174417,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":74.032179187,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032182596,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032185859,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032189867,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032205801,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032211325,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032216674,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032222664,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032227583,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032232299,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032237004,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.032255937,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236395614,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":74.236420717,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":74.236425442,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236429242,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236432848,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.23643633,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.23644014,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236443619,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236447717,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236452055,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236456593,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236460912,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236464512,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236468041,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236471612,"data":"\n"}
+,{"stream_name":"stderr","time":74.236474833,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":74.236478615,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":74.236482298,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236485846,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.2364894,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236493925,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236497503,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236514128,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236542054,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236546519,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236551024,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236554656,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236558145,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":74.236561632,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stdout","time":89.643143642,"data":"[entry] kernel smishfuse-step4c, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":110.386686407,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":110.387511188,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":110.388634791,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":110.389558808,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":112.031085727,"data":"[step4c] worker smishfuse-step4c_gpu0, device cuda, 15 jobs\n"}
+,{"stream_name":"stdout","time":112.112737112,"data":"[step4c] worker smishfuse-step4c_gpu1, device cuda, 12 jobs\n"}
+,{"stream_name":"stdout","time":138.967259862,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":138.986370734,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":142.257934048,"data":"\n"}
+,{"stream_name":"stdout","time":142.259192076,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":142.285328075,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":142.285353998,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 3423.36it/s]\n"}
+,{"stream_name":"stdout","time":142.297135139,"data":"\n"}
+,{"stream_name":"stdout","time":142.297863505,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2618.84it/s]\n"}
+,{"stream_name":"stdout","time":143.271623269,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":143.272125092,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":143.275883447,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":143.277506415,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.277554923,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.278028842,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.281750273,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.282454687,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.298631472,"data":"\n"}
+,{"stream_name":"stdout","time":143.298650667,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":143.298654247,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":143.298657704,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":143.298661025,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":143.298664057,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":143.298667037,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.298669739,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.298672575,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.29867535099999,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.298678312,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":143.298681165,"data":"\n"}
+,{"stream_name":"stdout","time":143.298701075,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":143.29870446,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":145.407334459,"data":"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/attention_backward.cu:900.)\n"}
+,{"stream_name":"stdout","time":145.408203576,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stdout","time":146.679821994,"data":"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/attention_backward.cu:900.)\n"}
+,{"stream_name":"stdout","time":146.680930313,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stdout","time":201.582347642,"data":"[step4c] distilbert_aug/clean seed 1: val macro F1 0.9173\n"}
+,{"stream_name":"stdout","time":201.789504547,"data":"[step4c] distilbert_aug/train05 seed 1: val macro F1 0.9173\n"}
+,{"stream_name":"stdout","time":202.008367498,"data":"[step4c] distilbert_aug/train10 seed 1: val macro F1 0.9125\n"}
+,{"stream_name":"stdout","time":202.25237553,"data":"[step4c] distilbert_aug/train20 seed 1: val macro F1 0.8648\n"}
+,{"stream_name":"stdout","time":202.467665638,"data":"[step4c] distilbert_aug/heldout05 seed 1: val macro F1 0.9101\n"}
+,{"stream_name":"stdout","time":202.677898073,"data":"[step4c] distilbert_aug/heldout10 seed 1: val macro F1 0.8990\n"}
+,{"stream_name":"stdout","time":202.915481383,"data":"[step4c] distilbert_aug/heldout20 seed 1: val macro F1 0.8498\n"}
+,{"stream_name":"stdout","time":203.870675964,"data":"\n"}
+,{"stream_name":"stdout","time":203.90757066,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":203.908453987,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2759.34it/s]\n"}
+,{"stream_name":"stdout","time":203.912615409,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":203.91263224,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":203.914546393,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":203.915896017,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":203.918597252,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":203.919965502,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":203.921833372,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":203.923658019,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":203.92448308,"data":"\n"}
+,{"stream_name":"stdout","time":203.92530066,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":203.926286425,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":208.803580458,"data":"[step4c] smishfuse_v2_aug/clean seed 1: val macro F1 0.9021\n"}
+,{"stream_name":"stdout","time":209.283381458,"data":"[step4c] smishfuse_v2_aug/train05 seed 1: val macro F1 0.8899\n"}
+,{"stream_name":"stdout","time":209.786682773,"data":"[step4c] smishfuse_v2_aug/train10 seed 1: val macro F1 0.8850\n"}
+,{"stream_name":"stdout","time":210.281500725,"data":"[step4c] smishfuse_v2_aug/train20 seed 1: val macro F1 0.8745\n"}
+,{"stream_name":"stdout","time":210.716082778,"data":"[step4c] smishfuse_v2_aug/heldout05 seed 1: val macro F1 0.9016\n"}
+,{"stream_name":"stdout","time":211.200414125,"data":"[step4c] smishfuse_v2_aug/heldout10 seed 1: val macro F1 0.8957\n"}
+,{"stream_name":"stdout","time":211.676595714,"data":"[step4c] smishfuse_v2_aug/heldout20 seed 1: val macro F1 0.8999\n"}
+,{"stream_name":"stdout","time":226.488651164,"data":"\n"}
+,{"stream_name":"stdout","time":226.525873242,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":226.527916978,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2619.36it/s]\n"}
+,{"stream_name":"stdout","time":226.529325215,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":226.530250344,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":226.531333436,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":226.532468638,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":226.534608541,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":226.534621706,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":226.534861023,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":226.535698542,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":226.53646884,"data":"\n"}
+,{"stream_name":"stdout","time":226.537296374,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":226.538111527,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":263.900934091,"data":"[step4c] distilbert_aug/clean seed 2: val macro F1 0.9021\n"}
+,{"stream_name":"stdout","time":264.134378234,"data":"[step4c] distilbert_aug/train05 seed 2: val macro F1 0.9097\n"}
+,{"stream_name":"stdout","time":264.368134805,"data":"[step4c] distilbert_aug/train10 seed 2: val macro F1 0.8899\n"}
+,{"stream_name":"stdout","time":264.636037863,"data":"[step4c] distilbert_aug/train20 seed 2: val macro F1 0.8456\n"}
+,{"stream_name":"stdout","time":264.862611897,"data":"[step4c] distilbert_aug/heldout05 seed 2: val macro F1 0.9025\n"}
+,{"stream_name":"stdout","time":265.088315813,"data":"[step4c] distilbert_aug/heldout10 seed 2: val macro F1 0.9053\n"}
+,{"stream_name":"stdout","time":265.344325169,"data":"[step4c] distilbert_aug/heldout20 seed 2: val macro F1 0.8282\n"}
+,{"stream_name":"stdout","time":266.293352305,"data":"\n"}
+,{"stream_name":"stdout","time":266.33619157,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":266.336228796,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2445.99it/s]\n"}
+,{"stream_name":"stdout","time":266.33804628,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":266.339666851,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":266.341752841,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":266.341967596,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.343615034,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.344200857,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.345356751,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.346480506,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.347243977,"data":"\n"}
+,{"stream_name":"stdout","time":266.348078664,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":266.34897962,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":291.839151147,"data":"[step4c] smishfuse_v2_aug/clean seed 2: val macro F1 0.8885\n"}
+,{"stream_name":"stdout","time":292.284542604,"data":"[step4c] smishfuse_v2_aug/train05 seed 2: val macro F1 0.8760\n"}
+,{"stream_name":"stdout","time":292.755861893,"data":"[step4c] smishfuse_v2_aug/train10 seed 2: val macro F1 0.8867\n"}
+,{"stream_name":"stdout","time":293.27063882,"data":"[step4c] smishfuse_v2_aug/train20 seed 2: val macro F1 0.8475\n"}
+,{"stream_name":"stdout","time":293.720752445,"data":"[step4c] smishfuse_v2_aug/heldout05 seed 2: val macro F1 0.8795\n"}
+,{"stream_name":"stdout","time":294.193671368,"data":"[step4c] smishfuse_v2_aug/heldout10 seed 2: val macro F1 0.8857\n"}
+,{"stream_name":"stdout","time":294.683579608,"data":"[step4c] smishfuse_v2_aug/heldout20 seed 2: val macro F1 0.8781\n"}
+,{"stream_name":"stdout","time":311.493399519,"data":"\n"}
+,{"stream_name":"stdout","time":311.520687575,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":311.520713878,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 3884.84it/s]\n"}
+,{"stream_name":"stdout","time":311.531676568,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":311.53174764,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":311.532386577,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":311.533753151,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":311.535055756,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":311.536415696,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":311.537719604,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":311.539051485,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":311.540434942,"data":"\n"}
+,{"stream_name":"stdout","time":311.541776765,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":311.543093525,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":326.771860044,"data":"[step4c] distilbert_aug/clean seed 3: val macro F1 0.9137\n"}
+,{"stream_name":"stdout","time":327.004034336,"data":"[step4c] distilbert_aug/train05 seed 3: val macro F1 0.9118\n"}
+,{"stream_name":"stdout","time":327.237235251,"data":"[step4c] distilbert_aug/train10 seed 3: val macro F1 0.8997\n"}
+,{"stream_name":"stdout","time":327.494070301,"data":"[step4c] distilbert_aug/train20 seed 3: val macro F1 0.8768\n"}
+,{"stream_name":"stdout","time":327.705088259,"data":"[step4c] distilbert_aug/heldout05 seed 3: val macro F1 0.8897\n"}
+,{"stream_name":"stdout","time":327.943284772,"data":"[step4c] distilbert_aug/heldout10 seed 3: val macro F1 0.8875\n"}
+,{"stream_name":"stdout","time":328.191364103,"data":"[step4c] distilbert_aug/heldout20 seed 3: val macro F1 0.8483\n"}
+,{"stream_name":"stdout","time":329.127129246,"data":"\n"}
+,{"stream_name":"stdout","time":329.166626685,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":329.167554927,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2465.53it/s]\n"}
+,{"stream_name":"stdout","time":329.170538549,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":329.17378349,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":329.175184584,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":329.177632196,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":329.177649997,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":329.177655916,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":329.178307784,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":329.179189362,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":329.180054249,"data":"\n"}
+,{"stream_name":"stdout","time":329.180888235,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":329.181730996,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":375.913993295,"data":"[step4c] smishfuse_v2_aug/clean seed 3: val macro F1 0.8964\n"}
+,{"stream_name":"stdout","time":376.353253304,"data":"[step4c] smishfuse_v2_aug/train05 seed 3: val macro F1 0.8867\n"}
+,{"stream_name":"stdout","time":376.814948179,"data":"[step4c] smishfuse_v2_aug/train10 seed 3: val macro F1 0.8857\n"}
+,{"stream_name":"stdout","time":377.310233659,"data":"[step4c] smishfuse_v2_aug/train20 seed 3: val macro F1 0.8758\n"}
+,{"stream_name":"stdout","time":377.760554602,"data":"[step4c] smishfuse_v2_aug/heldout05 seed 3: val macro F1 0.8867\n"}
+,{"stream_name":"stdout","time":378.214882451,"data":"[step4c] smishfuse_v2_aug/heldout10 seed 3: val macro F1 0.8894\n"}
+,{"stream_name":"stdout","time":378.697591227,"data":"[step4c] smishfuse_v2_aug/heldout20 seed 3: val macro F1 0.8867\n"}
+,{"stream_name":"stdout","time":379.496500424,"data":"[step4c] distilbert/clean seed 1: val macro F1 0.9275\n"}
+,{"stream_name":"stdout","time":379.714676923,"data":"[step4c] distilbert/train05 seed 1: val macro F1 0.8953\n"}
+,{"stream_name":"stdout","time":379.943985713,"data":"[step4c] distilbert/train10 seed 1: val macro F1 0.8667\n"}
+,{"stream_name":"stdout","time":380.221784653,"data":"[step4c] distilbert/train20 seed 1: val macro F1 0.6057\n"}
+,{"stream_name":"stdout","time":380.515204821,"data":"[step4c] distilbert/heldout05 seed 1: val macro F1 0.8840\n"}
+,{"stream_name":"stdout","time":380.854385964,"data":"[step4c] distilbert/heldout10 seed 1: val macro F1 0.8433\n"}
+,{"stream_name":"stdout","time":381.228879051,"data":"[step4c] distilbert/heldout20 seed 1: val macro F1 0.6283\n"}
+,{"stream_name":"stdout","time":382.28665621,"data":"\n"}
+,{"stream_name":"stdout","time":382.331619184,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":382.331951824,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2268.66it/s]\n"}
+,{"stream_name":"stdout","time":382.335315883,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":382.337379383,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":382.338386804,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":382.339439393,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":382.340643248,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":382.341760537,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":382.344622424,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":382.344638334,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":382.344952108,"data":"\n"}
+,{"stream_name":"stdout","time":382.346103968,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":382.347331502,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":394.321266318,"data":"\n"}
+,{"stream_name":"stdout","time":394.345920549,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":394.346849824,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 3866.68it/s]\n"}
+,{"stream_name":"stdout","time":394.350985133,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":394.353531273,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":394.35472256,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":394.355972782,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":394.356681999,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":394.357695763,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":394.35872604,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":394.359739179,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":394.360487008,"data":"\n"}
+,{"stream_name":"stdout","time":394.361588211,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":394.362661436,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":434.486585897,"data":"[step4c] distilbert/clean seed 2: val macro F1 0.9202\n"}
+,{"stream_name":"stdout","time":434.713593892,"data":"[step4c] distilbert/train05 seed 2: val macro F1 0.9074\n"}
+,{"stream_name":"stdout","time":434.950456119,"data":"[step4c] distilbert/train10 seed 2: val macro F1 0.8603\n"}
+,{"stream_name":"stdout","time":435.211851798,"data":"[step4c] distilbert/train20 seed 2: val macro F1 0.6148\n"}
+,{"stream_name":"stdout","time":435.444160456,"data":"[step4c] distilbert/heldout05 seed 2: val macro F1 0.8997\n"}
+,{"stream_name":"stdout","time":435.677752779,"data":"[step4c] distilbert/heldout10 seed 2: val macro F1 0.8513\n"}
+,{"stream_name":"stdout","time":435.92661238,"data":"[step4c] distilbert/heldout20 seed 2: val macro F1 0.6202\n"}
+,{"stream_name":"stdout","time":436.851878709,"data":"\n"}
+,{"stream_name":"stdout","time":436.885080642,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":436.885918854,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 3005.08it/s]\n"}
+,{"stream_name":"stdout","time":436.891865242,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":436.892922342,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":436.894059062,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":436.895640194,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":436.89766492,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":436.899706429,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":436.903737069,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":436.90664692,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":436.907253839,"data":"\n"}
+,{"stream_name":"stdout","time":436.908457155,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":436.909739667,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":444.150158289,"data":"[step4c] smishfuse_v2/clean seed 1: val macro F1 0.9198\n"}
+,{"stream_name":"stdout","time":444.599172656,"data":"[step4c] smishfuse_v2/train05 seed 1: val macro F1 0.9005\n"}
+,{"stream_name":"stdout","time":445.053478326,"data":"[step4c] smishfuse_v2/train10 seed 1: val macro F1 0.9021\n"}
+,{"stream_name":"stdout","time":445.57032373,"data":"[step4c] smishfuse_v2/train20 seed 1: val macro F1 0.7397\n"}
+,{"stream_name":"stdout","time":446.044346962,"data":"[step4c] smishfuse_v2/heldout05 seed 1: val macro F1 0.9232\n"}
+,{"stream_name":"stdout","time":446.508626041,"data":"[step4c] smishfuse_v2/heldout10 seed 1: val macro F1 0.8707\n"}
+,{"stream_name":"stdout","time":447.019599843,"data":"[step4c] smishfuse_v2/heldout20 seed 1: val macro F1 0.6598\n"}
+,{"stream_name":"stdout","time":463.159479775,"data":"\n"}
+,{"stream_name":"stdout","time":463.196880352,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":463.198043772,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2626.40it/s]\n"}
+,{"stream_name":"stdout","time":463.201453386,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":463.201471487,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":463.207851311,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":463.211583603,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":463.211600128,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":463.21160464,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":463.211609182,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":463.212498057,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":463.213751064,"data":"\n"}
+,{"stream_name":"stdout","time":463.214759511,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":463.21579176,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":489.809664672,"data":"[step4c] distilbert/clean seed 3: val macro F1 0.9268\n"}
+,{"stream_name":"stdout","time":490.027213498,"data":"[step4c] distilbert/train05 seed 3: val macro F1 0.8896\n"}
+,{"stream_name":"stdout","time":490.270468148,"data":"[step4c] distilbert/train10 seed 3: val macro F1 0.8266\n"}
+,{"stream_name":"stdout","time":490.533632004,"data":"[step4c] distilbert/train20 seed 3: val macro F1 0.5712\n"}
+,{"stream_name":"stdout","time":490.766102477,"data":"[step4c] distilbert/heldout05 seed 3: val macro F1 0.8960\n"}
+,{"stream_name":"stdout","time":491.021235731,"data":"[step4c] distilbert/heldout10 seed 3: val macro F1 0.8205\n"}
+,{"stream_name":"stdout","time":491.277851321,"data":"[step4c] distilbert/heldout20 seed 3: val macro F1 0.6166\n"}
+,{"stream_name":"stdout","time":493.72394511,"data":"\n"}
+,{"stream_name":"stdout","time":493.762946423,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":493.763911976,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2499.76it/s]\n"}
+,{"stream_name":"stdout","time":493.767154186,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":493.767207143,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":493.769737659,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":493.771168316,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":493.772483128,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":493.774625734,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":493.777574532,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":493.778362301,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":493.779194411,"data":"\n"}
+,{"stream_name":"stdout","time":493.780070075,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":493.780927491,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":513.304049992,"data":"[step4c] smishfuse_v2/clean seed 2: val macro F1 0.9025\n"}
+,{"stream_name":"stdout","time":513.757980696,"data":"[step4c] smishfuse_v2/train05 seed 2: val macro F1 0.8823\n"}
+,{"stream_name":"stdout","time":514.241121162,"data":"[step4c] smishfuse_v2/train10 seed 2: val macro F1 0.8737\n"}
+,{"stream_name":"stdout","time":514.764986017,"data":"[step4c] smishfuse_v2/train20 seed 2: val macro F1 0.6054\n"}
+,{"stream_name":"stdout","time":515.228468925,"data":"[step4c] smishfuse_v2/heldout05 seed 2: val macro F1 0.8998\n"}
+,{"stream_name":"stdout","time":515.690472896,"data":"[step4c] smishfuse_v2/heldout10 seed 2: val macro F1 0.8842\n"}
+,{"stream_name":"stdout","time":516.174787979,"data":"[step4c] smishfuse_v2/heldout20 seed 2: val macro F1 0.7080\n"}
+,{"stream_name":"stdout","time":530.081392707,"data":"\n"}
+,{"stream_name":"stdout","time":530.10499424,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":530.105887585,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2715.23it/s]\n"}
+,{"stream_name":"stdout","time":530.109773064,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":530.111611059,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":530.112821735,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":530.113735532,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":530.1146097,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":530.11560977,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":530.117062528,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":530.119686247,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":530.122622125,"data":"\n"}
+,{"stream_name":"stdout","time":530.123156446,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":530.124061054,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":547.871820831,"data":"[step4c] smishfuse_v1/clean seed 1: val macro F1 0.9275\n"}
+,{"stream_name":"stdout","time":548.166728463,"data":"[step4c] smishfuse_v1/train05 seed 1: val macro F1 0.8883\n"}
+,{"stream_name":"stdout","time":548.513890137,"data":"[step4c] smishfuse_v1/train10 seed 1: val macro F1 0.8542\n"}
+,{"stream_name":"stdout","time":548.867213874,"data":"[step4c] smishfuse_v1/train20 seed 1: val macro F1 0.5888\n"}
+,{"stream_name":"stdout","time":549.159009303,"data":"[step4c] smishfuse_v1/heldout05 seed 1: val macro F1 0.8863\n"}
+,{"stream_name":"stdout","time":549.471474085,"data":"[step4c] smishfuse_v1/heldout10 seed 1: val macro F1 0.8337\n"}
+,{"stream_name":"stdout","time":549.81744788,"data":"[step4c] smishfuse_v1/heldout20 seed 1: val macro F1 0.6300\n"}
+,{"stream_name":"stdout","time":551.844585367,"data":"\n"}
+,{"stream_name":"stdout","time":551.884587236,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":551.884615084,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2610.78it/s]\n"}
+,{"stream_name":"stdout","time":551.887628778,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":551.888621071,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":551.891946239,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":551.892939188,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":551.895622832,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":551.897749565,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":551.898991708,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":551.900290738,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":551.901277863,"data":"\n"}
+,{"stream_name":"stdout","time":551.902356989,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":551.903466892,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":579.885053717,"data":"[step4c] smishfuse_v2/clean seed 3: val macro F1 0.9048\n"}
+,{"stream_name":"stdout","time":580.346988032,"data":"[step4c] smishfuse_v2/train05 seed 3: val macro F1 0.8983\n"}
+,{"stream_name":"stdout","time":580.811215929,"data":"[step4c] smishfuse_v2/train10 seed 3: val macro F1 0.8772\n"}
+,{"stream_name":"stdout","time":581.367734451,"data":"[step4c] smishfuse_v2/train20 seed 3: val macro F1 0.7621\n"}
+,{"stream_name":"stdout","time":581.817065971,"data":"[step4c] smishfuse_v2/heldout05 seed 3: val macro F1 0.8926\n"}
+,{"stream_name":"stdout","time":582.286032475,"data":"[step4c] smishfuse_v2/heldout10 seed 3: val macro F1 0.9009\n"}
+,{"stream_name":"stdout","time":582.807643428,"data":"[step4c] smishfuse_v2/heldout20 seed 3: val macro F1 0.8260\n"}
+,{"stream_name":"stdout","time":586.754468893,"data":"[step4c] svm_char_aug/clean seed 1: val macro F1 0.9033\n"}
+,{"stream_name":"stdout","time":586.870406273,"data":"[step4c] svm_char_aug/train05 seed 1: val macro F1 0.9111\n"}
+,{"stream_name":"stdout","time":586.998970494,"data":"[step4c] svm_char_aug/train10 seed 1: val macro F1 0.9033\n"}
+,{"stream_name":"stdout","time":587.130384209,"data":"[step4c] svm_char_aug/train20 seed 1: val macro F1 0.8813\n"}
+,{"stream_name":"stdout","time":587.246841586,"data":"[step4c] svm_char_aug/heldout05 seed 1: val macro F1 0.9061\n"}
+,{"stream_name":"stdout","time":587.3716462,"data":"[step4c] svm_char_aug/heldout10 seed 1: val macro F1 0.8962\n"}
+,{"stream_name":"stdout","time":587.500251216,"data":"[step4c] svm_char_aug/heldout20 seed 1: val macro F1 0.8813\n"}
+,{"stream_name":"stdout","time":591.100380554,"data":"[step4c] svm_char_aug/clean seed 2: val macro F1 0.9025\n"}
+,{"stream_name":"stdout","time":591.218253595,"data":"[step4c] svm_char_aug/train05 seed 2: val macro F1 0.9006\n"}
+,{"stream_name":"stdout","time":591.339265462,"data":"[step4c] svm_char_aug/train10 seed 2: val macro F1 0.9104\n"}
+,{"stream_name":"stdout","time":591.464395114,"data":"[step4c] svm_char_aug/train20 seed 2: val macro F1 0.8806\n"}
+,{"stream_name":"stdout","time":591.574353547,"data":"[step4c] svm_char_aug/heldout05 seed 2: val macro F1 0.9096\n"}
+,{"stream_name":"stdout","time":591.693400077,"data":"[step4c] svm_char_aug/heldout10 seed 2: val macro F1 0.9183\n"}
+,{"stream_name":"stdout","time":591.817182177,"data":"[step4c] svm_char_aug/heldout20 seed 2: val macro F1 0.8861\n"}
+,{"stream_name":"stdout","time":595.290405566,"data":"[step4c] svm_char_aug/clean seed 3: val macro F1 0.8848\n"}
+,{"stream_name":"stdout","time":595.40664353,"data":"[step4c] svm_char_aug/train05 seed 3: val macro F1 0.8812\n"}
+,{"stream_name":"stdout","time":595.527729426,"data":"[step4c] svm_char_aug/train10 seed 3: val macro F1 0.9191\n"}
+,{"stream_name":"stdout","time":595.670142517,"data":"[step4c] svm_char_aug/train20 seed 3: val macro F1 0.8990\n"}
+,{"stream_name":"stdout","time":595.799198209,"data":"[step4c] svm_char_aug/heldout05 seed 3: val macro F1 0.9096\n"}
+,{"stream_name":"stdout","time":595.940019594,"data":"[step4c] svm_char_aug/heldout10 seed 3: val macro F1 0.9040\n"}
+,{"stream_name":"stdout","time":596.082097594,"data":"[step4c] svm_char_aug/heldout20 seed 3: val macro F1 0.8934\n"}
+,{"stream_name":"stdout","time":599.309758917,"data":"[step4c] svm_char/clean seed 1: val macro F1 0.9040\n"}
+,{"stream_name":"stdout","time":599.419416798,"data":"[step4c] svm_char/train05 seed 1: val macro F1 0.8962\n"}
+,{"stream_name":"stdout","time":599.532618287,"data":"[step4c] svm_char/train10 seed 1: val macro F1 0.9098\n"}
+,{"stream_name":"stdout","time":599.645267576,"data":"[step4c] svm_char/train20 seed 1: val macro F1 0.8836\n"}
+,{"stream_name":"stdout","time":599.763599483,"data":"[step4c] svm_char/heldout05 seed 1: val macro F1 0.9083\n"}
+,{"stream_name":"stdout","time":599.889981371,"data":"[step4c] svm_char/heldout10 seed 1: val macro F1 0.9040\n"}
+,{"stream_name":"stdout","time":600.006594768,"data":"[step4c] svm_char/heldout20 seed 1: val macro F1 0.8823\n"}
+,{"stream_name":"stdout","time":603.048784647,"data":"[step4c] svm_char/clean seed 2: val macro F1 0.8962\n"}
+,{"stream_name":"stdout","time":603.160246785,"data":"[step4c] svm_char/train05 seed 2: val macro F1 0.9033\n"}
+,{"stream_name":"stdout","time":603.290582509,"data":"[step4c] svm_char/train10 seed 2: val macro F1 0.9098\n"}
+,{"stream_name":"stdout","time":603.457779389,"data":"[step4c] svm_char/train20 seed 2: val macro F1 0.8836\n"}
+,{"stream_name":"stdout","time":603.469650193,"data":"[step4c] smishfuse_v1/clean seed 2: val macro F1 0.9322\n"}
+,{"stream_name":"stdout","time":603.58665225,"data":"[step4c] svm_char/heldout05 seed 2: val macro F1 0.9155\n"}
+,{"stream_name":"stdout","time":603.701345878,"data":"[step4c] svm_char/heldout10 seed 2: val macro F1 0.9040\n"}
+,{"stream_name":"stdout","time":603.790543953,"data":"[step4c] smishfuse_v1/train05 seed 2: val macro F1 0.8867\n"}
+,{"stream_name":"stdout","time":603.816678568,"data":"[step4c] svm_char/heldout20 seed 2: val macro F1 0.8823\n"}
+,{"stream_name":"stdout","time":604.103944121,"data":"[step4c] smishfuse_v1/train10 seed 2: val macro F1 0.8730\n"}
+,{"stream_name":"stdout","time":604.466571066,"data":"[step4c] smishfuse_v1/train20 seed 2: val macro F1 0.6609\n"}
+,{"stream_name":"stdout","time":604.773803526,"data":"[step4c] smishfuse_v1/heldout05 seed 2: val macro F1 0.9154\n"}
+,{"stream_name":"stdout","time":605.089008312,"data":"[step4c] smishfuse_v1/heldout10 seed 2: val macro F1 0.8741\n"}
+,{"stream_name":"stdout","time":605.43949748,"data":"[step4c] smishfuse_v1/heldout20 seed 2: val macro F1 0.6468\n"}
+,{"stream_name":"stdout","time":606.807613035,"data":"[step4c] svm_char/clean seed 3: val macro F1 0.9040\n"}
+,{"stream_name":"stdout","time":606.917968786,"data":"[step4c] svm_char/train05 seed 3: val macro F1 0.8962\n"}
+,{"stream_name":"stdout","time":607.029254401,"data":"[step4c] svm_char/train10 seed 3: val macro F1 0.9098\n"}
+,{"stream_name":"stdout","time":607.157485688,"data":"[step4c] svm_char/train20 seed 3: val macro F1 0.8870\n"}
+,{"stream_name":"stdout","time":607.343810197,"data":"[step4c] svm_char/heldout05 seed 3: val macro F1 0.9083\n"}
+,{"stream_name":"stdout","time":607.478427687,"data":"[step4c] svm_char/heldout10 seed 3: val macro F1 0.9040\n"}
+,{"stream_name":"stdout","time":607.563474352,"data":"\n"}
+,{"stream_name":"stdout","time":607.600915181,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":607.601780097,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2683.60it/s]\n"}
+,{"stream_name":"stdout","time":607.605678847,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":607.606147304,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":607.607400463,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":607.609051889,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":607.611285899,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":607.613964532,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":607.617779848,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":607.619051999,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":607.62111168,"data":"\n"}
+,{"stream_name":"stdout","time":607.622359033,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":607.623584663,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":607.631367581,"data":"[step4c] svm_char/heldout20 seed 3: val macro F1 0.8823\n"}
+,{"stream_name":"stdout","time":610.04837875,"data":"[step4c] svm_step2/clean seed 1: val macro F1 0.9094\n"}
+,{"stream_name":"stdout","time":610.140756317,"data":"[step4c] svm_step2/train05 seed 1: val macro F1 0.9005\n"}
+,{"stream_name":"stdout","time":610.244658753,"data":"[step4c] svm_step2/train10 seed 1: val macro F1 0.9239\n"}
+,{"stream_name":"stdout","time":610.354537582,"data":"[step4c] svm_step2/train20 seed 1: val macro F1 0.8577\n"}
+,{"stream_name":"stdout","time":610.455502615,"data":"[step4c] svm_step2/heldout05 seed 1: val macro F1 0.8941\n"}
+,{"stream_name":"stdout","time":610.565685912,"data":"[step4c] svm_step2/heldout10 seed 1: val macro F1 0.9216\n"}
+,{"stream_name":"stdout","time":610.669174929,"data":"[step4c] svm_step2/heldout20 seed 1: val macro F1 0.8528\n"}
+,{"stream_name":"stdout","time":613.244494977,"data":"[step4c] svm_step2/clean seed 2: val macro F1 0.9094\n"}
+,{"stream_name":"stdout","time":613.349461971,"data":"[step4c] svm_step2/train05 seed 2: val macro F1 0.9005\n"}
+,{"stream_name":"stdout","time":613.457983896,"data":"[step4c] svm_step2/train10 seed 2: val macro F1 0.9239\n"}
+,{"stream_name":"stdout","time":613.564541939,"data":"[step4c] svm_step2/train20 seed 2: val macro F1 0.8522\n"}
+,{"stream_name":"stdout","time":613.66543207,"data":"[step4c] svm_step2/heldout05 seed 2: val macro F1 0.8977\n"}
+,{"stream_name":"stdout","time":613.770206538,"data":"[step4c] svm_step2/heldout10 seed 2: val macro F1 0.9216\n"}
+,{"stream_name":"stdout","time":613.878013087,"data":"[step4c] svm_step2/heldout20 seed 2: val macro F1 0.8505\n"}
+,{"stream_name":"stdout","time":616.458141034,"data":"[step4c] svm_step2/clean seed 3: val macro F1 0.9094\n"}
+,{"stream_name":"stdout","time":616.564579569,"data":"[step4c] svm_step2/train05 seed 3: val macro F1 0.9005\n"}
+,{"stream_name":"stdout","time":616.664257897,"data":"[step4c] svm_step2/train10 seed 3: val macro F1 0.9239\n"}
+,{"stream_name":"stdout","time":616.77259981,"data":"[step4c] svm_step2/train20 seed 3: val macro F1 0.8472\n"}
+,{"stream_name":"stdout","time":616.87363506,"data":"[step4c] svm_step2/heldout05 seed 3: val macro F1 0.8977\n"}
+,{"stream_name":"stdout","time":616.973823946,"data":"[step4c] svm_step2/heldout10 seed 3: val macro F1 0.9216\n"}
+,{"stream_name":"stdout","time":617.082423026,"data":"[step4c] svm_step2/heldout20 seed 3: val macro F1 0.8562\n"}
+,{"stream_name":"stdout","time":658.629241208,"data":"[step4c] smishfuse_v1/clean seed 3: val macro F1 0.9281\n"}
+,{"stream_name":"stdout","time":658.913406716,"data":"[step4c] smishfuse_v1/train05 seed 3: val macro F1 0.8983\n"}
+,{"stream_name":"stdout","time":659.218594536,"data":"[step4c] smishfuse_v1/train10 seed 3: val macro F1 0.8539\n"}
+,{"stream_name":"stdout","time":659.557491843,"data":"[step4c] smishfuse_v1/train20 seed 3: val macro F1 0.5812\n"}
+,{"stream_name":"stdout","time":659.847551044,"data":"[step4c] smishfuse_v1/heldout05 seed 3: val macro F1 0.8796\n"}
+,{"stream_name":"stdout","time":660.152425475,"data":"[step4c] smishfuse_v1/heldout10 seed 3: val macro F1 0.8689\n"}
+,{"stream_name":"stdout","time":660.474173616,"data":"[step4c] smishfuse_v1/heldout20 seed 3: val macro F1 0.6582\n"}
+,{"stream_name":"stdout","time":663.709498829,"data":"\n"}
+,{"stream_name":"stdout","time":663.799251436,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":663.799276883,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 2233.68it/s]\n"}
+,{"stream_name":"stdout","time":663.813407003,"data":"[transformers] \u001b[1mBertForSequenceClassification LOAD REPORT\u001b[0m from: bert-base-uncased\n"}
+,{"stream_name":"stdout","time":663.815742385,"data":"Key                                        | Status     | \n"}
+,{"stream_name":"stdout","time":663.816816973,"data":"-------------------------------------------+------------+-\n"}
+,{"stream_name":"stdout","time":663.818616454,"data":"cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.818920651,"data":"cls.seq_relationship.weight                | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.820008165,"data":"cls.predictions.transform.dense.weight     | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.820960376,"data":"cls.predictions.transform.LayerNorm.weight | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.821890586,"data":"cls.predictions.bias                       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.822886089,"data":"cls.predictions.transform.dense.bias       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.823893122,"data":"cls.seq_relationship.bias                  | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":663.824788423,"data":"classifier.bias                            | MISSING    | \n"}
+,{"stream_name":"stdout","time":663.825690828,"data":"classifier.weight                          | MISSING    | \n"}
+,{"stream_name":"stdout","time":663.826388613,"data":"\n"}
+,{"stream_name":"stdout","time":663.827149675,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":663.827883213,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":663.828628495,"data":"- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\n"}
+,{"stream_name":"stdout","time":760.788016506,"data":"[step4c] bert/clean seed 1: val macro F1 0.9237\n"}
+,{"stream_name":"stdout","time":761.162612814,"data":"[step4c] bert/train05 seed 1: val macro F1 0.8804\n"}
+,{"stream_name":"stdout","time":761.567040781,"data":"[step4c] bert/train10 seed 1: val macro F1 0.8760\n"}
+,{"stream_name":"stdout","time":762.033928919,"data":"[step4c] bert/train20 seed 1: val macro F1 0.6970\n"}
+,{"stream_name":"stdout","time":762.42313651,"data":"[step4c] bert/heldout05 seed 1: val macro F1 0.9018\n"}
+,{"stream_name":"stdout","time":762.829795817,"data":"[step4c] bert/heldout10 seed 1: val macro F1 0.8707\n"}
+,{"stream_name":"stdout","time":763.288766935,"data":"[step4c] bert/heldout20 seed 1: val macro F1 0.6738\n"}
+,{"stream_name":"stdout","time":764.105860502,"data":"\n"}
+,{"stream_name":"stdout","time":764.183150587,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":764.183973673,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 2561.58it/s]\n"}
+,{"stream_name":"stdout","time":764.189360089,"data":"[transformers] \u001b[1mBertForSequenceClassification LOAD REPORT\u001b[0m from: bert-base-uncased\n"}
+,{"stream_name":"stdout","time":764.190139318,"data":"Key                                        | Status     | \n"}
+,{"stream_name":"stdout","time":764.191011802,"data":"-------------------------------------------+------------+-\n"}
+,{"stream_name":"stdout","time":764.191987817,"data":"cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.19300911,"data":"cls.seq_relationship.weight                | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.193859709,"data":"cls.predictions.transform.dense.weight     | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.194932079,"data":"cls.predictions.transform.LayerNorm.weight | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.195748309,"data":"cls.predictions.bias                       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.196836452,"data":"cls.predictions.transform.dense.bias       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.197607644,"data":"cls.seq_relationship.bias                  | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":764.198465101,"data":"classifier.bias                            | MISSING    | \n"}
+,{"stream_name":"stdout","time":764.199121281,"data":"classifier.weight                          | MISSING    | \n"}
+,{"stream_name":"stdout","time":764.199853156,"data":"\n"}
+,{"stream_name":"stdout","time":764.200507143,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":764.201162353,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":764.201866306,"data":"- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\n"}
+,{"stream_name":"stdout","time":859.89820787,"data":"[step4c] bert/clean seed 2: val macro F1 0.9187\n"}
+,{"stream_name":"stdout","time":860.265047792,"data":"[step4c] bert/train05 seed 2: val macro F1 0.8881\n"}
+,{"stream_name":"stdout","time":860.662684449,"data":"[step4c] bert/train10 seed 2: val macro F1 0.8535\n"}
+,{"stream_name":"stdout","time":861.138154531,"data":"[step4c] bert/train20 seed 2: val macro F1 0.6424\n"}
+,{"stream_name":"stdout","time":861.52663555,"data":"[step4c] bert/heldout05 seed 2: val macro F1 0.8924\n"}
+,{"stream_name":"stdout","time":861.925472974,"data":"[step4c] bert/heldout10 seed 2: val macro F1 0.8615\n"}
+,{"stream_name":"stdout","time":862.375483716,"data":"[step4c] bert/heldout20 seed 2: val macro F1 0.6575\n"}
+,{"stream_name":"stdout","time":862.898167311,"data":"\n"}
+,{"stream_name":"stdout","time":862.973284986,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":862.974148083,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 2626.53it/s]\n"}
+,{"stream_name":"stdout","time":862.979651322,"data":"[transformers] \u001b[1mBertForSequenceClassification LOAD REPORT\u001b[0m from: bert-base-uncased\n"}
+,{"stream_name":"stdout","time":862.980462809,"data":"Key                                        | Status     | \n"}
+,{"stream_name":"stdout","time":862.9813734,"data":"-------------------------------------------+------------+-\n"}
+,{"stream_name":"stdout","time":862.982396713,"data":"cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.983288255,"data":"cls.seq_relationship.weight                | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.984187194,"data":"cls.predictions.transform.dense.weight     | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.985156215,"data":"cls.predictions.transform.LayerNorm.weight | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.986253493,"data":"cls.predictions.bias                       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.987153528,"data":"cls.predictions.transform.dense.bias       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.988144411,"data":"cls.seq_relationship.bias                  | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":862.989074237,"data":"classifier.bias                            | MISSING    | \n"}
+,{"stream_name":"stdout","time":862.989798238,"data":"classifier.weight                          | MISSING    | \n"}
+,{"stream_name":"stdout","time":862.990474534,"data":"\n"}
+,{"stream_name":"stdout","time":862.991161183,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":862.991921475,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":862.992622429,"data":"- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\n"}
+,{"stream_name":"stdout","time":863.292007906,"data":"/kaggle/working/code/src/neural/trainers.py:235: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stdout","time":863.293050874,"data":"  sched.step()\n"}
+,{"stream_name":"stdout","time":959.045485796,"data":"[step4c] bert/clean seed 3: val macro F1 0.9293\n"}
+,{"stream_name":"stdout","time":959.411613487,"data":"[step4c] bert/train05 seed 3: val macro F1 0.9017\n"}
+,{"stream_name":"stdout","time":959.806093822,"data":"[step4c] bert/train10 seed 3: val macro F1 0.8420\n"}
+,{"stream_name":"stdout","time":960.258956347,"data":"[step4c] bert/train20 seed 3: val macro F1 0.6932\n"}
+,{"stream_name":"stdout","time":960.643590907,"data":"[step4c] bert/heldout05 seed 3: val macro F1 0.8931\n"}
+,{"stream_name":"stdout","time":961.057575572,"data":"[step4c] bert/heldout10 seed 3: val macro F1 0.8804\n"}
+,{"stream_name":"stdout","time":961.510834899,"data":"[step4c] bert/heldout20 seed 3: val macro F1 0.6882\n"}
+,{"stream_name":"stdout","time":963.150398865,"data":"[entry] done in 0.25 h, return codes [0, 0]\n"}
+,{"stream_name":"stdout","time":963.164541849,"data":"exit code 0\n"}
+,{"stream_name":"stderr","time":965.526351394,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":965.526381646,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":965.685274716,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":965.685316326,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":966.43219301,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":966.559163862,"data":"[NbConvertApp] Writing 38676 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":968.988182405,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":969.486110811,"data":"[NbConvertApp] Writing 313888 bytes to __results__.html\n"}
+]

@@ -189,7 +189,15 @@ def main():
         "LinearSVC не выдаёт вероятностей, поэтому он обёрнут в `CalibratedClassifierCV(method='sigmoid', cv=5, "
         "ensemble=False)`: сигмоида обучается на out-of-fold решениях 5 фолдов train, итоговая модель — одна SVM на "
         "всём train. Предсказание — argmax калиброванных вероятностей; PR-AUC и ECE относятся к калиброванной "
-        "модели. LinearSVM обучен на Kaggle CPU (`smishfuse-svm-cpu`), остальные модели шага 2 — локально.",
+        "модели.",
+        "Все модели шага 2 обучены на Kaggle CPU с одним и тем же кодом и версиями: LinearSVM — ноутбук "
+        "`smishfuse-svm-cpu`, LogReg, RandomForest и XGBoost — `smishfuse-classic-cpu` (шаг 4в, решение 14 в README). "
+        "Прежние локальные результаты этих трёх моделей и сравнение с Kaggle: "
+        "`results/step4c/step2_local_vs_kaggle.csv`.",
+        "Задержка и размер (раздел 4) измерены в шаге 3 на моделях, заново обученных с лучшими параметрами "
+        "локального подбора. Для LogReg, RandomForest и XGBoost лучшие параметры после пересчёта на Kaggle CPU "
+        "изменились (кроме RandomForest на moz_binary, LogReg на mendeley_binary и XGBoost на super_sms_clean_binary), поэтому их задержка и размер "
+        "относятся к прежним параметрам и не пересчитывались.",
         "LogReg (lbfgs) не содержит случайности: seed влияет только на порядок train, поэтому разброс по seed "
         "у неё нулевой или почти нулевой. Это не 5 независимых моделей.",
         "Пространство признаков помимо двух заданных вариантов (слова 1–2, символы 3–5) включает их "

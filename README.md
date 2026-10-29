@@ -7,7 +7,7 @@
 
 ## Decisions
 
-Решения по шагам 1–4б (шаг 1 зафиксирован 2026-10-28).
+Решения по шагам 1–4в (шаг 1 зафиксирован 2026-10-28).
 
 1. **Super SMS.** Во всех экспериментах используется только `super_sms_clean`: Super SMS без сообщений,
    которые точно или почти (Жаккар ≥ 0.9) совпадают с Mendeley или UCI. Полный `super_sms` в экспериментах
@@ -53,6 +53,18 @@
     Kaggle 2.11.0+cu128) и останавливается, если установленная версия отличается. В этом окружении заново
     посчитаны на val (mendeley_3class, seed 1–3) все baseline шагов 2 и 3 с лучшими параметрами; дальнейшие
     сравнения — только с этими числами (`results/step4b/baseline/`). Только val, test не читается.
+14. **Платформа (2026-10-29).** Все итоговые числа считаются на Kaggle. Модели шага 2 LogReg, RandomForest и
+    XGBoost прогнаны на Kaggle CPU той же процедурой, что LinearSVM (`smishfuse-classic-cpu`: 20 попыток
+    Optuna на val, 5 seed на test); таблицы и значимость пересчитаны. Локальные результаты шага 2 этих моделей
+    заменены; прежние остаются в истории git (коммит `c03ec36`), сравнение —
+    `results/step4c/step2_local_vs_kaggle.csv` (`scripts/compare_step2_platform.py`). Лучшие параметры
+    изменились в 9 из 12 пар; лучшая классическая модель на mendeley_3class теперь LinearSVM, а не LogReg.
+    Задержка и размер этих трёх моделей (шаг 3) измерены с прежними параметрами и не пересчитывались.
+15. **Шаг 4в: SmishFuse v2 (2026-10-29), последняя итерация дизайна.** Символьная ветвь (TF-IDF символьных
+    2–5-грамм → TruncatedSVD 256, всё обучается только на чистом train, + 14 ручных признаков 4а), гейт, головы
+    и потеря как в 4а; аугментация только TRAIN-типами обфускации (замены символов, пробелы), с вероятностью
+    0.5 на уровне U(0, 0.2), новая на каждой эпохе; HELD-OUT-типы (гомоглифы, удвоение букв, удаление гласных)
+    только для оценки. mendeley_3class, seed 1–3, только val, без подбора.
 
 ## Воспроизведение данных
 
@@ -153,6 +165,24 @@ uv pip install --python .venv/bin/python -r requirements.txt
 Условия заданы в [configs/step4b.yaml](configs/step4b.yaml): обфускация val ([src/eval/obfuscation.py](src/eval/obfuscation.py)),
 мало данных, перенос mendeley_binary → moz_binary. Раннер: [src/fusion/stress.py](src/fusion/stress.py).
 Отчёт: [reports/step4b_report.md](reports/step4b_report.md).
+
+## Шаг 4в: SmishFuse v2 (Kaggle, только val)
+
+```bash
+.venv/bin/python scripts/make_kernels.py smishfuse-step4c smishfuse-classic-cpu
+.venv/bin/python scripts/kaggle_sync.py code
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step4c && .venv/bin/python scripts/kaggle_sync.py push smishfuse-classic-cpu
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-step4c && .venv/bin/python scripts/collect_results.py smishfuse-step4c
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-classic-cpu && .venv/bin/python scripts/collect_results.py smishfuse-classic-cpu
+.venv/bin/python scripts/compare_step2_platform.py
+.venv/bin/python scripts/make_tables.py && .venv/bin/python scripts/significance.py
+.venv/bin/python scripts/make_step2_report.py && .venv/bin/python scripts/make_step3_report.py
+.venv/bin/python scripts/make_step4c_report.py
+```
+
+Модели и аугментация: [configs/step4c.yaml](configs/step4c.yaml); типы обфускации TRAIN / HELD-OUT —
+[src/eval/obfuscation.py](src/eval/obfuscation.py); раннер [src/fusion/v2.py](src/fusion/v2.py).
+Отчёт: [reports/step4c_report.md](reports/step4c_report.md).
 
 ## Датасеты: источники и лицензии
 

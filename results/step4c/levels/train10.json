@@ -1,0 +1,12 @@
+{
+  "level": 0.1,
+  "n_chars": 38290,
+  "n_messages": 574,
+  "n_ops": 3829,
+  "realised_share": 0.1,
+  "sha256": "027290b2abcff5e350660104da705e7dd96502b3343638f377de099cff2688fe",
+  "types": [
+    "subst",
+    "space"
+  ]
+}

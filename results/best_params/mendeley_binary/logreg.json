@@ -1,7 +1,7 @@
 {
   "model": "logreg",
   "model_params": {
-    "C": 34.220529032706914,
+    "C": 34.22052903270693,
     "class_weight": "balanced"
   },
   "task": "mendeley_binary",

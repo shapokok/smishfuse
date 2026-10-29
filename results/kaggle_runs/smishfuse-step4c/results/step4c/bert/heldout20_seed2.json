@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.9128919860627178,
+  "best_epoch": 3,
+  "condition": "step4c",
+  "epochs_run": 5,
+  "f1_ham": 0.9767441860465116,
+  "f1_smishing": 0.40625,
+  "f1_spam": 0.5894736842105263,
+  "macro_f1": 0.6574892900856794,
+  "model": "bert",
+  "n": 574,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.2653061224489796,
+  "recall_spam": 0.6666666666666666,
+  "seed": 2,
+  "setting": "heldout20",
+  "split": "val"
+}

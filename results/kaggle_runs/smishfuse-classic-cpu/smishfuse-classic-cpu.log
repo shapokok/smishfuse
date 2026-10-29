@@ -1,0 +1,138 @@
+[{"stream_name":"stderr","time":8.442937207,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.443082675,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":9.82553823,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.825576973,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.825582586,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.825586774,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.721958623,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.722002156,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.722006644,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.722009383,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":40.866983679,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":94.830706957,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":94.830757404,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":94.830765038,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830770477,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830776202,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830781411,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830786743,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830791967,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830795362,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.830997904,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.831031258,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":94.831037592,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036815722,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":95.036866981,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":95.036874502,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036879271,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036892782,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036897242,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036901414,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036905424,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036909386,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036913432,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036917476,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036921924,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036926004,"data":"\n"}
+,{"stream_name":"stderr","time":95.036929716,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":95.036940393,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":95.036943236,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036945833,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036949609,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036953529,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036957583,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.03696273,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036966965,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036971684,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036976184,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":95.036985752,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stdout","time":115.156326789,"data":"[entry] kernel smishfuse-classic-cpu, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":134.573903649,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":134.575471769,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":137.46508183,"data":"[mendeley_3class] train 4017, val 574, test 1148\n"}
+,{"stream_name":"stdout","time":175.766563249,"data":"[mendeley_3class/logreg] tuned in 38s: val macro F1 0.9267 {'features': 'word+char', 'max_features': 100000, 'min_df': 2} {'C': 544.5926889989588, 'class_weight': None}\n"}
+,{"stream_name":"stdout","time":183.789746417,"data":"  [mendeley_3class/logreg] seed 1: macro F1 0.9175, train 3.6s\n"}
+,{"stream_name":"stdout","time":191.900132055,"data":"  [mendeley_3class/logreg] seed 2: macro F1 0.9175, train 3.7s\n"}
+,{"stream_name":"stdout","time":199.884228944,"data":"  [mendeley_3class/logreg] seed 3: macro F1 0.9175, train 3.8s\n"}
+,{"stream_name":"stdout","time":208.201333233,"data":"  [mendeley_3class/logreg] seed 4: macro F1 0.9175, train 3.8s\n"}
+,{"stream_name":"stdout","time":216.414058232,"data":"  [mendeley_3class/logreg] seed 5: macro F1 0.9201, train 3.8s\n"}
+,{"stream_name":"stdout","time":304.484158878,"data":"[mendeley_3class/random_forest] tuned in 88s: val macro F1 0.9160 {'features': 'char', 'max_features': 50000, 'min_df': 2} {'n_estimators': 500, 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":364.946829934,"data":"  [mendeley_3class/random_forest] seed 1: macro F1 0.9139, train 8.2s\n"}
+,{"stream_name":"stdout","time":424.848899199,"data":"  [mendeley_3class/random_forest] seed 2: macro F1 0.9187, train 8.2s\n"}
+,{"stream_name":"stdout","time":484.82156869,"data":"  [mendeley_3class/random_forest] seed 3: macro F1 0.9113, train 8.3s\n"}
+,{"stream_name":"stdout","time":545.084996798,"data":"  [mendeley_3class/random_forest] seed 4: macro F1 0.9065, train 8.3s\n"}
+,{"stream_name":"stdout","time":607.366911333,"data":"  [mendeley_3class/random_forest] seed 5: macro F1 0.9144, train 8.7s\n"}
+,{"stream_name":"stdout","time":2850.409135166,"data":"[mendeley_3class/xgboost] tuned in 2243s: val macro F1 0.9045 {'features': 'char', 'max_features': 20000, 'min_df': 2} {'n_estimators': 100, 'max_depth': 10, 'learning_rate': 0.1244123799005394, 'subsample': 0.6990284426284292, 'colsample_bytree': 0.9474247966524397, 'min_child_weight': 1.2923255221603696, 'reg_lambda': 0.09475691859616645, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":2941.094266699,"data":"  [mendeley_3class/xgboost] seed 1: macro F1 0.8995, train 88.0s\n"}
+,{"stream_name":"stdout","time":3031.861956394,"data":"  [mendeley_3class/xgboost] seed 2: macro F1 0.9049, train 88.3s\n"}
+,{"stream_name":"stdout","time":3120.812428005,"data":"  [mendeley_3class/xgboost] seed 3: macro F1 0.9004, train 86.5s\n"}
+,{"stream_name":"stdout","time":3210.063626466,"data":"  [mendeley_3class/xgboost] seed 4: macro F1 0.8895, train 86.9s\n"}
+,{"stream_name":"stdout","time":3298.065623018,"data":"  [mendeley_3class/xgboost] seed 5: macro F1 0.9014, train 85.5s\n"}
+,{"stream_name":"stdout","time":3298.112896942,"data":"[mendeley_binary] train 4017, val 574, test 1148\n"}
+,{"stream_name":"stdout","time":3317.67422761,"data":"[mendeley_binary/logreg] tuned in 20s: val macro F1 0.9801 {'features': 'char', 'max_features': 20000, 'min_df': 2} {'C': 34.22052903270693, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":3321.182513801,"data":"  [mendeley_binary/logreg] seed 1: macro F1 0.9788, train 1.7s\n"}
+,{"stream_name":"stdout","time":3324.674884292,"data":"  [mendeley_binary/logreg] seed 2: macro F1 0.9788, train 1.7s\n"}
+,{"stream_name":"stdout","time":3328.051886655,"data":"  [mendeley_binary/logreg] seed 3: macro F1 0.9788, train 1.6s\n"}
+,{"stream_name":"stdout","time":3331.185954998,"data":"  [mendeley_binary/logreg] seed 4: macro F1 0.9788, train 1.3s\n"}
+,{"stream_name":"stdout","time":3334.625686957,"data":"  [mendeley_binary/logreg] seed 5: macro F1 0.9788, train 1.7s\n"}
+,{"stream_name":"stdout","time":3389.008001403,"data":"[mendeley_binary/random_forest] tuned in 54s: val macro F1 0.9626 {'features': 'char', 'max_features': 50000, 'min_df': 1} {'n_estimators': 300, 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":3427.05543105,"data":"  [mendeley_binary/random_forest] seed 1: macro F1 0.9719, train 5.0s\n"}
+,{"stream_name":"stdout","time":3464.55936252,"data":"  [mendeley_binary/random_forest] seed 2: macro F1 0.9688, train 4.8s\n"}
+,{"stream_name":"stdout","time":3501.922903991,"data":"  [mendeley_binary/random_forest] seed 3: macro F1 0.9704, train 4.7s\n"}
+,{"stream_name":"stdout","time":3539.256593203,"data":"  [mendeley_binary/random_forest] seed 4: macro F1 0.9770, train 4.8s\n"}
+,{"stream_name":"stdout","time":3576.382056589,"data":"  [mendeley_binary/random_forest] seed 5: macro F1 0.9721, train 4.7s\n"}
+,{"stream_name":"stdout","time":4649.465661687,"data":"[mendeley_binary/xgboost] tuned in 1073s: val macro F1 0.9664 {'features': 'char', 'max_features': 20000, 'min_df': 2} {'n_estimators': 550, 'max_depth': 5, 'learning_rate': 0.022882500560652566, 'subsample': 0.9716648786574086, 'colsample_bytree': 0.6680801937641639, 'min_child_weight': 1.7840361312990505, 'reg_lambda': 0.22023798589541715, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":4715.31800087,"data":"  [mendeley_binary/xgboost] seed 1: macro F1 0.9574, train 63.2s\n"}
+,{"stream_name":"stdout","time":4787.00163128,"data":"  [mendeley_binary/xgboost] seed 2: macro F1 0.9558, train 69.2s\n"}
+,{"stream_name":"stdout","time":4853.755961441,"data":"  [mendeley_binary/xgboost] seed 3: macro F1 0.9577, train 64.2s\n"}
+,{"stream_name":"stdout","time":4916.668969142,"data":"  [mendeley_binary/xgboost] seed 4: macro F1 0.9591, train 60.3s\n"}
+,{"stream_name":"stdout","time":4979.300538347,"data":"  [mendeley_binary/xgboost] seed 5: macro F1 0.9608, train 59.9s\n"}
+,{"stream_name":"stdout","time":4980.048664106,"data":"[moz_binary] train 1765, val 253, test 505\n"}
+,{"stream_name":"stdout","time":4990.726155844,"data":"[moz_binary/logreg] tuned in 11s: val macro F1 0.9704 {'features': 'char', 'max_features': 20000, 'min_df': 2} {'C': 10.129197956845726, 'class_weight': None}\n"}
+,{"stream_name":"stdout","time":4993.250525307,"data":"  [moz_binary/logreg] seed 1: macro F1 0.9797, train 0.8s\n"}
+,{"stream_name":"stdout","time":4995.888495824,"data":"  [moz_binary/logreg] seed 2: macro F1 0.9797, train 0.9s\n"}
+,{"stream_name":"stdout","time":4998.412100307,"data":"  [moz_binary/logreg] seed 3: macro F1 0.9797, train 0.8s\n"}
+,{"stream_name":"stdout","time":5000.978609047,"data":"  [moz_binary/logreg] seed 4: macro F1 0.9797, train 0.9s\n"}
+,{"stream_name":"stdout","time":5003.370364946,"data":"  [moz_binary/logreg] seed 5: macro F1 0.9797, train 0.8s\n"}
+,{"stream_name":"stdout","time":5040.60903476,"data":"[moz_binary/random_forest] tuned in 37s: val macro F1 0.9700 {'features': 'word+char', 'max_features': 100000, 'min_df': 1} {'n_estimators': 300, 'max_depth': 100, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'class_weight': None}\n"}
+,{"stream_name":"stdout","time":5086.908088335,"data":"  [moz_binary/random_forest] seed 1: macro F1 0.9825, train 2.9s\n"}
+,{"stream_name":"stdout","time":5131.571718689,"data":"  [moz_binary/random_forest] seed 2: macro F1 0.9825, train 2.9s\n"}
+,{"stream_name":"stdout","time":5175.798614373,"data":"  [moz_binary/random_forest] seed 3: macro F1 0.9825, train 3.1s\n"}
+,{"stream_name":"stdout","time":5219.532895729,"data":"  [moz_binary/random_forest] seed 4: macro F1 0.9825, train 2.9s\n"}
+,{"stream_name":"stdout","time":5263.209279215,"data":"  [moz_binary/random_forest] seed 5: macro F1 0.9825, train 2.9s\n"}
+,{"stream_name":"stdout","time":5468.359475448,"data":"[moz_binary/xgboost] tuned in 205s: val macro F1 0.9765 {'features': 'word+char', 'max_features': 100000, 'min_df': 1} {'n_estimators': 100, 'max_depth': 4, 'learning_rate': 0.2038306847726001, 'subsample': 0.6202610274279223, 'colsample_bytree': 0.5104217506519371, 'min_child_weight': 1.901766237950999, 'reg_lambda': 9.395522714529289, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":5480.802059317,"data":"  [moz_binary/xgboost] seed 1: macro F1 0.9768, train 6.9s\n"}
+,{"stream_name":"stdout","time":5493.024714836,"data":"  [moz_binary/xgboost] seed 2: macro F1 0.9768, train 6.9s\n"}
+,{"stream_name":"stdout","time":5505.11824623,"data":"  [moz_binary/xgboost] seed 3: macro F1 0.9739, train 6.8s\n"}
+,{"stream_name":"stdout","time":5517.499288426,"data":"  [moz_binary/xgboost] seed 4: macro F1 0.9797, train 7.1s\n"}
+,{"stream_name":"stdout","time":5530.026460368,"data":"  [moz_binary/xgboost] seed 5: macro F1 0.9739, train 6.9s\n"}
+,{"stream_name":"stdout","time":5546.592388799,"data":"[super_sms_clean_binary] train 42857, val 6123, test 12245\n"}
+,{"stream_name":"stdout","time":5725.026499413,"data":"[super_sms_clean_binary/logreg] tuned in 178s: val macro F1 0.9910 {'features': 'word+char', 'max_features': 20000, 'min_df': 1} {'C': 10.90747583515769, 'class_weight': None}\n"}
+,{"stream_name":"stdout","time":5752.304827211,"data":"  [super_sms_clean_binary/logreg] seed 1: macro F1 0.9909, train 20.4s\n"}
+,{"stream_name":"stdout","time":5779.697443565,"data":"  [super_sms_clean_binary/logreg] seed 2: macro F1 0.9909, train 20.5s\n"}
+,{"stream_name":"stdout","time":5806.999325357,"data":"  [super_sms_clean_binary/logreg] seed 3: macro F1 0.9909, train 20.6s\n"}
+,{"stream_name":"stdout","time":5833.252713114,"data":"  [super_sms_clean_binary/logreg] seed 4: macro F1 0.9909, train 19.8s\n"}
+,{"stream_name":"stdout","time":5859.408839407,"data":"  [super_sms_clean_binary/logreg] seed 5: macro F1 0.9909, train 19.6s\n"}
+,{"stream_name":"stdout","time":6683.631991799,"data":"[super_sms_clean_binary/random_forest] tuned in 824s: val macro F1 0.9865 {'features': 'char', 'max_features': 50000, 'min_df': 1} {'n_estimators': 200, 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":6779.86015317,"data":"  [super_sms_clean_binary/random_forest] seed 1: macro F1 0.9873, train 68.3s\n"}
+,{"stream_name":"stdout","time":6877.377621166,"data":"  [super_sms_clean_binary/random_forest] seed 2: macro F1 0.9867, train 69.2s\n"}
+,{"stream_name":"stdout","time":6972.046818118,"data":"  [super_sms_clean_binary/random_forest] seed 3: macro F1 0.9875, train 66.3s\n"}
+,{"stream_name":"stdout","time":7068.358956159,"data":"  [super_sms_clean_binary/random_forest] seed 4: macro F1 0.9870, train 68.6s\n"}
+,{"stream_name":"stdout","time":7158.284024822,"data":"  [super_sms_clean_binary/random_forest] seed 5: macro F1 0.9874, train 62.5s\n"}
+,{"stream_name":"stdout","time":14016.512828967,"data":"[super_sms_clean_binary/xgboost] tuned in 6858s: val macro F1 0.9891 {'features': 'char', 'max_features': 50000, 'min_df': 1} {'n_estimators': 400, 'max_depth': 8, 'learning_rate': 0.08533946549577034, 'subsample': 0.6361159080217633, 'colsample_bytree': 0.8847117469124666, 'min_child_weight': 2.0930522257520923, 'reg_lambda': 0.036270666088044114, 'class_weight': 'balanced'}\n"}
+,{"stream_name":"stdout","time":14689.421764224,"data":"  [super_sms_clean_binary/xgboost] seed 1: macro F1 0.9893, train 666.1s\n"}
+,{"stream_name":"stdout","time":15366.018904801,"data":"  [super_sms_clean_binary/xgboost] seed 2: macro F1 0.9899, train 669.1s\n"}
+,{"stream_name":"stdout","time":16041.570370663,"data":"  [super_sms_clean_binary/xgboost] seed 3: macro F1 0.9894, train 668.7s\n"}
+,{"stream_name":"stdout","time":16718.329126323,"data":"  [super_sms_clean_binary/xgboost] seed 4: macro F1 0.9891, train 670.1s\n"}
+,{"stream_name":"stdout","time":17378.972492949,"data":"  [super_sms_clean_binary/xgboost] seed 5: macro F1 0.9898, train 653.3s\n"}
+,{"stream_name":"stdout","time":17379.886243428,"data":"[entry] done in 4.80 h, return codes [0]\n"}
+,{"stream_name":"stdout","time":17379.962986888,"data":"exit code 0\n"}
+,{"stream_name":"stderr","time":17384.58187862,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":17384.581940973,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":17384.88984678,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":17384.889890958,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":17385.964741919,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":17386.083894352,"data":"[NbConvertApp] Writing 15035 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":17389.484741198,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":17390.267109965,"data":"[NbConvertApp] Writing 294097 bytes to __results__.html\n"}
+]

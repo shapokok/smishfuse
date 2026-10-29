@@ -1,12 +1,12 @@
 {
   "model": "logreg",
   "model_params": {
-    "C": 22.77879214255308,
-    "class_weight": "balanced"
+    "C": 10.90747583515769,
+    "class_weight": null
   },
   "task": "super_sms_clean_binary",
-  "trial": 14,
-  "val_macro_f1": 0.9908042628091528,
+  "trial": 2,
+  "val_macro_f1": 0.99097018574423,
   "vectorizer": {
     "features": "word+char",
     "max_features": 20000,

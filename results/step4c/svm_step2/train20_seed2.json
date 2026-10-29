@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.9547038327526133,
+  "augment": false,
+  "condition": "step4c",
+  "f1_ham": 0.982706002034588,
+  "f1_smishing": 0.8045977011494253,
+  "f1_spam": 0.7692307692307693,
+  "macro_f1": 0.8521781574715942,
+  "model": "svm_step2",
+  "n": 574,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.7142857142857143,
+  "recall_spam": 0.7142857142857143,
+  "seconds_train": 2.876717087000088,
+  "seed": 2,
+  "setting": "train20",
+  "split": "val"
+}

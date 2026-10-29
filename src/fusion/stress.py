@@ -11,7 +11,7 @@ results/step4b/<condition>/<model>/<setting>_seed<k>.json (+ .csv predictions);
 finished ones are skipped on restart. Before any work the installed versions are
 compared with the pins of requirements.txt; on a mismatch the worker stops.
 
-Run: python src/fusion/stress.py --conditions '["baseline", "transfer"]' --worker w0
+Run: python src/fusion/stress.py --queue '["baseline", "transfer"]' --worker w0
 """
 from __future__ import annotations
 
@@ -20,7 +20,6 @@ import os
 os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")  # must be set before CUDA initialises
 
 import argparse  # noqa: E402
-import importlib.metadata as md  # noqa: E402
 import json  # noqa: E402
 import sys  # noqa: E402
 import time  # noqa: E402
@@ -38,6 +37,7 @@ import yaml  # noqa: E402
 from sklearn.metrics import accuracy_score, f1_score, recall_score  # noqa: E402
 
 from eval.obfuscation import obfuscate_all  # noqa: E402
+from fusion.envcheck import check_versions  # noqa: E402
 from fusion.features import Standardizer, extract_all  # noqa: E402
 from fusion.model import VARIANTS  # noqa: E402
 from neural.common import RESULTS, load_configs, load_split, load_yaml, read_json, time_left, write_json  # noqa: E402
@@ -54,35 +54,6 @@ N_JOBS = 2  # two workers share the 4 CPU cores of the Kaggle GPU machine
 
 def log(msg: str) -> None:
     print(msg, flush=True)
-
-
-# ---------------------------------------------------------------- environment
-
-def requirement_pins() -> dict[str, str]:
-    pins = {}
-    for line in (ROOT / "requirements.txt").read_text(encoding="utf-8").splitlines():
-        line = line.split("#")[0].strip()
-        if "==" in line:
-            name, ver = line.split("==")
-            pins[name.strip()] = ver.strip()
-    return pins
-
-
-def check_versions(worker: str) -> None:
-    rows, bad = {}, []
-    for name, ver in requirement_pins().items():
-        if name == "pytest":
-            continue
-        try:
-            inst = md.version(name)
-        except md.PackageNotFoundError:
-            inst = None
-        rows[name] = {"pinned": ver, "installed": inst}
-        if inst is None or inst.split("+")[0] != ver:  # torch 2.11.0+cu128 matches the pin 2.11.0
-            bad.append(name)
-    write_json({"packages": rows, "mismatch": bad}, OUT / "environment" / f"{worker}.json")
-    if bad:
-        raise SystemExit(f"installed versions differ from requirements.txt: {bad}")
 
 
 # ---------------------------------------------------------------- data
@@ -140,11 +111,12 @@ def scores(y, pred, classes) -> dict:
     return out
 
 
-def result_path(cond, model, setting, seed) -> Path:
-    return OUT / cond / model / f"{setting}_seed{seed}.json"
+def result_path(cond, model, setting, seed, root: Path | None = None) -> Path:
+    return (root or OUT) / cond / model / f"{setting}_seed{seed}.json"
 
 
-def save(cond, model, setting, seed, ids, y, probs, classes, info=None, pred=None, gate=None) -> None:
+def save(cond, model, setting, seed, ids, y, probs, classes, info=None, pred=None, gate=None,
+         root: Path | None = None) -> None:
     pred = probs.argmax(axis=1) if pred is None else pred
     df = pd.DataFrame({"id": ids, "y_true": [classes[i] for i in y],
                        "y_pred": [classes[i] if i >= 0 else "invalid" for i in pred]})
@@ -155,11 +127,11 @@ def save(cond, model, setting, seed, ids, y, probs, classes, info=None, pred=Non
     if gate is not None and not np.isnan(gate).all():
         df["gate_mean"] = gate
         res["gate_mean_by_true_class"] = {c: float(gate[y == i].mean()) for i, c in enumerate(classes)}
-    path = result_path(cond, model, setting, seed)
+    path = result_path(cond, model, setting, seed, root)
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path.with_suffix(".csv"), index=False, lineterminator="\n")
     write_json(res, path)
-    log(f"[step4b] {cond}/{model}/{setting} seed {seed}: val macro F1 {res['macro_f1']:.4f}")
+    log(f"[{cond}] {model}/{setting} seed {seed}: val macro F1 {res['macro_f1']:.4f}")
 
 
 # ---------------------------------------------------------------- model families
@@ -383,12 +355,12 @@ def run_job(job: dict, device) -> None:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--conditions", required=True)
+    ap.add_argument("--queue", required=True, help="JSON list of conditions")
     ap.add_argument("--worker", required=True)
     args = ap.parse_args()
-    check_versions(args.worker)
+    check_versions(args.worker, OUT / "environment")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    jobs = [j for c in json.loads(args.conditions) for j in expand(c)]
+    jobs = [j for c in json.loads(args.queue) for j in expand(c)]
     log(f"[step4b] worker {args.worker}, device {device}, {len(jobs)} jobs")
     times, failed = [], 0
     for job in jobs:

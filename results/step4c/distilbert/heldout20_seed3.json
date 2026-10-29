@@ -1,0 +1,21 @@
+{
+  "accuracy": 0.8954703832752613,
+  "augment": false,
+  "best_epoch": 4,
+  "condition": "step4c",
+  "epochs_run": 5,
+  "f1_ham": 0.9545454545454546,
+  "f1_smishing": 0.3548387096774194,
+  "f1_spam": 0.5405405405405406,
+  "macro_f1": 0.6166415682544716,
+  "model": "distilbert",
+  "n": 574,
+  "n_features": 1,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.22448979591836735,
+  "recall_spam": 0.47619047619047616,
+  "seconds_train": 52.77731810099999,
+  "seed": 3,
+  "setting": "heldout20",
+  "split": "val"
+}

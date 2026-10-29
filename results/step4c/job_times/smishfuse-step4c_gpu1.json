@@ -1,0 +1,65 @@
+{
+  "jobs": [
+    {
+      "job": "distilbert_aug__seed1",
+      "seconds": 90.889858043,
+      "status": "done"
+    },
+    {
+      "job": "distilbert_aug__seed2",
+      "seconds": 62.425126206000016,
+      "status": "done"
+    },
+    {
+      "job": "distilbert_aug__seed3",
+      "seconds": 62.84345836600005,
+      "status": "done"
+    },
+    {
+      "job": "distilbert__seed1",
+      "seconds": 53.05655865899996,
+      "status": "done"
+    },
+    {
+      "job": "distilbert__seed2",
+      "seconds": 54.66675483900008,
+      "status": "done"
+    },
+    {
+      "job": "distilbert__seed3",
+      "seconds": 55.35063131100003,
+      "status": "done"
+    },
+    {
+      "job": "smishfuse_v1__seed1",
+      "seconds": 58.538489311000035,
+      "status": "done"
+    },
+    {
+      "job": "smishfuse_v1__seed2",
+      "seconds": 55.63080360899994,
+      "status": "done"
+    },
+    {
+      "job": "smishfuse_v1__seed3",
+      "seconds": 55.023434330999976,
+      "status": "done"
+    },
+    {
+      "job": "bert__seed1",
+      "seconds": 102.91435441499993,
+      "status": "done"
+    },
+    {
+      "job": "bert__seed2",
+      "seconds": 99.06791940599999,
+      "status": "done"
+    },
+    {
+      "job": "bert__seed3",
+      "seconds": 99.12279625199994,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-step4c_gpu1"
+}

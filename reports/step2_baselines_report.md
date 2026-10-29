@@ -20,58 +20,58 @@
 
 | Модель | Macro F1 | Accuracy | Weighted F1 | Balanced acc. | PR-AUC | ECE | Recall ham | Recall smishing | Recall spam |
 |---|---|---|---|---|---|---|---|---|---|
-| TF-IDF + LogReg | **0.9294 ± 0.0021** | **0.9794 ± 0.0005** | **0.9794 ± 0.0005** | **0.9293 ± 0.0022** | **0.9673 ± 0.0003** | <u>0.0287 ± 0.0004</u> | 0.9948 ± 0.0000 | **0.9192 ± 0.0000** | **0.8738 ± 0.0065** |
-| TF-IDF + LinearSVM | <u>0.9259 ± 0.0019</u> | <u>0.9791 ± 0.0006</u> | <u>0.9791 ± 0.0006</u> | <u>0.9255 ± 0.0017</u> | <u>0.9659 ± 0.0002</u> | **0.0187 ± 0.0011** | <u>0.9956 ± 0.0005</u> | <u>0.9071 ± 0.0045</u> | **0.8738 ± 0.0065** |
-| TF-IDF + RandomForest | 0.9019 ± 0.0062 | 0.9706 ± 0.0020 | 0.9697 ± 0.0022 | 0.8843 ± 0.0086 | 0.9556 ± 0.0025 | 0.0903 ± 0.0014 | **0.9967 ± 0.0009** | 0.8848 ± 0.0055 | <u>0.7714 ± 0.0258</u> |
-| TF-IDF + XGBoost | 0.9001 ± 0.0052 | 0.9693 ± 0.0017 | 0.9686 ± 0.0017 | 0.8859 ± 0.0043 | 0.9564 ± 0.0011 | 0.0338 ± 0.0024 | 0.9944 ± 0.0012 | 0.8990 ± 0.0071 | 0.7643 ± 0.0100 |
+| TF-IDF + LogReg | <u>0.9181 ± 0.0012</u> | <u>0.9767 ± 0.0004</u> | <u>0.9760 ± 0.0004</u> | <u>0.9021 ± 0.0018</u> | <u>0.9616 ± 0.0000</u> | <u>0.0136 ± 0.0004</u> | **0.9990 ± 0.0000** | **0.9192 ± 0.0000** | 0.7881 ± 0.0053 |
+| TF-IDF + LinearSVM | **0.9259 ± 0.0019** | **0.9791 ± 0.0006** | **0.9791 ± 0.0006** | **0.9255 ± 0.0017** | **0.9659 ± 0.0002** | 0.0187 ± 0.0011 | 0.9956 ± 0.0005 | <u>0.9071 ± 0.0045</u> | **0.8738 ± 0.0065** |
+| TF-IDF + RandomForest | 0.9130 ± 0.0045 | 0.9732 ± 0.0013 | 0.9723 ± 0.0013 | 0.8902 ± 0.0032 | 0.9606 ± 0.0009 | 0.0875 ± 0.0011 | <u>0.9985 ± 0.0009</u> | 0.8768 ± 0.0085 | <u>0.7952 ± 0.0053</u> |
+| TF-IDF + XGBoost | 0.8991 ± 0.0058 | 0.9667 ± 0.0019 | 0.9657 ± 0.0020 | 0.8768 ± 0.0072 | 0.9594 ± 0.0015 | **0.0110 ± 0.0019** | 0.9942 ± 0.0014 | 0.8646 ± 0.0115 | 0.7714 ± 0.0177 |
 
 ### mendeley_binary
 
 | Модель | Macro F1 | Accuracy | Weighted F1 | Balanced acc. | PR-AUC | Recall@FPR=1% | ECE | Recall malicious |
 |---|---|---|---|---|---|---|---|---|
-| TF-IDF + LogReg | <u>0.9788 ± 0.0000</u> | <u>0.9887 ± 0.0000</u> | <u>0.9887 ± 0.0000</u> | <u>0.9778 ± 0.0000</u> | **0.9956 ± 0.0000** | <u>0.9836 ± 0.0000</u> | 0.0168 ± 0.0000 | <u>0.9617 ± 0.0000</u> |
-| TF-IDF + LinearSVM | **0.9883 ± 0.0007** | **0.9937 ± 0.0004** | **0.9937 ± 0.0004** | **0.9896 ± 0.0002** | <u>0.9954 ± 0.0000</u> | <u>0.9836 ± 0.0000</u> | **0.0063 ± 0.0006** | **0.9836 ± 0.0000** |
-| TF-IDF + RandomForest | 0.9756 ± 0.0018 | 0.9871 ± 0.0010 | 0.9870 ± 0.0010 | 0.9693 ± 0.0025 | 0.9919 ± 0.0008 | **0.9847 ± 0.0024** | 0.0933 ± 0.0010 | 0.9432 ± 0.0049 |
-| TF-IDF + XGBoost | 0.9591 ± 0.0008 | 0.9784 ± 0.0004 | 0.9782 ± 0.0004 | 0.9522 ± 0.0012 | 0.9830 ± 0.0004 | 0.9158 ± 0.0049 | <u>0.0158 ± 0.0014</u> | 0.9137 ± 0.0024 |
+| TF-IDF + LogReg | <u>0.9788 ± 0.0000</u> | <u>0.9887 ± 0.0000</u> | <u>0.9887 ± 0.0000</u> | <u>0.9778 ± 0.0000</u> | **0.9955 ± 0.0000** | **0.9836 ± 0.0000** | <u>0.0165 ± 0.0000</u> | <u>0.9617 ± 0.0000</u> |
+| TF-IDF + LinearSVM | **0.9883 ± 0.0007** | **0.9937 ± 0.0004** | **0.9937 ± 0.0004** | **0.9896 ± 0.0002** | <u>0.9954 ± 0.0000</u> | **0.9836 ± 0.0000** | **0.0063 ± 0.0006** | **0.9836 ± 0.0000** |
+| TF-IDF + RandomForest | 0.9720 ± 0.0031 | 0.9852 ± 0.0016 | 0.9851 ± 0.0016 | 0.9664 ± 0.0038 | 0.9914 ± 0.0010 | <u>0.9781 ± 0.0067</u> | 0.0878 ± 0.0007 | 0.9388 ± 0.0071 |
+| TF-IDF + XGBoost | 0.9582 ± 0.0019 | 0.9777 ± 0.0010 | 0.9776 ± 0.0010 | 0.9557 ± 0.0026 | 0.9850 ± 0.0002 | 0.9202 ± 0.0049 | 0.0212 ± 0.0018 | 0.9235 ± 0.0055 |
 
 ### moz_binary
 
 | Модель | Macro F1 | Accuracy | Weighted F1 | Balanced acc. | PR-AUC | Recall@FPR=1% | ECE | Recall malicious |
 |---|---|---|---|---|---|---|---|---|
-| TF-IDF + LogReg | 0.9769 ± 0.0000 | 0.9842 ± 0.0000 | 0.9844 ± 0.0000 | **0.9899 ± 0.0000** | **0.9812 ± 0.0000** | 0.8879 ± 0.0000 | <u>0.0125 ± 0.0000</u> | **1.0000 ± 0.0000** |
-| TF-IDF + LinearSVM | <u>0.9774 ± 0.0013</u> | <u>0.9846 ± 0.0009</u> | <u>0.9847 ± 0.0009</u> | <u>0.9895 ± 0.0018</u> | <u>0.9793 ± 0.0000</u> | **0.9439 ± 0.0000** | **0.0099 ± 0.0018** | <u>0.9981 ± 0.0042</u> |
+| TF-IDF + LogReg | <u>0.9797 ± 0.0000</u> | <u>0.9861 ± 0.0000</u> | <u>0.9863 ± 0.0000</u> | **0.9912 ± 0.0000** | **0.9811 ± 0.0000** | 0.8785 ± 0.0000 | 0.0136 ± 0.0000 | **1.0000 ± 0.0000** |
+| TF-IDF + LinearSVM | 0.9774 ± 0.0013 | 0.9846 ± 0.0009 | 0.9847 ± 0.0009 | <u>0.9895 ± 0.0018</u> | <u>0.9793 ± 0.0000</u> | **0.9439 ± 0.0000** | <u>0.0099 ± 0.0018</u> | <u>0.9981 ± 0.0042</u> |
 | TF-IDF + RandomForest | **0.9825 ± 0.0000** | **0.9881 ± 0.0000** | **0.9882 ± 0.0000** | 0.9890 ± 0.0000 | 0.9782 ± 0.0017 | <u>0.9346 ± 0.0229</u> | 0.0525 ± 0.0009 | 0.9907 ± 0.0000 |
-| TF-IDF + XGBoost | 0.9745 ± 0.0013 | 0.9826 ± 0.0009 | 0.9828 ± 0.0009 | 0.9862 ± 0.0021 | 0.9736 ± 0.0032 | 0.7701 ± 0.0441 | 0.0179 ± 0.0028 | 0.9925 ± 0.0042 |
+| TF-IDF + XGBoost | 0.9762 ± 0.0024 | 0.9838 ± 0.0017 | 0.9839 ± 0.0016 | 0.9870 ± 0.0025 | 0.9700 ± 0.0027 | 0.8617 ± 0.0656 | **0.0086 ± 0.0028** | 0.9925 ± 0.0042 |
 
 ### super_sms_clean_binary
 
 | Модель | Macro F1 | Accuracy | Weighted F1 | Balanced acc. | PR-AUC | Recall@FPR=1% | ECE | Recall malicious |
 |---|---|---|---|---|---|---|---|---|
-| TF-IDF + LogReg | <u>0.9912 ± 0.0000</u> | <u>0.9916 ± 0.0000</u> | <u>0.9916 ± 0.0000</u> | <u>0.9906 ± 0.0000</u> | **0.9991 ± 0.0000** | <u>0.9924 ± 0.0000</u> | 0.0026 ± 0.0000 | <u>0.9859 ± 0.0000</u> |
+| TF-IDF + LogReg | <u>0.9909 ± 0.0000</u> | <u>0.9913 ± 0.0000</u> | <u>0.9913 ± 0.0000</u> | <u>0.9902 ± 0.0000</u> | **0.9991 ± 0.0000** | <u>0.9933 ± 0.0000</u> | <u>0.0047 ± 0.0000</u> | <u>0.9847 ± 0.0000</u> |
 | TF-IDF + LinearSVM | **0.9927 ± 0.0000** | **0.9930 ± 0.0000** | **0.9930 ± 0.0000** | **0.9923 ± 0.0000** | **0.9991 ± 0.0000** | **0.9941 ± 0.0000** | **0.0014 ± 0.0001** | **0.9892 ± 0.0001** |
-| TF-IDF + RandomForest | 0.9861 ± 0.0006 | 0.9866 ± 0.0005 | 0.9866 ± 0.0005 | 0.9865 ± 0.0005 | 0.9981 ± 0.0001 | 0.9836 ± 0.0004 | 0.1451 ± 0.0010 | 0.9856 ± 0.0006 |
-| TF-IDF + XGBoost | 0.9895 ± 0.0003 | 0.9899 ± 0.0003 | 0.9899 ± 0.0003 | 0.9890 ± 0.0003 | <u>0.9986 ± 0.0001</u> | 0.9883 ± 0.0008 | <u>0.0016 ± 0.0004</u> | 0.9845 ± 0.0004 |
+| TF-IDF + RandomForest | 0.9872 ± 0.0003 | 0.9877 ± 0.0003 | 0.9877 ± 0.0003 | 0.9864 ± 0.0003 | 0.9980 ± 0.0001 | 0.9832 ± 0.0008 | 0.0553 ± 0.0005 | 0.9800 ± 0.0006 |
+| TF-IDF + XGBoost | 0.9895 ± 0.0003 | 0.9899 ± 0.0003 | 0.9899 ± 0.0003 | 0.9890 ± 0.0003 | <u>0.9985 ± 0.0001</u> | 0.9885 ± 0.0004 | **0.0014 ± 0.0002** | 0.9845 ± 0.0007 |
 
 ## 2. Лучшие гиперпараметры (подбор на val)
 
 | Задача | Модель | Признаки | max_features | min_df | Параметры модели | Macro F1 val | Лучшая попытка | Macro F1 test (среднее) |
 |---|---|---|---|---|---|---|---|---|
-| mendeley_3class | LogReg | word+char | 20000 | 1 | C=5.827, class_weight=balanced | 0.9207 | 16 | 0.9294 |
+| mendeley_3class | LogReg | word+char | 100000 | 2 | C=544.6, class_weight=None | 0.9267 | 10 | 0.9181 |
 | mendeley_3class | LinearSVM | word+char | 20000 | 1 | C=0.5827, class_weight=balanced | 0.9167 | 16 | 0.9259 |
-| mendeley_3class | RandomForest | char | 20000 | 1 | class_weight=balanced, max_depth=None, max_features=sqrt, min_samples_leaf=1, n_estimators=100 | 0.9196 | 12 | 0.9019 |
-| mendeley_3class | XGBoost | char | 50000 | 1 | class_weight=balanced, colsample_bytree=0.5497, learning_rate=0.0417, max_depth=6, min_child_weight=1.91, n_estimators=250, reg_lambda=0.4247, subsample=0.9315 | 0.8958 | 3 | 0.9001 |
+| mendeley_3class | RandomForest | char | 50000 | 2 | class_weight=balanced, max_depth=None, max_features=sqrt, min_samples_leaf=1, n_estimators=500 | 0.9160 | 18 | 0.9130 |
+| mendeley_3class | XGBoost | char | 20000 | 2 | class_weight=balanced, colsample_bytree=0.9474, learning_rate=0.1244, max_depth=10, min_child_weight=1.292, n_estimators=100, reg_lambda=0.09476, subsample=0.699 | 0.9045 | 19 | 0.8991 |
 | mendeley_binary | LogReg | char | 20000 | 2 | C=34.22, class_weight=balanced | 0.9801 | 6 | 0.9788 |
 | mendeley_binary | LinearSVM | char | 100000 | 1 | C=2.695, class_weight=balanced | 0.9869 | 12 | 0.9883 |
-| mendeley_binary | RandomForest | word+char | 50000 | 1 | class_weight=balanced, max_depth=None, max_features=sqrt, min_samples_leaf=2, n_estimators=450 | 0.9626 | 12 | 0.9756 |
-| mendeley_binary | XGBoost | char | 20000 | 2 | class_weight=balanced, colsample_bytree=0.8827, learning_rate=0.02115, max_depth=8, min_child_weight=1.631, n_estimators=400, reg_lambda=0.03511, subsample=0.988 | 0.9694 | 0 | 0.9591 |
-| moz_binary | LogReg | char | 20000 | 2 | C=12.9, class_weight=None | 0.9704 | 13 | 0.9769 |
+| mendeley_binary | RandomForest | char | 50000 | 1 | class_weight=balanced, max_depth=None, max_features=sqrt, min_samples_leaf=2, n_estimators=300 | 0.9626 | 5 | 0.9720 |
+| mendeley_binary | XGBoost | char | 20000 | 2 | class_weight=balanced, colsample_bytree=0.6681, learning_rate=0.02288, max_depth=5, min_child_weight=1.784, n_estimators=550, reg_lambda=0.2202, subsample=0.9717 | 0.9664 | 11 | 0.9582 |
+| moz_binary | LogReg | char | 20000 | 2 | C=10.13, class_weight=None | 0.9704 | 0 | 0.9797 |
 | moz_binary | LinearSVM | char | 50000 | 2 | C=72.9, class_weight=None | 0.9768 | 13 | 0.9774 |
 | moz_binary | RandomForest | word+char | 100000 | 1 | class_weight=None, max_depth=100, max_features=sqrt, min_samples_leaf=1, n_estimators=300 | 0.9700 | 3 | 0.9825 |
-| moz_binary | XGBoost | word+char | 100000 | 1 | class_weight=balanced, colsample_bytree=0.4322, learning_rate=0.06693, max_depth=3, min_child_weight=1.708, n_estimators=100, reg_lambda=9.267, subsample=0.8393 | 0.9704 | 15 | 0.9745 |
-| super_sms_clean_binary | LogReg | word+char | 20000 | 1 | C=22.78, class_weight=balanced | 0.9908 | 14 | 0.9912 |
+| moz_binary | XGBoost | word+char | 100000 | 1 | class_weight=balanced, colsample_bytree=0.5104, learning_rate=0.2038, max_depth=4, min_child_weight=1.902, n_estimators=100, reg_lambda=9.396, subsample=0.6203 | 0.9765 | 10 | 0.9762 |
+| super_sms_clean_binary | LogReg | word+char | 20000 | 1 | C=10.91, class_weight=None | 0.9910 | 2 | 0.9909 |
 | super_sms_clean_binary | LinearSVM | word+char | 50000 | 2 | C=0.3431, class_weight=balanced | 0.9920 | 18 | 0.9927 |
-| super_sms_clean_binary | RandomForest | char | 50000 | 1 | class_weight=balanced_subsample, max_depth=None, max_features=log2, min_samples_leaf=2, n_estimators=200 | 0.9871 | 15 | 0.9861 |
-| super_sms_clean_binary | XGBoost | char | 50000 | 1 | class_weight=balanced, colsample_bytree=0.8847, learning_rate=0.08534, max_depth=8, min_child_weight=2.093, n_estimators=400, reg_lambda=0.03627, subsample=0.6361 | 0.9900 | 9 | 0.9895 |
+| super_sms_clean_binary | RandomForest | char | 50000 | 1 | class_weight=balanced, max_depth=None, max_features=sqrt, min_samples_leaf=1, n_estimators=200 | 0.9865 | 7 | 0.9872 |
+| super_sms_clean_binary | XGBoost | char | 50000 | 1 | class_weight=balanced, colsample_bytree=0.8847, learning_rate=0.08534, max_depth=8, min_child_weight=2.093, n_estimators=400, reg_lambda=0.03627, subsample=0.6361 | 0.9891 | 9 | 0.9895 |
 
 Все попытки: `results/tuning/<task>/<model>.csv`; лучшие параметры: `results/best_params/<task>/<model>.json`.
 
@@ -79,18 +79,18 @@
 
 | Задача | Лучшая | Против | Δ macro F1 [95% ДИ] | p бутстреп / Холм | Значимо (бутстреп) | Макнемар b / c | Метод | p Макнемар / Холм | Значимо (Макнемар) |
 |---|---|---|---|---|---|---|---|---|---|
-| mendeley_3class | LogReg | LinearSVM | +0.0032 [-0.0042; +0.0128] | 0.5639 / 0.5639 | нет | 1 / 1 | exact | 1.0000 / 1.0000 | нет |
-| mendeley_3class | LogReg | RandomForest | +0.0329 [+0.0069; +0.0601] | 0.0118 / 0.0354 | да | 17 / 6 | exact | 0.0347 / 0.0694 | нет |
-| mendeley_3class | LogReg | XGBoost | +0.0371 [+0.0079; +0.0677] | 0.0132 / 0.0354 | да | 18 / 5 | exact | 0.0106 / 0.0319 | да |
-| mendeley_binary | LinearSVM | LogReg | +0.0098 [+0.0031; +0.0186] | 0.0040 / 0.0048 | да | 6 / 0 | exact | 0.0312 / 0.0312 | да |
-| mendeley_binary | LinearSVM | RandomForest | +0.0150 [+0.0049; +0.0269] | 0.0024 / 0.0048 | да | 10 / 1 | exact | 0.0117 / 0.0234 | да |
-| mendeley_binary | LinearSVM | XGBoost | +0.0282 [+0.0132; +0.0443] | 2.00e-04 / 6.00e-04 | да | 20 / 3 | exact | 4.88e-04 / 0.0015 | да |
-| moz_binary | RandomForest | LogReg | +0.0055 [-0.0057; +0.0172] | 0.4542 / 0.9083 | нет | 3 / 1 | exact | 0.6250 / 1.0000 | нет |
-| moz_binary | RandomForest | LinearSVM | +0.0027 [-0.0093; +0.0154] | 0.8375 / 0.9083 | нет | 3 / 2 | exact | 1.0000 / 1.0000 | нет |
-| moz_binary | RandomForest | XGBoost | +0.0085 [+0.0000; +0.0199] | 0.0964 / 0.2892 | нет | 3 / 0 | exact | 0.2500 / 0.7500 | нет |
-| super_sms_clean_binary | LinearSVM | LogReg | +0.0015 [+0.0005; +0.0025] | 0.0016 / 0.0016 | да | 25 / 8 | chi2_cc | 0.0053 / 0.0053 | да |
-| super_sms_clean_binary | LinearSVM | RandomForest | +0.0064 [+0.0045; +0.0084] | 2.00e-04 / 6.00e-04 | да | 104 / 28 | chi2_cc | 6.67e-11 / 2.00e-10 | да |
-| super_sms_clean_binary | LinearSVM | XGBoost | +0.0032 [+0.0015; +0.0049] | 2.00e-04 / 6.00e-04 | да | 69 / 32 | chi2_cc | 3.41e-04 / 6.82e-04 | да |
+| mendeley_3class | LinearSVM | LogReg | +0.0109 [-0.0082; +0.0311] | 0.2616 / 0.4600 | нет | 9 / 5 | exact | 0.4240 / 0.4240 | нет |
+| mendeley_3class | LinearSVM | RandomForest | +0.0145 [-0.0092; +0.0396] | 0.2300 / 0.4600 | нет | 12 / 5 | exact | 0.1435 / 0.2869 | нет |
+| mendeley_3class | LinearSVM | XGBoost | +0.0290 [-0.0013; +0.0589] | 0.0614 / 0.1842 | нет | 22 / 7 | chi2_cc | 0.0093 / 0.0280 | да |
+| mendeley_binary | LinearSVM | LogReg | +0.0098 [+0.0031; +0.0186] | 0.0040 / 0.0040 | да | 6 / 0 | exact | 0.0312 / 0.0312 | да |
+| mendeley_binary | LinearSVM | RandomForest | +0.0167 [+0.0051; +0.0299] | 0.0020 / 0.0040 | да | 12 / 2 | exact | 0.0129 / 0.0259 | да |
+| mendeley_binary | LinearSVM | XGBoost | +0.0313 [+0.0158; +0.0479] | 2.00e-04 / 6.00e-04 | да | 22 / 3 | chi2_cc | 3.18e-04 / 9.55e-04 | да |
+| moz_binary | RandomForest | LogReg | +0.0027 [-0.0064; +0.0130] | 0.8055 / 1.0000 | нет | 2 / 1 | exact | 1.0000 / 1.0000 | нет |
+| moz_binary | RandomForest | LinearSVM | +0.0027 [-0.0093; +0.0154] | 0.8375 / 1.0000 | нет | 3 / 2 | exact | 1.0000 / 1.0000 | нет |
+| moz_binary | RandomForest | XGBoost | +0.0057 [+0.0000; +0.0148] | 0.2670 / 0.8009 | нет | 2 / 0 | exact | 0.5000 / 1.0000 | нет |
+| super_sms_clean_binary | LinearSVM | LogReg | +0.0018 [+0.0008; +0.0029] | 6.00e-04 / 6.00e-04 | да | 32 / 11 | chi2_cc | 0.0023 / 0.0023 | да |
+| super_sms_clean_binary | LinearSVM | RandomForest | +0.0054 [+0.0037; +0.0071] | 2.00e-04 / 6.00e-04 | да | 89 / 26 | chi2_cc | 7.40e-09 / 2.22e-08 | да |
+| super_sms_clean_binary | LinearSVM | XGBoost | +0.0034 [+0.0017; +0.0051] | 2.00e-04 / 6.00e-04 | да | 71 / 31 | chi2_cc | 1.13e-04 / 2.25e-04 | да |
 
 b — только лучшая модель права, c — только другая. Полная таблица: `results/significance_step2.csv` (сравнение всех моделей шагов 2 и 3 — `results/significance.csv`, отчёт шага 3).
 
@@ -119,33 +119,35 @@ b — только лучшая модель права, c — только др
 
 ## 5. Наблюдения
 
-- **mendeley_3class**: лучшая модель по среднему macro F1 — LogReg (0.9294 ± 0.0021).
-- mendeley_3class: классы, где средний по seed recall хотя бы одной модели ниже 0.90 (в скобках recall всех моделей): `smishing` (LogReg 0.919, LinearSVM 0.907, RandomForest 0.885, XGBoost 0.899); `spam` (LogReg 0.874, LinearSVM 0.874, RandomForest 0.771, XGBoost 0.764).
-- mendeley_3class: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9207 → 0.9294; LinearSVM 0.9167 → 0.9259; RandomForest 0.9196 → 0.9019; XGBoost 0.8958 → 0.9001.
-- mendeley_3class: наибольший ECE у RandomForest (0.0903), наименьший у LinearSVM (0.0187).
-- mendeley_3class: после поправки Холма значимых различий с лучшей моделью: бутстреп 2 из 3, Макнемар 1 из 3.
+- **mendeley_3class**: лучшая модель по среднему macro F1 — LinearSVM (0.9259 ± 0.0019).
+- mendeley_3class: классы, где средний по seed recall хотя бы одной модели ниже 0.90 (в скобках recall всех моделей): `smishing` (LogReg 0.919, LinearSVM 0.907, RandomForest 0.877, XGBoost 0.865); `spam` (LogReg 0.788, LinearSVM 0.874, RandomForest 0.795, XGBoost 0.771).
+- mendeley_3class: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9267 → 0.9181; LinearSVM 0.9167 → 0.9259; RandomForest 0.9160 → 0.9130; XGBoost 0.9045 → 0.8991.
+- mendeley_3class: наибольший ECE у RandomForest (0.0875), наименьший у XGBoost (0.0110).
+- mendeley_3class: после поправки Холма значимых различий с лучшей моделью: бутстреп 0 из 3, Макнемар 1 из 3.
 - **mendeley_binary**: лучшая модель по среднему macro F1 — LinearSVM (0.9883 ± 0.0007).
-- mendeley_binary: recall при FPR = 1% от 0.9158 (XGBoost) до 0.9847 (RandomForest).
-- mendeley_binary: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9801 → 0.9788; LinearSVM 0.9869 → 0.9883; RandomForest 0.9626 → 0.9756; XGBoost 0.9694 → 0.9591.
+- mendeley_binary: recall при FPR = 1% от 0.9202 (XGBoost) до 0.9836 (LinearSVM).
+- mendeley_binary: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9801 → 0.9788; LinearSVM 0.9869 → 0.9883; RandomForest 0.9626 → 0.9720; XGBoost 0.9664 → 0.9582.
 - mendeley_binary: стандартное отклонение macro F1 по seed равно 0 у: LogReg.
-- mendeley_binary: наибольший ECE у RandomForest (0.0933), наименьший у LinearSVM (0.0063).
+- mendeley_binary: наибольший ECE у RandomForest (0.0878), наименьший у LinearSVM (0.0063).
 - mendeley_binary: после поправки Холма значимых различий с лучшей моделью: бутстреп 3 из 3, Макнемар 3 из 3.
 - **moz_binary**: лучшая модель по среднему macro F1 — RandomForest (0.9825 ± 0.0000).
-- moz_binary: recall при FPR = 1% от 0.7701 (XGBoost) до 0.9439 (LinearSVM).
-- moz_binary: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9704 → 0.9769; LinearSVM 0.9768 → 0.9774; RandomForest 0.9700 → 0.9825; XGBoost 0.9704 → 0.9745.
+- moz_binary: recall при FPR = 1% от 0.8617 (XGBoost) до 0.9439 (LinearSVM).
+- moz_binary: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9704 → 0.9797; LinearSVM 0.9768 → 0.9774; RandomForest 0.9700 → 0.9825; XGBoost 0.9765 → 0.9762.
 - moz_binary: стандартное отклонение macro F1 по seed равно 0 у: LogReg, RandomForest.
-- moz_binary: наибольший ECE у RandomForest (0.0525), наименьший у LinearSVM (0.0099).
+- moz_binary: наибольший ECE у RandomForest (0.0525), наименьший у XGBoost (0.0086).
 - moz_binary: после поправки Холма значимых различий с лучшей моделью: бутстреп 0 из 3, Макнемар 0 из 3.
 - **super_sms_clean_binary**: лучшая модель по среднему macro F1 — LinearSVM (0.9927 ± 0.0000).
-- super_sms_clean_binary: recall при FPR = 1% от 0.9836 (RandomForest) до 0.9941 (LinearSVM).
-- super_sms_clean_binary: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9908 → 0.9912; LinearSVM 0.9920 → 0.9927; RandomForest 0.9871 → 0.9861; XGBoost 0.9900 → 0.9895.
+- super_sms_clean_binary: recall при FPR = 1% от 0.9832 (RandomForest) до 0.9941 (LinearSVM).
+- super_sms_clean_binary: macro F1 на val (лучшая попытка) → test (среднее): LogReg 0.9910 → 0.9909; LinearSVM 0.9920 → 0.9927; RandomForest 0.9865 → 0.9872; XGBoost 0.9891 → 0.9895.
 - super_sms_clean_binary: стандартное отклонение macro F1 по seed равно 0 у: LogReg.
-- super_sms_clean_binary: наибольший ECE у RandomForest (0.1451), наименьший у LinearSVM (0.0014).
+- super_sms_clean_binary: наибольший ECE у RandomForest (0.0553), наименьший у LinearSVM (0.0014).
 - super_sms_clean_binary: после поправки Холма значимых различий с лучшей моделью: бутстреп 3 из 3, Макнемар 3 из 3.
 
 ## 6. Проблемы и ограничения
 
-- LinearSVC не выдаёт вероятностей, поэтому он обёрнут в `CalibratedClassifierCV(method='sigmoid', cv=5, ensemble=False)`: сигмоида обучается на out-of-fold решениях 5 фолдов train, итоговая модель — одна SVM на всём train. Предсказание — argmax калиброванных вероятностей; PR-AUC и ECE относятся к калиброванной модели. LinearSVM обучен на Kaggle CPU (`smishfuse-svm-cpu`), остальные модели шага 2 — локально.
+- LinearSVC не выдаёт вероятностей, поэтому он обёрнут в `CalibratedClassifierCV(method='sigmoid', cv=5, ensemble=False)`: сигмоида обучается на out-of-fold решениях 5 фолдов train, итоговая модель — одна SVM на всём train. Предсказание — argmax калиброванных вероятностей; PR-AUC и ECE относятся к калиброванной модели.
+- Все модели шага 2 обучены на Kaggle CPU с одним и тем же кодом и версиями: LinearSVM — ноутбук `smishfuse-svm-cpu`, LogReg, RandomForest и XGBoost — `smishfuse-classic-cpu` (шаг 4в, решение 14 в README). Прежние локальные результаты этих трёх моделей и сравнение с Kaggle: `results/step4c/step2_local_vs_kaggle.csv`.
+- Задержка и размер (раздел 4) измерены в шаге 3 на моделях, заново обученных с лучшими параметрами локального подбора. Для LogReg, RandomForest и XGBoost лучшие параметры после пересчёта на Kaggle CPU изменились (кроме RandomForest на moz_binary, LogReg на mendeley_binary и XGBoost на super_sms_clean_binary), поэтому их задержка и размер относятся к прежним параметрам и не пересчитывались.
 - LogReg (lbfgs) не содержит случайности: seed влияет только на порядок train, поэтому разброс по seed у неё нулевой или почти нулевой. Это не 5 независимых моделей.
 - Пространство признаков помимо двух заданных вариантов (слова 1–2, символы 3–5) включает их объединение `word+char` как третий вариант (см. `configs/step2.yaml`).
 - 20 попыток TPE — грубый поиск: первые 10 попыток TPE в Optuna по умолчанию случайные. Разница между моделями частично может объясняться бюджетом подбора.
