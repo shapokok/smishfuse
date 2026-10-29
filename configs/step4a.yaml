@@ -1,0 +1,40 @@
+# Step 4a: quick SmishFuse prototype. mendeley_3class, seed 1, evaluation on val ONLY (test is not read).
+# No hyperparameter search: text-branch settings = best step-3 DistilBERT on mendeley_3class
+# (results/best_params/mendeley_3class/distilbert.json), the rest are fixed defaults set before training.
+task: mendeley_3class
+seed: 1
+lexicon: configs/step4a_lexicon.yaml
+
+text:
+  checkpoint: distilbert-base-uncased
+  max_len: 128
+  lr: 6.187592551983267e-05      # best step-3 DistilBERT, mendeley_3class
+  batch_size: 32
+  weight_decay: 0.0
+  warmup_ratio: 0.0
+  max_epochs: 5
+  patience: 2
+  grad_clip: 1.0
+  eval_batch_size: 128
+
+fusion:
+  d: 256
+  feature_mlp_hidden: 256        # f' = Linear(n_f, 256) -> ReLU -> Dropout -> Linear(256, d)
+  dropout: 0.1
+  head_lr: 0.001                 # projections, gate, feature MLP and heads (encoder uses text.lr)
+  binary_loss_weight: 0.5        # loss = CE_3 + 0.5 * CE_bin (ham vs malicious = spam + smishing)
+
+features_only:                   # MLP on the hand-crafted features alone (no encoder)
+  lr: 0.001
+  batch_size: 32
+  max_epochs: 100
+  patience: 10
+
+variants: [smishfuse, smishfuse_concat, features_mlp, distilbert_text_only]
+
+# Classical comparison on the same features (CPU): TF-IDF (best step-2 LogReg vectorizer and C)
+# + standardized features, LogisticRegression.
+tfidf_features_logreg: {from_best_params: logreg}
+# Step-2/3 baselines re-scored on val with seed 1: LogReg, LinearSVM re-fitted with their best
+# parameters; DistilBERT = seed-1 weights of smishfuse-full-bert-distil.
+baselines: [logreg, linear_svm, distilbert]

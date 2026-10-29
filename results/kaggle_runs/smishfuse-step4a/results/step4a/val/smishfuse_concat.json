@@ -1,0 +1,38 @@
+{
+  "accuracy": 0.9738675958188153,
+  "batch_size": 32,
+  "best_epoch": 0,
+  "device": "cuda",
+  "epochs_run": 3,
+  "f1_ham": 0.9948186528497409,
+  "f1_smishing": 0.8913043478260869,
+  "f1_spam": 0.8351648351648352,
+  "history": [
+    {
+      "epoch": 0,
+      "seconds": 9.749854729000049,
+      "val_macro_f1": 0.9070959452802211
+    },
+    {
+      "epoch": 1,
+      "seconds": 9.912824096000008,
+      "val_macro_f1": 0.9063711379773557
+    },
+    {
+      "epoch": 2,
+      "seconds": 9.985827066000013,
+      "val_macro_f1": 0.906820981691716
+    }
+  ],
+  "macro_f1": 0.9070959452802211,
+  "mode": "concat",
+  "model": "smishfuse_concat",
+  "n_val": 574,
+  "recall_ham": 0.9937888198757764,
+  "recall_smishing": 0.8367346938775511,
+  "recall_spam": 0.9047619047619048,
+  "seconds": 29.64851492599996,
+  "seed": 1,
+  "split": "val",
+  "variant": "smishfuse_concat"
+}

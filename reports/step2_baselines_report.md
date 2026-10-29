@@ -94,30 +94,28 @@
 
 b — только лучшая модель права, c — только другая. Полная таблица: `results/significance_step2.csv` (сравнение всех моделей шагов 2 и 3 — `results/significance.csv`, отчёт шага 3).
 
-## 4. Время обучения, задержка, размер модели
+## 4. Задержка и размер модели
 
-Время обучения — медиана по 5 seed, wall-clock `fit` всего пайплайна (TF-IDF + модель, для LinearSVM вместе с калибровкой) на train, на машине из последнего столбца. Задержка и размер заменены единым замером шага 3 (одна сессия Kaggle для всех моделей шагов 2 и 3, Intel(R) Xeon(R) CPU @ 2.00GHz, 1 поток): пайплайн заново обучен на train с лучшими параметрами и seed 1, задержка — медиана по 1000 предсказаниям с батчем 1 (TF-IDF + модель, после 20 прогревочных вызовов) на сообщениях test, по кругу, если их меньше; размер — сериализованный joblib-пайплайн в МБ (`results/latency/latency.csv`). Прежние локальные замеры задержки и размера остаются в `results/efficiency.csv`, но в отчёте не используются. Времена зависят от машины и нагрузки и не воспроизводятся побайтно.
+Единый замер шага 3: одна сессия Kaggle для всех моделей шагов 2 и 3, Intel(R) Xeon(R) CPU @ 2.00GHz, 1 поток. Пайплайн заново обучен на train с лучшими параметрами и seed 1; задержка — медиана по 1000 предсказаниям с батчем 1 (TF-IDF + модель, после 20 прогревочных вызовов) на сообщениях test, по кругу, если их меньше; размер — сериализованный joblib-пайплайн в МБ (`results/latency/latency.csv`). Время обучения в итоговые таблицы не входит (решение 10 в README): модели обучались на разных машинах. Прежние локальные замеры остаются в `results/efficiency.csv`. Задержка зависит от машины и нагрузки и не воспроизводится побайтно.
 
-| Задача | Модель | Train | Обучение, с | Машина (обучение) | Задержка, мс/сообщение | Размер, МБ |
-|---|---|---|---|---|---|---|
-| mendeley_3class | LogReg | 4017 | 0.52 | local_mac_m | 1.926 | 1.78 |
-| mendeley_3class | LinearSVM | 4017 | 3.16 | kaggle_cpu_xeon_2.2ghz | 2.817 | 2.26 |
-| mendeley_3class | RandomForest | 4017 | 0.32 | local_mac_m | 8.140 | 5.48 |
-| mendeley_3class | XGBoost | 4017 | 16.18 | local_mac_m | 1.538 | 2.86 |
-| mendeley_binary | LogReg | 4017 | 0.28 | local_mac_m | 0.912 | 0.69 |
-| mendeley_binary | LinearSVM | 4017 | 2.75 | kaggle_cpu_xeon_2.2ghz | 1.756 | 3.85 |
-| mendeley_binary | RandomForest | 4017 | 0.68 | local_mac_m | 53.095 | 17.47 |
-| mendeley_binary | XGBoost | 4017 | 11.14 | local_mac_m | 1.367 | 1.45 |
-| moz_binary | LogReg | 1765 | 0.14 | local_mac_m | 1.012 | 0.69 |
-| moz_binary | LinearSVM | 1765 | 1.31 | kaggle_cpu_xeon_2.2ghz | 1.728 | 1.26 |
-| moz_binary | RandomForest | 1765 | 0.32 | local_mac_m | 38.388 | 7.39 |
-| moz_binary | XGBoost | 1765 | 0.86 | local_mac_m | 2.590 | 3.33 |
-| super_sms_clean_binary | LogReg | 42857 | 3.48 | local_mac_m | 2.149 | 1.45 |
-| super_sms_clean_binary | LinearSVM | 42857 | 22.22 | kaggle_cpu_xeon_2.2ghz | 2.899 | 4.06 |
-| super_sms_clean_binary | RandomForest | 42857 | 3.46 | local_mac_m | 20.941 | 41.58 |
-| super_sms_clean_binary | XGBoost | 42857 | 78.67 | local_mac_m | 1.432 | 2.41 |
-
-Время обучения LinearSVM (после правки `ensemble=False`) измерено на Kaggle CPU, остальных моделей — локально, поэтому времена обучения между собой не сравнимы. Задержка и размер — на одном железе и сравнимы.
+| Задача | Модель | Train | Задержка, мс/сообщение | Размер, МБ |
+|---|---|---|---|---|
+| mendeley_3class | LogReg | 4017 | 1.926 | 1.78 |
+| mendeley_3class | LinearSVM | 4017 | 2.817 | 2.26 |
+| mendeley_3class | RandomForest | 4017 | 8.140 | 5.48 |
+| mendeley_3class | XGBoost | 4017 | 1.538 | 2.86 |
+| mendeley_binary | LogReg | 4017 | 0.912 | 0.69 |
+| mendeley_binary | LinearSVM | 4017 | 1.756 | 3.85 |
+| mendeley_binary | RandomForest | 4017 | 53.095 | 17.47 |
+| mendeley_binary | XGBoost | 4017 | 1.367 | 1.45 |
+| moz_binary | LogReg | 1765 | 1.012 | 0.69 |
+| moz_binary | LinearSVM | 1765 | 1.728 | 1.26 |
+| moz_binary | RandomForest | 1765 | 38.388 | 7.39 |
+| moz_binary | XGBoost | 1765 | 2.590 | 3.33 |
+| super_sms_clean_binary | LogReg | 42857 | 2.149 | 1.45 |
+| super_sms_clean_binary | LinearSVM | 42857 | 2.899 | 4.06 |
+| super_sms_clean_binary | RandomForest | 42857 | 20.941 | 41.58 |
+| super_sms_clean_binary | XGBoost | 42857 | 1.432 | 2.41 |
 
 ## 5. Наблюдения
 

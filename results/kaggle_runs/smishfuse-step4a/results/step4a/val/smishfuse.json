@@ -1,0 +1,64 @@
+{
+  "accuracy": 0.980836236933798,
+  "batch_size": 32,
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 5,
+  "f1_ham": 0.9969040247678018,
+  "f1_smishing": 0.9148936170212766,
+  "f1_spam": 0.8705882352941177,
+  "gate_mean_by_pred_class": {
+    "ham": 0.4455327343793563,
+    "smishing": 0.5642312116093106,
+    "spam": 0.4124612135942592
+  },
+  "gate_mean_by_true_class": {
+    "ham": 0.44580055159318027,
+    "smishing": 0.5448093998188875,
+    "spam": 0.4199480620168504
+  },
+  "gate_note": "g = weight of the feature branch f' (mean over the d dimensions), 1 - g = text branch",
+  "gate_std_by_true_class": {
+    "ham": 0.01338973393341767,
+    "smishing": 0.056561747693866585,
+    "spam": 0.037306649899735894
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "seconds": 11.129899383000009,
+      "val_macro_f1": 0.8887296278600626
+    },
+    {
+      "epoch": 1,
+      "seconds": 9.593834781999988,
+      "val_macro_f1": 0.9076984149838125
+    },
+    {
+      "epoch": 2,
+      "seconds": 9.58525417200002,
+      "val_macro_f1": 0.912927695079189
+    },
+    {
+      "epoch": 3,
+      "seconds": 9.634122317999982,
+      "val_macro_f1": 0.9160632500063967
+    },
+    {
+      "epoch": 4,
+      "seconds": 9.721068580000008,
+      "val_macro_f1": 0.927461959027732
+    }
+  ],
+  "macro_f1": 0.927461959027732,
+  "mode": "gated",
+  "model": "smishfuse",
+  "n_val": 574,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.8775510204081632,
+  "recall_spam": 0.8809523809523809,
+  "seconds": 49.66420186299996,
+  "seed": 1,
+  "split": "val",
+  "variant": "smishfuse"
+}

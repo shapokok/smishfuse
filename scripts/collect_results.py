@@ -26,7 +26,7 @@ from eval.registry import MODEL_ORDER  # noqa: E402
 
 RESULTS = ROOT / "results"
 MERGE_DIRS = ["raw", "tuning", "best_params", "seed_runs", "job_times", "runtime", "errors", "logs", "llm_cache_check",
-              "latency"]  # latency/retrained/ holds model weights and is skipped
+              "latency", "step4a"]  # latency/retrained/ holds model weights and is skipped
 METRIC_ORDER = ["accuracy", "macro_f1", "weighted_f1", "balanced_accuracy", "pr_auc", "recall_at_fpr_1pct", "ece",
                 "invalid_rate"]
 

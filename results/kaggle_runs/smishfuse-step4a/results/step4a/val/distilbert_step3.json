@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9738675958188153,
+  "f1_ham": 0.9948400412796697,
+  "f1_smishing": 0.8936170212765957,
+  "f1_spam": 0.8235294117647058,
+  "macro_f1": 0.9039954914403238,
+  "model": "distilbert_step3",
+  "n_val": 574,
+  "recall_ham": 0.9979296066252588,
+  "recall_smishing": 0.8571428571428571,
+  "recall_spam": 0.8333333333333334,
+  "seed": 1,
+  "source": "/kaggle/input/notebooks/shapok/smishfuse-full-bert-distil/results/models/mendeley_3class/distilbert/seed1",
+  "split": "val",
+  "val_macro_f1_recorded_in_step3": 0.9039954914403238
+}

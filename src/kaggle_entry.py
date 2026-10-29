@@ -4,7 +4,7 @@
 * restores finished work of this kernel from the smishfuse-state input, if any
   (state/<kernel>/results/... -> /kaggle/working/results, existing files kept);
 * runs the spec: kind "neural" (one worker process per GPU queue, pinned with
-  CUDA_VISIBLE_DEVICES), "classic" (src/baselines/classic.py) or "latency";
+  CUDA_VISIBLE_DEVICES), "classic" (src/baselines/classic.py), "latency" or "fusion" (step 4a);
 * writes results/runtime/<kernel>.json: wall time, hardware, library versions.
 """
 from __future__ import annotations
@@ -65,7 +65,7 @@ def environment() -> dict:
            "gpus": sh("nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader"),
            "packages": {}}
     for pkg in ["torch", "transformers", "bitsandbytes", "accelerate", "optuna", "scikit-learn", "numpy",
-                "pandas", "xgboost", "scipy"]:
+                "pandas", "xgboost", "scipy", "pyspellchecker"]:
         env["packages"][pkg] = sh(f"{sys.executable} -m pip show {pkg} 2>/dev/null | grep '^Version' | cut -d' ' -f2")
     return env
 
@@ -107,6 +107,9 @@ def main():
     elif spec["kind"] == "classic":
         cmd = [sys.executable, str(CODE / "src" / "baselines" / "classic.py"), *spec.get("tasks", []),
                f"--models={','.join(spec['models'])}"]
+        rcs = [subprocess.run(cmd, env={**os.environ, **env_vars}).returncode]
+    elif spec["kind"] == "fusion":
+        cmd = [sys.executable, str(CODE / "src" / "fusion" / "run.py")]
         rcs = [subprocess.run(cmd, env={**os.environ, **env_vars}).returncode]
     elif spec["kind"] == "latency":
         cmd = [sys.executable, str(CODE / "src" / "latency.py")]

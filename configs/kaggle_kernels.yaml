@@ -1,4 +1,4 @@
-# Kaggle kernels for steps 2-3. scripts/make_kernels.py writes kaggle/kernels/<name>/.
+# Kaggle kernels for steps 2-4a. scripts/make_kernels.py writes kaggle/kernels/<name>/.
 owner: shapok
 datasets: [smishfuse-data, smishfuse-code, smishfuse-state]
 
@@ -10,6 +10,8 @@ pip:
   gpu: [optuna, bitsandbytes, accelerate]
   # Latency session: step-2 pipelines are re-fitted, so pin the step-2 versions of sklearn/xgboost.
   latency: [scikit-learn==1.9.1, scipy==1.17.1, xgboost==3.2.0, joblib==1.6.0, optuna, bitsandbytes, accelerate]
+  # Step 4a: step-2 sklearn versions (LogReg / LinearSVM re-fitted) + spell checker for the features.
+  fusion: [scikit-learn==1.9.1, scipy==1.17.1, xgboost==3.2.0, joblib==1.6.0, optuna, pyspellchecker==0.8.3]
 
 kernels:
   smishfuse-svm-cpu:
@@ -127,3 +129,11 @@ kernels:
         - [{task: super_sms_clean_binary, model: bert},
            {task: moz_binary, model: qwen_fewshot, check_cache: true},
            {task: moz_binary, model: qwen_fewshot}]
+
+  # ---- Step 4a: SmishFuse prototype, mendeley_3class, seed 1, val only (test not read).
+  # Budget 1.5 GPU-hours; the step-3 DistilBERT seed-1 weights come from the kernel source.
+  smishfuse-step4a:
+    accelerator: NvidiaTeslaT4
+    pip: fusion
+    kernel_sources: [shapok/smishfuse-full-bert-distil]
+    spec: {kind: fusion, budget_hours: 1.5}

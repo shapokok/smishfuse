@@ -1,0 +1,106 @@
+{
+  "seed": 1,
+  "models": [
+    "logreg",
+    "linear_svm",
+    "random_forest",
+    "xgboost",
+    "textcnn",
+    "bilstm",
+    "distilbert",
+    "bert",
+    "qwen_fewshot"
+  ],
+  "hard_min_models_wrong": 5,
+  "jaccard": 0.5,
+  "lsh_candidate_threshold": 0.4,
+  "num_perm": 128,
+  "pairs_exact": 321,
+  "lsh_missed_pairs": 8,
+  "hard_with_other_label_neighbour_in_test": 0,
+  "n_test": 1148,
+  "n_hard": 23,
+  "n_easy_all_correct": 1052,
+  "groups": [
+    {
+      "group": "hard",
+      "label": "ham",
+      "n": 2,
+      "with_any_neighbour": 0,
+      "with_other_label_neighbour": 0,
+      "with_ham_neighbour_other": null,
+      "with_smishing_neighbour_other": 0,
+      "with_spam_neighbour_other": 0
+    },
+    {
+      "group": "hard",
+      "label": "smishing",
+      "n": 9,
+      "with_any_neighbour": 1,
+      "with_other_label_neighbour": 1,
+      "with_ham_neighbour_other": 0,
+      "with_smishing_neighbour_other": null,
+      "with_spam_neighbour_other": 1
+    },
+    {
+      "group": "hard",
+      "label": "spam",
+      "n": 12,
+      "with_any_neighbour": 2,
+      "with_other_label_neighbour": 2,
+      "with_ham_neighbour_other": 0,
+      "with_smishing_neighbour_other": 2,
+      "with_spam_neighbour_other": null
+    },
+    {
+      "group": "hard",
+      "label": "all",
+      "n": 23,
+      "with_any_neighbour": 3,
+      "with_other_label_neighbour": 3,
+      "with_ham_neighbour_other": 0,
+      "with_smishing_neighbour_other": 2,
+      "with_spam_neighbour_other": 1
+    },
+    {
+      "group": "easy",
+      "label": "ham",
+      "n": 932,
+      "with_any_neighbour": 69,
+      "with_other_label_neighbour": 0,
+      "with_ham_neighbour_other": null,
+      "with_smishing_neighbour_other": 0,
+      "with_spam_neighbour_other": 0
+    },
+    {
+      "group": "easy",
+      "label": "smishing",
+      "n": 75,
+      "with_any_neighbour": 51,
+      "with_other_label_neighbour": 0,
+      "with_ham_neighbour_other": 0,
+      "with_smishing_neighbour_other": null,
+      "with_spam_neighbour_other": 0
+    },
+    {
+      "group": "easy",
+      "label": "spam",
+      "n": 45,
+      "with_any_neighbour": 18,
+      "with_other_label_neighbour": 2,
+      "with_ham_neighbour_other": 0,
+      "with_smishing_neighbour_other": 2,
+      "with_spam_neighbour_other": null
+    },
+    {
+      "group": "easy",
+      "label": "all",
+      "n": 1052,
+      "with_any_neighbour": 138,
+      "with_other_label_neighbour": 2,
+      "with_ham_neighbour_other": 0,
+      "with_smishing_neighbour_other": 2,
+      "with_spam_neighbour_other": 0
+    }
+  ]
+}

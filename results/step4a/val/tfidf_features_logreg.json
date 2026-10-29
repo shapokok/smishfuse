@@ -1,0 +1,16 @@
+{
+  "accuracy": 0.9686411149825784,
+  "f1_ham": 0.9927611168562565,
+  "f1_smishing": 0.8865979381443299,
+  "f1_spam": 0.7857142857142857,
+  "macro_f1": 0.8883577802382906,
+  "model": "tfidf_features_logreg",
+  "n_val": 574,
+  "recall_ham": 0.9937888198757764,
+  "recall_smishing": 0.8775510204081632,
+  "recall_spam": 0.7857142857142857,
+  "seconds": 15.580255246999968,
+  "seed": 1,
+  "source": "TF-IDF (best step-2 LogReg vectorizer) + standardized features, LogReg (best C)",
+  "split": "val"
+}

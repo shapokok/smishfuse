@@ -7,7 +7,7 @@
 
 ## Decisions
 
-Решения по шагам 1–3 (шаг 1 зафиксирован 2026-10-28).
+Решения по шагам 1–4а (шаг 1 зафиксирован 2026-10-28).
 
 1. **Super SMS.** Во всех экспериментах используется только `super_sms_clean`: Super SMS без сообщений,
    которые точно или почти (Жаккар ≥ 0.9) совпадают с Mendeley или UCI. Полный `super_sms` в экспериментах
@@ -39,7 +39,15 @@
    (`results/latency/latency.csv`); прежние локальные замеры шага 2 в отчётах не используются.
 9. **Веса BERT для замера задержки.** Для mendeley_3class, mendeley_binary и moz_binary веса seed 1 взяты не
    из исходного ноутбука (он завершился со статусом ERROR и не подключается как источник), а переобучены в
-   сессии замера с теми же лучшими параметрами и seed 1. На задержку и размер это не влияет.
+   сессии замера с теми же лучшими параметрами и seed 1. На задержку и размер это не влияет. Подтверждено
+   2026-10-29; локальные копии этих весов удалены.
+10. **Время обучения (2026-10-29).** В итоговые таблицы не входит (модели шага 2 обучались на разных машинах);
+    остаются задержка и размер из единого замера. Сырые локальные замеры лежат в `results/efficiency.csv`.
+11. **Qwen (2026-10-29).** Остаётся с фиксированным промптом (`configs/llm_prompt.yaml`) без подбора, по
+    протоколу шага 3.
+12. **Шаг 4а: прототип SmishFuse (2026-10-29).** Только mendeley_3class, seed 1, оценка только на val; test не
+    читается. Полный протокол (20 попыток, 5 seed) не запускается. Словари срочности / выигрыша и список
+    сокращателей ссылок (`configs/step4a_lexicon.yaml`) зафиксированы до обучения и не подбираются.
 
 ## Воспроизведение данных
 
@@ -113,6 +121,20 @@ uv pip install --python .venv/bin/python -r requirements.txt
 пропускает готовое, работа у лимита сессии откладывается и продолжается в следующем ноутбуке
 (`state_from`). Задержка и размер всех моделей — ноутбук `smishfuse-latency` (`src/latency.py`).
 Отчёт: [reports/step3_neural_report.md](reports/step3_neural_report.md). Веса моделей в git не хранятся.
+
+## Шаг 4а: анализ ошибок spam и прототип SmishFuse
+
+```bash
+.venv/bin/python scripts/step4a_spam_errors.py          # локально, только сохранённые предсказания test
+.venv/bin/python scripts/kaggle_sync.py code && .venv/bin/python scripts/kaggle_sync.py push smishfuse-step4a
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-step4a && .venv/bin/python scripts/collect_results.py smishfuse-step4a
+.venv/bin/python scripts/make_step4a_report.py
+```
+
+Прототип: [src/fusion/](src/fusion/) (признаки, модель с гейтом, сравнения), конфигурация
+[configs/step4a.yaml](configs/step4a.yaml) и словари [configs/step4a_lexicon.yaml](configs/step4a_lexicon.yaml).
+Только mendeley_3class, seed 1, оценка на val. Отчёт: [reports/step4a_report.md](reports/step4a_report.md);
+список трудных сообщений с текстом (`reports/step4a_hard_cases.csv`) в git не хранится.
 
 ## Датасеты: источники и лицензии
 

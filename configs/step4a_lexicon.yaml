@@ -1,0 +1,110 @@
+# Fixed word lists for the SmishFuse feature branch (step 4a).
+# Written 2026-10-29 BEFORE any SmishFuse training or feature inspection; not to be tuned.
+# Matching: case-insensitive, whole words / whole phrases, every occurrence counted.
+urgency:
+  - urgent
+  - urgently
+  - immediately
+  - immediate
+  - now
+  - asap
+  - today
+  - tonight
+  - hurry
+  - quick
+  - quickly
+  - fast
+  - expire
+  - expires
+  - expired
+  - expiring
+  - expiry
+  - deadline
+  - limited
+  - last chance
+  - final
+  - final notice
+  - act now
+  - don't miss
+  - dont miss
+  - only today
+  - within 24 hours
+  - 24 hrs
+  - suspended
+  - suspend
+  - blocked
+  - locked
+  - deactivated
+  - verify
+  - verification
+  - confirm
+  - alert
+  - warning
+  - attention
+  - important
+  - action required
+  - respond
+  - reply now
+  - call now
+  - click
+prize:
+  - win
+  - wins
+  - won
+  - winner
+  - winners
+  - winning
+  - prize
+  - prizes
+  - award
+  - awarded
+  - reward
+  - rewards
+  - free
+  - gift
+  - gifts
+  - bonus
+  - cash
+  - claim
+  - congratulations
+  - congrats
+  - selected
+  - lucky
+  - jackpot
+  - lottery
+  - draw
+  - voucher
+  - vouchers
+  - offer
+  - discount
+  - guaranteed
+  - cashback
+  - refund
+  - holiday
+  - iphone
+  - nokia
+# URL shortener domains for the has_short_url feature.
+short_url_domains:
+  - bit.ly
+  - bitly.com
+  - tinyurl.com
+  - goo.gl
+  - t.co
+  - ow.ly
+  - is.gd
+  - buff.ly
+  - rebrand.ly
+  - cutt.ly
+  - shorturl.at
+  - tiny.cc
+  - rb.gy
+  - t.ly
+  - s.id
+  - v.gd
+  - bl.ink
+  - shorte.st
+  - adf.ly
+  - lnkd.in
+  - tr.im
+  - x.co
+currency_symbols: ["£", "$", "€", "¥", "₹", "₽", "₩", "₺", "₦", "₱"]

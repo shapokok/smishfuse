@@ -1,0 +1,88 @@
+[{"stream_name":"stderr","time":6.61623705,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":6.616267878,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":7.587472726,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.587517142,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.587522235,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.587526701,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.190202807,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.190247023,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.190251909,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.190257323,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":11.027519476,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":28.461824555,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":28.461851049,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":28.664289375,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":28.664321262,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":28.664327055,"data":"\n"}
+,{"stream_name":"stderr","time":28.664330895,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":28.664335098,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stdout","time":29.83959503,"data":"[entry] kernel smishfuse-step4a, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":52.481976777,"data":"[step4a] device cuda, train 4017, val 574, features 14\n"}
+,{"stream_name":"stdout","time":55.488329073,"data":"[step4a] logreg: val macro F1 0.9056, F1 spam 0.8293\n"}
+,{"stream_name":"stdout","time":57.941301211,"data":"[step4a] linear_svm: val macro F1 0.9094, F1 spam 0.8395\n"}
+,{"stream_name":"stdout","time":73.56932638,"data":"[step4a] tfidf_features_logreg: val macro F1 0.8884, F1 spam 0.7857\n"}
+,{"stream_name":"stdout","time":95.624772175,"data":"\n"}
+,{"stream_name":"stdout","time":95.727531964,"data":"Loading weights:   0%|          | 0/104 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":95.822706946,"data":"Loading weights:  34%|███▎      | 35/104 [00:00\u003c00:00, 339.06it/s]\n"}
+,{"stream_name":"stdout","time":95.823782437,"data":"Loading weights: 100%|██████████| 104/104 [00:00\u003c00:00, 524.77it/s]\n"}
+,{"stream_name":"stdout","time":99.528216937,"data":"[step4a] distilbert_step3: val macro F1 0.9040, F1 spam 0.8235\n"}
+,{"stream_name":"stdout","time":100.82551021,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":104.465540343,"data":"\n"}
+,{"stream_name":"stdout","time":104.506813734,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":104.507657623,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2204.57it/s]\n"}
+,{"stream_name":"stdout","time":104.510089758,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":104.511017267,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":104.512938724,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":104.512977538,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":104.513941285,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":104.514993292,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":104.515959092,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":104.516889574,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":104.517853572,"data":"\n"}
+,{"stream_name":"stdout","time":104.518966573,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":104.519816127,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":104.982609787,"data":"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/attention_backward.cu:900.)\n"}
+,{"stream_name":"stdout","time":104.983679687,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stdout","time":154.281605408,"data":"[step4a] smishfuse: val macro F1 0.9275, F1 spam 0.8706\n"}
+,{"stream_name":"stdout","time":155.437139629,"data":"\n"}
+,{"stream_name":"stdout","time":155.472838861,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":155.473606299,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2734.99it/s]\n"}
+,{"stream_name":"stdout","time":155.476120793,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":155.479328801,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":155.481043939,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":155.481059511,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":155.482947291,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":155.483991224,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":155.484747942,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":155.485526873,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":155.486355397,"data":"\n"}
+,{"stream_name":"stdout","time":155.487066984,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":155.487812682,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":185.221707051,"data":"[step4a] smishfuse_concat: val macro F1 0.9071, F1 spam 0.8352\n"}
+,{"stream_name":"stdout","time":198.944813795,"data":"[step4a] features_mlp: val macro F1 0.8591, F1 spam 0.7059\n"}
+,{"stream_name":"stdout","time":200.10735483,"data":"\n"}
+,{"stream_name":"stdout","time":200.143610401,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":200.144426721,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2758.30it/s]\n"}
+,{"stream_name":"stdout","time":200.146536498,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":200.149880979,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":200.150835049,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":200.152421985,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.154156939,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.154745567,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.155695036,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.156754335,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.157664696,"data":"\n"}
+,{"stream_name":"stdout","time":200.158560139,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":200.159260923,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":249.35503178,"data":"[step4a] distilbert_text_only: val macro F1 0.9275, F1 spam 0.8706\n"}
+,{"stream_name":"stdout","time":253.449285156,"data":"[entry] done in 0.06 h, return codes [0]\n"}
+,{"stream_name":"stdout","time":253.463002711,"data":"exit code 0\n"}
+,{"stream_name":"stderr","time":255.689663125,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":255.689691139,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":255.8497582,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":255.849783402,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":256.572630231,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":256.650325806,"data":"[NbConvertApp] Writing 9291 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":259.03057226,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":259.515544802,"data":"[NbConvertApp] Writing 287439 bytes to __results__.html\n"}
+]

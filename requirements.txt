@@ -3,6 +3,7 @@
 pandas==3.1.0
 numpy==2.4.6
 datasketch==2.0.0
+pyspellchecker==0.8.3
 scikit-learn==1.9.1
 scipy==1.17.1
 langdetect==1.0.9

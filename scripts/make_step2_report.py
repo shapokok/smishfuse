@@ -128,53 +128,23 @@ def main():
     md.append("\nb — только лучшая модель права, c — только другая. Полная таблица: `results/significance_step2.csv` "
               "(сравнение всех моделей шагов 2 и 3 — `results/significance.csv`, отчёт шага 3).\n")
 
-    # 4. Efficiency
-    md.append("## 4. Время обучения, задержка, размер модели\n")
-    lat_path = RESULTS / "latency" / "latency.csv"
-    lat = pd.read_csv(lat_path).set_index(["task", "model"]) if lat_path.exists() else None
-    if lat is not None:
-        lat_env = json.loads((RESULTS / "latency" / "environment.json").read_text(encoding="utf-8"))
-        md.append(
-            f"Время обучения — медиана по {len(proto['eval_seeds'])} seed, wall-clock `fit` всего пайплайна "
-            "(TF-IDF + модель, для LinearSVM вместе с калибровкой) на train, на машине из последнего столбца. "
-            "Задержка и размер заменены единым замером шага 3 (одна сессия Kaggle для всех моделей шагов 2 и 3, "
-            f"{lat_env['cpu_model']}, 1 поток): пайплайн заново обучен на train с лучшими параметрами и seed 1, "
-            f"задержка — медиана по {lat_env['n_messages']} предсказаниям с батчем 1 (TF-IDF + модель, после "
-            f"{lat_env['warmup']} прогревочных вызовов) на сообщениях test, по кругу, если их меньше; размер — "
-            "сериализованный joblib-пайплайн в МБ (`results/latency/latency.csv`). Прежние локальные замеры "
-            "задержки и размера остаются в `results/efficiency.csv`, но в отчёте не используются. Времена "
-            "зависят от машины и нагрузки и не воспроизводятся побайтно.\n"
-        )
-    else:
-        md.append(
-            f"Медиана по {len(proto['eval_seeds'])} seed. Время обучения — wall-clock `fit` всего пайплайна "
-            "(TF-IDF + модель, для LinearSVM вместе с калибровкой) на train. Задержка — медиана по "
-            f"{proto['latency_messages']} предсказаниям с батчем 1 (TF-IDF + модель, один поток, после "
-            f"{proto['latency_warmup']} прогревочных вызовов) на сообщениях test; если в test меньше "
-            f"{proto['latency_messages']} сообщений, они повторяются по кругу. Размер — сериализованный joblib-пайплайн "
-            f"в МБ. Машина: {env['platform']}, {env['cpu_count']} логических CPU, Python {env['python']}. Эти числа "
-            "зависят от машины и нагрузки и не воспроизводятся побайтно (`results/efficiency.csv`).\n"
-        )
-    e = eff.groupby(["task", "model"]).median(numeric_only=True)
-    machine = eff.groupby(["task", "model"])["machine"].first() if "machine" in eff else None
-    rows = []
-    for t in cfg["tasks"]:
-        for m in MODELS:
-            r = e.loc[(t, m)]
-            src = lat.loc[(t, m)] if lat is not None else r
-            rows.append([t, MODEL_NAMES[m], int(r["n_train"]), f"{r['train_time_s']:.2f}",
-                         machine.loc[(t, m)] if machine is not None else env["platform"],
-                         f"{src['latency_ms_median_batch1']:.3f}", f"{src['model_size_mb']:.2f}"])
-    md.append(table(["Задача", "Модель", "Train", "Обучение, с", "Машина (обучение)", "Задержка, мс/сообщение",
-                     "Размер, МБ"], rows))
-    if lat is not None:
-        md.append("\nВремя обучения LinearSVM (после правки `ensemble=False`) измерено на Kaggle CPU, остальных "
-                  "моделей — локально, поэтому времена обучения между собой не сравнимы. Задержка и размер — "
-                  "на одном железе и сравнимы.")
-    else:
-        md.append("\nLinearSVM после правки (`ensemble=False`) обучался и замерялся на Kaggle CPU, остальные модели — "
-                  "локально, поэтому эти числа между собой не сравнимы. Единый замер всех моделей шагов 2 и 3 на одном "
-                  "железе — в отчёте шага 3.")
+    # 4. Efficiency (decision 10: training time is not reported, only latency and size)
+    md.append("## 4. Задержка и размер модели\n")
+    lat = pd.read_csv(RESULTS / "latency" / "latency.csv").set_index(["task", "model"])
+    lat_env = json.loads((RESULTS / "latency" / "environment.json").read_text(encoding="utf-8"))
+    md.append(
+        "Единый замер шага 3: одна сессия Kaggle для всех моделей шагов 2 и 3, "
+        f"{lat_env['cpu_model']}, 1 поток. Пайплайн заново обучен на train с лучшими параметрами и seed 1; "
+        f"задержка — медиана по {lat_env['n_messages']} предсказаниям с батчем 1 (TF-IDF + модель, после "
+        f"{lat_env['warmup']} прогревочных вызовов) на сообщениях test, по кругу, если их меньше; размер — "
+        "сериализованный joblib-пайплайн в МБ (`results/latency/latency.csv`). Время обучения в итоговые таблицы "
+        "не входит (решение 10 в README): модели обучались на разных машинах. Прежние локальные замеры остаются "
+        "в `results/efficiency.csv`. Задержка зависит от машины и нагрузки и не воспроизводится побайтно.\n"
+    )
+    rows = [[t, MODEL_NAMES[m], int(eff[(eff["task"] == t) & (eff["model"] == m)]["n_train"].iloc[0]),
+             f"{lat.loc[(t, m), 'latency_ms_median_batch1']:.3f}", f"{lat.loc[(t, m), 'model_size_mb']:.2f}"]
+            for t in cfg["tasks"] for m in MODELS]
+    md.append(table(["Задача", "Модель", "Train", "Задержка, мс/сообщение", "Размер, МБ"], rows))
     md.append("")
 
     # 5. Observations
