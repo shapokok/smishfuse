@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9651567944250871,
+  "condition": "baseline",
+  "f1_ham": 0.9887410440122825,
+  "f1_smishing": 0.8478260869565217,
+  "f1_spam": 0.810126582278481,
+  "macro_f1": 0.8822312377490951,
+  "model": "xgboost",
+  "n": 574,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.7959183673469388,
+  "recall_spam": 0.7619047619047619,
+  "seconds": 135.36558038599998,
+  "seed": 1,
+  "setting": "clean",
+  "split": "val"
+}

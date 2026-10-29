@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.6482213438735178,
+  "checkpoint": "distilbert-base-multilingual-cased",
+  "condition": "transfer",
+  "f1_benign": 0.7174603174603175,
+  "f1_malicious": 0.5340314136125655,
+  "macro_f1": 0.6257458655364414,
+  "model": "smishfuse_concat",
+  "n": 253,
+  "recall_benign": 0.5678391959798995,
+  "recall_malicious": 0.9444444444444444,
+  "seconds": 42.12724837900009,
+  "seed": 1,
+  "setting": "zeroshot",
+  "source_best_epoch": 0,
+  "source_val_macro_f1": 0.9802341597796143,
+  "split": "val"
+}

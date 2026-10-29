@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.9390243902439024,
+  "best_epoch": 4,
+  "condition": "low_data",
+  "epochs_run": 5,
+  "f1_ham": 0.9907312049433573,
+  "f1_smishing": 0.75,
+  "f1_spam": 0.49230769230769234,
+  "macro_f1": 0.7443462990836832,
+  "model": "smishfuse_concat",
+  "n": 574,
+  "n_train": 44,
+  "recall_ham": 0.9958592132505176,
+  "recall_smishing": 0.8571428571428571,
+  "recall_spam": 0.38095238095238093,
+  "seconds": 2.3650383560000137,
+  "seed": 1,
+  "setting": "frac01",
+  "split": "val"
+}

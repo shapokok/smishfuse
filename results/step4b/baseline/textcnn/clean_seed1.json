@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.9686411149825784,
+  "best_epoch": 4,
+  "best_val_macro_f1_during_training": 0.9013364219529579,
+  "condition": "baseline",
+  "epochs_run": 8,
+  "f1_ham": 0.9877049180327869,
+  "f1_smishing": 0.8913043478260869,
+  "f1_spam": 0.825,
+  "macro_f1": 0.9013364219529579,
+  "model": "textcnn",
+  "n": 574,
+  "recall_ham": 0.9979296066252588,
+  "recall_smishing": 0.8367346938775511,
+  "recall_spam": 0.7857142857142857,
+  "seconds": 4.952165379000007,
+  "seed": 1,
+  "setting": "clean",
+  "split": "val"
+}

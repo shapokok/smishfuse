@@ -19,7 +19,6 @@ import os
 
 os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")  # must be set before CUDA initialises
 
-import copy  # noqa: E402
 import glob  # noqa: E402
 import sys  # noqa: E402
 import time  # noqa: E402
@@ -33,12 +32,11 @@ sys.path.insert(0, str(ROOT / "src" / "baselines"))
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 import torch  # noqa: E402
-import torch.nn as nn  # noqa: E402
 from sklearn.metrics import accuracy_score, f1_score, recall_score  # noqa: E402
 
 from fusion.features import FEATURES, Standardizer, extract_all  # noqa: E402
-from fusion.model import VARIANTS, SmishFuse  # noqa: E402
-from neural.common import (RESULTS, load_configs, load_split, load_yaml, read_json, set_seed, time_left,  # noqa: E402
+from fusion.model import VARIANTS  # noqa: E402
+from neural.common import (RESULTS, load_configs, load_split, load_yaml, read_json, time_left,  # noqa: E402
                            write_json)
 
 OUT = RESULTS / "step4a"
@@ -139,119 +137,18 @@ def distilbert_step3(data, classes, device):
 
 # ---------------------------------------------------------------- fusion variants
 
-class Batches:
-    def __init__(self, enc, F, y, tokenizer):
-        self.enc, self.F, self.y, self.tok = enc, F, y, tokenizer
-
-    def collate(self, idx):
-        out = {"features": torch.tensor(self.F[idx], dtype=torch.float32)}
-        if self.enc is not None:
-            seqs = [self.enc[i] for i in idx]
-            length = max(len(s) for s in seqs)
-            ids = torch.full((len(seqs), length), self.tok.pad_token_id, dtype=torch.long)
-            mask = torch.zeros((len(seqs), length), dtype=torch.long)
-            for j, s in enumerate(seqs):
-                ids[j, : len(s)] = torch.tensor(s, dtype=torch.long)
-                mask[j, : len(s)] = 1
-            out.update({"input_ids": ids, "attention_mask": mask})
-        return out, torch.tensor(self.y[idx], dtype=torch.long)
-
-
-def predict(model, batches: Batches, device, bs: int, fp16: bool):
-    n = len(batches.y)
-    order = np.argsort([len(e) for e in batches.enc], kind="stable") if batches.enc is not None else np.arange(n)
-    probs = np.zeros((n, model.head3.out_features))
-    gate = np.full(n, np.nan)
-    model.eval()
-    with torch.no_grad():
-        for s in range(0, n, bs):
-            idx = order[s : s + bs]
-            inputs, _ = batches.collate(idx)
-            inputs = {k: v.to(device) for k, v in inputs.items()}
-            with torch.autocast(device_type=device.type, dtype=torch.float16, enabled=fp16 and device.type == "cuda"):
-                l3, _, g = model(**inputs)
-            probs[idx] = torch.softmax(l3.float(), dim=1).cpu().numpy()
-            if g is not None:
-                gate[idx] = g.float().mean(dim=1).cpu().numpy()
-    return probs, gate
-
-
 def train_variant(name, cfg, data, F, classes, device):
-    from transformers import AutoTokenizer, get_linear_schedule_with_warmup
+    from fusion.train import fit
 
     mode = VARIANTS[name]
-    tc, fc = cfg["text"], cfg["fusion"]
-    seed = cfg["seed"]
-    set_seed(seed, True)
-    ytr, yva = data["train"][2], data["val"][2]
-    tok = None
-    enc_tr = enc_va = None
-    if mode != "features":
-        tok = AutoTokenizer.from_pretrained(tc["checkpoint"])
-        enc_tr = tok(list(data["train"][1]), truncation=True, max_length=tc["max_len"])["input_ids"]
-        enc_va = tok(list(data["val"][1]), truncation=True, max_length=tc["max_len"])["input_ids"]
-    train_b, val_b = Batches(enc_tr, F["train"], ytr, tok), Batches(enc_va, F["val"], yva, tok)
-    model = SmishFuse(mode, len(FEATURES), fc["d"], fc["feature_mlp_hidden"], fc["dropout"], len(classes),
-                      tc["checkpoint"]).to(device)
-    if mode == "features":
-        fo = cfg["features_only"]
-        bs, epochs, patience = fo["batch_size"], fo["max_epochs"], fo["patience"]
-        opt, sched = torch.optim.Adam(model.parameters(), lr=fo["lr"]), None
-    else:
-        bs, epochs, patience = tc["batch_size"], tc["max_epochs"], tc["patience"]
-        no_decay = ("bias", "LayerNorm.weight", "layer_norm.weight")
-        enc = model.encoder_parameters()
-        enc_ids = {id(p) for _, p in enc}
-        groups = [
-            {"params": [p for n, p in enc if not n.endswith(no_decay)], "lr": tc["lr"],
-             "weight_decay": tc["weight_decay"]},
-            {"params": [p for n, p in enc if n.endswith(no_decay)], "lr": tc["lr"], "weight_decay": 0.0},
-            {"params": [p for p in model.parameters() if id(p) not in enc_ids], "lr": fc["head_lr"],
-             "weight_decay": 0.0},
-        ]
-        opt = torch.optim.AdamW(groups)
-        n_steps = epochs * int(np.ceil(len(ytr) / bs))
-        sched = get_linear_schedule_with_warmup(opt, int(tc["warmup_ratio"] * n_steps), n_steps)
-    gen = torch.Generator()
-    gen.manual_seed(seed)
-    scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
-    ce = nn.CrossEntropyLoss()
-    ham = classes.index("ham")
-    best = {"f1": -1.0}
-    wait, history = 0, []
-    t_start = time.perf_counter()
-    for epoch in range(epochs):
-        t0 = time.perf_counter()
-        model.train()
-        perm = torch.randperm(len(ytr), generator=gen).numpy()
-        for s in range(0, len(perm), bs):
-            inputs, y = train_b.collate(perm[s : s + bs])
-            inputs = {k: v.to(device) for k, v in inputs.items()}
-            y = y.to(device)
-            with torch.autocast(device_type=device.type, dtype=torch.float16, enabled=device.type == "cuda"):
-                l3, lb, _ = model(**inputs)
-            loss = ce(l3.float(), y) + fc["binary_loss_weight"] * ce(lb.float(), (y != ham).long())
-            opt.zero_grad(set_to_none=True)
-            scaler.scale(loss).backward()
-            if mode != "features":
-                scaler.unscale_(opt)
-                torch.nn.utils.clip_grad_norm_(model.parameters(), tc["grad_clip"])
-            scaler.step(opt)
-            scaler.update()
-            if sched is not None:
-                sched.step()
-        probs, gate = predict(model, val_b, device, tc["eval_batch_size"], True)
-        f1 = f1_score(yva, probs.argmax(axis=1), labels=list(range(len(classes))), average="macro", zero_division=0)
-        history.append({"epoch": epoch, "val_macro_f1": float(f1), "seconds": time.perf_counter() - t0})
-        if f1 > best["f1"]:
-            best = {"f1": f1, "epoch": epoch, "probs": probs, "gate": gate}
-            wait = 0
-        else:
-            wait += 1
-            if wait >= patience:
-                break
+    yva = data["val"][2]
+    res = fit(mode, cfg, (data["train"][1], data["train"][2], F["train"]), (data["val"][1], yva, F["val"]),
+              len(classes), cfg["seed"], device, cfg["text"]["checkpoint"], classes.index("ham"))
+    best = {"epoch": res["best_epoch"], "probs": res["val_probs"], "gate": res["val_gate"]}
+    history, bs = res["history"], res["batch_size"]
+    model = res["model"]
     info = {"variant": name, "mode": mode, "best_epoch": best["epoch"], "epochs_run": len(history),
-            "history": history, "seconds": time.perf_counter() - t_start, "batch_size": bs, "device": str(device)}
+            "history": history, "seconds": res["seconds"], "batch_size": bs, "device": str(device)}
     extra = {}
     if mode == "gated":
         g = best["gate"]
@@ -263,7 +160,7 @@ def train_variant(name, cfg, data, F, classes, device):
         info["gate_note"] = "g = weight of the feature branch f' (mean over the d dimensions), 1 - g = text branch"
         extra["gate_mean"] = g
     save(name, data["val"][0], yva, best["probs"], classes, info, extra)
-    del model
+    del model, res
     torch.cuda.empty_cache()
 
 

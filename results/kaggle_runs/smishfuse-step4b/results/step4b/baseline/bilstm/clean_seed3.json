@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.9651567944250871,
+  "best_epoch": 7,
+  "best_val_macro_f1_during_training": 0.8788868481403612,
+  "condition": "baseline",
+  "epochs_run": 11,
+  "f1_ham": 0.9907312049433573,
+  "f1_smishing": 0.8602150537634409,
+  "f1_spam": 0.7857142857142857,
+  "macro_f1": 0.8788868481403612,
+  "model": "bilstm",
+  "n": 574,
+  "recall_ham": 0.9958592132505176,
+  "recall_smishing": 0.8163265306122449,
+  "recall_spam": 0.7857142857142857,
+  "seconds": 14.876346031000026,
+  "seed": 3,
+  "setting": "clean",
+  "split": "val"
+}

@@ -1,0 +1,19 @@
+{
+  "accuracy": 0.9076655052264808,
+  "best_epoch": 2,
+  "condition": "obfuscation",
+  "epochs_run": 5,
+  "f1_ham": 0.9796747967479674,
+  "f1_smishing": 0.3333333333333333,
+  "f1_spam": 0.5576923076923077,
+  "macro_f1": 0.6235668125912028,
+  "model": "distilbert_text_only",
+  "n": 574,
+  "recall_ham": 0.9979296066252588,
+  "recall_smishing": 0.20408163265306123,
+  "recall_spam": 0.6904761904761905,
+  "seconds_train": 52.44848768199995,
+  "seed": 2,
+  "setting": "obf20",
+  "split": "val"
+}

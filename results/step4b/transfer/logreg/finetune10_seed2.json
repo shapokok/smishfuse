@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9525691699604744,
+  "condition": "transfer",
+  "f1_benign": 0.9693877551020408,
+  "f1_malicious": 0.8947368421052632,
+  "macro_f1": 0.932062298603652,
+  "model": "logreg",
+  "n": 253,
+  "n_train": 4194,
+  "note": "re-fitted on source train + target subset (no incremental fine-tuning)",
+  "recall_benign": 0.9547738693467337,
+  "recall_malicious": 0.9444444444444444,
+  "seconds": 1.1598950300003708,
+  "seed": 2,
+  "setting": "finetune10",
+  "split": "val"
+}

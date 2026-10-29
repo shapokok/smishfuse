@@ -1,0 +1,380 @@
+{
+  "jobs": [
+    {
+      "job": "obfuscation__smishfuse__clean_obf05_obf10_obf20__seed1",
+      "seconds": 90.36478476800005,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__smishfuse__clean_obf05_obf10_obf20__seed2",
+      "seconds": 58.13283975999997,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__smishfuse__clean_obf05_obf10_obf20__seed3",
+      "seconds": 56.164821064999956,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__distilbert_text_only__clean_obf05_obf10_obf20__seed1",
+      "seconds": 52.87998232699994,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__distilbert_text_only__clean_obf05_obf10_obf20__seed2",
+      "seconds": 54.77144088300008,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__distilbert_text_only__clean_obf05_obf10_obf20__seed3",
+      "seconds": 53.93122220399994,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__smishfuse_concat__clean_obf05_obf10_obf20__seed1",
+      "seconds": 34.386032998999895,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__smishfuse_concat__clean_obf05_obf10_obf20__seed2",
+      "seconds": 56.35847609799998,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__smishfuse_concat__clean_obf05_obf10_obf20__seed3",
+      "seconds": 51.838642401000016,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__linear_svm__clean_obf05_obf10_obf20__seed1",
+      "seconds": 3.142132064000066,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__linear_svm__clean_obf05_obf10_obf20__seed2",
+      "seconds": 2.924062144000004,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__linear_svm__clean_obf05_obf10_obf20__seed3",
+      "seconds": 2.971532289000038,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__logreg__clean_obf05_obf10_obf20__seed1",
+      "seconds": 3.6397839250000743,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__logreg__clean_obf05_obf10_obf20__seed2",
+      "seconds": 2.776887464000083,
+      "status": "done"
+    },
+    {
+      "job": "obfuscation__logreg__clean_obf05_obf10_obf20__seed3",
+      "seconds": 2.95281826300004,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac01__seed1",
+      "seconds": 3.793241619000014,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac01__seed2",
+      "seconds": 3.7657578679999233,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac01__seed3",
+      "seconds": 3.409477551000009,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac01__seed1",
+      "seconds": 3.674865641999986,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac01__seed2",
+      "seconds": 3.36759917400002,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac01__seed3",
+      "seconds": 3.535982289000003,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac01__seed1",
+      "seconds": 3.5535334090000106,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac01__seed2",
+      "seconds": 3.4466907810000293,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac01__seed3",
+      "seconds": 3.838648185000011,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac01__seed1",
+      "seconds": 0.3241669770000044,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac01__seed2",
+      "seconds": 0.214729143999989,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac01__seed3",
+      "seconds": 0.2674284859999716,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac01__seed1",
+      "seconds": 0.2868598979999888,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac01__seed2",
+      "seconds": 0.3695681159999822,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac01__seed3",
+      "seconds": 0.24282721199995194,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac05__seed1",
+      "seconds": 5.862066356000014,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac05__seed2",
+      "seconds": 5.745506783999986,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac05__seed3",
+      "seconds": 5.70575686199993,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac05__seed1",
+      "seconds": 5.663633360000063,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac05__seed2",
+      "seconds": 5.660720362000006,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac05__seed3",
+      "seconds": 5.871655415999953,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac05__seed1",
+      "seconds": 5.590418018000037,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac05__seed2",
+      "seconds": 4.5365540400000555,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac05__seed3",
+      "seconds": 5.45528691800007,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac05__seed1",
+      "seconds": 0.5054471920000196,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac05__seed2",
+      "seconds": 0.4077217330000167,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac05__seed3",
+      "seconds": 0.5209368749999612,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac05__seed1",
+      "seconds": 0.6520039680000309,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac05__seed2",
+      "seconds": 0.4358202660000643,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac05__seed3",
+      "seconds": 0.4943451729999424,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac10__seed1",
+      "seconds": 7.8354169540000385,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac10__seed2",
+      "seconds": 7.974889511000015,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac10__seed3",
+      "seconds": 7.899552992000054,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac10__seed1",
+      "seconds": 7.6403196120000985,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac10__seed2",
+      "seconds": 7.502456224999946,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac10__seed3",
+      "seconds": 7.70562105800002,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac10__seed1",
+      "seconds": 7.284356718000026,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac10__seed2",
+      "seconds": 7.824099982999996,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac10__seed3",
+      "seconds": 7.805040577999989,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac10__seed1",
+      "seconds": 0.5720858949999865,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac10__seed2",
+      "seconds": 0.5276841019999665,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac10__seed3",
+      "seconds": 0.5424668529999508,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac10__seed1",
+      "seconds": 0.7676535649999323,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac10__seed2",
+      "seconds": 0.5933665599999358,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac10__seed3",
+      "seconds": 1.3030605369999648,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac25__seed1",
+      "seconds": 14.728692222000063,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac25__seed2",
+      "seconds": 15.061368281,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse__frac25__seed3",
+      "seconds": 14.746736173000045,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac25__seed1",
+      "seconds": 14.58963487899996,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac25__seed2",
+      "seconds": 14.67464267199989,
+      "status": "done"
+    },
+    {
+      "job": "low_data__distilbert_text_only__frac25__seed3",
+      "seconds": 14.59857756800011,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac25__seed1",
+      "seconds": 14.471957712999938,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac25__seed2",
+      "seconds": 15.078114295999967,
+      "status": "done"
+    },
+    {
+      "job": "low_data__smishfuse_concat__frac25__seed3",
+      "seconds": 14.844556151999996,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac25__seed1",
+      "seconds": 0.8537943259998428,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac25__seed2",
+      "seconds": 0.8858055359999071,
+      "status": "done"
+    },
+    {
+      "job": "low_data__linear_svm__frac25__seed3",
+      "seconds": 0.9122509629999058,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac25__seed1",
+      "seconds": 1.294549988999961,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac25__seed2",
+      "seconds": 0.9241842609999367,
+      "status": "done"
+    },
+    {
+      "job": "low_data__logreg__frac25__seed3",
+      "seconds": 1.0832635449999088,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-step4b_gpu1"
+}

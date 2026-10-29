@@ -13,3 +13,9 @@ xgboost==3.2.0
 joblib==1.6.0
 pyyaml==6.0.3
 pytest==9.2.0
+# GPU notebooks on Kaggle (not needed locally). torch==2.11.0 is satisfied by Kaggle's 2.11.0+cu128
+# build (pip ignores the local "+cu128" label), so it is not re-installed there.
+torch==2.11.0
+transformers==5.16.1
+bitsandbytes==0.50.2
+accelerate==1.14.0

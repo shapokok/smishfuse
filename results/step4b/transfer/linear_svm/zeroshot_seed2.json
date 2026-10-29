@@ -1,0 +1,15 @@
+{
+  "accuracy": 0.5375494071146245,
+  "condition": "transfer",
+  "f1_benign": 0.6976744186046512,
+  "f1_malicious": 0.01680672268907563,
+  "macro_f1": 0.35724057064686343,
+  "model": "linear_svm",
+  "n": 253,
+  "recall_benign": 0.678391959798995,
+  "recall_malicious": 0.018518518518518517,
+  "seconds": 2.0925783839998076,
+  "seed": 2,
+  "setting": "zeroshot",
+  "split": "val"
+}

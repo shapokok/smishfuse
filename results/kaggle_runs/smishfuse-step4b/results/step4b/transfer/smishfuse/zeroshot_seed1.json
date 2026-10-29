@@ -1,0 +1,22 @@
+{
+  "accuracy": 0.6007905138339921,
+  "checkpoint": "distilbert-base-multilingual-cased",
+  "condition": "transfer",
+  "f1_benign": 0.6873065015479877,
+  "f1_malicious": 0.44808743169398907,
+  "gate_mean_by_true_class": {
+    "benign": 0.5709635666267356,
+    "malicious": 0.5729255808724297
+  },
+  "macro_f1": 0.5676969666209883,
+  "model": "smishfuse",
+  "n": 253,
+  "recall_benign": 0.5577889447236181,
+  "recall_malicious": 0.7592592592592593,
+  "seconds": 70.87547108199988,
+  "seed": 1,
+  "setting": "zeroshot",
+  "source_best_epoch": 2,
+  "source_val_macro_f1": 0.9967205059790776,
+  "split": "val"
+}

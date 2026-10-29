@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9668989547038328,
+  "condition": "obfuscation",
+  "f1_ham": 0.9886947584789312,
+  "f1_smishing": 0.8865979381443299,
+  "f1_spam": 0.7948717948717948,
+  "macro_f1": 0.890054830498352,
+  "model": "logreg",
+  "n": 574,
+  "recall_ham": 0.9958592132505176,
+  "recall_smishing": 0.8775510204081632,
+  "recall_spam": 0.7380952380952381,
+  "seconds_train": 2.697528004999981,
+  "seed": 3,
+  "setting": "obf05",
+  "split": "val"
+}

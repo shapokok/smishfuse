@@ -7,7 +7,7 @@
 
 ## Decisions
 
-Решения по шагам 1–4а (шаг 1 зафиксирован 2026-10-28).
+Решения по шагам 1–4б (шаг 1 зафиксирован 2026-10-28).
 
 1. **Super SMS.** Во всех экспериментах используется только `super_sms_clean`: Super SMS без сообщений,
    которые точно или почти (Жаккар ≥ 0.9) совпадают с Mendeley или UCI. Полный `super_sms` в экспериментах
@@ -48,6 +48,11 @@
 12. **Шаг 4а: прототип SmishFuse (2026-10-29).** Только mendeley_3class, seed 1, оценка только на val; test не
     читается. Полный протокол (20 попыток, 5 seed) не запускается. Словари срочности / выигрыша и список
     сокращателей ссылок (`configs/step4a_lexicon.yaml`) зафиксированы до обучения и не подбираются.
+13. **Шаг 4б: закреплённое окружение (2026-10-29).** Ноутбук Kaggle ставит ровно версии из `requirements.txt`
+    (numpy, pandas, scikit-learn, xgboost, torch, transformers и остальные; torch 2.11.0 совпадает со сборкой
+    Kaggle 2.11.0+cu128) и останавливается, если установленная версия отличается. В этом окружении заново
+    посчитаны на val (mendeley_3class, seed 1–3) все baseline шагов 2 и 3 с лучшими параметрами; дальнейшие
+    сравнения — только с этими числами (`results/step4b/baseline/`). Только val, test не читается.
 
 ## Воспроизведение данных
 
@@ -135,6 +140,19 @@ uv pip install --python .venv/bin/python -r requirements.txt
 [configs/step4a.yaml](configs/step4a.yaml) и словари [configs/step4a_lexicon.yaml](configs/step4a_lexicon.yaml).
 Только mendeley_3class, seed 1, оценка на val. Отчёт: [reports/step4a_report.md](reports/step4a_report.md);
 список трудных сообщений с текстом (`reports/step4a_hard_cases.csv`) в git не хранится.
+
+## Шаг 4б: стресс-условия (Kaggle, только val)
+
+```bash
+.venv/bin/python scripts/make_kernels.py smishfuse-step4b   # pip: все версии из requirements.txt
+.venv/bin/python scripts/kaggle_sync.py code && .venv/bin/python scripts/kaggle_sync.py push smishfuse-step4b
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-step4b && .venv/bin/python scripts/collect_results.py smishfuse-step4b
+.venv/bin/python scripts/make_step4b_report.py
+```
+
+Условия заданы в [configs/step4b.yaml](configs/step4b.yaml): обфускация val ([src/eval/obfuscation.py](src/eval/obfuscation.py)),
+мало данных, перенос mendeley_binary → moz_binary. Раннер: [src/fusion/stress.py](src/fusion/stress.py).
+Отчёт: [reports/step4b_report.md](reports/step4b_report.md).
 
 ## Датасеты: источники и лицензии
 

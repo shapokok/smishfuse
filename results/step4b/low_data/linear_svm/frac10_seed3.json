@@ -1,0 +1,18 @@
+{
+  "accuracy": 0.9425087108013938,
+  "condition": "low_data",
+  "f1_ham": 0.9801047120418848,
+  "f1_smishing": 0.7916666666666666,
+  "f1_spam": 0.7216494845360825,
+  "macro_f1": 0.8311402877482114,
+  "model": "linear_svm",
+  "n": 574,
+  "n_train": 402,
+  "recall_ham": 0.968944099378882,
+  "recall_smishing": 0.7755102040816326,
+  "recall_spam": 0.8333333333333334,
+  "seconds": 0.5260733770001025,
+  "seed": 3,
+  "setting": "frac10",
+  "split": "val"
+}

@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.9762845849802372,
+  "best_epoch": 3,
+  "checkpoint": "distilbert-base-multilingual-cased",
+  "condition": "transfer",
+  "epochs_run": 5,
+  "f1_benign": 0.9849246231155779,
+  "f1_malicious": 0.9444444444444444,
+  "macro_f1": 0.9646845337800112,
+  "model": "distilbert_text_only",
+  "n": 253,
+  "n_finetune": 177,
+  "note": "same model fine-tuned on the target subset; features standardized with source train",
+  "recall_benign": 0.9849246231155779,
+  "recall_malicious": 0.9444444444444444,
+  "seconds": 5.57200653599989,
+  "seed": 1,
+  "setting": "finetune10",
+  "split": "val"
+}

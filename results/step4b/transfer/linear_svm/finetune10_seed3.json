@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9407114624505929,
+  "condition": "transfer",
+  "f1_benign": 0.9612403100775194,
+  "f1_malicious": 0.8739495798319328,
+  "macro_f1": 0.917594944954726,
+  "model": "linear_svm",
+  "n": 253,
+  "n_train": 4194,
+  "note": "re-fitted on source train + target subset (no incremental fine-tuning)",
+  "recall_benign": 0.9346733668341709,
+  "recall_malicious": 0.9629629629629629,
+  "seconds": 2.286678058000234,
+  "seed": 3,
+  "setting": "finetune10",
+  "split": "val"
+}

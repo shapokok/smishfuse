@@ -1,0 +1,9 @@
+{
+  "fraction": 0.05,
+  "n": 201,
+  "per_class": {
+    "ham": 169,
+    "smishing": 17,
+    "spam": 15
+  }
+}

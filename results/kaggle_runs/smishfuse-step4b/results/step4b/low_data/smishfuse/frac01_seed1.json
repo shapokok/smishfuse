@@ -1,0 +1,25 @@
+{
+  "accuracy": 0.9233449477351916,
+  "best_epoch": 4,
+  "condition": "low_data",
+  "epochs_run": 5,
+  "f1_ham": 0.9806714140386572,
+  "f1_smishing": 0.7272727272727273,
+  "f1_spam": 0.2909090909090909,
+  "gate_mean_by_true_class": {
+    "ham": 0.4725708013735943,
+    "smishing": 0.5090830666678292,
+    "spam": 0.5064216908954439
+  },
+  "macro_f1": 0.6662844107401584,
+  "model": "smishfuse",
+  "n": 574,
+  "n_train": 44,
+  "recall_ham": 0.9979296066252588,
+  "recall_smishing": 0.8163265306122449,
+  "recall_spam": 0.19047619047619047,
+  "seconds": 2.5581640809999726,
+  "seed": 1,
+  "setting": "frac01",
+  "split": "val"
+}

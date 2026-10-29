@@ -1,0 +1,215 @@
+{
+  "jobs": [
+    {
+      "job": "baseline__logreg__clean__seed1",
+      "seconds": 3.0610325229999944,
+      "status": "done"
+    },
+    {
+      "job": "baseline__logreg__clean__seed2",
+      "seconds": 2.3785029549999877,
+      "status": "done"
+    },
+    {
+      "job": "baseline__logreg__clean__seed3",
+      "seconds": 2.505956863999984,
+      "status": "done"
+    },
+    {
+      "job": "baseline__linear_svm__clean__seed1",
+      "seconds": 2.713131476000001,
+      "status": "done"
+    },
+    {
+      "job": "baseline__linear_svm__clean__seed2",
+      "seconds": 2.841212397999982,
+      "status": "done"
+    },
+    {
+      "job": "baseline__linear_svm__clean__seed3",
+      "seconds": 2.672981711000034,
+      "status": "done"
+    },
+    {
+      "job": "baseline__random_forest__clean__seed1",
+      "seconds": 2.632769993000011,
+      "status": "done"
+    },
+    {
+      "job": "baseline__random_forest__clean__seed2",
+      "seconds": 2.4441019849999748,
+      "status": "done"
+    },
+    {
+      "job": "baseline__random_forest__clean__seed3",
+      "seconds": 2.436681361000012,
+      "status": "done"
+    },
+    {
+      "job": "baseline__xgboost__clean__seed1",
+      "seconds": 135.38111150999998,
+      "status": "done"
+    },
+    {
+      "job": "baseline__xgboost__clean__seed2",
+      "seconds": 141.20194287200002,
+      "status": "done"
+    },
+    {
+      "job": "baseline__xgboost__clean__seed3",
+      "seconds": 138.19645792300003,
+      "status": "done"
+    },
+    {
+      "job": "baseline__textcnn__clean__seed1",
+      "seconds": 4.967838002000008,
+      "status": "done"
+    },
+    {
+      "job": "baseline__textcnn__clean__seed2",
+      "seconds": 2.63546587299993,
+      "status": "done"
+    },
+    {
+      "job": "baseline__textcnn__clean__seed3",
+      "seconds": 2.211319966000019,
+      "status": "done"
+    },
+    {
+      "job": "baseline__bilstm__clean__seed1",
+      "seconds": 11.351803287999928,
+      "status": "done"
+    },
+    {
+      "job": "baseline__bilstm__clean__seed2",
+      "seconds": 9.502839448999907,
+      "status": "done"
+    },
+    {
+      "job": "baseline__bilstm__clean__seed3",
+      "seconds": 14.89186758400001,
+      "status": "done"
+    },
+    {
+      "job": "baseline__distilbert__clean__seed1",
+      "seconds": 57.34779353299996,
+      "status": "done"
+    },
+    {
+      "job": "baseline__distilbert__clean__seed2",
+      "seconds": 50.138547947000006,
+      "status": "done"
+    },
+    {
+      "job": "baseline__distilbert__clean__seed3",
+      "seconds": 50.27360398799999,
+      "status": "done"
+    },
+    {
+      "job": "baseline__bert__clean__seed1",
+      "seconds": 99.12960564399998,
+      "status": "done"
+    },
+    {
+      "job": "baseline__bert__clean__seed2",
+      "seconds": 95.22895580500006,
+      "status": "done"
+    },
+    {
+      "job": "baseline__bert__clean__seed3",
+      "seconds": 93.41748770200002,
+      "status": "done"
+    },
+    {
+      "job": "baseline__qwen_fewshot__clean__seed1",
+      "seconds": 180.30171808600016,
+      "status": "done"
+    },
+    {
+      "job": "baseline__qwen_fewshot__clean__seed2",
+      "seconds": 59.62358027100004,
+      "status": "done"
+    },
+    {
+      "job": "baseline__qwen_fewshot__clean__seed3",
+      "seconds": 66.4093942699999,
+      "status": "done"
+    },
+    {
+      "job": "transfer__smishfuse__zeroshot_finetune10__seed1",
+      "seconds": 83.62011490300006,
+      "status": "done"
+    },
+    {
+      "job": "transfer__smishfuse__zeroshot_finetune10__seed2",
+      "seconds": 78.49834956399991,
+      "status": "done"
+    },
+    {
+      "job": "transfer__smishfuse__zeroshot_finetune10__seed3",
+      "seconds": 77.20249966899996,
+      "status": "done"
+    },
+    {
+      "job": "transfer__distilbert_text_only__zeroshot_finetune10__seed1",
+      "seconds": 77.74369434699997,
+      "status": "done"
+    },
+    {
+      "job": "transfer__distilbert_text_only__zeroshot_finetune10__seed2",
+      "seconds": 77.43888265199985,
+      "status": "done"
+    },
+    {
+      "job": "transfer__distilbert_text_only__zeroshot_finetune10__seed3",
+      "seconds": 79.11758900400014,
+      "status": "done"
+    },
+    {
+      "job": "transfer__smishfuse_concat__zeroshot_finetune10__seed1",
+      "seconds": 50.12582501199995,
+      "status": "done"
+    },
+    {
+      "job": "transfer__smishfuse_concat__zeroshot_finetune10__seed2",
+      "seconds": 62.505121876999965,
+      "status": "done"
+    },
+    {
+      "job": "transfer__smishfuse_concat__zeroshot_finetune10__seed3",
+      "seconds": 78.35694325299983,
+      "status": "done"
+    },
+    {
+      "job": "transfer__linear_svm__zeroshot_finetune10__seed1",
+      "seconds": 4.500401639999836,
+      "status": "done"
+    },
+    {
+      "job": "transfer__linear_svm__zeroshot_finetune10__seed2",
+      "seconds": 4.430041632000211,
+      "status": "done"
+    },
+    {
+      "job": "transfer__linear_svm__zeroshot_finetune10__seed3",
+      "seconds": 4.508785732999968,
+      "status": "done"
+    },
+    {
+      "job": "transfer__logreg__zeroshot_finetune10__seed1",
+      "seconds": 2.1625251919999755,
+      "status": "done"
+    },
+    {
+      "job": "transfer__logreg__zeroshot_finetune10__seed2",
+      "seconds": 2.234688799000196,
+      "status": "done"
+    },
+    {
+      "job": "transfer__logreg__zeroshot_finetune10__seed3",
+      "seconds": 2.178983257999789,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-step4b_gpu0"
+}

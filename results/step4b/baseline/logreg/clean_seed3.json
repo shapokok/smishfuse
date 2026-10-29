@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9721254355400697,
+  "condition": "baseline",
+  "f1_ham": 0.9917525773195877,
+  "f1_smishing": 0.8958333333333334,
+  "f1_spam": 0.8292682926829268,
+  "macro_f1": 0.905618067778616,
+  "model": "logreg",
+  "n": 574,
+  "recall_ham": 0.9958592132505176,
+  "recall_smishing": 0.8775510204081632,
+  "recall_spam": 0.8095238095238095,
+  "seconds": 2.486121066999999,
+  "seed": 3,
+  "setting": "clean",
+  "split": "val"
+}

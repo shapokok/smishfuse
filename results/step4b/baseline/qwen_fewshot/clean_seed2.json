@@ -1,0 +1,29 @@
+{
+  "accuracy": 0.9337979094076655,
+  "condition": "baseline",
+  "f1_ham": 0.979253112033195,
+  "f1_smishing": 0.7368421052631579,
+  "f1_spam": 0.6285714285714286,
+  "invalid_rate": 0.0,
+  "macro_f1": 0.7815555486225939,
+  "model": "qwen_fewshot",
+  "n": 574,
+  "prefix_cache": true,
+  "recall_ham": 0.9772256728778468,
+  "recall_smishing": 0.8571428571428571,
+  "recall_spam": 0.5238095238095238,
+  "seconds": 59.607847469000035,
+  "seed": 2,
+  "setting": "clean",
+  "shot_ids": [
+    "mendeley_03269",
+    "mendeley_04876",
+    "mendeley_01271",
+    "mendeley_01771",
+    "mendeley_05304",
+    "mendeley_01674",
+    "mendeley_02443",
+    "mendeley_04619"
+  ],
+  "split": "val"
+}

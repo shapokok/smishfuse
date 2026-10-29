@@ -1,0 +1,32 @@
+# Step 4b: SmishFuse under stress conditions. VAL ONLY: no test split is read.
+# Model hyperparameters = step 4a (configs/step4a.yaml), no search. Seeds 1-3 everywhere.
+task: mendeley_3class
+seeds: [1, 2, 3]
+model_config: configs/step4a.yaml
+
+# Models compared under every condition.
+compared: [smishfuse, distilbert_text_only, smishfuse_concat, linear_svm, logreg]
+# Reference: all step-2 / step-3 baselines with their best parameters, clean mendeley_3class val,
+# recomputed in the pinned environment of this notebook (requirements.txt).
+baselines: [logreg, linear_svm, random_forest, xgboost, textcnn, bilstm, distilbert, bert, qwen_fewshot]
+
+# a) val obfuscation (src/eval/obfuscation.py, fixed seed); training on clean train.
+obfuscation: {levels: [0.05, 0.10, 0.20]}
+
+# b) low data: nested stratified train subsets (per-class permutation with subset_seed, the first
+# n_c = round(fraction * N_c) messages, at least min_per_class), the same subsets for every model;
+# evaluation on the full val. min_per_class = 5 because LinearSVM calibration uses 5-fold CV.
+low_data: {fractions: [0.01, 0.05, 0.10, 0.25], subset_seed: 0, min_per_class: 5}
+
+# c) language transfer: train on mendeley_binary (English), evaluate on moz_binary val (Portuguese):
+# zero-shot, and after fine-tuning on a stratified finetune_fraction of moz_binary train.
+# Text branch: distilbert-base-multilingual-cased. Binary task: one head (the auxiliary binary
+# head would repeat it). Fine-tuning = continuing training of the same neural model on the MOZ
+# subset (early stopping on MOZ val); LinearSVM / LogReg cannot be fine-tuned and are re-fitted on
+# mendeley_binary train + the MOZ subset. TF-IDF and model parameters: best step-2 for mendeley_binary.
+transfer:
+  source: mendeley_binary
+  target: moz_binary
+  finetune_fraction: 0.10
+  subset_seed: 0
+  checkpoint: distilbert-base-multilingual-cased

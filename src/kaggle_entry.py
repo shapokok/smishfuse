@@ -4,7 +4,7 @@
 * restores finished work of this kernel from the smishfuse-state input, if any
   (state/<kernel>/results/... -> /kaggle/working/results, existing files kept);
 * runs the spec: kind "neural" (one worker process per GPU queue, pinned with
-  CUDA_VISIBLE_DEVICES), "classic" (src/baselines/classic.py), "latency" or "fusion" (step 4a);
+  CUDA_VISIBLE_DEVICES), "classic" (src/baselines/classic.py), "latency", "fusion" (step 4a) or "stress" (step 4b);
 * writes results/runtime/<kernel>.json: wall time, hardware, library versions.
 """
 from __future__ import annotations
@@ -83,6 +83,19 @@ def run_neural(kernel: str, spec: dict, env_vars: dict) -> list[int]:
     return [p.wait() for p in procs]
 
 
+def run_stress(kernel: str, spec: dict, env_vars: dict) -> list[int]:
+    """Step 4b: one worker per GPU, each running a list of conditions (src/fusion/stress.py)."""
+    procs = []
+    for i, conditions in enumerate(spec["queues"]):
+        if not conditions:
+            continue
+        env = {**os.environ, **env_vars, "CUDA_VISIBLE_DEVICES": str(i)}
+        cmd = [sys.executable, str(CODE / "src" / "fusion" / "stress.py"), "--conditions", json.dumps(conditions),
+               "--worker", f"{kernel}_gpu{i}"]
+        procs.append(subprocess.Popen(cmd, env=env))
+    return [p.wait() for p in procs]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--kernel", required=True)
@@ -108,6 +121,8 @@ def main():
         cmd = [sys.executable, str(CODE / "src" / "baselines" / "classic.py"), *spec.get("tasks", []),
                f"--models={','.join(spec['models'])}"]
         rcs = [subprocess.run(cmd, env={**os.environ, **env_vars}).returncode]
+    elif spec["kind"] == "stress":
+        rcs = run_stress(args.kernel, spec, env_vars)
     elif spec["kind"] == "fusion":
         cmd = [sys.executable, str(CODE / "src" / "fusion" / "run.py")]
         rcs = [subprocess.run(cmd, env={**os.environ, **env_vars}).returncode]

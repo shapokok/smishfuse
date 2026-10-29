@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9703832752613241,
+  "condition": "baseline",
+  "f1_ham": 0.9877300613496932,
+  "f1_smishing": 0.9052631578947369,
+  "f1_spam": 0.8266666666666667,
+  "macro_f1": 0.9065532953036989,
+  "model": "random_forest",
+  "n": 574,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.8775510204081632,
+  "recall_spam": 0.7380952380952381,
+  "seconds": 2.424371225000016,
+  "seed": 3,
+  "setting": "clean",
+  "split": "val"
+}

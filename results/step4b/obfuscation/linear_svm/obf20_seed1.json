@@ -1,0 +1,17 @@
+{
+  "accuracy": 0.9512195121951219,
+  "condition": "obfuscation",
+  "f1_ham": 0.982706002034588,
+  "f1_smishing": 0.7857142857142857,
+  "f1_spam": 0.7407407407407407,
+  "macro_f1": 0.8363870094965381,
+  "model": "linear_svm",
+  "n": 574,
+  "recall_ham": 1.0,
+  "recall_smishing": 0.673469387755102,
+  "recall_spam": 0.7142857142857143,
+  "seconds_train": 3.1279786799999556,
+  "seed": 1,
+  "setting": "obf20",
+  "split": "val"
+}

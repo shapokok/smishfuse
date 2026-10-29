@@ -1,0 +1,24 @@
+{
+  "accuracy": 0.9723320158102767,
+  "best_epoch": 2,
+  "checkpoint": "distilbert-base-multilingual-cased",
+  "condition": "transfer",
+  "epochs_run": 5,
+  "f1_benign": 0.9826302729528535,
+  "f1_malicious": 0.9320388349514563,
+  "gate_mean_by_true_class": {
+    "benign": 0.4993616339549347,
+    "malicious": 0.5221928004865293
+  },
+  "macro_f1": 0.9573345539521549,
+  "model": "smishfuse",
+  "n": 253,
+  "n_finetune": 177,
+  "note": "same model fine-tuned on the target subset; features standardized with source train",
+  "recall_benign": 0.9949748743718593,
+  "recall_malicious": 0.8888888888888888,
+  "seconds": 5.25966448600002,
+  "seed": 2,
+  "setting": "finetune10",
+  "split": "val"
+}

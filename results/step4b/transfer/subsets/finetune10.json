@@ -1,0 +1,7 @@
+{
+  "n": 177,
+  "per_class": {
+    "benign": 139,
+    "malicious": 38
+  }
+}
