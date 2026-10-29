@@ -83,6 +83,25 @@ def step2_rows(task_name, task, cfg2, test_texts):
     return rows
 
 
+def retrain_seed1(task_name: str, model_name: str) -> Path:
+    import torch
+
+    from neural.run import fit_once
+
+    step2, step3 = load_configs()
+    task = step2["tasks"][task_name]
+    best = json.loads((ROOT / "results" / "best_params" / task_name / f"{model_name}.json").read_text())
+    data = {s: load_split(task, s) for s in ["train", "val"]}
+    torch.set_num_threads(os.cpu_count())
+    res = fit_once(model_name, step3["models"][model_name], best["model_params"], task_name, data,
+                   len(task["classes"]), 1, step3["protocol"], torch.device("cuda"))
+    out = RESULTS / "latency" / "retrained" / task_name / model_name / "seed1"
+    res["setup"].save(res["model"].cpu(), out)
+    del res
+    torch.cuda.empty_cache()
+    return out
+
+
 def neural_rows(task_name, test_texts):
     import torch
 
@@ -92,9 +111,13 @@ def neural_rows(task_name, test_texts):
     rows = []
     for m in TEXTNN + TRANSFORMERS:
         d = find_model_dir(task_name, m)
+        source = str(d) if d else None
         if d is None:
-            rows.append({"task": task_name, "model": m, "device": "cpu_1_thread", "source": "weights not found"})
-            continue
+            # Weights not available as a kernel source (e.g. that kernel's run ended with ERROR status):
+            # re-train seed 1 with the best parameters on the GPU of this session, then measure on CPU.
+            d = retrain_seed1(task_name, m)
+            source = "re-trained in this session (seed 1, best params)"
+            torch.set_num_threads(1)
         if m in TEXTNN:
             ck = torch.load(d / "model.pt", map_location="cpu", weights_only=False)
             p = ck["params"]
@@ -123,7 +146,7 @@ def neural_rows(task_name, test_texts):
                     torch.softmax(net(enc["input_ids"], enc["attention_mask"]), dim=1)
         rows.append({"task": task_name, "model": m, "device": "cpu_1_thread",
                      "latency_ms_median_batch1": median_ms(fn, test_texts), "model_size_mb": dir_mb(d),
-                     "source": str(d)})
+                     "source": source})
     return rows
 
 

@@ -1,0 +1,12 @@
+{
+  "model": "bilstm",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 382.51491647899996,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_3class",
+  "worker": "smishfuse-full-rnn-cnn_gpu1"
+}

@@ -1,0 +1,95 @@
+{
+  "best_epoch": 8,
+  "device": "cuda",
+  "encode_seconds": 0.03326533400013432,
+  "epochs_run": 12,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.3222282350000114,
+      "val_macro_f1": 0.7522643818849449,
+      "val_seconds": 0.02064853500019126
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.1400376240001151,
+      "val_macro_f1": 0.9140458163463405,
+      "val_seconds": 0.009458743000095637
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.13940436700022474,
+      "val_macro_f1": 0.9127586206896552,
+      "val_seconds": 0.008946594999997615
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.10606676799989145,
+      "val_macro_f1": 0.9459209120056999,
+      "val_seconds": 0.006656083000052604
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.12489840499983984,
+      "val_macro_f1": 0.9459209120056999,
+      "val_seconds": 0.0070488389999354695
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.10750568599996768,
+      "val_macro_f1": 0.9522641509433962,
+      "val_seconds": 0.006639285000119344
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.09628566399987903,
+      "val_macro_f1": 0.9522641509433962,
+      "val_seconds": 0.0066299999998591375
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.11236377799991715,
+      "val_macro_f1": 0.9522641509433962,
+      "val_seconds": 0.0068913560000964935
+    },
+    {
+      "epoch": 8,
+      "train_seconds": 0.09067807499991432,
+      "val_macro_f1": 0.9585177898016068,
+      "val_seconds": 0.006437924000010753
+    },
+    {
+      "epoch": 9,
+      "train_seconds": 0.099972968999964,
+      "val_macro_f1": 0.9585177898016068,
+      "val_seconds": 0.006922329999952126
+    },
+    {
+      "epoch": 10,
+      "train_seconds": 0.12406752100014273,
+      "val_macro_f1": 0.9585177898016068,
+      "val_seconds": 0.007252755000081379
+    },
+    {
+      "epoch": 11,
+      "train_seconds": 0.09168343999999706,
+      "val_macro_f1": 0.9585177898016068,
+      "val_seconds": 0.006738323999798013
+    }
+  ],
+  "n_train": 1765,
+  "n_val": 253,
+  "number": 8,
+  "params": {
+    "batch_size": 128,
+    "dropout": 0.12059150049999574,
+    "embed_dim": 100,
+    "kernel_sizes": "2,3,4",
+    "lr": 0.0005838706626832951,
+    "max_len": 128,
+    "min_freq": 1,
+    "num_filters": 64
+  },
+  "seconds": 1.7436934890001794,
+  "value": 0.9585177898016068
+}

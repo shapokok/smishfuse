@@ -1,0 +1,14 @@
+{
+  "checkpoint": "bert-base-uncased",
+  "model": "bert",
+  "model_params": {
+    "batch_size": 32,
+    "lr": 5.91458138897039e-05,
+    "warmup_ratio": 0.06,
+    "weight_decay": 0.01
+  },
+  "n_trials": 20,
+  "task": "mendeley_3class",
+  "trial": 19,
+  "val_macro_f1": 0.9330622866700572
+}

@@ -1,0 +1,76 @@
+{
+  "best_epoch": 3,
+  "device": "cuda",
+  "epochs_run": 7,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 1.301716144000011,
+      "val_macro_f1": 0.7112692352192526,
+      "val_seconds": 0.02570086400010041
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 1.2920381269999552,
+      "val_macro_f1": 0.8361138036549628,
+      "val_seconds": 0.025301374000036958
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 1.2773008390000768,
+      "val_macro_f1": 0.8581201441857571,
+      "val_seconds": 0.02516504600009739
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 1.4154916859999958,
+      "val_macro_f1": 0.8773206372020601,
+      "val_seconds": 0.023973842000032164
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 1.3943542690000186,
+      "val_macro_f1": 0.8693855551563061,
+      "val_seconds": 0.023918589999993856
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 1.4362370160000637,
+      "val_macro_f1": 0.870285740816895,
+      "val_seconds": 0.030126645999985158
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 1.5558946400000195,
+      "val_macro_f1": 0.8359952676722863,
+      "val_seconds": 0.025662934000024507
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9729965156794426,
+    "balanced_accuracy": 0.9162033610220138,
+    "ece": 0.007602552425778345,
+    "f1_ham": 0.9922158796056045,
+    "f1_smishing": 0.8888888888888888,
+    "f1_spam": 0.8538011695906432,
+    "macro_f1": 0.9116353126950455,
+    "pr_auc": 0.9443813566251785,
+    "pr_auc_ham": 0.9991961966160432,
+    "pr_auc_smishing": 0.9495688814802709,
+    "pr_auc_spam": 0.8843789917792213,
+    "precision_ham": 0.9937629937629938,
+    "precision_smishing": 0.8888888888888888,
+    "precision_spam": 0.8390804597701149,
+    "recall_ham": 0.9906735751295337,
+    "recall_smishing": 0.8888888888888888,
+    "recall_spam": 0.8690476190476191,
+    "weighted_f1": 0.973177371136779
+  },
+  "model": "bilstm",
+  "n_test": 1148,
+  "n_train": 4017,
+  "seed": 2,
+  "task": "mendeley_3class",
+  "test_predict_seconds": 0.052493583999989823,
+  "train_seconds": 10.01213363799991
+}

@@ -5,6 +5,7 @@ configs/step2.yaml; the only hand-written parts are the method notes.
 Run: python scripts/make_step2_report.py
 """
 import json
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -12,6 +13,9 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
+sys.path.insert(0, str(ROOT / "scripts"))
+import make_tables  # noqa: E402
+
 MODELS = ["logreg", "linear_svm", "random_forest", "xgboost"]
 MODEL_NAMES = {"logreg": "LogReg", "linear_svm": "LinearSVM", "random_forest": "RandomForest", "xgboost": "XGBoost"}
 LOW_RECALL = 0.90
@@ -38,8 +42,9 @@ def main():
     cfg = yaml.safe_load((ROOT / "configs" / "step2.yaml").read_text(encoding="utf-8"))
     proto = cfg["protocol"]
     metrics = pd.read_csv(RESULTS / "metrics.csv")
+    metrics = metrics[metrics["model"].isin(MODELS)]  # results/metrics.csv also holds the step-3 models
     eff = pd.read_csv(RESULTS / "efficiency.csv")
-    sig = pd.read_csv(RESULTS / "significance.csv")
+    sig = pd.read_csv(RESULTS / "significance_step2.csv")
     env = json.loads((RESULTS / "environment.json").read_text(encoding="utf-8"))
     best = {(t, m): json.loads((RESULTS / "best_params" / t / f"{m}.json").read_text(encoding="utf-8"))
             for t in cfg["tasks"] for m in MODELS}
@@ -83,12 +88,13 @@ def main():
 
     # 1. Tables
     md.append("## 1. Итоговые таблицы (test, среднее ± стандартное отклонение по 5 seed)\n")
-    md.append("Жирным — лучшее значение в столбце, подчёркнуто — второе (для ECE лучше меньшее). LaTeX-версии: "
-              "`results/tables/<task>.tex`; все запуски: `results/metrics.csv`; предсказания: "
+    md.append("Жирным — лучшее значение в столбце, подчёркнуто — второе среди классических моделей (для ECE лучше "
+              "меньшее). Таблицы со всеми моделями шагов 2 и 3: `results/tables/<task>.md|.tex`; все запуски: `results/metrics.csv`; предсказания: "
               "`results/raw/<task>/<model>/seed<k>.csv`.\n")
     for t in cfg["tasks"]:
         md.append(f"### {t}\n")
-        md.append((RESULTS / "tables" / f"{t}.md").read_text(encoding="utf-8"))
+        cols = make_tables.task_columns(cfg["tasks"][t])
+        md.append(make_tables.markdown(make_tables.summarize(metrics, t, cols), cols))
 
     # 2. Best params
     md.append("## 2. Лучшие гиперпараметры (подбор на val)\n")
@@ -119,33 +125,56 @@ def main():
     md.append(table(["Задача", "Лучшая", "Против", "Δ macro F1 [95% ДИ]", "p бутстреп / Холм",
                      "Значимо (бутстреп)", "Макнемар b / c", "Метод", "p Макнемар / Холм", "Значимо (Макнемар)"],
                     rows))
-    md.append("\nb — только лучшая модель права, c — только другая. Полная таблица: `results/significance.csv`.\n")
+    md.append("\nb — только лучшая модель права, c — только другая. Полная таблица: `results/significance_step2.csv` "
+              "(сравнение всех моделей шагов 2 и 3 — `results/significance.csv`, отчёт шага 3).\n")
 
     # 4. Efficiency
     md.append("## 4. Время обучения, задержка, размер модели\n")
-    md.append(
-        f"Медиана по {len(proto['eval_seeds'])} seed. Время обучения — wall-clock `fit` всего пайплайна "
-        "(TF-IDF + модель, для LinearSVM вместе с калибровкой) на train. Задержка — медиана по "
-        f"{proto['latency_messages']} предсказаниям с батчем 1 (TF-IDF + модель, один поток, после "
-        f"{proto['latency_warmup']} прогревочных вызовов) на сообщениях test; если в test меньше "
-        f"{proto['latency_messages']} сообщений, они повторяются по кругу. Размер — сериализованный joblib-пайплайн "
-        f"в МБ. Машина: {env['platform']}, {env['cpu_count']} логических CPU, Python {env['python']}. Эти числа "
-        "зависят от машины и нагрузки и не воспроизводятся побайтно (`results/efficiency.csv`).\n"
-    )
+    lat_path = RESULTS / "latency" / "latency.csv"
+    lat = pd.read_csv(lat_path).set_index(["task", "model"]) if lat_path.exists() else None
+    if lat is not None:
+        lat_env = json.loads((RESULTS / "latency" / "environment.json").read_text(encoding="utf-8"))
+        md.append(
+            f"Время обучения — медиана по {len(proto['eval_seeds'])} seed, wall-clock `fit` всего пайплайна "
+            "(TF-IDF + модель, для LinearSVM вместе с калибровкой) на train, на машине из последнего столбца. "
+            "Задержка и размер заменены единым замером шага 3 (одна сессия Kaggle для всех моделей шагов 2 и 3, "
+            f"{lat_env['cpu_model']}, 1 поток): пайплайн заново обучен на train с лучшими параметрами и seed 1, "
+            f"задержка — медиана по {lat_env['n_messages']} предсказаниям с батчем 1 (TF-IDF + модель, после "
+            f"{lat_env['warmup']} прогревочных вызовов) на сообщениях test, по кругу, если их меньше; размер — "
+            "сериализованный joblib-пайплайн в МБ (`results/latency/latency.csv`). Прежние локальные замеры "
+            "задержки и размера остаются в `results/efficiency.csv`, но в отчёте не используются. Времена "
+            "зависят от машины и нагрузки и не воспроизводятся побайтно.\n"
+        )
+    else:
+        md.append(
+            f"Медиана по {len(proto['eval_seeds'])} seed. Время обучения — wall-clock `fit` всего пайплайна "
+            "(TF-IDF + модель, для LinearSVM вместе с калибровкой) на train. Задержка — медиана по "
+            f"{proto['latency_messages']} предсказаниям с батчем 1 (TF-IDF + модель, один поток, после "
+            f"{proto['latency_warmup']} прогревочных вызовов) на сообщениях test; если в test меньше "
+            f"{proto['latency_messages']} сообщений, они повторяются по кругу. Размер — сериализованный joblib-пайплайн "
+            f"в МБ. Машина: {env['platform']}, {env['cpu_count']} логических CPU, Python {env['python']}. Эти числа "
+            "зависят от машины и нагрузки и не воспроизводятся побайтно (`results/efficiency.csv`).\n"
+        )
     e = eff.groupby(["task", "model"]).median(numeric_only=True)
     machine = eff.groupby(["task", "model"])["machine"].first() if "machine" in eff else None
     rows = []
     for t in cfg["tasks"]:
         for m in MODELS:
             r = e.loc[(t, m)]
+            src = lat.loc[(t, m)] if lat is not None else r
             rows.append([t, MODEL_NAMES[m], int(r["n_train"]), f"{r['train_time_s']:.2f}",
-                         f"{r['latency_ms_median_batch1']:.3f}", f"{r['model_size_mb']:.2f}",
-                         machine.loc[(t, m)] if machine is not None else env["platform"]])
-    md.append(table(["Задача", "Модель", "Train", "Обучение, с", "Задержка, мс/сообщение", "Размер, МБ", "Машина"],
-                    rows))
-    md.append("\nLinearSVM после правки (`ensemble=False`) обучался и замерялся на Kaggle CPU, остальные модели — "
-              "локально, поэтому эти числа между собой не сравнимы. Единый замер всех моделей шагов 2 и 3 на одном "
-              "железе — в отчёте шага 3.")
+                         machine.loc[(t, m)] if machine is not None else env["platform"],
+                         f"{src['latency_ms_median_batch1']:.3f}", f"{src['model_size_mb']:.2f}"])
+    md.append(table(["Задача", "Модель", "Train", "Обучение, с", "Машина (обучение)", "Задержка, мс/сообщение",
+                     "Размер, МБ"], rows))
+    if lat is not None:
+        md.append("\nВремя обучения LinearSVM (после правки `ensemble=False`) измерено на Kaggle CPU, остальных "
+                  "моделей — локально, поэтому времена обучения между собой не сравнимы. Задержка и размер — "
+                  "на одном железе и сравнимы.")
+    else:
+        md.append("\nLinearSVM после правки (`ensemble=False`) обучался и замерялся на Kaggle CPU, остальные модели — "
+                  "локально, поэтому эти числа между собой не сравнимы. Единый замер всех моделей шагов 2 и 3 на одном "
+                  "железе — в отчёте шага 3.")
     md.append("")
 
     # 5. Observations
@@ -204,8 +233,8 @@ def main():
         "разница в 1–3 ошибки заметно двигает метрики.",
         "RandomForest обучается в 8 потоков, а предсказывает в одном: параллельное суммирование вероятностей "
         "деревьев в sklearn меняет последние биты результата от запуска к запуску.",
-        "Задержка измерена в одном потоке на этой машине; при другой нагрузке или железе числа будут другими. "
-        "У moz_binary в test 505 сообщений, поэтому для 1000 измерений сообщения повторяются.",
+        "Задержка измерена в одном потоке на Kaggle CPU (единый замер шага 3); при другой нагрузке или железе "
+        "числа будут другими. У moz_binary в test 505 сообщений, поэтому для 1000 измерений сообщения повторяются.",
         "XGBoost на macOS требует OpenMP-рантайм (`brew install libomp`).",
     ]
     md += [f"- {n}" for n in notes]

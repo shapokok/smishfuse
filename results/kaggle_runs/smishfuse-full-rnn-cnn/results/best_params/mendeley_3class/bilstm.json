@@ -1,0 +1,18 @@
+{
+  "checkpoint": null,
+  "model": "bilstm",
+  "model_params": {
+    "batch_size": 64,
+    "dropout": 0.2959450221350303,
+    "embed_dim": 300,
+    "hidden_size": 128,
+    "lr": 0.0005128948134124476,
+    "max_len": 128,
+    "min_freq": 2,
+    "num_layers": 2
+  },
+  "n_trials": 20,
+  "task": "mendeley_3class",
+  "trial": 16,
+  "val_macro_f1": 0.9132201646090535
+}

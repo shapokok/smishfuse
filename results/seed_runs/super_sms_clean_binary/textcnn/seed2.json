@@ -1,0 +1,77 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 7.005799629000194,
+      "val_macro_f1": 0.9817649318041053,
+      "val_seconds": 0.10464966200015624
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 6.946145973000057,
+      "val_macro_f1": 0.9860456809497362,
+      "val_seconds": 0.10376056399991285
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 6.947494488999837,
+      "val_macro_f1": 0.9868920676506552,
+      "val_seconds": 0.10515872099995249
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 6.925737247000143,
+      "val_macro_f1": 0.9868920676506552,
+      "val_seconds": 0.1034457589998965
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 6.900841333999779,
+      "val_macro_f1": 0.9887745898032816,
+      "val_seconds": 0.10465062000002945
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 6.917986445000224,
+      "val_macro_f1": 0.9870596335581698,
+      "val_seconds": 0.10245633700014878
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 6.922854786000244,
+      "val_macro_f1": 0.9882683147030753,
+      "val_seconds": 0.10395122799991441
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 6.91087170999981,
+      "val_macro_f1": 0.9880861473200516,
+      "val_seconds": 0.10583392799981084
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9893834218048183,
+    "balanced_accuracy": 0.9892122594377253,
+    "ece": 0.0015717677069275512,
+    "f1_benign": 0.991145620487672,
+    "f1_malicious": 0.9867455138662317,
+    "macro_f1": 0.9889455671769518,
+    "pr_auc": 0.9987513599538291,
+    "precision_benign": 0.9922269194054275,
+    "precision_malicious": 0.9851384364820847,
+    "recall_at_fpr_1pct": 0.9883578431372549,
+    "recall_benign": 0.9900666757381956,
+    "recall_malicious": 0.9883578431372549,
+    "weighted_f1": 0.9893862965171883
+  },
+  "model": "textcnn",
+  "n_test": 12245,
+  "n_train": 42857,
+  "seed": 2,
+  "task": "super_sms_clean_binary",
+  "test_predict_seconds": 0.3100110870000208,
+  "train_seconds": 57.27424736000012
+}

@@ -1,0 +1,53 @@
+{
+  "best_epoch": 1,
+  "device": "cuda",
+  "encode_seconds": 0.021450114000117537,
+  "epochs_run": 5,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.2890797840000232,
+      "val_macro_f1": 0.9480670543961683,
+      "val_seconds": 0.009504060999915964
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.22354424300010578,
+      "val_macro_f1": 0.9707669909643427,
+      "val_seconds": 0.009075326999891331
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.19453507200000786,
+      "val_macro_f1": 0.9573345539521549,
+      "val_seconds": 0.012992716999860932
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.1434896129999288,
+      "val_macro_f1": 0.9707669909643427,
+      "val_seconds": 0.00927804399998422
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.1550457450000522,
+      "val_macro_f1": 0.9522641509433962,
+      "val_seconds": 0.008097399999996924
+    }
+  ],
+  "n_train": 1765,
+  "n_val": 253,
+  "number": 13,
+  "params": {
+    "batch_size": 128,
+    "dropout": 0.21487394943138116,
+    "embed_dim": 100,
+    "kernel_sizes": "3,4,5",
+    "lr": 0.0029888341092645927,
+    "max_len": 128,
+    "min_freq": 1,
+    "num_filters": 256
+  },
+  "seconds": 1.1186354599999504,
+  "value": 0.9707669909643427
+}

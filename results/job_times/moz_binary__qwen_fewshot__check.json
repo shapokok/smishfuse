@@ -1,0 +1,12 @@
+{
+  "model": "qwen_fewshot",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 132.32193510899992,
+      "status": "ok"
+    }
+  ],
+  "task": "moz_binary",
+  "worker": "smishfuse-full-c2_gpu1"
+}

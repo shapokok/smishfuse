@@ -92,10 +92,13 @@ def main():
     start = time.time()
     RESULTS.mkdir(parents=True, exist_ok=True)
     env_vars = {"SMISHFUSE_DATA": str(find_data()), "SMISHFUSE_RESULTS": str(RESULTS),
-                "PYTHONPATH": str(CODE / "src"),
+                "PYTHONPATH": str(CODE / "src"), "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
                 # no new trial / seed / LLM batch after this point (session budget, default 8.5 h)
                 "SMISHFUSE_DEADLINE": str(start + 3600 * float(spec.get("budget_hours", 8.5)))}
-    restored = restore_state(args.kernel)
+    # A continuation kernel (new name, so the first session's output with model weights stays
+    # available as a kernel source) restores the state of the kernel named in state_from.
+    sources = spec.get("state_from", args.kernel)
+    restored = sum(restore_state(k) for k in ([sources] if isinstance(sources, str) else sources))
     print(f"[entry] kernel {args.kernel}, data {env_vars['SMISHFUSE_DATA']}, restored {restored} files", flush=True)
     info = {"kernel": args.kernel, "spec": spec, "restored_files": restored, "environment": environment(),
             "start_unix": start}

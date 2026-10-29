@@ -1,0 +1,18 @@
+{
+  "checkpoint": null,
+  "model": "bilstm",
+  "model_params": {
+    "batch_size": 64,
+    "dropout": 0.42656753901744054,
+    "embed_dim": 200,
+    "hidden_size": 64,
+    "lr": 0.0017769743738424587,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_layers": 2
+  },
+  "n_trials": 20,
+  "task": "super_sms_clean_binary",
+  "trial": 14,
+  "val_macro_f1": 0.9916574427141035
+}

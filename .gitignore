@@ -14,3 +14,9 @@ access_token
 reports/removed/
 reports/conflicts/
 reports/overlap_mendeley_uci_pairs.csv
+# model weights (re-creatable from code + best_params; too large for git)
+*.safetensors
+*.pt
+*.bin
+results/kaggle_runs/*/results/latency/retrained/
+results/models/

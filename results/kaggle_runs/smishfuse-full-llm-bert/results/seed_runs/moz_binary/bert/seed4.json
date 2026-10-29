@@ -1,0 +1,47 @@
+{
+  "best_epoch": 0,
+  "device": "cuda",
+  "epochs_run": 3,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 16.971252757999537,
+      "val_macro_f1": 0.9822219099149743,
+      "val_seconds": 0.3185993999995844
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 16.940167831000508,
+      "val_macro_f1": 0.9761320754716981,
+      "val_seconds": 0.32120934600061446
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 16.960236611001164,
+      "val_macro_f1": 0.9822219099149743,
+      "val_seconds": 0.3227851499996177
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9861386138613861,
+    "balanced_accuracy": 0.9877894143615273,
+    "ece": 0.011626698475072896,
+    "f1_benign": 0.9911504424778761,
+    "f1_malicious": 0.9680365296803652,
+    "macro_f1": 0.9795934860791207,
+    "pr_auc": 0.956486937325776,
+    "precision_benign": 0.9974554707379135,
+    "precision_malicious": 0.9464285714285714,
+    "recall_at_fpr_1pct": 0.8878504672897196,
+    "recall_benign": 0.9849246231155779,
+    "recall_malicious": 0.9906542056074766,
+    "weighted_f1": 0.9862530391722648
+  },
+  "model": "bert",
+  "n_test": 505,
+  "n_train": 1765,
+  "seed": 4,
+  "task": "moz_binary",
+  "test_predict_seconds": 0.4644002029999683,
+  "train_seconds": 52.96536632099924
+}

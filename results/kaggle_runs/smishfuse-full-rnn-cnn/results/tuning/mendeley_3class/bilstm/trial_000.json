@@ -1,0 +1,89 @@
+{
+  "best_epoch": 7,
+  "device": "cuda",
+  "encode_seconds": 0.04965514099995971,
+  "epochs_run": 11,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 3.261321100000032,
+      "val_macro_f1": 0.3561074378684442,
+      "val_seconds": 0.033615952999980436
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 2.185136526000008,
+      "val_macro_f1": 0.5898146423248881,
+      "val_seconds": 0.021898194000016247
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 2.235766835999982,
+      "val_macro_f1": 0.6896718889246909,
+      "val_seconds": 0.0215240969999968
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 2.032454822000034,
+      "val_macro_f1": 0.8088668489202534,
+      "val_seconds": 0.021363176000022577
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 2.208514621000006,
+      "val_macro_f1": 0.8487849915115623,
+      "val_seconds": 0.02185102199996436
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 2.1417173620000085,
+      "val_macro_f1": 0.8685802833530106,
+      "val_seconds": 0.023936710999976185
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 2.1947529369999756,
+      "val_macro_f1": 0.8357727726795668,
+      "val_seconds": 0.021178351000003204
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 2.007415911999999,
+      "val_macro_f1": 0.8807942557942559,
+      "val_seconds": 0.021523057000024437
+    },
+    {
+      "epoch": 8,
+      "train_seconds": 2.1158216069999867,
+      "val_macro_f1": 0.877594786413725,
+      "val_seconds": 0.021319160999951237
+    },
+    {
+      "epoch": 9,
+      "train_seconds": 2.15708335100004,
+      "val_macro_f1": 0.877185424302489,
+      "val_seconds": 0.021406925999997384
+    },
+    {
+      "epoch": 10,
+      "train_seconds": 2.064362889999984,
+      "val_macro_f1": 0.8418884764654252,
+      "val_seconds": 0.021214525999994294
+    }
+  ],
+  "n_train": 4017,
+  "n_val": 574,
+  "number": 0,
+  "params": {
+    "batch_size": 32,
+    "dropout": 0.4329770563201687,
+    "embed_dim": 100,
+    "hidden_size": 64,
+    "lr": 0.0003574712922600243,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_layers": 2
+  },
+  "seconds": 30.391780094000012,
+  "value": 0.8807942557942559
+}

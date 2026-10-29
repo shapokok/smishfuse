@@ -1,0 +1,40 @@
+{
+  "batch_size": 32,
+  "checkpoint": "Qwen/Qwen2.5-7B-Instruct",
+  "device": "cuda",
+  "generation_seconds": 66.4233001409998,
+  "invalid_rate": 0.0,
+  "metrics": {
+    "accuracy": 0.8,
+    "balanced_accuracy": 0.8731155778894473,
+    "ece": 0.1755698126141388,
+    "f1_benign": 0.8546762589928057,
+    "f1_malicious": 0.6793650793650794,
+    "macro_f1": 0.7670206691789425,
+    "pr_auc": 0.9677973988577979,
+    "precision_benign": 1.0,
+    "precision_malicious": 0.5144230769230769,
+    "recall_at_fpr_1pct": 0.6822429906542056,
+    "recall_benign": 0.7462311557788944,
+    "recall_malicious": 1.0,
+    "weighted_f1": 0.8175311179627726
+  },
+  "model": "qwen_fewshot",
+  "model_load_seconds": 3.4350000532867853e-06,
+  "n_test": 505,
+  "new_messages_this_session": 505,
+  "prefix_cache": true,
+  "prompt_tokens_this_session": 26685,
+  "seed": 1,
+  "shot_train_ids": [
+    "moz_smishing_01491",
+    "moz_smishing_00998",
+    "moz_smishing_00924",
+    "moz_smishing_02532",
+    "moz_smishing_02496",
+    "moz_smishing_02145",
+    "moz_smishing_02179",
+    "moz_smishing_01921"
+  ],
+  "task": "moz_binary"
+}

@@ -1,0 +1,40 @@
+{
+  "batch_size": 32,
+  "checkpoint": "Qwen/Qwen2.5-7B-Instruct",
+  "device": "cuda",
+  "generation_seconds": 74.46570739200001,
+  "invalid_rate": 0.0,
+  "metrics": {
+    "accuracy": 0.8613861386138614,
+    "balanced_accuracy": 0.8983938383506316,
+    "ece": 0.09666647332729672,
+    "f1_benign": 0.9046321525885559,
+    "f1_malicious": 0.7463768115942029,
+    "macro_f1": 0.8255044820913794,
+    "pr_auc": 0.9316528801240189,
+    "precision_benign": 0.9880952380952381,
+    "precision_malicious": 0.6094674556213018,
+    "recall_at_fpr_1pct": 0.5981308411214953,
+    "recall_benign": 0.8341708542713567,
+    "recall_malicious": 0.9626168224299065,
+    "weighted_f1": 0.8711008229125247
+  },
+  "model": "qwen_fewshot",
+  "model_load_seconds": 9.33699993765913e-06,
+  "n_test": 505,
+  "new_messages_this_session": 505,
+  "prefix_cache": true,
+  "prompt_tokens_this_session": 26685,
+  "seed": 5,
+  "shot_train_ids": [
+    "moz_smishing_02549",
+    "moz_smishing_01605",
+    "moz_smishing_01595",
+    "moz_smishing_00044",
+    "moz_smishing_01319",
+    "moz_smishing_02040",
+    "moz_smishing_02161",
+    "moz_smishing_02158"
+  ],
+  "task": "moz_binary"
+}

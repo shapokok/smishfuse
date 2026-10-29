@@ -1,0 +1,129 @@
+[smishfuse-full-llm-bert_gpu1] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/qwen_fewshot] mode full: train 42857, val 6123, test 12245
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 640/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 1280/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 1920/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 2560/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 3200/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 3840/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 4480/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 5120/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 5760/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 6400/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 7040/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 7680/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 8320/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 8960/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 9600/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 10240/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 10880/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 11520/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 4: 12160/12245 messages
+[super_sms_clean_binary/qwen_fewshot] seed 4: test macro F1 0.7815, invalid 0.008%, 784s
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 640/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 1280/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 1920/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 2560/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 3200/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 3840/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 4480/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 5120/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 5760/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 6400/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 7040/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 7680/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 8320/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 8960/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 9600/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 10240/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 10880/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 11520/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 5: 12160/12245 messages
+[super_sms_clean_binary/qwen_fewshot] seed 5: test macro F1 0.8764, invalid 0.000%, 785s
+[moz_binary/qwen_fewshot] mode full: train 1765, val 253, test 505
+[moz_binary/qwen_fewshot] seed 1: test macro F1 0.7670, invalid 0.000%, 66s
+[moz_binary/qwen_fewshot] seed 2: test macro F1 0.7522, invalid 0.000%, 92s
+[moz_binary/qwen_fewshot] seed 3: test macro F1 0.8061, invalid 0.000%, 81s
+[moz_binary/qwen_fewshot] seed 4: test macro F1 0.8265, invalid 0.000%, 80s
+[moz_binary/qwen_fewshot] FAILED, traceback in /kaggle/working/results/errors/moz_binary__qwen_fewshot.txt
+[mendeley_3class/bert] mode full: train 4017, val 574, test 1148
+[mendeley_3class/bert] trial 0: val macro F1 0.9135 (5 epochs, 149s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/bert] trial 1: val macro F1 0.9086 (4 epochs, 112s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 2: val macro F1 0.9077 (5 epochs, 146s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_3class/bert] trial 3: val macro F1 0.9040 (4 epochs, 116s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/bert] trial 4: val macro F1 0.9043 (5 epochs, 96s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_3class/bert] trial 5: val macro F1 0.9081 (5 epochs, 142s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 6: val macro F1 0.9101 (5 epochs, 98s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_3class/bert] trial 7: val macro F1 0.9081 (5 epochs, 145s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/bert] trial 8: val macro F1 0.9215 (5 epochs, 140s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 9: val macro F1 0.8971 (5 epochs, 145s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/bert] trial 10: val macro F1 0.9090 (5 epochs, 143s) {'lr': 8.005755320347456e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 11: val macro F1 0.9083 (4 epochs, 111s) {'lr': 3.0472258927783933e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/bert] trial 12: val macro F1 0.9081 (5 epochs, 138s) {'lr': 1.4811758973413649e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/bert] trial 13: val macro F1 0.9243 (5 epochs, 95s) {'lr': 2.014703215940884e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 14: val macro F1 0.9172 (5 epochs, 95s) {'lr': 1.76984267758891e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 15: val macro F1 0.8954 (4 epochs, 76s) {'lr': 5.530578318274019e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 16: val macro F1 0.9133 (5 epochs, 98s) {'lr': 2.524067819104896e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 17: val macro F1 0.9199 (5 epochs, 98s) {'lr': 1.47645949023602e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 18: val macro F1 0.9276 (5 epochs, 139s) {'lr': 2.0433435335474963e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/bert] trial 19: val macro F1 0.9331 (5 epochs, 97s) {'lr': 5.91458138897039e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/bert] best trial 19: val macro F1 0.9331
+[mendeley_3class/bert] seed 1: test macro F1 0.9172 (96s)
+[mendeley_3class/bert] seed 2: test macro F1 0.9244 (97s)
+[mendeley_3class/bert] seed 3: test macro F1 0.9228 (97s)
+[mendeley_3class/bert] seed 4: test macro F1 0.9169 (97s)
+[mendeley_3class/bert] seed 5: test macro F1 0.9161 (97s)
+[mendeley_binary/bert] mode full: train 4017, val 574, test 1148
+[mendeley_binary/bert] trial 0: val macro F1 0.9902 (4 epochs, 111s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 1: val macro F1 0.9901 (5 epochs, 139s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/bert] trial 2: val macro F1 0.9902 (5 epochs, 144s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 3: val macro F1 0.9869 (3 epochs, 87s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 4: val macro F1 0.9902 (5 epochs, 95s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 5: val macro F1 0.9902 (3 epochs, 84s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/bert] trial 6: val macro F1 0.9934 (5 epochs, 97s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 7: val macro F1 0.9935 (5 epochs, 144s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 8: val macro F1 0.9934 (5 epochs, 139s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/bert] trial 9: val macro F1 0.9902 (5 epochs, 144s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 10: val macro F1 0.9902 (4 epochs, 115s) {'lr': 7.19973485122495e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 11: val macro F1 0.9934 (5 epochs, 98s) {'lr': 4.424424776276713e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 12: val macro F1 0.9967 (5 epochs, 95s) {'lr': 8.416466482469322e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 13: val macro F1 0.9868 (5 epochs, 95s) {'lr': 9.421011078854608e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/bert] trial 14: val macro F1 0.9902 (5 epochs, 95s) {'lr': 1.7043710126032575e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 15: val macro F1 0.9902 (5 epochs, 95s) {'lr': 5.92373627532591e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] trial 16: val macro F1 0.9902 (5 epochs, 97s) {'lr': 1.9580274529378152e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 17: val macro F1 0.9902 (5 epochs, 143s) {'lr': 1.4088157147869089e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 18: val macro F1 0.9934 (5 epochs, 95s) {'lr': 3.1242427255180816e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_binary/bert] trial 19: val macro F1 0.9902 (5 epochs, 97s) {'lr': 1.1198565901711774e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/bert] best trial 12: val macro F1 0.9967
+[mendeley_binary/bert] seed 1: test macro F1 0.9886 (94s)
+[mendeley_binary/bert] seed 2: test macro F1 0.9840 (75s)
+[mendeley_binary/bert] seed 3: test macro F1 0.9789 (57s)
+[mendeley_binary/bert] seed 4: test macro F1 0.9837 (94s)
+[mendeley_binary/bert] seed 5: test macro F1 0.9869 (95s)
+[moz_binary/bert] mode full: train 1765, val 253, test 505
+[moz_binary/bert] trial 0: val macro F1 0.9825 (5 epochs, 90s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 1: val macro F1 0.9768 (4 epochs, 68s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/bert] trial 2: val macro F1 0.9825 (5 epochs, 88s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 3: val macro F1 0.9825 (4 epochs, 71s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/bert] trial 4: val macro F1 0.9765 (5 epochs, 61s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[moz_binary/bert] trial 5: val macro F1 0.9825 (5 epochs, 85s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/bert] trial 6: val macro F1 0.9825 (4 epochs, 50s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 7: val macro F1 0.9825 (4 epochs, 71s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/bert] trial 8: val macro F1 0.9768 (4 epochs, 68s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/bert] trial 9: val macro F1 0.9822 (5 epochs, 88s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/bert] trial 10: val macro F1 0.9768 (4 epochs, 49s) {'lr': 6.816763179381179e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 11: val macro F1 0.9825 (5 epochs, 85s) {'lr': 2.484087077245804e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 12: val macro F1 0.9882 (3 epochs, 53s) {'lr': 3.8557691190085314e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 13: val macro F1 0.9768 (4 epochs, 71s) {'lr': 9.128162044953606e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 14: val macro F1 0.9768 (3 epochs, 53s) {'lr': 4.548493236644967e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/bert] trial 15: val macro F1 0.9882 (5 epochs, 87s) {'lr': 8.408412464460238e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/bert] trial 16: val macro F1 0.9822 (4 epochs, 69s) {'lr': 9.060793884751454e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/bert] trial 17: val macro F1 0.9765 (5 epochs, 63s) {'lr': 5.931763127087221e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[moz_binary/bert] trial 18: val macro F1 0.9825 (4 epochs, 72s) {'lr': 5.699547751678757e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/bert] trial 19: val macro F1 0.9768 (4 epochs, 51s) {'lr': 1.1198565901711774e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/bert] best trial 12: val macro F1 0.9882
+[moz_binary/bert] seed 1: test macro F1 0.9854 (90s)
+[moz_binary/bert] seed 2: test macro F1 0.9825 (90s)
+[moz_binary/bert] seed 3: test macro F1 0.9825 (71s)
+[moz_binary/bert] seed 4: test macro F1 0.9796 (53s)
+[moz_binary/bert] seed 5: test macro F1 0.9797 (88s)

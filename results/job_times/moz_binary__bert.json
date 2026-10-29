@@ -1,0 +1,12 @@
+{
+  "model": "bert",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 1792.672703827,
+      "status": "ok"
+    }
+  ],
+  "task": "moz_binary",
+  "worker": "smishfuse-full-llm-bert_gpu1"
+}

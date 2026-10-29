@@ -1,0 +1,15 @@
+[smishfuse-full-c2_gpu1] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/bert] mode full: train 42857, val 6123, test 12245
+[super_sms_clean_binary/bert] best trial 17: val macro F1 0.9952
+[super_sms_clean_binary/bert] seed 1: already done, skipped
+[super_sms_clean_binary/bert] seed 2: already done, skipped
+[super_sms_clean_binary/bert] seed 3: already done, skipped
+[super_sms_clean_binary/bert] seed 4: already done, skipped
+[super_sms_clean_binary/bert] seed 5: test macro F1 0.9926 (661s)
+[moz_binary/qwen_fewshot] cache check: 200/200 identical answers, max |dp| 7.38e-03, 74s -> 34s
+[moz_binary/qwen_fewshot] mode full: train 1765, val 253, test 505
+[moz_binary/qwen_fewshot] seed 1: already done, skipped
+[moz_binary/qwen_fewshot] seed 2: already done, skipped
+[moz_binary/qwen_fewshot] seed 3: already done, skipped
+[moz_binary/qwen_fewshot] seed 4: already done, skipped
+[moz_binary/qwen_fewshot] seed 5: test macro F1 0.8255, invalid 0.000%, 74s

@@ -8,6 +8,8 @@ pip:
         pyyaml==6.0.3, joblib==1.6.0]
   # GPU notebooks keep Kaggle's torch/transformers; only missing packages are installed.
   gpu: [optuna, bitsandbytes, accelerate]
+  # Latency session: step-2 pipelines are re-fitted, so pin the step-2 versions of sklearn/xgboost.
+  latency: [scikit-learn==1.9.1, scipy==1.17.1, xgboost==3.2.0, joblib==1.6.0, optuna, bitsandbytes, accelerate]
 
 kernels:
   smishfuse-svm-cpu:
@@ -94,3 +96,34 @@ kernels:
            {task: moz_binary, model: bilstm}, {task: mendeley_3class, model: textcnn},
            {task: mendeley_binary, model: textcnn}, {task: moz_binary, model: textcnn},
            {task: super_sms_clean_binary, model: textcnn}]
+
+  # Unified latency / size measurement of all step-2 and step-3 models in ONE session.
+  # CPU models with 1 thread; Qwen on the T4. Kernel sources provide the seed-1 weights
+  # (add continuation kernels here if a full kernel needed a second session).
+  smishfuse-latency:
+    accelerator: NvidiaTeslaT4
+    pip: latency
+    # smishfuse-full-llm-bert (BERT on mendeley_3class / mendeley_binary / moz_binary) cannot be a kernel
+    # source because its run ended with ERROR status; src/latency.py re-trains those seed-1 models.
+    kernel_sources: [shapok/smishfuse-full-bert-distil, shapok/smishfuse-full-rnn-cnn]
+    spec: {kind: latency}
+
+  # Continuation session for the unfinished work of two full kernels:
+  # * smishfuse-full-llm-bert: prefix-cache OOM (fixed with logits_to_keep=1); the cache check
+  #   is repeated with the fix for the two affected tasks;
+  # * smishfuse-full-bert-distil: BERT super_sms_clean seed 5 deferred by the session budget.
+  # Finished trials/seeds are restored from both kernels' state and skipped.
+  smishfuse-full-c2:
+    accelerator: NvidiaTeslaT4
+    pip: gpu
+    spec:
+      kind: neural
+      mode: full
+      budget_hours: 8.5
+      state_from: [smishfuse-full-llm-bert, smishfuse-full-bert-distil]
+      queues:
+        - [{task: mendeley_3class, model: qwen_fewshot, check_cache: true},
+           {task: mendeley_3class, model: qwen_fewshot}]
+        - [{task: super_sms_clean_binary, model: bert},
+           {task: moz_binary, model: qwen_fewshot, check_cache: true},
+           {task: moz_binary, model: qwen_fewshot}]

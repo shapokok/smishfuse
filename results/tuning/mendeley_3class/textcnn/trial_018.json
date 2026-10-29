@@ -1,0 +1,83 @@
+{
+  "best_epoch": 6,
+  "device": "cuda",
+  "encode_seconds": 0.039316993000056755,
+  "epochs_run": 10,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.3079705490001743,
+      "val_macro_f1": 0.6586528991329913,
+      "val_seconds": 0.01805688099989311
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.2865366979999635,
+      "val_macro_f1": 0.8317095072476309,
+      "val_seconds": 0.015609136999955808
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.2970735540000078,
+      "val_macro_f1": 0.8867927238772468,
+      "val_seconds": 0.015750964000062595
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.2909235570000419,
+      "val_macro_f1": 0.8695140714772617,
+      "val_seconds": 0.015804137000031915
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.2893832239999483,
+      "val_macro_f1": 0.8997759083501102,
+      "val_seconds": 0.016386211000053663
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.3070105130000229,
+      "val_macro_f1": 0.8997759083501102,
+      "val_seconds": 0.0158736090002094
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.3043780569998944,
+      "val_macro_f1": 0.9015737555871989,
+      "val_seconds": 0.015974833999962357
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.30243647599991164,
+      "val_macro_f1": 0.8988249708390224,
+      "val_seconds": 0.0210279340001307
+    },
+    {
+      "epoch": 8,
+      "train_seconds": 0.2863621960000273,
+      "val_macro_f1": 0.8923700831811271,
+      "val_seconds": 0.0159173639999608
+    },
+    {
+      "epoch": 9,
+      "train_seconds": 0.28448155999990377,
+      "val_macro_f1": 0.897035120182163,
+      "val_seconds": 0.01578460299992912
+    }
+  ],
+  "n_train": 4017,
+  "n_val": 574,
+  "number": 18,
+  "params": {
+    "batch_size": 128,
+    "dropout": 0.49666296356905265,
+    "embed_dim": 300,
+    "kernel_sizes": "3,4,5",
+    "lr": 0.0004396387166914423,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_filters": 256
+  },
+  "seconds": 3.2494673200001216,
+  "value": 0.9015737555871989
+}

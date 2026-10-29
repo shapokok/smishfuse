@@ -1,0 +1,14 @@
+{
+  "checkpoint": "distilbert-base-multilingual-cased",
+  "model": "distilbert",
+  "model_params": {
+    "batch_size": 16,
+    "lr": 1.3244581340099339e-05,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.0
+  },
+  "n_trials": 20,
+  "task": "moz_binary",
+  "trial": 5,
+  "val_macro_f1": 0.9940739699716581
+}

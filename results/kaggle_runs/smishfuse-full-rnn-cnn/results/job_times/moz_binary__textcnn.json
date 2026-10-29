@@ -1,0 +1,12 @@
+{
+  "model": "textcnn",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 43.615655381999886,
+      "status": "ok"
+    }
+  ],
+  "task": "moz_binary",
+  "worker": "smishfuse-full-rnn-cnn_gpu1"
+}

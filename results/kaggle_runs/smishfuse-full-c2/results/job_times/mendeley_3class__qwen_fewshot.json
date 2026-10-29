@@ -1,0 +1,17 @@
+{
+  "model": "qwen_fewshot",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 115.80948439099984,
+      "status": "error"
+    },
+    {
+      "mode": "full",
+      "seconds": 464.25405894999994,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_3class",
+  "worker": "smishfuse-full-c2_gpu0"
+}

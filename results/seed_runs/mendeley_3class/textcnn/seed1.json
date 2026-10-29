@@ -1,0 +1,82 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.2751241560001745,
+      "val_macro_f1": 0.741679670153411,
+      "val_seconds": 0.014958222000132082
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.35089594700002635,
+      "val_macro_f1": 0.8389469348013332,
+      "val_seconds": 0.018681439000147293
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.2952040819998274,
+      "val_macro_f1": 0.8525856834125328,
+      "val_seconds": 0.014488460999928066
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.31327657999986513,
+      "val_macro_f1": 0.8737047834177121,
+      "val_seconds": 0.014305803000070227
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.3339711779999561,
+      "val_macro_f1": 0.9013364219529579,
+      "val_seconds": 0.020049463000077594
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.3241883829998642,
+      "val_macro_f1": 0.8651698776593837,
+      "val_seconds": 0.018077423000022463
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.331527301000051,
+      "val_macro_f1": 0.8869046060057295,
+      "val_seconds": 0.017667019999862532
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.29863877899992985,
+      "val_macro_f1": 0.8869046060057295,
+      "val_seconds": 0.015632310999990295
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9747386759581882,
+    "balanced_accuracy": 0.8957584729605456,
+    "ece": 0.02320110927683141,
+    "f1_ham": 0.9927909371781668,
+    "f1_smishing": 0.9109947643979057,
+    "f1_spam": 0.8343558282208589,
+    "macro_f1": 0.9127138432656438,
+    "pr_auc": 0.944808840430848,
+    "pr_auc_ham": 0.999264173364513,
+    "pr_auc_smishing": 0.9617314516233847,
+    "pr_auc_spam": 0.8734308963046462,
+    "precision_ham": 0.9866939611054247,
+    "precision_smishing": 0.9456521739130435,
+    "precision_spam": 0.8607594936708861,
+    "recall_ham": 0.9989637305699481,
+    "recall_smishing": 0.8787878787878788,
+    "recall_spam": 0.8095238095238095,
+    "weighted_f1": 0.9741442731906583
+  },
+  "model": "textcnn",
+  "n_test": 1148,
+  "n_train": 4017,
+  "seed": 1,
+  "task": "mendeley_3class",
+  "test_predict_seconds": 0.05570244399996227,
+  "train_seconds": 2.7818771620000007
+}

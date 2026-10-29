@@ -1,0 +1,12 @@
+{
+  "model": "bert",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 28915.123276106002,
+      "status": "deferred"
+    }
+  ],
+  "task": "super_sms_clean_binary",
+  "worker": "smishfuse-full-bert-distil_gpu0"
+}

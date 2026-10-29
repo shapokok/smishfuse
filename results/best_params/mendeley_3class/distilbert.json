@@ -1,0 +1,14 @@
+{
+  "checkpoint": "distilbert-base-uncased",
+  "model": "distilbert",
+  "model_params": {
+    "batch_size": 32,
+    "lr": 6.187592551983267e-05,
+    "warmup_ratio": 0.0,
+    "weight_decay": 0.0
+  },
+  "n_trials": 20,
+  "task": "mendeley_3class",
+  "trial": 16,
+  "val_macro_f1": 0.9428384228562159
+}

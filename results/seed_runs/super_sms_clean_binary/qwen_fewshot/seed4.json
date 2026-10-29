@@ -1,0 +1,40 @@
+{
+  "batch_size": 32,
+  "checkpoint": "Qwen/Qwen2.5-7B-Instruct",
+  "device": "cuda",
+  "generation_seconds": 784.4571913160001,
+  "invalid_rate": 8.166598611678236e-05,
+  "metrics": {
+    "accuracy": 0.8130665577786852,
+    "balanced_accuracy": 0.7677376045782762,
+    "ece": 0.1578294590912629,
+    "f1_benign": 0.8645481981182318,
+    "f1_malicious": 0.6985507246376812,
+    "macro_f1": 0.7815494613779566,
+    "pr_auc": 0.9567233107470494,
+    "precision_benign": 0.7649214659685863,
+    "precision_malicious": 0.9840386043058649,
+    "recall_at_fpr_1pct": 0.6231617647058824,
+    "recall_benign": 0.9940127908558988,
+    "recall_malicious": 0.5414624183006536,
+    "weighted_f1": 0.7981763214207409
+  },
+  "model": "qwen_fewshot",
+  "model_load_seconds": 143.25443175600003,
+  "n_test": 12245,
+  "new_messages_this_session": 12245,
+  "prefix_cache": true,
+  "prompt_tokens_this_session": 438497,
+  "seed": 4,
+  "shot_train_ids": [
+    "super_sms_34144",
+    "super_sms_40191",
+    "super_sms_59094",
+    "super_sms_48671",
+    "super_sms_29970",
+    "super_sms_63181",
+    "super_sms_18584",
+    "super_sms_05246"
+  ],
+  "task": "super_sms_clean_binary"
+}

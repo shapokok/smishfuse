@@ -14,7 +14,7 @@
 
 ## 1. Итоговые таблицы (test, среднее ± стандартное отклонение по 5 seed)
 
-Жирным — лучшее значение в столбце, подчёркнуто — второе (для ECE лучше меньшее). LaTeX-версии: `results/tables/<task>.tex`; все запуски: `results/metrics.csv`; предсказания: `results/raw/<task>/<model>/seed<k>.csv`.
+Жирным — лучшее значение в столбце, подчёркнуто — второе среди классических моделей (для ECE лучше меньшее). Таблицы со всеми моделями шагов 2 и 3: `results/tables/<task>.md|.tex`; все запуски: `results/metrics.csv`; предсказания: `results/raw/<task>/<model>/seed<k>.csv`.
 
 ### mendeley_3class
 
@@ -92,32 +92,32 @@
 | super_sms_clean_binary | LinearSVM | RandomForest | +0.0064 [+0.0045; +0.0084] | 2.00e-04 / 6.00e-04 | да | 104 / 28 | chi2_cc | 6.67e-11 / 2.00e-10 | да |
 | super_sms_clean_binary | LinearSVM | XGBoost | +0.0032 [+0.0015; +0.0049] | 2.00e-04 / 6.00e-04 | да | 69 / 32 | chi2_cc | 3.41e-04 / 6.82e-04 | да |
 
-b — только лучшая модель права, c — только другая. Полная таблица: `results/significance.csv`.
+b — только лучшая модель права, c — только другая. Полная таблица: `results/significance_step2.csv` (сравнение всех моделей шагов 2 и 3 — `results/significance.csv`, отчёт шага 3).
 
 ## 4. Время обучения, задержка, размер модели
 
-Медиана по 5 seed. Время обучения — wall-clock `fit` всего пайплайна (TF-IDF + модель, для LinearSVM вместе с калибровкой) на train. Задержка — медиана по 1000 предсказаниям с батчем 1 (TF-IDF + модель, один поток, после 20 прогревочных вызовов) на сообщениях test; если в test меньше 1000 сообщений, они повторяются по кругу. Размер — сериализованный joblib-пайплайн в МБ. Машина: macOS-26.6.2-arm64-arm-64bit, 15 логических CPU, Python 3.11.16. Эти числа зависят от машины и нагрузки и не воспроизводятся побайтно (`results/efficiency.csv`).
+Время обучения — медиана по 5 seed, wall-clock `fit` всего пайплайна (TF-IDF + модель, для LinearSVM вместе с калибровкой) на train, на машине из последнего столбца. Задержка и размер заменены единым замером шага 3 (одна сессия Kaggle для всех моделей шагов 2 и 3, Intel(R) Xeon(R) CPU @ 2.00GHz, 1 поток): пайплайн заново обучен на train с лучшими параметрами и seed 1, задержка — медиана по 1000 предсказаниям с батчем 1 (TF-IDF + модель, после 20 прогревочных вызовов) на сообщениях test, по кругу, если их меньше; размер — сериализованный joblib-пайплайн в МБ (`results/latency/latency.csv`). Прежние локальные замеры задержки и размера остаются в `results/efficiency.csv`, но в отчёте не используются. Времена зависят от машины и нагрузки и не воспроизводятся побайтно.
 
-| Задача | Модель | Train | Обучение, с | Задержка, мс/сообщение | Размер, МБ | Машина |
+| Задача | Модель | Train | Обучение, с | Машина (обучение) | Задержка, мс/сообщение | Размер, МБ |
 |---|---|---|---|---|---|---|
-| mendeley_3class | LogReg | 4017 | 0.52 | 0.413 | 1.78 | local_mac_m |
-| mendeley_3class | LinearSVM | 4017 | 3.16 | 3.587 | 2.26 | kaggle_cpu_xeon_2.2ghz |
-| mendeley_3class | RandomForest | 4017 | 0.32 | 1.773 | 5.45 | local_mac_m |
-| mendeley_3class | XGBoost | 4017 | 16.18 | 0.293 | 2.86 | local_mac_m |
-| mendeley_binary | LogReg | 4017 | 0.28 | 0.207 | 0.69 | local_mac_m |
-| mendeley_binary | LinearSVM | 4017 | 2.75 | 1.966 | 3.85 | kaggle_cpu_xeon_2.2ghz |
-| mendeley_binary | RandomForest | 4017 | 0.68 | 9.390 | 17.67 | local_mac_m |
-| mendeley_binary | XGBoost | 4017 | 11.14 | 0.254 | 1.46 | local_mac_m |
-| moz_binary | LogReg | 1765 | 0.14 | 0.212 | 0.69 | local_mac_m |
-| moz_binary | LinearSVM | 1765 | 1.31 | 2.058 | 1.26 | kaggle_cpu_xeon_2.2ghz |
-| moz_binary | RandomForest | 1765 | 0.32 | 6.651 | 7.42 | local_mac_m |
-| moz_binary | XGBoost | 1765 | 0.86 | 0.492 | 3.33 | local_mac_m |
-| super_sms_clean_binary | LogReg | 42857 | 3.48 | 0.441 | 1.45 | local_mac_m |
-| super_sms_clean_binary | LinearSVM | 42857 | 22.22 | 3.504 | 4.06 | kaggle_cpu_xeon_2.2ghz |
-| super_sms_clean_binary | RandomForest | 42857 | 3.46 | 3.864 | 41.70 | local_mac_m |
-| super_sms_clean_binary | XGBoost | 42857 | 78.67 | 0.278 | 2.41 | local_mac_m |
+| mendeley_3class | LogReg | 4017 | 0.52 | local_mac_m | 1.926 | 1.78 |
+| mendeley_3class | LinearSVM | 4017 | 3.16 | kaggle_cpu_xeon_2.2ghz | 2.817 | 2.26 |
+| mendeley_3class | RandomForest | 4017 | 0.32 | local_mac_m | 8.140 | 5.48 |
+| mendeley_3class | XGBoost | 4017 | 16.18 | local_mac_m | 1.538 | 2.86 |
+| mendeley_binary | LogReg | 4017 | 0.28 | local_mac_m | 0.912 | 0.69 |
+| mendeley_binary | LinearSVM | 4017 | 2.75 | kaggle_cpu_xeon_2.2ghz | 1.756 | 3.85 |
+| mendeley_binary | RandomForest | 4017 | 0.68 | local_mac_m | 53.095 | 17.47 |
+| mendeley_binary | XGBoost | 4017 | 11.14 | local_mac_m | 1.367 | 1.45 |
+| moz_binary | LogReg | 1765 | 0.14 | local_mac_m | 1.012 | 0.69 |
+| moz_binary | LinearSVM | 1765 | 1.31 | kaggle_cpu_xeon_2.2ghz | 1.728 | 1.26 |
+| moz_binary | RandomForest | 1765 | 0.32 | local_mac_m | 38.388 | 7.39 |
+| moz_binary | XGBoost | 1765 | 0.86 | local_mac_m | 2.590 | 3.33 |
+| super_sms_clean_binary | LogReg | 42857 | 3.48 | local_mac_m | 2.149 | 1.45 |
+| super_sms_clean_binary | LinearSVM | 42857 | 22.22 | kaggle_cpu_xeon_2.2ghz | 2.899 | 4.06 |
+| super_sms_clean_binary | RandomForest | 42857 | 3.46 | local_mac_m | 20.941 | 41.58 |
+| super_sms_clean_binary | XGBoost | 42857 | 78.67 | local_mac_m | 1.432 | 2.41 |
 
-LinearSVM после правки (`ensemble=False`) обучался и замерялся на Kaggle CPU, остальные модели — локально, поэтому эти числа между собой не сравнимы. Единый замер всех моделей шагов 2 и 3 на одном железе — в отчёте шага 3.
+Время обучения LinearSVM (после правки `ensemble=False`) измерено на Kaggle CPU, остальных моделей — локально, поэтому времена обучения между собой не сравнимы. Задержка и размер — на одном железе и сравнимы.
 
 ## 5. Наблюдения
 
@@ -154,5 +154,5 @@ LinearSVM после правки (`ensemble=False`) обучался и зам�
 - Значимость проверяется только на предсказаниях одного seed (seed 1), как требует протокол. Разброс между seed в тесты не входит.
 - Размеры test по классам: mendeley_3class: ham 965, smishing 99, spam 84; mendeley_binary: benign 965, malicious 183; moz_binary: benign 398, malicious 107; super_sms_clean_binary: benign 7349, malicious 4896. На Mendeley и MOZ редкие классы насчитывают около сотни сообщений, поэтому доверительные интервалы там широкие, а разница в 1–3 ошибки заметно двигает метрики.
 - RandomForest обучается в 8 потоков, а предсказывает в одном: параллельное суммирование вероятностей деревьев в sklearn меняет последние биты результата от запуска к запуску.
-- Задержка измерена в одном потоке на этой машине; при другой нагрузке или железе числа будут другими. У moz_binary в test 505 сообщений, поэтому для 1000 измерений сообщения повторяются.
+- Задержка измерена в одном потоке на Kaggle CPU (единый замер шага 3); при другой нагрузке или железе числа будут другими. У moz_binary в test 505 сообщений, поэтому для 1000 измерений сообщения повторяются.
 - XGBoost на macOS требует OpenMP-рантайм (`brew install libomp`).

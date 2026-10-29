@@ -1,0 +1,12 @@
+{
+  "model": "distilbert",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 1310.9108681140024,
+      "status": "ok"
+    }
+  ],
+  "task": "mendeley_binary",
+  "worker": "smishfuse-full-bert-distil_gpu1"
+}

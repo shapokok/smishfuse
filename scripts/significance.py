@@ -4,7 +4,8 @@ Best model = highest mean test macro F1 over the evaluation seeds. Comparisons
 use the test predictions of protocol.significance_seed (seed 1):
 paired bootstrap of the macro F1 difference (best - other) and McNemar.
 Holm correction is applied within each task, separately for each test.
-Output: results/significance.csv
+Outputs: results/significance.csv (all models of steps 2 and 3) and
+results/significance_step2.csv (the four classical models only, for the step-2 report).
 Run: python scripts/significance.py
 """
 import sys
@@ -17,7 +18,7 @@ from sklearn.metrics import f1_score
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from eval.registry import ordered  # noqa: E402
+from eval.registry import STEP2_MODELS, ordered  # noqa: E402
 from eval.stats import holm, mcnemar, paired_bootstrap_macro_f1  # noqa: E402
 
 RESULTS = ROOT / "results"
@@ -30,11 +31,9 @@ def load_preds(task_name: str, model: str, seed: int, classes: list[str]):
     return df["id"].to_numpy(), df["y_true"].map(idx).to_numpy(), df["y_pred"].map(lambda v: idx.get(v, -1)).to_numpy()
 
 
-def main():
-    cfg = yaml.safe_load((ROOT / "configs" / "step2.yaml").read_text(encoding="utf-8"))
+def compare(cfg: dict, metrics: pd.DataFrame, out_name: str) -> None:
     proto = cfg["protocol"]
     seed = proto["significance_seed"]
-    metrics = pd.read_csv(RESULTS / "metrics.csv")
     rows = []
     for task_name, task in cfg["tasks"].items():
         classes = task["classes"]
@@ -68,12 +67,19 @@ def main():
                 r[f"p_{test}_holm"] = a
                 r[f"significant_{test}_holm"] = rj
         rows += task_rows
-        print(f"[significance] {task_name}: best {best}")
+        print(f"[significance] {out_name} {task_name}: best {best}")
     cols = ["task", "best_model", "other_model", "seed", "n_test", "macro_f1_best", "macro_f1_other",
             "diff_macro_f1", "ci95_low", "ci95_high", "p_bootstrap", "p_bootstrap_holm", "significant_bootstrap_holm",
             "n_boot", "mcnemar_b_best_only_correct", "mcnemar_c_other_only_correct", "mcnemar_method", "p_mcnemar",
             "p_mcnemar_holm", "significant_mcnemar_holm"]
-    pd.DataFrame(rows)[cols].to_csv(RESULTS / "significance.csv", index=False, lineterminator="\n")
+    pd.DataFrame(rows)[cols].to_csv(RESULTS / out_name, index=False, lineterminator="\n")
+
+
+def main():
+    cfg = yaml.safe_load((ROOT / "configs" / "step2.yaml").read_text(encoding="utf-8"))
+    metrics = pd.read_csv(RESULTS / "metrics.csv")
+    compare(cfg, metrics, "significance.csv")
+    compare(cfg, metrics[metrics["model"].isin(STEP2_MODELS)], "significance_step2.csv")
 
 
 if __name__ == "__main__":

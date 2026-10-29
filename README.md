@@ -7,7 +7,7 @@
 
 ## Decisions
 
-Решения по шагу 1, зафиксированы 2026-10-28.
+Решения по шагам 1–3 (шаг 1 зафиксирован 2026-10-28).
 
 1. **Super SMS.** Во всех экспериментах используется только `super_sms_clean`: Super SMS без сообщений,
    которые точно или почти (Жаккар ≥ 0.9) совпадают с Mendeley или UCI. Полный `super_sms` в экспериментах
@@ -27,6 +27,19 @@
    калибруется по out-of-fold решениям 5 фолдов на train, итоговая модель — одна LinearSVC, обученная на всём
    train (раньше было `ensemble=True`, ансамбль из 5 SVM). LinearSVM перезапущен на всех 4 задачах на Kaggle
    CPU (ноутбук `smishfuse-svm-cpu`), таблицы и значимость пересчитаны.
+6. **Шаг 3: вычисления, 2026-10-28.** Все нейросетевые модели обучаются и оцениваются только на Kaggle
+   (приватные датасеты `smishfuse-data`, `smishfuse-code`, приватные ноутбуки); локально — код, отправка
+   ноутбуков и сбор результатов. Если план не помещается в недельную квоту GPU, порядок: BERT / DistilBERT
+   и TextCNN / BiLSTM, затем LLM.
+7. **Префиксный KV-кэш для Qwen.** Общий префикс промпта (системная инструкция + 8 примеров) считается один
+   раз и переиспользуется. Условие: на 200 сообщениях val ответы с кэшем и без него совпадают на 100%, иначе
+   кэш отключается. Результат: 200/200 на всех 4 задачах (`results/llm_cache_check/`, отчёт шага 3, раздел 3).
+8. **Задержка Qwen.** Измеряется на GPU (T4) в той же сессии, что и CPU-модели, отдельной строкой с
+   пометкой GPU. Задержка и размер всех моделей шагов 2 и 3 берутся только из единого замера
+   (`results/latency/latency.csv`); прежние локальные замеры шага 2 в отчётах не используются.
+9. **Веса BERT для замера задержки.** Для mendeley_3class, mendeley_binary и moz_binary веса seed 1 взяты не
+   из исходного ноутбука (он завершился со статусом ERROR и не подключается как источник), а переобучены в
+   сессии замера с теми же лучшими параметрами и seed 1. На задержку и размер это не влияет.
 
 ## Воспроизведение данных
 
@@ -76,8 +89,30 @@ uv pip install --python .venv/bin/python -r requirements.txt
   recall при FPR = 1%, ECE.
 - `src/eval/stats.py`: парный бутстреп разницы macro F1, тест Макнемара, поправка Холма.
 - `results/`: предсказания (`raw/`), метрики по запускам (`metrics.csv`), лучшие параметры, история подбора,
-  таблицы (Markdown и LaTeX), `significance.csv`. Всё это побайтно воспроизводимо, кроме замеров времени:
-  `efficiency.csv` и раздел 4 отчёта зависят от машины и её загрузки.
+  таблицы (Markdown и LaTeX), `significance_step2.csv` (только классические модели; `significance.csv` — все модели шагов 2 и 3). Всё это побайтно воспроизводимо, кроме замеров времени:
+  `efficiency.csv`, `latency/` и раздел 4 отчёта зависят от машины и её загрузки.
+
+## Шаг 3: нейросетевые baseline (Kaggle)
+
+Нужен `~/.kaggle/kaggle.json` (в git не попадает). Конфигурация: [configs/step3.yaml](configs/step3.yaml)
+(протокол и пространства поиска), [configs/llm_prompt.yaml](configs/llm_prompt.yaml) (фиксированный промпт),
+[configs/kaggle_kernels.yaml](configs/kaggle_kernels.yaml) (ноутбуки и очереди задач по GPU).
+
+```bash
+.venv/bin/python scripts/kaggle_sync.py data            # приватный датасет с данными шага 1
+.venv/bin/python scripts/kaggle_sync.py code            # приватный датасет с кодом (новая версия при изменениях)
+.venv/bin/python scripts/kaggle_sync.py push <kernel>   # отправить ноутбук
+.venv/bin/python scripts/kaggle_sync.py output <kernel> # скачать вывод в results/kaggle_runs/<kernel>/
+.venv/bin/python scripts/collect_results.py <kernel>    # перенести результаты в results/, пересчитать metrics.csv
+.venv/bin/python scripts/make_tables.py && .venv/bin/python scripts/significance.py
+.venv/bin/python scripts/make_step3_report.py
+```
+
+Модели: TextCNN, BiLSTM (эмбеддинги с нуля), DistilBERT, BERT (multilingual-cased для MOZ), Qwen2.5-7B-Instruct
+4-bit 8-shot. Optuna 20 попыток на val, 5 seed на test; каждая попытка и seed сохраняются сразу, перезапуск
+пропускает готовое, работа у лимита сессии откладывается и продолжается в следующем ноутбуке
+(`state_from`). Задержка и размер всех моделей — ноутбук `smishfuse-latency` (`src/latency.py`).
+Отчёт: [reports/step3_neural_report.md](reports/step3_neural_report.md). Веса моделей в git не хранятся.
 
 ## Датасеты: источники и лицензии
 

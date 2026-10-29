@@ -1,0 +1,37 @@
+task,model,device,latency_ms_median_batch1,model_size_mb,source
+mendeley_3class,logreg,cpu_1_thread,1.9259970000007343,1.779074,"re-fitted, seed 1"
+mendeley_3class,linear_svm,cpu_1_thread,2.8173245000004954,2.259763,"re-fitted, seed 1"
+mendeley_3class,random_forest,cpu_1_thread,8.139701499999319,5.480263,"re-fitted, seed 1"
+mendeley_3class,xgboost,cpu_1_thread,1.5378774999987854,2.864072,"re-fitted, seed 1"
+mendeley_3class,textcnn,cpu_1_thread,0.8347034999758307,6.142251,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/mendeley_3class/textcnn/seed1
+mendeley_3class,bilstm,cpu_1_thread,3.336990000093465,7.638921,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/mendeley_3class/bilstm/seed1
+mendeley_3class,distilbert,cpu_1_thread,57.46635700000979,268.548236,/kaggle/input/notebooks/shapok/smishfuse-full-bert-distil/results/models/mendeley_3class/distilbert/seed1
+mendeley_3class,bert,cpu_1_thread,112.34847950004223,438.674465,"re-trained in this session (seed 1, best params)"
+mendeley_3class,qwen_fewshot,gpu:Tesla T4,178.10413699999117,5443.300864,"Qwen/Qwen2.5-7B-Instruct 4-bit, prefix_cache=True"
+mendeley_binary,logreg,cpu_1_thread,0.911856500124486,0.686074,"re-fitted, seed 1"
+mendeley_binary,linear_svm,cpu_1_thread,1.756337499955407,3.852861,"re-fitted, seed 1"
+mendeley_binary,random_forest,cpu_1_thread,53.0945990001328,17.471167,"re-fitted, seed 1"
+mendeley_binary,xgboost,cpu_1_thread,1.3673300001073585,1.454522,"re-fitted, seed 1"
+mendeley_binary,textcnn,cpu_1_thread,0.7552464999207587,10.893867,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/mendeley_binary/textcnn/seed1
+mendeley_binary,bilstm,cpu_1_thread,2.6365145000681878,2.215049,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/mendeley_binary/bilstm/seed1
+mendeley_binary,distilbert,cpu_1_thread,60.34611299992321,268.544998,/kaggle/input/notebooks/shapok/smishfuse-full-bert-distil/results/models/mendeley_binary/distilbert/seed1
+mendeley_binary,bert,cpu_1_thread,113.11849499998061,438.671235,"re-trained in this session (seed 1, best params)"
+mendeley_binary,qwen_fewshot,gpu:Tesla T4,241.07247550000466,5443.300864,"Qwen/Qwen2.5-7B-Instruct 4-bit, prefix_cache=True"
+moz_binary,logreg,cpu_1_thread,1.0116590000279757,0.685882,"re-fitted, seed 1"
+moz_binary,linear_svm,cpu_1_thread,1.7282514999124032,1.263883,"re-fitted, seed 1"
+moz_binary,random_forest,cpu_1_thread,38.38769250000951,7.392351,"re-fitted, seed 1"
+moz_binary,xgboost,cpu_1_thread,2.590276499972788,3.327234,"re-fitted, seed 1"
+moz_binary,textcnn,cpu_1_thread,0.7391920000827668,1.940523,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/moz_binary/textcnn/seed1
+moz_binary,bilstm,cpu_1_thread,1.8206045001534221,2.513545,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/moz_binary/bilstm/seed1
+moz_binary,distilbert,cpu_1_thread,75.48721599982855,544.237797,/kaggle/input/notebooks/shapok/smishfuse-full-bert-distil/results/models/moz_binary/distilbert/seed1
+moz_binary,bert,cpu_1_thread,127.3739820001083,714.364126,"re-trained in this session (seed 1, best params)"
+moz_binary,qwen_fewshot,gpu:Tesla T4,262.4000649998379,5443.300864,"Qwen/Qwen2.5-7B-Instruct 4-bit, prefix_cache=True"
+super_sms_clean_binary,logreg,cpu_1_thread,2.1492389998911676,1.44641,"re-fitted, seed 1"
+super_sms_clean_binary,linear_svm,cpu_1_thread,2.899377999938224,4.056061,"re-fitted, seed 1"
+super_sms_clean_binary,random_forest,cpu_1_thread,20.941045000199665,41.579807,"re-fitted, seed 1"
+super_sms_clean_binary,xgboost,cpu_1_thread,1.4323425000384304,2.405917,"re-fitted, seed 1"
+super_sms_clean_binary,textcnn,cpu_1_thread,0.6288724998739781,16.186987,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/super_sms_clean_binary/textcnn/seed1
+super_sms_clean_binary,bilstm,cpu_1_thread,2.8210024997861183,16.204489,/kaggle/input/notebooks/shapok/smishfuse-full-rnn-cnn/results/models/super_sms_clean_binary/bilstm/seed1
+super_sms_clean_binary,distilbert,cpu_1_thread,59.61099999990438,268.544998,/kaggle/input/notebooks/shapok/smishfuse-full-bert-distil/results/models/super_sms_clean_binary/distilbert/seed1
+super_sms_clean_binary,bert,cpu_1_thread,116.58063549998587,438.671235,/kaggle/input/notebooks/shapok/smishfuse-full-bert-distil/results/models/super_sms_clean_binary/bert/seed1
+super_sms_clean_binary,qwen_fewshot,gpu:Tesla T4,253.14263599989317,5443.300864,"Qwen/Qwen2.5-7B-Instruct 4-bit, prefix_cache=True"

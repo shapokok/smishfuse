@@ -1,0 +1,18 @@
+{
+  "checkpoint": null,
+  "model": "textcnn",
+  "model_params": {
+    "batch_size": 128,
+    "dropout": 0.17865759273621293,
+    "embed_dim": 300,
+    "kernel_sizes": "3,4,5",
+    "lr": 0.00037912444345068275,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_filters": 128
+  },
+  "n_trials": 20,
+  "task": "mendeley_3class",
+  "trial": 11,
+  "val_macro_f1": 0.9094743142623174
+}

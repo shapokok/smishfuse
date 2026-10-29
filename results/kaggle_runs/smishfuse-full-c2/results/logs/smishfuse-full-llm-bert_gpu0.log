@@ -1,0 +1,76 @@
+[smishfuse-full-llm-bert_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/qwen_fewshot] mode full: train 42857, val 6123, test 12245
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 640/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 1280/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 1920/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 2560/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 3200/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 3840/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 4480/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 5120/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 5760/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 6400/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 7040/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 7680/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 8320/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 8960/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 9600/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 10240/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 10880/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 11520/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 1: 12160/12245 messages
+[super_sms_clean_binary/qwen_fewshot] seed 1: test macro F1 0.9480, invalid 0.000%, 812s
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 640/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 1280/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 1920/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 2560/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 3200/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 3840/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 4480/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 5120/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 5760/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 6400/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 7040/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 7680/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 8320/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 8960/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 9600/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 10240/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 10880/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 11520/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 2: 12160/12245 messages
+[super_sms_clean_binary/qwen_fewshot] seed 2: test macro F1 0.8579, invalid 0.000%, 815s
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 640/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 1280/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 1920/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 2560/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 3200/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 3840/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 4480/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 5120/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 5760/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 6400/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 7040/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 7680/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 8320/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 8960/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 9600/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 10240/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 10880/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 11520/12245 messages
+  [super_sms_clean_binary/qwen_fewshot] seed 3: 12160/12245 messages
+[super_sms_clean_binary/qwen_fewshot] seed 3: test macro F1 0.9373, invalid 0.000%, 822s
+[mendeley_3class/qwen_fewshot] mode full: train 4017, val 574, test 1148
+  [mendeley_3class/qwen_fewshot] seed 1: 640/1148 messages
+[mendeley_3class/qwen_fewshot] FAILED, traceback in /kaggle/working/results/errors/mendeley_3class__qwen_fewshot.txt
+[mendeley_binary/qwen_fewshot] mode full: train 4017, val 574, test 1148
+  [mendeley_binary/qwen_fewshot] seed 1: 640/1148 messages
+[mendeley_binary/qwen_fewshot] seed 1: test macro F1 0.9213, invalid 0.000%, 113s
+  [mendeley_binary/qwen_fewshot] seed 2: 640/1148 messages
+[mendeley_binary/qwen_fewshot] seed 2: test macro F1 0.9291, invalid 0.000%, 126s
+  [mendeley_binary/qwen_fewshot] seed 3: 640/1148 messages
+[mendeley_binary/qwen_fewshot] seed 3: test macro F1 0.9285, invalid 0.000%, 107s
+  [mendeley_binary/qwen_fewshot] seed 4: 640/1148 messages
+[mendeley_binary/qwen_fewshot] seed 4: test macro F1 0.9348, invalid 0.087%, 114s
+  [mendeley_binary/qwen_fewshot] seed 5: 640/1148 messages
+[mendeley_binary/qwen_fewshot] seed 5: test macro F1 0.9242, invalid 0.087%, 136s

@@ -1,0 +1,77 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 13.525993693000146,
+      "val_macro_f1": 0.988424957548948,
+      "val_seconds": 0.15512389299965434
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 13.519815837999886,
+      "val_macro_f1": 0.9884391195378446,
+      "val_seconds": 0.16119134800010215
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 13.725864165000075,
+      "val_macro_f1": 0.9906320321826476,
+      "val_seconds": 0.18057877299997926
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 14.409239291999711,
+      "val_macro_f1": 0.9906371911790395,
+      "val_seconds": 0.13337993400000414
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 13.736037000999659,
+      "val_macro_f1": 0.9909899214358819,
+      "val_seconds": 0.15376738000031764
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 13.864112774000205,
+      "val_macro_f1": 0.9897782772616,
+      "val_seconds": 0.13496101100008673
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 13.649018656999942,
+      "val_macro_f1": 0.9909850436880319,
+      "val_seconds": 0.17424991899997622
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 13.3923536100001,
+      "val_macro_f1": 0.9906423112136686,
+      "val_seconds": 0.1667342330001702
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9894650877909351,
+    "balanced_accuracy": 0.9894848221980315,
+    "ece": 0.007837493135375177,
+    "f1_benign": 0.9912071433440119,
+    "f1_malicious": 0.9868622059272838,
+    "macro_f1": 0.9890346746356479,
+    "pr_auc": 0.9984684730900677,
+    "precision_benign": 0.9930346899754166,
+    "precision_malicious": 0.9841560024375381,
+    "recall_at_fpr_1pct": 0.9889705882352942,
+    "recall_benign": 0.9893863110627297,
+    "recall_malicious": 0.9895833333333334,
+    "weighted_f1": 0.9894698780445181
+  },
+  "model": "bilstm",
+  "n_test": 12245,
+  "n_train": 42857,
+  "seed": 5,
+  "task": "super_sms_clean_binary",
+  "test_predict_seconds": 0.46465198999976565,
+  "train_seconds": 112.27221759500026
+}

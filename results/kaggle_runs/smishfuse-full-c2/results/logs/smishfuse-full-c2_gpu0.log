@@ -1,0 +1,13 @@
+[smishfuse-full-c2_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[mendeley_3class/qwen_fewshot] cache check: 200/200 identical answers, max |dp| 2.78e-02, 92s -> 37s
+[mendeley_3class/qwen_fewshot] mode full: train 4017, val 574, test 1148
+[mendeley_3class/qwen_fewshot] seed 1: resuming, 640 messages already answered
+[mendeley_3class/qwen_fewshot] seed 1: test macro F1 0.8483, invalid 0.000%, 73s
+  [mendeley_3class/qwen_fewshot] seed 2: 640/1148 messages
+[mendeley_3class/qwen_fewshot] seed 2: test macro F1 0.8101, invalid 0.000%, 93s
+  [mendeley_3class/qwen_fewshot] seed 3: 640/1148 messages
+[mendeley_3class/qwen_fewshot] seed 3: test macro F1 0.7933, invalid 0.000%, 101s
+  [mendeley_3class/qwen_fewshot] seed 4: 640/1148 messages
+[mendeley_3class/qwen_fewshot] seed 4: test macro F1 0.8206, invalid 0.000%, 94s
+  [mendeley_3class/qwen_fewshot] seed 5: 640/1148 messages
+[mendeley_3class/qwen_fewshot] seed 5: test macro F1 0.8285, invalid 0.000%, 102s

@@ -1,0 +1,12 @@
+{
+  "model": "qwen_fewshot",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 115.80948439099984,
+      "status": "error"
+    }
+  ],
+  "task": "mendeley_3class",
+  "worker": "smishfuse-full-llm-bert_gpu0"
+}

@@ -141,8 +141,10 @@ class FewShotClassifier:
         attention = torch.cat([torch.ones((b, p), dtype=torch.long), suf_mask], dim=1).to(device)
         if b not in self._prefix_cache:
             with torch.no_grad():
-                self._prefix_cache[b] = self.model(self.prefix_ids.repeat(b, 1).to(device),
-                                                   use_cache=True).past_key_values
+                # Only the KV cache is needed: logits_to_keep=1 avoids materialising
+                # batch x prefix_len x vocab logits (4-6 GB, OOM on the T4 in the first full run).
+                self._prefix_cache[b] = self.model(self.prefix_ids.repeat(b, 1).to(device), use_cache=True,
+                                                   logits_to_keep=1).past_key_values
         past = copy.deepcopy(self._prefix_cache[b])  # generate() extends the cache in place
         with torch.no_grad():
             out = self.model.generate(input_ids=input_ids, attention_mask=attention, past_key_values=past, **gen)

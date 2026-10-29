@@ -1,0 +1,47 @@
+{
+  "best_epoch": 0,
+  "device": "cuda",
+  "encode_seconds": 0.020900084000004426,
+  "epochs_run": 4,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 1.2115028550001625,
+      "val_macro_f1": 0.9707669909643427,
+      "val_seconds": 0.013824282999848947
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 1.0064658470000722,
+      "val_macro_f1": 0.9309309309309309,
+      "val_seconds": 0.013867499999832944
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.9920188910000434,
+      "val_macro_f1": 0.9699560622253889,
+      "val_seconds": 0.013120421999929022
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 1.0607574159998876,
+      "val_macro_f1": 0.963691159586682,
+      "val_seconds": 0.013578177999988839
+    }
+  ],
+  "n_train": 1765,
+  "n_val": 253,
+  "number": 3,
+  "params": {
+    "batch_size": 32,
+    "dropout": 0.2427013306774357,
+    "embed_dim": 100,
+    "hidden_size": 256,
+    "lr": 0.0013962563737015762,
+    "max_len": 128,
+    "min_freq": 2,
+    "num_layers": 2
+  },
+  "seconds": 4.410747851999986,
+  "value": 0.9707669909643427
+}

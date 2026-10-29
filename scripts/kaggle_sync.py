@@ -29,8 +29,8 @@ CODE_PARTS = ["src", "configs", "tests", "requirements.txt", "results/best_param
 OUTPUT_PATTERN = r"^(?!.*(/models/|^models/|/code/|^code/)).*$"
 
 
-def kaggle(*args, check=True, capture=False) -> str:
-    r = subprocess.run([str(KAGGLE), *args], capture_output=capture, text=True)
+def kaggle(*args, check=True, capture=False, timeout=None) -> str:
+    r = subprocess.run([str(KAGGLE), *args], capture_output=capture, text=True, timeout=timeout)
     if check and r.returncode != 0:
         raise SystemExit(f"kaggle {' '.join(args[:2])} failed ({r.returncode}): {r.stderr if capture else ''}")
     return (r.stdout or "") if capture else ""
@@ -137,7 +137,17 @@ def cmd_status(name: str):
 def cmd_output(name: str):
     dst = ROOT / "results" / "kaggle_runs" / name
     dst.mkdir(parents=True, exist_ok=True)
-    kaggle("kernels", "output", f"{OWNER}/{name}", "-p", str(dst), "--file-pattern", OUTPUT_PATTERN, "-o", "-q")
+    # The output download sometimes hangs or drops the connection: bounded time, a few retries.
+    for attempt in range(1, 6):
+        try:
+            kaggle("kernels", "output", f"{OWNER}/{name}", "-p", str(dst), "--file-pattern", OUTPUT_PATTERN,
+                   "-o", "-q", timeout=900)
+            break
+        except (subprocess.TimeoutExpired, SystemExit) as e:
+            print(f"[{name}] download attempt {attempt} failed: {type(e).__name__}")
+            if attempt == 5:
+                raise
+            time.sleep(30)
     print(f"[{name}] outputs in {dst}: {sum(1 for p in dst.rglob('*') if p.is_file())} files")
 
 

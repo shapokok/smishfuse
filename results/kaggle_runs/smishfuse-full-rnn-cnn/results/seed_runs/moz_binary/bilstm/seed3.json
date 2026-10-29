@@ -1,0 +1,77 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.2639355810001689,
+      "val_macro_f1": 0.5957879448075527,
+      "val_seconds": 0.013652661000151056
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.22552934399982405,
+      "val_macro_f1": 0.5739367229209216,
+      "val_seconds": 0.011248802000181968
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.2230316469999707,
+      "val_macro_f1": 0.7816958122411413,
+      "val_seconds": 0.010955942999999024
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.22056832899988876,
+      "val_macro_f1": 0.8538647342995169,
+      "val_seconds": 0.0103758719999405
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.22280685900000208,
+      "val_macro_f1": 0.946665729744923,
+      "val_seconds": 0.010453151000092475
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.21703119800008608,
+      "val_macro_f1": 0.9273823191733639,
+      "val_seconds": 0.012735626999983651
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.3059033179999915,
+      "val_macro_f1": 0.9394852659778032,
+      "val_seconds": 0.014595644999872093
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.2738951240000915,
+      "val_macro_f1": 0.9394852659778032,
+      "val_seconds": 0.010494071000039185
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9722772277227723,
+    "balanced_accuracy": 0.9550791339876955,
+    "ece": 0.050084826969864306,
+    "f1_benign": 0.9824561403508771,
+    "f1_malicious": 0.9339622641509434,
+    "macro_f1": 0.9582092022509103,
+    "pr_auc": 0.9481153030006952,
+    "precision_benign": 0.98,
+    "precision_malicious": 0.9428571428571428,
+    "recall_at_fpr_1pct": 0.8411214953271028,
+    "recall_benign": 0.9849246231155779,
+    "recall_malicious": 0.9252336448598131,
+    "weighted_f1": 0.9721812002451486
+  },
+  "model": "bilstm",
+  "n_test": 505,
+  "n_train": 1765,
+  "seed": 3,
+  "task": "moz_binary",
+  "test_predict_seconds": 0.021842434000063804,
+  "train_seconds": 2.1225454709999667
+}

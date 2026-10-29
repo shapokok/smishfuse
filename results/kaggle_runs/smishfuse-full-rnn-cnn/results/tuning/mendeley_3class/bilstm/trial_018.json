@@ -1,0 +1,83 @@
+{
+  "best_epoch": 6,
+  "device": "cuda",
+  "encode_seconds": 0.040309553999918535,
+  "epochs_run": 10,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 1.2739041510000106,
+      "val_macro_f1": 0.6349954032829683,
+      "val_seconds": 0.025657402999968326
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 1.2686633710000024,
+      "val_macro_f1": 0.8075015056596774,
+      "val_seconds": 0.027549596999961068
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 1.2802603730000328,
+      "val_macro_f1": 0.8696239871423804,
+      "val_seconds": 0.024320351000028495
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 1.3027259740000545,
+      "val_macro_f1": 0.8704292041117604,
+      "val_seconds": 0.024964697999962482
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 1.2516739589999588,
+      "val_macro_f1": 0.8842985471749826,
+      "val_seconds": 0.024133222000045862
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 1.2340896079999766,
+      "val_macro_f1": 0.8781918564527259,
+      "val_seconds": 0.02456666899990978
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 1.2692427270000053,
+      "val_macro_f1": 0.8896939902856135,
+      "val_seconds": 0.026047539999922265
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 1.3357222359999241,
+      "val_macro_f1": 0.8819311866276357,
+      "val_seconds": 0.024108878999982153
+    },
+    {
+      "epoch": 8,
+      "train_seconds": 1.266635975999975,
+      "val_macro_f1": 0.8788609225287688,
+      "val_seconds": 0.02499366500001088
+    },
+    {
+      "epoch": 9,
+      "train_seconds": 1.2774288669999123,
+      "val_macro_f1": 0.8757666945028365,
+      "val_seconds": 0.024833934000071167
+    }
+  ],
+  "n_train": 4017,
+  "n_val": 574,
+  "number": 18,
+  "params": {
+    "batch_size": 64,
+    "dropout": 0.3608600888945805,
+    "embed_dim": 300,
+    "hidden_size": 128,
+    "lr": 0.0006955730688215004,
+    "max_len": 128,
+    "min_freq": 2,
+    "num_layers": 2
+  },
+  "seconds": 13.152883363,
+  "value": 0.8896939902856135
+}

@@ -1,0 +1,28 @@
+[smishfuse-full-rnn-cnn_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/bilstm] mode full: train 42857, val 6123, test 12245
+[super_sms_clean_binary/bilstm] trial 0: val macro F1 0.9896 (6 epochs, 149s) {'lr': 0.0003574712922600243, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.4329770563201687, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 1: val macro F1 0.9903 (9 epochs, 72s) {'lr': 0.0005958389350068958, 'batch_size': 128, 'embed_dim': 300, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.1185801650879991, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 2: val macro F1 0.9908 (6 epochs, 154s) {'lr': 0.0026690431824362526, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 256, 'num_layers': 2, 'dropout': 0.2246844304357644, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 3: val macro F1 0.9898 (4 epochs, 103s) {'lr': 0.0013962563737015762, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 256, 'num_layers': 2, 'dropout': 0.2427013306774357, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 4: val macro F1 0.9906 (11 epochs, 186s) {'lr': 0.00012886065671894017, 'batch_size': 32, 'embed_dim': 200, 'hidden_size': 128, 'num_layers': 1, 'dropout': 0.4452413703502375, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 5: val macro F1 0.9891 (9 epochs, 83s) {'lr': 0.0003022283475646735, 'batch_size': 128, 'embed_dim': 300, 'hidden_size': 256, 'num_layers': 2, 'dropout': 0.27101640734341986, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 6: val macro F1 0.9913 (9 epochs, 85s) {'lr': 0.0002913009501549591, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 128, 'num_layers': 1, 'dropout': 0.35336150260416943, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 7: val macro F1 0.9900 (9 epochs, 120s) {'lr': 0.0006261435181296009, 'batch_size': 64, 'embed_dim': 300, 'hidden_size': 128, 'num_layers': 1, 'dropout': 0.1888431241882921, 'max_len': 128, 'min_freq': 1}
+[super_sms_clean_binary/bilstm] trial 8: val macro F1 0.9889 (7 epochs, 45s) {'lr': 0.0005838706626832951, 'batch_size': 128, 'embed_dim': 100, 'hidden_size': 64, 'num_layers': 1, 'dropout': 0.12059150049999574, 'max_len': 128, 'min_freq': 1}
+[super_sms_clean_binary/bilstm] trial 9: val macro F1 0.9905 (7 epochs, 122s) {'lr': 0.0005284222249942597, 'batch_size': 32, 'embed_dim': 100, 'hidden_size': 256, 'num_layers': 1, 'dropout': 0.43412099823569517, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 10: val macro F1 0.9915 (6 epochs, 87s) {'lr': 0.0018038101725552582, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.3660269716392057, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 11: val macro F1 0.9915 (5 epochs, 71s) {'lr': 0.0017503834479472083, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.33875706600831534, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 12: val macro F1 0.9910 (4 epochs, 60s) {'lr': 0.0024986072392253404, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.3231118920004348, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 13: val macro F1 0.9905 (7 epochs, 101s) {'lr': 0.0013430681703125672, 'batch_size': 64, 'embed_dim': 100, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.363707248349813, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 14: val macro F1 0.9917 (5 epochs, 69s) {'lr': 0.0017769743738424587, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.42656753901744054, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 15: val macro F1 0.9908 (4 epochs, 61s) {'lr': 0.0012847841160435296, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.455112253073922, 'max_len': 64, 'min_freq': 1}
+[super_sms_clean_binary/bilstm] trial 16: val macro F1 0.9900 (5 epochs, 72s) {'lr': 0.000486173542777534, 'batch_size': 64, 'embed_dim': 300, 'hidden_size': 128, 'num_layers': 2, 'dropout': 0.2631435327819819, 'max_len': 64, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 17: val macro F1 0.9913 (8 epochs, 118s) {'lr': 0.000480342368779266, 'batch_size': 64, 'embed_dim': 200, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.402791356148842, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 18: val macro F1 0.9915 (5 epochs, 127s) {'lr': 0.0015101608135897877, 'batch_size': 32, 'embed_dim': 200, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.48980277733889277, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] trial 19: val macro F1 0.9913 (5 epochs, 127s) {'lr': 0.0018402727470383507, 'batch_size': 32, 'embed_dim': 200, 'hidden_size': 64, 'num_layers': 2, 'dropout': 0.485110727937996, 'max_len': 128, 'min_freq': 2}
+[super_sms_clean_binary/bilstm] best trial 14: val macro F1 0.9917
+[super_sms_clean_binary/bilstm] seed 1: test macro F1 0.9897 (56s)
+[super_sms_clean_binary/bilstm] seed 2: test macro F1 0.9904 (84s)
+[super_sms_clean_binary/bilstm] seed 3: test macro F1 0.9895 (110s)
+[super_sms_clean_binary/bilstm] seed 4: test macro F1 0.9899 (96s)
+[super_sms_clean_binary/bilstm] seed 5: test macro F1 0.9890 (112s)

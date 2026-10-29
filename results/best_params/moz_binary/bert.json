@@ -1,0 +1,14 @@
+{
+  "checkpoint": "bert-base-multilingual-cased",
+  "model": "bert",
+  "model_params": {
+    "batch_size": 16,
+    "lr": 3.8557691190085314e-05,
+    "warmup_ratio": 0.1,
+    "weight_decay": 0.01
+  },
+  "n_trials": 20,
+  "task": "moz_binary",
+  "trial": 12,
+  "val_macro_f1": 0.9882281779266704
+}

@@ -1,0 +1,77 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 1.9952545679999503,
+      "val_macro_f1": 0.6857026074483099,
+      "val_seconds": 0.021549914000047465
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 2.0321975030000203,
+      "val_macro_f1": 0.9254879746984824,
+      "val_seconds": 0.022201970999958576
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 2.02022557600003,
+      "val_macro_f1": 0.9363918439716312,
+      "val_seconds": 0.02177301400001852
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 2.259838973000001,
+      "val_macro_f1": 0.95345766245801,
+      "val_seconds": 0.0216028950000009
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 2.0690062550000903,
+      "val_macro_f1": 0.9538797061524334,
+      "val_seconds": 0.021321928000020307
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 2.0372919400000455,
+      "val_macro_f1": 0.9499031227635323,
+      "val_seconds": 0.021644208999987313
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 2.1426505900000166,
+      "val_macro_f1": 0.9538797061524334,
+      "val_seconds": 0.021543496000049345
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 2.0893322360000184,
+      "val_macro_f1": 0.9538797061524334,
+      "val_seconds": 0.022032684000009795
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9895470383275261,
+    "balanced_accuracy": 0.9827118548090263,
+    "ece": 0.004940516338115738,
+    "f1_benign": 0.9937759336099585,
+    "f1_malicious": 0.967391304347826,
+    "macro_f1": 0.9805836189788923,
+    "pr_auc": 0.9870240468132582,
+    "precision_benign": 0.9948078920041536,
+    "precision_malicious": 0.9621621621621622,
+    "recall_at_fpr_1pct": 0.9726775956284153,
+    "recall_benign": 0.9927461139896373,
+    "recall_malicious": 0.9726775956284153,
+    "weighted_f1": 0.989570021454061
+  },
+  "model": "bilstm",
+  "n_test": 1148,
+  "n_train": 4017,
+  "seed": 3,
+  "task": "mendeley_binary",
+  "test_predict_seconds": 0.0410955610000201,
+  "train_seconds": 16.929532533000042
+}

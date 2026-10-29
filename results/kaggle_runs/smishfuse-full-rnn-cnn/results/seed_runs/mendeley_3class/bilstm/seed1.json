@@ -1,0 +1,82 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 1.284582592999982,
+      "val_macro_f1": 0.6843533372945138,
+      "val_seconds": 0.025413159999970958
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 1.3239878150000095,
+      "val_macro_f1": 0.8384260229773642,
+      "val_seconds": 0.024650764999933017
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 1.2476533339998923,
+      "val_macro_f1": 0.853280314456785,
+      "val_seconds": 0.024499227999967843
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 1.3226400940000076,
+      "val_macro_f1": 0.8497197621186839,
+      "val_seconds": 0.024409731999980977
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 1.2539340079999874,
+      "val_macro_f1": 0.8695723468450741,
+      "val_seconds": 0.024160229000017353
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 1.3528711739999153,
+      "val_macro_f1": 0.8469270282116795,
+      "val_seconds": 0.02445569400003933
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 1.2603615320000472,
+      "val_macro_f1": 0.868319556357041,
+      "val_seconds": 0.024196003999918503
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 1.2318931720000137,
+      "val_macro_f1": 0.8538588621131017,
+      "val_seconds": 0.026215366999963408
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.9782229965156795,
+    "balanced_accuracy": 0.9309634713779792,
+    "ece": 0.007106532021474399,
+    "f1_ham": 0.99429164504411,
+    "f1_smishing": 0.9191919191919192,
+    "f1_spam": 0.8654970760233918,
+    "macro_f1": 0.9263268800864738,
+    "pr_auc": 0.9455514214706366,
+    "pr_auc_ham": 0.9989872355551295,
+    "pr_auc_smishing": 0.9608421579028391,
+    "pr_auc_spam": 0.8768248709539415,
+    "precision_ham": 0.9958419958419958,
+    "precision_smishing": 0.9191919191919192,
+    "precision_spam": 0.8505747126436781,
+    "recall_ham": 0.9927461139896373,
+    "recall_smishing": 0.9191919191919192,
+    "recall_spam": 0.8809523809523809,
+    "weighted_f1": 0.9783912821023791
+  },
+  "model": "bilstm",
+  "n_test": 1148,
+  "n_train": 4017,
+  "seed": 1,
+  "task": "mendeley_3class",
+  "test_predict_seconds": 0.052260507000028156,
+  "train_seconds": 10.610845499999982
+}

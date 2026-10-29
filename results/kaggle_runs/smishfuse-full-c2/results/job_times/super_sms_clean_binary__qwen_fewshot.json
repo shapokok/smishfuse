@@ -1,0 +1,17 @@
+{
+  "model": "qwen_fewshot",
+  "sessions": [
+    {
+      "mode": "full",
+      "seconds": 1713.589449782,
+      "status": "ok"
+    },
+    {
+      "mode": "full",
+      "seconds": 2592.1249163189996,
+      "status": "ok"
+    }
+  ],
+  "task": "super_sms_clean_binary",
+  "worker": "smishfuse-full-llm-bert_gpu0"
+}

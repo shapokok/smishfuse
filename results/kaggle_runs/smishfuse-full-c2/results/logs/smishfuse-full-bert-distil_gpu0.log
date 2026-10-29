@@ -1,0 +1,29 @@
+[smishfuse-full-bert-distil_gpu0] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/bert] mode full: train 42857, val 6123, test 12245
+[super_sms_clean_binary/bert] trial 0: val macro F1 0.9946 (5 epochs, 1582s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] trial 1: val macro F1 0.9942 (5 epochs, 1544s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/bert] trial 2: val macro F1 0.9951 (5 epochs, 1584s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] trial 3: val macro F1 0.9940 (3 epochs, 964s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 4: val macro F1 0.9947 (5 epochs, 1057s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 5: val macro F1 0.9942 (5 epochs, 1544s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/bert] trial 6: val macro F1 0.9947 (5 epochs, 1080s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] trial 7: val macro F1 0.9947 (5 epochs, 1589s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 8: val macro F1 0.9942 (5 epochs, 1536s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/bert] trial 9: val macro F1 0.9946 (5 epochs, 1585s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 10: val macro F1 0.3751 (3 epochs, 950s) {'lr': 7.19326634066986e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] trial 11: val macro F1 0.9944 (5 epochs, 1054s) {'lr': 1.697214995937135e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 12: val macro F1 0.9944 (5 epochs, 1051s) {'lr': 1.0240065975291286e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 13: val macro F1 0.9946 (5 epochs, 1073s) {'lr': 1.5140468260361352e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] trial 14: val macro F1 0.9942 (4 epochs, 1254s) {'lr': 1.788226793374569e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/bert] trial 15: val macro F1 0.9932 (5 epochs, 1041s) {'lr': 9.752359531191803e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 16: val macro F1 0.9940 (5 epochs, 1067s) {'lr': 2.2919112606337936e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/bert] trial 17: val macro F1 0.9952 (5 epochs, 1045s) {'lr': 2.9656767811380067e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 18: val macro F1 0.9944 (5 epochs, 1047s) {'lr': 2.6836714519917895e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] trial 19: val macro F1 0.9947 (5 epochs, 1046s) {'lr': 4.4115176987609e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/bert] best trial 17: val macro F1 0.9952
+[super_sms_clean_binary/bert] seed 1: test macro F1 0.9939 (1046s)
+[super_sms_clean_binary/bert] seed 2: test macro F1 0.9934 (1047s)
+[super_sms_clean_binary/bert] seed 3: test macro F1 0.9941 (1047s)
+[super_sms_clean_binary/bert] seed 4: test macro F1 0.9940 (1048s)
+[super_sms_clean_binary/bert] DEFERRED: super_sms_clean_binary/bert: not enough time for seed 5
+[smishfuse-full-bert-distil_gpu0] session deadline reached; remaining jobs left for the next session

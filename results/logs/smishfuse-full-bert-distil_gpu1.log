@@ -1,0 +1,109 @@
+[smishfuse-full-bert-distil_gpu1] device cuda Tesla T4, torch 2.11.0+cu128
+[super_sms_clean_binary/distilbert] mode full: train 42857, val 6123, test 12245
+[super_sms_clean_binary/distilbert] trial 0: val macro F1 0.9942 (5 epochs, 887s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] trial 1: val macro F1 0.9942 (5 epochs, 849s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 2: val macro F1 0.9951 (5 epochs, 878s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] trial 3: val macro F1 0.9944 (5 epochs, 882s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 4: val macro F1 0.9946 (5 epochs, 547s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 5: val macro F1 0.9942 (5 epochs, 842s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 6: val macro F1 0.9944 (5 epochs, 565s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] trial 7: val macro F1 0.9944 (5 epochs, 886s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 8: val macro F1 0.9939 (3 epochs, 508s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 9: val macro F1 0.9946 (5 epochs, 879s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 10: val macro F1 0.9935 (5 epochs, 877s) {'lr': 7.19326634066986e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] trial 11: val macro F1 0.9949 (5 epochs, 547s) {'lr': 1.697214995937135e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 12: val macro F1 0.9951 (5 epochs, 552s) {'lr': 2.7318997392117242e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 13: val macro F1 0.9940 (5 epochs, 876s) {'lr': 1.65132184863054e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] trial 14: val macro F1 0.9946 (5 epochs, 548s) {'lr': 4.5870140188444e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[super_sms_clean_binary/distilbert] trial 15: val macro F1 0.9951 (5 epochs, 563s) {'lr': 1.5693329619233282e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 16: val macro F1 0.9952 (5 epochs, 563s) {'lr': 1.674025797909698e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 17: val macro F1 0.9944 (5 epochs, 566s) {'lr': 2.6413539171733887e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 18: val macro F1 0.9940 (4 epochs, 451s) {'lr': 5.9397762080456744e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[super_sms_clean_binary/distilbert] trial 19: val macro F1 0.9946 (5 epochs, 562s) {'lr': 1.1198565901711774e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[super_sms_clean_binary/distilbert] best trial 16: val macro F1 0.9952
+[super_sms_clean_binary/distilbert] seed 1: test macro F1 0.9930 (561s)
+[super_sms_clean_binary/distilbert] seed 2: test macro F1 0.9934 (563s)
+[super_sms_clean_binary/distilbert] seed 3: test macro F1 0.9928 (566s)
+[super_sms_clean_binary/distilbert] seed 4: test macro F1 0.9928 (564s)
+[super_sms_clean_binary/distilbert] seed 5: test macro F1 0.9927 (340s)
+[mendeley_3class/distilbert] mode full: train 4017, val 574, test 1148
+[mendeley_3class/distilbert] trial 0: val macro F1 0.9184 (5 epochs, 79s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 1: val macro F1 0.9161 (5 epochs, 78s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/distilbert] trial 2: val macro F1 0.9014 (4 epochs, 65s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 3: val macro F1 0.9184 (5 epochs, 81s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/distilbert] trial 4: val macro F1 0.8991 (5 epochs, 50s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_3class/distilbert] trial 5: val macro F1 0.9063 (5 epochs, 78s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/distilbert] trial 6: val macro F1 0.9147 (5 epochs, 51s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 7: val macro F1 0.8987 (5 epochs, 81s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/distilbert] trial 8: val macro F1 0.9133 (4 epochs, 63s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/distilbert] trial 9: val macro F1 0.8987 (5 epochs, 82s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_3class/distilbert] trial 10: val macro F1 0.9242 (5 epochs, 50s) {'lr': 6.816763179381179e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 11: val macro F1 0.9315 (5 epochs, 50s) {'lr': 9.550509404936862e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 12: val macro F1 0.9285 (5 epochs, 50s) {'lr': 8.955618348947594e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 13: val macro F1 0.9177 (5 epochs, 50s) {'lr': 9.713454634318194e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_3class/distilbert] trial 14: val macro F1 0.9161 (5 epochs, 81s) {'lr': 8.348839770858052e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 15: val macro F1 0.9312 (5 epochs, 50s) {'lr': 6.11199336652399e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/distilbert] trial 16: val macro F1 0.9428 (5 epochs, 50s) {'lr': 6.187592551983267e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_3class/distilbert] trial 17: val macro F1 0.9209 (5 epochs, 51s) {'lr': 5.693181726676528e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_3class/distilbert] trial 18: val macro F1 0.9111 (5 epochs, 50s) {'lr': 3.7415595012941255e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_3class/distilbert] trial 19: val macro F1 0.9141 (5 epochs, 50s) {'lr': 4.800992564447514e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_3class/distilbert] best trial 16: val macro F1 0.9428
+[mendeley_3class/distilbert] seed 1: test macro F1 0.9166 (50s)
+[mendeley_3class/distilbert] seed 2: test macro F1 0.8907 (50s)
+[mendeley_3class/distilbert] seed 3: test macro F1 0.9169 (50s)
+[mendeley_3class/distilbert] seed 4: test macro F1 0.9166 (50s)
+[mendeley_3class/distilbert] seed 5: test macro F1 0.9109 (50s)
+[mendeley_binary/distilbert] mode full: train 4017, val 574, test 1148
+[mendeley_binary/distilbert] trial 0: val macro F1 0.9902 (4 epochs, 63s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/distilbert] trial 1: val macro F1 0.9902 (5 epochs, 78s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 2: val macro F1 0.9902 (3 epochs, 49s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/distilbert] trial 3: val macro F1 0.9902 (3 epochs, 49s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 4: val macro F1 0.9902 (4 epochs, 40s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 5: val macro F1 0.9902 (5 epochs, 79s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 6: val macro F1 0.9902 (3 epochs, 31s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/distilbert] trial 7: val macro F1 0.9869 (5 epochs, 80s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 8: val macro F1 0.9902 (5 epochs, 78s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 9: val macro F1 0.9902 (4 epochs, 65s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 10: val macro F1 0.9868 (4 epochs, 65s) {'lr': 7.286219508589066e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 11: val macro F1 0.9902 (4 epochs, 40s) {'lr': 3.110412892617317e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 12: val macro F1 0.9902 (4 epochs, 41s) {'lr': 2.3952719621285637e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 13: val macro F1 0.9902 (4 epochs, 63s) {'lr': 1.01499529937233e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[mendeley_binary/distilbert] trial 14: val macro F1 0.9935 (5 epochs, 51s) {'lr': 7.77255565955076e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 15: val macro F1 0.9869 (4 epochs, 41s) {'lr': 6.743188567889306e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[mendeley_binary/distilbert] trial 16: val macro F1 0.9902 (5 epochs, 81s) {'lr': 3.870108557714396e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[mendeley_binary/distilbert] trial 17: val macro F1 0.9935 (4 epochs, 41s) {'lr': 8.809087516312447e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 18: val macro F1 0.9869 (5 epochs, 51s) {'lr': 9.863149949748032e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] trial 19: val macro F1 0.9868 (4 epochs, 40s) {'lr': 5.0951714774140274e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[mendeley_binary/distilbert] best trial 14: val macro F1 0.9935
+[mendeley_binary/distilbert] seed 1: test macro F1 0.9808 (41s)
+[mendeley_binary/distilbert] seed 2: test macro F1 0.9791 (41s)
+[mendeley_binary/distilbert] seed 3: test macro F1 0.9757 (31s)
+[mendeley_binary/distilbert] seed 4: test macro F1 0.9902 (41s)
+[mendeley_binary/distilbert] seed 5: test macro F1 0.9790 (31s)
+[moz_binary/distilbert] mode full: train 1765, val 253, test 505
+[moz_binary/distilbert] trial 0: val macro F1 0.9820 (5 epochs, 59s) {'lr': 2.368863950364079e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 1: val macro F1 0.9881 (4 epochs, 44s) {'lr': 3.9913058785616805e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/distilbert] trial 2: val macro F1 0.9825 (5 epochs, 59s) {'lr': 2.0148477884158675e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 3: val macro F1 0.9881 (5 epochs, 58s) {'lr': 2.858051065806938e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/distilbert] trial 4: val macro F1 0.9825 (5 epochs, 36s) {'lr': 1.1615865989246456e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[moz_binary/distilbert] trial 5: val macro F1 0.9941 (5 epochs, 55s) {'lr': 1.3244581340099339e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/distilbert] trial 6: val macro F1 0.9941 (5 epochs, 38s) {'lr': 3.521358805467871e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 7: val macro F1 0.9941 (5 epochs, 58s) {'lr': 1.2260057359187518e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/distilbert] trial 8: val macro F1 0.9881 (5 epochs, 55s) {'lr': 1.9095652801045383e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/distilbert] trial 9: val macro F1 0.9882 (5 epochs, 58s) {'lr': 1.012796325733148e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.06}
+[moz_binary/distilbert] trial 10: val macro F1 0.9941 (5 epochs, 59s) {'lr': 8.017887377989222e-05, 'batch_size': 16, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[moz_binary/distilbert] trial 11: val macro F1 0.9882 (5 epochs, 36s) {'lr': 9.187654383259812e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 12: val macro F1 0.9882 (5 epochs, 37s) {'lr': 1.2914041193456861e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 13: val macro F1 0.9882 (5 epochs, 37s) {'lr': 4.411753905826366e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 14: val macro F1 0.9881 (5 epochs, 36s) {'lr': 4.5870140188444e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.06}
+[moz_binary/distilbert] trial 15: val macro F1 0.9882 (5 epochs, 37s) {'lr': 1.55109285493619e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.0}
+[moz_binary/distilbert] trial 16: val macro F1 0.9820 (5 epochs, 37s) {'lr': 2.8658314921305307e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 17: val macro F1 0.9941 (5 epochs, 55s) {'lr': 1.0281718032548755e-05, 'batch_size': 16, 'weight_decay': 0.0, 'warmup_ratio': 0.0}
+[moz_binary/distilbert] trial 18: val macro F1 0.9882 (5 epochs, 36s) {'lr': 5.7599149548423716e-05, 'batch_size': 32, 'weight_decay': 0.0, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] trial 19: val macro F1 0.9941 (5 epochs, 38s) {'lr': 7.01879986410521e-05, 'batch_size': 32, 'weight_decay': 0.01, 'warmup_ratio': 0.1}
+[moz_binary/distilbert] best trial 5: val macro F1 0.9941
+[moz_binary/distilbert] seed 1: test macro F1 0.9826 (55s)
+[moz_binary/distilbert] seed 2: test macro F1 0.9769 (33s)
+[moz_binary/distilbert] seed 3: test macro F1 0.9854 (55s)
+[moz_binary/distilbert] seed 4: test macro F1 0.9883 (55s)
+[moz_binary/distilbert] seed 5: test macro F1 0.9711 (33s)

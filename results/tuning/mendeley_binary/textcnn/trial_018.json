@@ -1,0 +1,71 @@
+{
+  "best_epoch": 4,
+  "device": "cuda",
+  "encode_seconds": 0.052820224000015514,
+  "epochs_run": 8,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.3058272640000723,
+      "val_macro_f1": 0.9365439555004742,
+      "val_seconds": 0.016705881999996564
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.2975430450001113,
+      "val_macro_f1": 0.9538797061524334,
+      "val_seconds": 0.02000767200001974
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.2808895200000734,
+      "val_macro_f1": 0.9538797061524334,
+      "val_seconds": 0.014368298000135837
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.2848267220001617,
+      "val_macro_f1": 0.9593570771082631,
+      "val_seconds": 0.014448479999828123
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.3172544450001169,
+      "val_macro_f1": 0.9658072817384674,
+      "val_seconds": 0.014699607000011383
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.26215711800000463,
+      "val_macro_f1": 0.9658072817384674,
+      "val_seconds": 0.014638885000067603
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.2702768419999302,
+      "val_macro_f1": 0.9593570771082631,
+      "val_seconds": 0.014352871000028244
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.27269687200009685,
+      "val_macro_f1": 0.9658072817384674,
+      "val_seconds": 0.014131051999811461
+    }
+  ],
+  "n_train": 4017,
+  "n_val": 574,
+  "number": 18,
+  "params": {
+    "batch_size": 128,
+    "dropout": 0.2655473499437952,
+    "embed_dim": 300,
+    "kernel_sizes": "3,4,5",
+    "lr": 0.0011670457974119128,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_filters": 128
+  },
+  "seconds": 2.5533927320000203,
+  "value": 0.9658072817384674
+}

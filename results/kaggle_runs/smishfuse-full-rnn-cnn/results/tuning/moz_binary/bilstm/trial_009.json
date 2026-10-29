@@ -1,0 +1,89 @@
+{
+  "best_epoch": 7,
+  "device": "cuda",
+  "encode_seconds": 0.022421058999952947,
+  "epochs_run": 11,
+  "history": [
+    {
+      "epoch": 0,
+      "train_seconds": 0.6573690220000117,
+      "val_macro_f1": 0.9127586206896552,
+      "val_seconds": 0.01063744900011443
+    },
+    {
+      "epoch": 1,
+      "train_seconds": 0.6522460290000254,
+      "val_macro_f1": 0.9170972701837522,
+      "val_seconds": 0.010465699999940625
+    },
+    {
+      "epoch": 2,
+      "train_seconds": 0.6607218920000832,
+      "val_macro_f1": 0.9590737873500798,
+      "val_seconds": 0.019107889999986583
+    },
+    {
+      "epoch": 3,
+      "train_seconds": 0.7628520089999711,
+      "val_macro_f1": 0.9443344334433443,
+      "val_seconds": 0.010238705999881859
+    },
+    {
+      "epoch": 4,
+      "train_seconds": 0.6418082899999717,
+      "val_macro_f1": 0.9170972701837522,
+      "val_seconds": 0.011018664999937755
+    },
+    {
+      "epoch": 5,
+      "train_seconds": 0.7420183259998794,
+      "val_macro_f1": 0.9699560622253889,
+      "val_seconds": 0.01734419300009904
+    },
+    {
+      "epoch": 6,
+      "train_seconds": 0.7389591879998534,
+      "val_macro_f1": 0.9631624927198602,
+      "val_seconds": 0.012022649000073216
+    },
+    {
+      "epoch": 7,
+      "train_seconds": 0.7306110939998689,
+      "val_macro_f1": 0.9703698498582906,
+      "val_seconds": 0.010343872000021292
+    },
+    {
+      "epoch": 8,
+      "train_seconds": 0.7226745369998753,
+      "val_macro_f1": 0.9508833236264802,
+      "val_seconds": 0.010429828000042107
+    },
+    {
+      "epoch": 9,
+      "train_seconds": 0.6953771850000976,
+      "val_macro_f1": 0.9508833236264802,
+      "val_seconds": 0.014340209000010873
+    },
+    {
+      "epoch": 10,
+      "train_seconds": 0.7766045650000706,
+      "val_macro_f1": 0.9515882127822426,
+      "val_seconds": 0.010404456000060236
+    }
+  ],
+  "n_train": 1765,
+  "n_val": 253,
+  "number": 9,
+  "params": {
+    "batch_size": 32,
+    "dropout": 0.43412099823569517,
+    "embed_dim": 100,
+    "hidden_size": 256,
+    "lr": 0.0005284222249942597,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_layers": 1
+  },
+  "seconds": 7.989416731000119,
+  "value": 0.9703698498582906
+}

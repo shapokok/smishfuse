@@ -25,7 +25,8 @@ from eval.metrics import compute_metrics  # noqa: E402
 from eval.registry import MODEL_ORDER  # noqa: E402
 
 RESULTS = ROOT / "results"
-MERGE_DIRS = ["raw", "tuning", "best_params", "seed_runs", "job_times", "runtime", "errors", "logs", "llm_cache_check"]
+MERGE_DIRS = ["raw", "tuning", "best_params", "seed_runs", "job_times", "runtime", "errors", "logs", "llm_cache_check",
+              "latency"]  # latency/retrained/ holds model weights and is skipped
 METRIC_ORDER = ["accuracy", "macro_f1", "weighted_f1", "balanced_accuracy", "pr_auc", "recall_at_fpr_1pct", "ece",
                 "invalid_rate"]
 
@@ -39,7 +40,7 @@ def merge(kernel: str) -> None:
     n = 0
     for d in MERGE_DIRS:
         for f in (src / d).rglob("*") if (src / d).exists() else []:
-            if f.is_file() and not f.name.endswith((".tmp", ".partial.csv")):
+            if f.is_file() and not f.name.endswith((".tmp", ".partial.csv")) and "retrained" not in f.parts:
                 dst = RESULTS / f.relative_to(src)
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(f, dst)

@@ -1,0 +1,18 @@
+{
+  "checkpoint": null,
+  "model": "textcnn",
+  "model_params": {
+    "batch_size": 32,
+    "dropout": 0.16023868691605958,
+    "embed_dim": 200,
+    "kernel_sizes": "2,3,4",
+    "lr": 0.00010275505837815194,
+    "max_len": 64,
+    "min_freq": 2,
+    "num_filters": 128
+  },
+  "n_trials": 20,
+  "task": "super_sms_clean_binary",
+  "trial": 10,
+  "val_macro_f1": 0.9906486566473788
+}
