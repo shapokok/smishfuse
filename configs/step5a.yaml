@@ -1,0 +1,103 @@
+# Step 5a: final method (cascade), reproduction of published methods, duplicate inflation.
+# VAL ONLY (and train+val for the inflation CV): no test split is read. Fixed before any result.
+task: mendeley_3class
+seeds: [1, 2, 3]
+eval_settings: [clean, heldout05, heldout10, heldout20]   # obfuscated val of step 4c (HELD-OUT types)
+
+# 1. Cascade: stage 1 = char LinearSVM with TRAIN-type augmentation (step 4c `svm_char_aug`, sigmoid-
+# calibrated), stage 2 = DistilBERT with the same augmentation (step 4c `distilbert_aug`); seed k of
+# stage 1 is paired with seed k of stage 2. No model is retrained: the saved step-4c val probabilities
+# are combined. Rule: answer of stage 1 if its max probability >= tau, otherwise answer of stage 2.
+cascade:
+  stage1: svm_char_aug
+  stage2: distilbert_aug
+  # cross-fitting: val split in two stratified halves (StratifiedKFold(2, shuffle, this seed));
+  # tau is chosen on the CLEAN val of one half (max macro F1; ties -> the smallest tau, i.e. the
+  # fewest stage-2 calls; candidates: 0, every distinct stage-1 max probability of that half, and
+  # 1 + 1e-9 = everything to stage 2) and applied to the other half, clean and HELD-OUT; then the
+  # halves swap. HELD-OUT text is never used to choose tau. Score = mean over the two halves.
+  halves_seed: 2026
+  # curve: the given share of messages with the lowest stage-1 max probability goes to stage 2
+  # (descriptive, no selection), computed on the full val of every setting.
+  curve_shares: [0.0, 0.05, 0.10, 0.20, 0.30, 0.50, 1.0]
+  # comparison: mean of the stage-1 and stage-2 probabilities, argmax.
+  # expected latency = latency(stage 1) + share routed x latency(stage 2), from the step-3 single-
+  # thread CPU measurement (results/latency/latency.csv, mendeley_3class). The char LinearSVM was not
+  # measured; the step-2 LinearSVM (word+char TF-IDF) stands in for it. A calculation, not a measurement.
+  latency_stage1: linear_svm
+  latency_stage2: distilbert
+
+# Every comparison of step 5a (cascade, baselines, reproduced methods) uses the same cross-fit
+# score: the metric on each val half, averaged over the two halves. "Beyond the seed spread":
+# |difference of means| > max(std of the two), ddof = 1 (descriptive, not a significance test).
+
+# 2. Published methods with results on Mendeley SMS Phishing (DOI 10.17632/f45bkkt8pr.1) that are
+# described well enough to be re-implemented. Trained on our clean train, evaluated on our val
+# (clean and HELD-OUT). Settings the paper does not state are marked "ours" below.
+published:
+  mahmud2024_cnn_bigru:
+    # Mahmud et al., Systems 12(11):490, 2024, doi 10.3390/systems12110490 (Dataset 3, binary
+    # ham vs smishing+spam). Stated: lowercasing, stop-word and punctuation removal, Word2Vec 100-d,
+    # Embedding -> Conv1D(32, kernel 3, ReLU) -> MaxPool(2) -> BiGRU(64, dropout 0.2, recurrent
+    # dropout 0.2) -> Dense(1, sigmoid), binary cross-entropy, Adam, batch 128, 50 epochs.
+    task: mendeley_binary
+    word2vec: {vector_size: 100, min_count: 1}   # ours: min_count 1 (every train word has a vector); other gensim defaults
+    stop_words: sklearn                          # ours: list not given in the paper (sklearn ENGLISH_STOP_WORDS)
+    max_len: 100                                 # ours: not stated; Keras pad/truncate "pre" (Keras default)
+    conv: {filters: 32, kernel: 3}
+    pool: 2
+    gru: {units: 64, dropout: 0.2, recurrent_dropout: 0.2}
+    lr: 0.001                                    # ours: Adam default (not stated)
+    batch_size: 128
+    epochs: 50                                   # no early stopping (not stated); the last epoch is used
+    embedding_trainable: true                    # ours: Keras default
+  shim2024:
+    # Shim et al., arXiv:2411.02403, 2024: smishing vs spam (ham removed), "Original Data" rows of
+    # Table 1. Stated: up to 10 epochs, AdamW, batch size in {8, 16, 32}, lr in {1e-6, 5e-6, 1e-5, 5e-5},
+    # "chose the best performing model". Ours: the choice (batch, lr, epoch) on a stratified 20% part
+    # of our train (seed = run seed), then retraining on the whole train with that choice; max length
+    # 128; constant lr; torch AdamW defaults otherwise; selection metric macro F1.
+    task: smishing_vs_spam
+    models:
+      shim2024_bert_base: bert-base-uncased
+      shim2024_distilbert_base: distilbert-base-uncased
+      shim2024_roberta_base: roberta-base
+    batch_sizes: [8, 16, 32]
+    lrs: [1.0e-6, 5.0e-6, 1.0e-5, 5.0e-5]
+    max_epochs: 10
+    inner_val: 0.2
+    max_len: 128
+# The cascade is compared with a binary method on its task through the probabilities of the stage
+# that answered: malicious if p(smishing) + p(spam) > p(ham); smishing vs spam (true non-ham val
+# messages only): smishing if p(smishing) > p(spam).
+
+# 3. Duplicate inflation, train + val only. "dirty": every raw Mendeley row (unified.csv, no dedup)
+# except the rows whose duplicate group has its kept member in our test (no test text is used);
+# rows of label-conflict-tie groups (no kept member) stay with their raw labels. "clean": our
+# deduplicated train + val. Same protocol for both: StratifiedKFold(5, shuffle, seed), seeds 1-3,
+# score = mean over folds. Models: LinearSVM, LogReg (step-2 best mendeley_3class parameters, 3-class),
+# the reproduced methods on their tasks (Shim: the batch / lr / epochs chosen most often in part 2).
+inflation:
+  folds: 5
+  models: [linear_svm, logreg, mahmud2024_cnn_bigru, shim2024_bert_base, shim2024_distilbert_base,
+           shim2024_roberta_base]
+
+# ---------------------------------------------------------------- addendum (2026-10-30)
+# ДОБАВЛЕНО ДО ПОЛУЧЕНИЯ РЕЗУЛЬТАТОВ (added before any result of smishfuse-step5a was downloaded or
+# seen). Comparison with the published methods in their own setting: the cascade and our baselines
+# are TRAINED and evaluated in that setting on the same data, not only read off the 3-class models.
+#   mendeley_binary   (Mahmud et al. 2024): ham vs spam + smishing, our train / val, all messages;
+#   smishing_vs_spam  (Shim et al. 2024):   smishing vs spam, ham removed from train and from val.
+# Models: the step-4c baselines and the two cascade stages, with their step-4c settings unchanged
+# (DistilBERT: configs/step4a.yaml text model with one 2-class head and no auxiliary head, early
+# stopping on the clean val of the setting, with / without the TRAIN-type augmentation; BERT: best
+# step-3 mendeley_3class parameters; LinearSVM char with / without augmentation and the step-2
+# LinearSVM: best step-2 mendeley_3class C / class weight / vectorizer, as in step 4c), seeds 1-3,
+# clean + HELD-OUT val of the setting. Cascade in the setting: stage 1 = svm_char_aug, stage 2 =
+# distilbert_aug of the setting; tau by the same cross-fitting on the clean val (halves = the
+# 3-class halves above, restricted to the messages of the setting), metric macro F1 of the setting.
+# The 3-class read-off comparison stays in the report as a second view. Separate short Kaggle run
+# (notebook smishfuse-step5a-setting) after smishfuse-step5a; output results/step5a/setting/.
+setting_runs:
+  tasks: [mendeley_binary, smishing_vs_spam]
+  models: [svm_char_aug, svm_char, svm_step2, distilbert_aug, distilbert, bert]
