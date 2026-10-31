@@ -7,7 +7,8 @@ Safety: links only to the reserved .example domain, no phone numbers, no detail 
 Overlap check: every message against the 63 case-study rows (data/kz_cases/cases.csv): MinHash LSH over
 character 5-grams of the normalised text (lowercase, single spaces), candidates verified with the exact
 Jaccard; Jaccard >= 0.5 -> removed and logged.
-Output: data/kz_adapt/draft.csv, data/kz_adapt/overlap_removed.csv
+Output: data/kz_adapt/adapt.csv (the set after the author's check: Kazakh corrections, links added to part
+of the spam / ham ideas, borderline marks), data/kz_adapt/overlap_removed.csv
 Run: python scripts/make_kz_adapt_draft.py
 """
 import csv
@@ -153,7 +154,7 @@ IDEAS = [
     ("smishing", "insurance",
      "Your compulsory car insurance has expired. Renew it with a discount at ogpo-renew.example",
      "Ваш полис ОГПО истёк. Продлите его со скидкой на ogpo-renew.example",
-     "Сіздің МАЖЖ полисіңіздің мерзімі өтті. Оны жеңілдікпен ogpo-renew.example сайтында ұзартыңыз."),
+     "Сіздің ОГПО полисіңіздің мерзімі өтті. Оны жеңілдікпен ogpo-renew.example сайтында ұзартыңыз."),
     ("smishing", "travel",
      "Your flight has been cancelled. Get your refund at ticket-refund.example",
      "Ваш рейс отменён. Верните деньги за билет на ticket-refund.example",
@@ -219,7 +220,7 @@ IDEAS = [
     ("ham", "marketplace_delivery",
      "Your order has arrived at the pickup point. Pickup code: 4821.",
      "Заказ доставлен в пункт выдачи. Код получения: 4821.",
-     "Тапсырыс беру пунктіне жеткізілді. Алу коды: 4821."),
+     "Тапсырысыңыз алу пунктіне жеткізілді. Алу коды: 4821."),
     ("ham", "classifieds",
      "Hello, is the apartment still for rent? I can come and see it today after 6.",
      "Здравствуйте, квартира ещё сдаётся? Могу посмотреть сегодня после 6.",
@@ -369,7 +370,7 @@ IDEAS = [
     ("spam", "cafe",
      "Pizza 2+1 when you order through the app until Sunday.",
      "Пицца по акции 2+1 при заказе через приложение до воскресенья.",
-     "Жексенбіге дейін қосымша арқылы тапсырыс бергенде пицца 2+1 акциясы бойынша."),
+     "Жексенбіге дейін қосымша арқылы тапсырыс бергенде пиццаға 2+1 акциясы."),
     ("spam", "taxi",
      "Promo code for 30% off your first taxi ride: SPRING30.",
      "Промокод на скидку 30% на первую поездку в такси: SPRING30.",
@@ -389,7 +390,7 @@ IDEAS = [
     ("spam", "car_dealer",
      "Car dealership: test drives of new models and gifts for every visitor on Saturday.",
      "Автосалон: тест-драйв новых моделей и подарки каждому посетителю в субботу.",
-     "Автосалон: сенбі күні жаңа модельдерді сынақтан өткізу және әр келушіге сыйлық."),
+     "Автосалон: сенбі күні жаңа модельдерге тест-драйв және әр келушіге сыйлық."),
     ("spam", "pharmacy",
      "Pharmacy: 10% off vitamins with the loyalty card.",
      "Аптека: скидка 10% на витамины по карте лояльности.",
@@ -465,6 +466,87 @@ IDEAS = [
 ]
 
 
+# Author's check (after commit 4bedb16): links to .example added to about 40% of the spam ideas and 25% of the
+# ham ideas (all three language versions), so that a link is not a smishing-only cue. Key: (label, idea number
+# within the label, 1-based) -> new (en, ru, kk). The report compares the link share before / after.
+LINK_EDITS = {
+    ("spam", 1): ("Halyk: get a card and receive up to 5% cashback on everything in the first month. Apply at halyk-cards.example",
+                  "Halyk: оформите карту и получите кешбэк до 5% на всё в первый месяц. Заявка на halyk-cards.example",
+                  "Halyk: карта рәсімдеп, алғашқы айда барлық сатып алуға 5%-ға дейін кешбэк алыңыз. Өтінім: halyk-cards.example"),
+    ("spam", 2): ("Jusan: a deposit with a high rate. Open it online at jusan-deposit.example",
+                  "Jusan: депозит под высокую ставку. Откройте онлайн на jusan-deposit.example",
+                  "Jusan: жоғары мөлшерлемелі депозит. Оны jusan-deposit.example сайтында онлайн ашыңыз."),
+    ("spam", 5): ("Kcell: unlimited internet for the weekend for just 500 tenge. Connect at kcell-tariff.example",
+                  "Kcell: безлимитный интернет на выходные всего за 500 тенге. Подключение на kcell-tariff.example",
+                  "Kcell: демалыс күндеріне шексіз интернет небәрі 500 теңге. Қосылу: kcell-tariff.example"),
+    ("spam", 6): ("Tele2: we give you 2 GB when you top up from 3000 tenge until the end of the week. Terms at tele2-promo.example",
+                  "Tele2: дарим 2 ГБ при пополнении от 3000 тенге до конца недели. Условия на tele2-promo.example",
+                  "Tele2: апта соңына дейін 3000 теңгеден толтырғанда 2 ГБ сыйлаймыз. Шарттары: tele2-promo.example"),
+    ("spam", 9): ("Supermarket: up to 50% off fruit this weekend! All offers at supermarket-sale.example",
+                  "Супермаркет: скидки до 50% на фрукты в эти выходные! Все акции на supermarket-sale.example",
+                  "Супермаркет: осы демалыста жемістерге 50%-ға дейін жеңілдік! Барлық акциялар: supermarket-sale.example"),
+    ("spam", 10): ("Electronics store: smartphone sale, installments 0-0-12. Catalogue at techno-sale.example",
+                   "Магазин электроники: распродажа смартфонов, рассрочка 0-0-12. Каталог на techno-sale.example",
+                   "Электроника дүкені: смартфондар сатылымы, 0-0-12 бөліп төлеу. Каталог: techno-sale.example"),
+    ("spam", 12): ("The new spring-summer collection is in stores and at fashion-store.example! 15% off with this SMS.",
+                   "Новая коллекция весна-лето уже в магазинах и на fashion-store.example! Скидка 15% по этому SMS.",
+                   "Жаңа көктем-жаз коллекциясы дүкендерде және fashion-store.example сайтында! Осы SMS бойынша 15% жеңілдік."),
+    ("spam", 14): ("Promo code for 30% off your first taxi ride: SPRING30. Get the app at taxi-app.example",
+                   "Промокод на скидку 30% на первую поездку в такси: SPRING30. Приложение: taxi-app.example",
+                   "Таксидегі алғашқы сапарға 30% жеңілдік промокоды: SPRING30. Қосымша: taxi-app.example"),
+    ("spam", 15): ("Fitness club: your first workout is free. Sign up at fitness-club.example",
+                   "Фитнес-клуб: первая тренировка бесплатно. Запишитесь на fitness-club.example",
+                   "Фитнес-клуб: алғашқы жаттығу тегін. fitness-club.example сайтында жазылыңыз."),
+    ("spam", 16): ("English courses: new groups are starting, the first lesson is free. Sign up at english-courses.example",
+                   "Курсы английского языка: набор в группы, первое занятие бесплатно. Запись на english-courses.example",
+                   "Ағылшын тілі курстары: топтарға қабылдау, алғашқы сабақ тегін. Жазылу: english-courses.example"),
+    ("spam", 21): ("Marketplace: big 11.11 sale, discounts up to 70% at market-sale.example",
+                   "Маркетплейс: большая распродажа 11.11, скидки до 70% на market-sale.example",
+                   "Маркетплейс: 11.11 үлкен сатылым, market-sale.example сайтында 70%-ға дейін жеңілдік."),
+    ("spam", 22): ("Flights to Istanbul from 45 000 tenge, buy before Friday at fly-sale.example",
+                   "Авиабилеты в Стамбул от 45 000 тенге, успейте купить до пятницы на fly-sale.example",
+                   "Ыстамбұлға әуе билеттері 45 000 теңгеден, жұмаға дейін fly-sale.example сайтында сатып алып үлгеріңіз."),
+    ("spam", 30): ("Free grocery delivery for orders over 10 000 tenge. Order at grocery-shop.example",
+                   "Бесплатная доставка продуктов при заказе от 10 000 тенге. Заказ на grocery-shop.example",
+                   "10 000 теңгеден асатын тапсырысқа азық-түлікті тегін жеткізу. Тапсырыс: grocery-shop.example"),
+    ("spam", 36): ("Driving school: enrol now at autoschool.example and get theory lessons free.",
+                   "Автошкола: запишитесь сейчас на autoschool.example и получите теорию бесплатно.",
+                   "Автомектеп: қазір autoschool.example сайтында жазылып, теориялық сабақтарды тегін алыңыз."),
+    ("ham", 4): ("eGov: your request for a certificate of no criminal record has been completed. Download it in your personal account at egov-cabinet.example",
+                 "eGov: ваш запрос на справку о несудимости исполнен. Скачать справку можно в личном кабинете на egov-cabinet.example",
+                 "eGov: соттылықтың жоқтығы туралы анықтамаға сұранысыңыз орындалды. Анықтаманы egov-cabinet.example сайтындағы жеке кабинеттен жүктеп алуға болады."),
+    ("ham", 6): ("Kazpost: your registered letter has been delivered to the post office. It will be kept for 15 days, tracking: kazpost-track.example",
+                 "Казпочта: ваше заказное письмо доставлено в отделение. Срок хранения 15 дней, отслеживание: kazpost-track.example",
+                 "Қазпошта: тапсырысты хатыңыз бөлімшеге жеткізілді. Сақтау мерзімі 15 күн, бақылау: kazpost-track.example"),
+    ("ham", 12): ("SRC: the property tax is due by 1 October. The amount is in your taxpayer account at kgd-cabinet.example",
+                  "КГД: срок уплаты налога на имущество — до 1 октября. Сумма указана в кабинете налогоплательщика на kgd-cabinet.example",
+                  "МКК: мүлік салығын төлеу мерзімі — 1 қазанға дейін. Сома kgd-cabinet.example сайтындағы салық төлеушінің кабинетінде көрсетілген."),
+    ("ham", 13): ("Your order has been handed over to the delivery service. Track it at shop-track.example",
+                  "Ваш заказ передан в службу доставки. Отследить: shop-track.example",
+                  "Тапсырысыңыз жеткізу қызметіне берілді. Бақылау: shop-track.example"),
+    ("ham", 25): ("Clinic: you have an appointment with the therapist on 12.06 at 11:00, room 204. To reschedule, use clinic-booking.example",
+                  "Поликлиника: вы записаны к терапевту на 12.06 в 11:00, кабинет 204. Перенести запись можно на clinic-booking.example",
+                  "Емхана: сіз 12.06 күні сағат 11:00-ге терапевтке жазылдыңыз, 204 кабинет. Жазылуды clinic-booking.example сайтында ауыстыруға болады."),
+    ("ham", 29): ("Your order is being prepared, the courier will arrive in about 30 minutes. Track it at food-track.example",
+                  "Ваш заказ готовится, курьер приедет примерно через 30 минут. Отслеживать заказ: food-track.example",
+                  "Тапсырысыңыз дайындалуда, курьер шамамен 30 минуттан кейін келеді. Тапсырысты бақылау: food-track.example"),
+    ("ham", 30): ("Check-in for your flight is open at airline-checkin.example",
+                  "Регистрация на рейс открыта на airline-checkin.example",
+                  "Рейске тіркеу airline-checkin.example сайтында ашылды."),
+    ("ham", 31): ("The exam schedule has been published in your student account at student-portal.example",
+                  "Расписание экзаменов опубликовано в личном кабинете студента на student-portal.example",
+                  "Емтихан кестесі student-portal.example сайтындағы студенттің жеке кабинетінде жарияланды."),
+    ("ham", 32): ("Reminder: your loan payment of 25 000 tenge is due by the 15th. You can pay in your account at bank-cabinet.example",
+                  "Напоминаем о платеже по кредиту 25 000 тенге до 15 числа. Оплатить можно в личном кабинете на bank-cabinet.example",
+                  "Еске саламыз: 25 000 теңге несие төлемін айдың 15-іне дейін төлеу қажет. Оны bank-cabinet.example сайтындағы жеке кабинетте төлеуге болады."),
+    ("ham", 33): ("Your gym membership expires in 3 days. You can renew it at gym-club.example",
+                  "Ваш абонемент в спортзал заканчивается через 3 дня. Продлить можно на gym-club.example",
+                  "Спортзалға абонементіңіз 3 күннен кейін аяқталады. Оны gym-club.example сайтында ұзартуға болады."),
+}
+# borderline smishing ideas (similar legitimate mailings exist): kept as smishing, marked in the report
+BORDERLINE = {("smishing", 31), ("smishing", 32)}
+
+
 def norm(t: str) -> str:
     return re.sub(r"\s+", " ", t.lower()).strip()
 
@@ -486,10 +568,13 @@ def main():
     counter = {}
     for label, category, en, ru, kk in IDEAS:
         counter[label] = counter.get(label, 0) + 1
+        key = (label, counter[label])
+        en, ru, kk = LINK_EDITS.get(key, (en, ru, kk))
         for lang, text in (("en", en), ("ru", ru), ("kk", kk)):
             rows.append({"id": f"ad_{label}_{counter[label]:02d}_{lang}", "category": category,
                          "same_category_as_test": str(category in TEST_CATEGORIES).lower(), "language": lang,
-                         "text": text, "label": label})
+                         "text": text, "label": label, "link_added_after_check": str(key in LINK_EDITS).lower(),
+                         "borderline": str(key in BORDERLINE).lower()})
     with open(ROOT / "data" / "kz_cases" / "cases.csv", encoding="utf-8") as f:
         cases = list(csv.DictReader(f))
     lsh = MinHashLSH(threshold=THRESHOLD, num_perm=PERM)
@@ -512,8 +597,9 @@ def main():
             keep.append(r)
     out = ROOT / "data" / "kz_adapt"
     out.mkdir(parents=True, exist_ok=True)
-    fields = ["id", "category", "same_category_as_test", "language", "text", "label"]
-    with open(out / "draft.csv", "w", newline="", encoding="utf-8") as f:
+    fields = ["id", "category", "same_category_as_test", "language", "text", "label", "link_added_after_check",
+              "borderline"]
+    with open(out / "adapt.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         w.writeheader()
         w.writerows(keep)

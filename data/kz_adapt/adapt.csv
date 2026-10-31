@@ -1,0 +1,325 @@
+id,category,same_category_as_test,language,text,label,link_added_after_check,borderline
+ad_smishing_01_en,bank_card_account,true,en,"Halyk: access to your account is temporarily restricted. To restore it, sign in at halyk-secure.example",smishing,false,false
+ad_smishing_01_ru,bank_card_account,true,ru,Halyk: доступ к вашему счёту временно ограничен. Для восстановления войдите на halyk-secure.example,smishing,false,false
+ad_smishing_01_kk,bank_card_account,true,kk,Halyk: шотыңызға қолжетімділік уақытша шектелді. Қалпына келтіру үшін halyk-secure.example сайтына кіріңіз.,smishing,false,false
+ad_smishing_02_en,bank_card_account,true,en,Jusan: your card has been frozen. Verify your identity at jusan-id.example to keep using it.,smishing,false,false
+ad_smishing_02_ru,bank_card_account,true,ru,"Jusan: ваша карта заморожена. Подтвердите личность на jusan-id.example, чтобы продолжить пользоваться ею.",smishing,false,false
+ad_smishing_02_kk,bank_card_account,true,kk,Jusan: картаңыз тоқтатылды. Пайдалануды жалғастыру үшін jusan-id.example сайтында жеке басыңызды растаңыз.,smishing,false,false
+ad_smishing_03_en,bank_prize_promo,true,en,Freedom Bank: you are a winner of our client lottery! Claim your reward at freedom-bonus.example,smishing,false,false
+ad_smishing_03_ru,bank_prize_promo,true,ru,Freedom Bank: вы стали победителем клиентской лотереи! Заберите вознаграждение на freedom-bonus.example,smishing,false,false
+ad_smishing_03_kk,bank_prize_promo,true,kk,Freedom Bank: сіз клиенттік лотереяның жеңімпазы атандыңыз! Сыйлықты freedom-bonus.example сайтынан алыңыз.,smishing,false,false
+ad_smishing_04_en,egov_psc,true,en,eGov: your application for a public service was rejected. Submit it again at egov-service.example,smishing,false,false
+ad_smishing_04_ru,egov_psc,true,ru,eGov: ваша заявка на госуслугу отклонена. Подайте её повторно на egov-service.example,smishing,false,false
+ad_smishing_04_kk,egov_psc,true,kk,eGov: мемлекеттік қызметке өтінішіңіз қабылданбады. Оны egov-service.example сайтында қайта жіберіңіз.,smishing,false,false
+ad_smishing_05_en,post,true,en,The courier could not deliver your parcel. Enter a new address and pay 300 tenge at post-redelivery.example,smishing,false,false
+ad_smishing_05_ru,post,true,ru,Курьер не смог доставить посылку. Укажите новый адрес и оплатите 300 тенге на post-redelivery.example,smishing,false,false
+ad_smishing_05_kk,post,true,kk,"Курьер сәлемдемеңізді жеткізе алмады. Жаңа мекенжайды көрсетіп, post-redelivery.example сайтында 300 теңге төлеңіз.",smishing,false,false
+ad_smishing_06_en,pension,true,en,ENPF: additional pension payments have been accrued to you. Apply for them at pension-bonus.example,smishing,false,false
+ad_smishing_06_ru,pension,true,ru,ЕНПФ: вам начислены дополнительные пенсионные выплаты. Оформите их на pension-bonus.example,smishing,false,false
+ad_smishing_06_kk,pension,true,kk,БЖЗҚ: сізге қосымша зейнетақы төлемдері есептелді. Оларды pension-bonus.example сайтында рәсімдеңіз.,smishing,false,false
+ad_smishing_07_en,mobile_operator,true,en,Kcell: your number will be blocked. Confirm your passport details at kcell-reg.example,smishing,false,false
+ad_smishing_07_ru,mobile_operator,true,ru,Kcell: ваш номер будет заблокирован. Подтвердите паспортные данные на kcell-reg.example,smishing,false,false
+ad_smishing_07_kk,mobile_operator,true,kk,Kcell: нөміріңіз бұғатталады. Төлқұжат деректеріңізді kcell-reg.example сайтында растаңыз.,smishing,false,false
+ad_smishing_08_en,mobile_operator,true,en,Tele2: you have received 1000 bonus points. Tell our operator the code from the SMS to use them.,smishing,false,false
+ad_smishing_08_ru,mobile_operator,true,ru,"Tele2: вам начислено 1000 бонусов. Чтобы воспользоваться ими, назовите оператору код из SMS.",smishing,false,false
+ad_smishing_08_kk,mobile_operator,true,kk,Tele2: сізге 1000 бонус есептелді. Оларды пайдалану үшін операторға SMS-тегі кодты айтыңыз.,smishing,false,false
+ad_smishing_09_en,bank_security,true,en,Bank employee: a transfer is being made from your account. Install the protection app from bank-protect.example,smishing,false,false
+ad_smishing_09_ru,bank_security,true,ru,Сотрудник банка: с вашего счёта оформляется перевод. Установите приложение защиты с bank-protect.example,smishing,false,false
+ad_smishing_09_kk,bank_security,true,kk,Банк қызметкері: шотыңыздан аударым рәсімделуде. bank-protect.example сайтынан қорғау қосымшасын орнатыңыз.,smishing,false,false
+ad_smishing_10_en,bank_security,true,en,Police: your card is being used by fraudsters. Tell the investigator who calls you the codes from SMS.,smishing,false,false
+ad_smishing_10_ru,bank_security,true,ru,"Полиция: вашу карту используют мошенники. Сообщите коды из SMS следователю, который вам позвонит.",smishing,false,false
+ad_smishing_10_kk,bank_security,true,kk,Полиция: картаңызды алаяқтар пайдаланып жатыр. Сізге қоңырау шалатын тергеушіге SMS-тегі кодтарды айтыңыз.,smishing,false,false
+ad_smishing_11_en,traffic_fine,false,en,Traffic fine of 15 MCI. Pay with a 50% discount until tomorrow at shtraf-pdd.example,smishing,false,false
+ad_smishing_11_ru,traffic_fine,false,ru,Штраф ПДД 15 МРП. Оплатите со скидкой 50% до завтра на shtraf-pdd.example,smishing,false,false
+ad_smishing_11_kk,traffic_fine,false,kk,Жол жүру ережесін бұзғаны үшін 15 АЕК айыппұл. Ертеңге дейін 50% жеңілдікпен shtraf-pdd.example сайтында төлеңіз.,smishing,false,false
+ad_smishing_12_en,traffic_fine,false,en,A speed camera recorded a violation by your car. See the photo of the violation at camera-foto.example,smishing,false,false
+ad_smishing_12_ru,traffic_fine,false,ru,Камера зафиксировала превышение скорости вашим автомобилем. Фото нарушения: camera-foto.example,smishing,false,false
+ad_smishing_12_kk,traffic_fine,false,kk,Камера көлігіңіздің жылдамдықты асырғанын тіркеді. Бұзушылық суреті: camera-foto.example,smishing,false,false
+ad_smishing_13_en,tax,false,en,"SRC: you have a property tax debt. Pay it at kgd-pay.example, otherwise your travel abroad will be restricted.",smishing,false,false
+ad_smishing_13_ru,tax,false,ru,"КГД: у вас задолженность по налогу на имущество. Оплатите на kgd-pay.example, иначе выезд за границу будет ограничен.",smishing,false,false
+ad_smishing_13_kk,tax,false,kk,"МКК: сізде мүлік салығы бойынша берешек бар. Оны kgd-pay.example сайтында төлеңіз, әйтпесе шетелге шығуыңыз шектеледі.",smishing,false,false
+ad_smishing_14_en,tax,false,en,SRC: you are entitled to an income tax refund. Enter your card details at nalog-refund.example,smishing,false,false
+ad_smishing_14_ru,tax,false,ru,КГД: вам положен возврат подоходного налога. Укажите данные карты на nalog-refund.example,smishing,false,false
+ad_smishing_14_kk,tax,false,kk,МКК: сізге табыс салығын қайтару қарастырылған. Карта деректерін nalog-refund.example сайтында көрсетіңіз.,smishing,false,false
+ad_smishing_15_en,marketplace_delivery,false,en,Your marketplace order cannot be delivered. Confirm the payment at market-delivery.example,smishing,false,false
+ad_smishing_15_ru,marketplace_delivery,false,ru,Ваш заказ с маркетплейса не может быть доставлен. Подтвердите оплату на market-delivery.example,smishing,false,false
+ad_smishing_15_kk,marketplace_delivery,false,kk,Маркетплейстен алған тапсырысыңызды жеткізу мүмкін емес. Төлемді market-delivery.example сайтында растаңыз.,smishing,false,false
+ad_smishing_16_en,marketplace_delivery,false,en,Your order is held at customs. Pay the duty at customs-fee.example within 2 days.,smishing,false,false
+ad_smishing_16_ru,marketplace_delivery,false,ru,Ваш заказ задержан на таможне. Оплатите пошлину на customs-fee.example в течение 2 дней.,smishing,false,false
+ad_smishing_16_kk,marketplace_delivery,false,kk,Тапсырысыңыз кеденде ұсталды. 2 күн ішінде customs-fee.example сайтында баж салығын төлеңіз.,smishing,false,false
+ad_smishing_17_en,classifieds,false,en,OLX: the buyer has paid for your item. Receive the money via olx-safe-deal.example,smishing,false,false
+ad_smishing_17_ru,classifieds,false,ru,OLX: покупатель оплатил ваш товар. Получите деньги по ссылке olx-safe-deal.example,smishing,false,false
+ad_smishing_17_kk,classifieds,false,kk,OLX: сатып алушы тауарыңыздың ақысын төледі. Ақшаны olx-safe-deal.example сілтемесі арқылы алыңыз.,smishing,false,false
+ad_smishing_18_en,classifieds,false,en,Krisha: your listing has been blocked. Confirm that you are the owner at krisha-check.example,smishing,false,false
+ad_smishing_18_ru,classifieds,false,ru,"Krisha: ваше объявление заблокировано. Подтвердите, что вы владелец, на krisha-check.example",smishing,false,false
+ad_smishing_18_kk,classifieds,false,kk,Krisha: хабарландыруыңыз бұғатталды. Иесі екеніңізді krisha-check.example сайтында растаңыз.,smishing,false,false
+ad_smishing_19_en,classifieds,false,en,Kolesa: a buyer wants to reserve your car. Accept the prepayment at kolesa-pay.example,smishing,false,false
+ad_smishing_19_ru,classifieds,false,ru,Kolesa: покупатель хочет забронировать ваш автомобиль. Примите предоплату на kolesa-pay.example,smishing,false,false
+ad_smishing_19_kk,classifieds,false,kk,Kolesa: сатып алушы көлігіңізді брондағысы келеді. Алдын ала төлемді kolesa-pay.example сайтында қабылдаңыз.,smishing,false,false
+ad_smishing_20_en,relative_money,false,en,"Mom, it's me, my phone is broken, I'm writing from someone else's. Please send 50 000 urgently, I'll send the card number and explain later.",smishing,false,false
+ad_smishing_20_ru,relative_money,false,ru,"Мама, это я, телефон сломался, пишу с чужого. Срочно переведи 50 000, номер карты скину, потом всё объясню.",smishing,false,false
+ad_smishing_20_kk,relative_money,false,kk,"Мама, бұл менмін, телефоным бұзылды, басқа біреудің телефонынан жазып отырмын. Шұғыл 50 000 аудар, карта нөмірін жіберемін, кейін бәрін түсіндіремін.",smishing,false,false
+ad_smishing_21_en,relative_money,false,en,"Hi, it's Aigerim, I'm in trouble and need 30 000 right now. I'll return it tomorrow, send it via kaspi-transfer.example",smishing,false,false
+ad_smishing_21_ru,relative_money,false,ru,"Привет, это Айгерим, у меня проблемы, срочно нужно 30 000. Верну завтра, переведи по ссылке kaspi-transfer.example",smishing,false,false
+ad_smishing_21_kk,relative_money,false,kk,"Сәлем, бұл Әйгерім, менде қиындық болып қалды, қазір 30 000 керек. Ертең қайтарамын, kaspi-transfer.example сілтемесі арқылы аудар.",smishing,false,false
+ad_smishing_22_en,work_from_home,false,en,"Work from home, 20 000 tenge a day, no experience needed. Register at work-home.example",smishing,false,false
+ad_smishing_22_ru,work_from_home,false,ru,"Работа на дому, 20 000 тенге в день, опыт не нужен. Регистрация на work-home.example",smishing,false,false
+ad_smishing_22_kk,work_from_home,false,kk,"Үйден жұмыс, күніне 20 000 теңге, тәжірибе қажет емес. Тіркелу: work-home.example",smishing,false,false
+ad_smishing_23_en,work_from_home,false,en,You have been selected for a part-time job: get paid for likes. Details at job-likes.example,smishing,false,false
+ad_smishing_23_ru,work_from_home,false,ru,Вас выбрали для подработки: оплата за лайки. Подробности на job-likes.example,smishing,false,false
+ad_smishing_23_kk,work_from_home,false,kk,Сіз қосымша жұмысқа таңдалдыңыз: лайк үшін ақы төленеді. Толығырақ: job-likes.example,smishing,false,false
+ad_smishing_24_en,investment,false,en,Earn 30% a month on stocks. Free consultation at invest-kz.example,smishing,false,false
+ad_smishing_24_ru,investment,false,ru,Доход 30% в месяц на акциях. Бесплатная консультация на invest-kz.example,smishing,false,false
+ad_smishing_24_kk,investment,false,kk,Акциялардан айына 30% табыс. Тегін кеңес: invest-kz.example,smishing,false,false
+ad_smishing_25_en,social_payment,false,en,You have been approved for a social payment of 42 500 tenge. Receive it at social-pay.example,smishing,false,false
+ad_smishing_25_ru,social_payment,false,ru,Вам одобрена социальная выплата 42 500 тенге. Получите её на social-pay.example,smishing,false,false
+ad_smishing_25_kk,social_payment,false,kk,Сізге 42 500 теңге әлеуметтік төлем мақұлданды. Оны social-pay.example сайтында алыңыз.,smishing,false,false
+ad_smishing_26_en,utilities,false,en,Electricity debt: your supply will be cut off tomorrow. Pay at energy-pay.example,smishing,false,false
+ad_smishing_26_ru,utilities,false,ru,Задолженность за электроэнергию: завтра отключение. Оплатите на energy-pay.example,smishing,false,false
+ad_smishing_26_kk,utilities,false,kk,Электр энергиясы үшін берешек: ертең ажыратылады. energy-pay.example сайтында төлеңіз.,smishing,false,false
+ad_smishing_27_en,messenger_account,false,en,Your WhatsApp account will be deleted. Confirm it at wa-verify.example,smishing,false,false
+ad_smishing_27_ru,messenger_account,false,ru,Ваш аккаунт WhatsApp будет удалён. Подтвердите его на wa-verify.example,smishing,false,false
+ad_smishing_27_kk,messenger_account,false,kk,WhatsApp аккаунтыңыз жойылады. Оны wa-verify.example сайтында растаңыз.,smishing,false,false
+ad_smishing_28_en,code_request,false,en,"Did you receive a code to change your number in the bank? If it wasn't you, reply with the code to cancel.",smishing,false,false
+ad_smishing_28_ru,code_request,false,ru,"Вам пришёл код для смены номера в банке? Если это не вы, отправьте код в ответ для отмены.",smishing,false,false
+ad_smishing_28_kk,code_request,false,kk,"Банкте нөміріңізді ауыстыру үшін код келді ме? Егер бұл сіз болмасаңыз, болдырмау үшін кодты жауап ретінде жіберіңіз.",smishing,false,false
+ad_smishing_29_en,loan,false,en,You have been approved for a loan of 1 000 000 tenge without certificates. Apply at credit-fast.example,smishing,false,false
+ad_smishing_29_ru,loan,false,ru,Вам одобрен кредит 1 000 000 тенге без справок. Оформите на credit-fast.example,smishing,false,false
+ad_smishing_29_kk,loan,false,kk,Сізге анықтамасыз 1 000 000 теңге несие мақұлданды. credit-fast.example сайтында рәсімдеңіз.,smishing,false,false
+ad_smishing_30_en,courier_code,false,en,"Delivery courier: to receive your parcel, tell me the code from the SMS.",smishing,false,false
+ad_smishing_30_ru,courier_code,false,ru,Курьер службы доставки: для получения посылки назовите мне код из SMS.,smishing,false,false
+ad_smishing_30_kk,courier_code,false,kk,Жеткізу қызметінің курьері: сәлемдемені алу үшін маған SMS-тегі кодты айтыңыз.,smishing,false,false
+ad_smishing_31_en,charity,false,en,Help a child pay for surgery! Donate at donate-help.example,smishing,false,true
+ad_smishing_31_ru,charity,false,ru,Помогите ребёнку на операцию! Переведите пожертвование на donate-help.example,smishing,false,true
+ad_smishing_31_kk,charity,false,kk,Балаға отаға көмектесіңіз! Қайырымдылықты donate-help.example сайтына аударыңыз.,smishing,false,true
+ad_smishing_32_en,insurance,false,en,Your compulsory car insurance has expired. Renew it with a discount at ogpo-renew.example,smishing,false,true
+ad_smishing_32_ru,insurance,false,ru,Ваш полис ОГПО истёк. Продлите его со скидкой на ogpo-renew.example,smishing,false,true
+ad_smishing_32_kk,insurance,false,kk,Сіздің ОГПО полисіңіздің мерзімі өтті. Оны жеңілдікпен ogpo-renew.example сайтында ұзартыңыз.,smishing,false,true
+ad_smishing_33_en,travel,false,en,Your flight has been cancelled. Get your refund at ticket-refund.example,smishing,false,false
+ad_smishing_33_ru,travel,false,ru,Ваш рейс отменён. Верните деньги за билет на ticket-refund.example,smishing,false,false
+ad_smishing_33_kk,travel,false,kk,Рейсіңіз тоқтатылды. Билет ақысын ticket-refund.example сайтында қайтарып алыңыз.,smishing,false,false
+ad_smishing_34_en,akimat_compensation,false,en,Akimat: you are entitled to compensation for utility bills. Fill in the form at akimat-komp.example,smishing,false,false
+ad_smishing_34_ru,akimat_compensation,false,ru,Акимат: вам положена компенсация за коммунальные услуги. Заполните анкету на akimat-komp.example,smishing,false,false
+ad_smishing_34_kk,akimat_compensation,false,kk,Әкімдік: сізге коммуналдық қызметтер үшін өтемақы қарастырылған. Сауалнаманы akimat-komp.example сайтында толтырыңыз.,smishing,false,false
+ad_ham_01_en,bank_card_account,true,en,Halyk: you signed in to Homebank on 05.04 at 09:12.,ham,false,false
+ad_ham_01_ru,bank_card_account,true,ru,Halyk: выполнен вход в Homebank 05.04 в 09:12.,ham,false,false
+ad_ham_01_kk,bank_card_account,true,kk,Halyk: 05.04 күні сағат 09:12-де Homebank-ке кіру орындалды.,ham,false,false
+ad_ham_02_en,bank_card_account,true,en,Jusan: you have received a transfer of 15 000 tenge.,ham,false,false
+ad_ham_02_ru,bank_card_account,true,ru,Jusan: поступил перевод 15 000 тенге.,ham,false,false
+ad_ham_02_kk,bank_card_account,true,kk,Jusan: 15 000 теңге аударым түсті.,ham,false,false
+ad_ham_03_en,bank_card_account,true,en,Freedom Bank: your card expires in May. You can get a new card at any branch.,ham,false,false
+ad_ham_03_ru,bank_card_account,true,ru,Freedom Bank: срок действия вашей карты истекает в мае. Новую карту можно получить в любом отделении.,ham,false,false
+ad_ham_03_kk,bank_card_account,true,kk,Freedom Bank: картаңыздың мерзімі мамыр айында аяқталады. Жаңа картаны кез келген бөлімшеден алуға болады.,ham,false,false
+ad_ham_04_en,egov_psc,true,en,eGov: your request for a certificate of no criminal record has been completed. Download it in your personal account at egov-cabinet.example,ham,true,false
+ad_ham_04_ru,egov_psc,true,ru,eGov: ваш запрос на справку о несудимости исполнен. Скачать справку можно в личном кабинете на egov-cabinet.example,ham,true,false
+ad_ham_04_kk,egov_psc,true,kk,eGov: соттылықтың жоқтығы туралы анықтамаға сұранысыңыз орындалды. Анықтаманы egov-cabinet.example сайтындағы жеке кабинеттен жүктеп алуға болады.,ham,true,false
+ad_ham_05_en,egov_psc,true,en,PSC: you are booked for 14.05 at 10:30. Please bring your ID card.,ham,false,false
+ad_ham_05_ru,egov_psc,true,ru,ЦОН: вы записаны на 14.05 в 10:30. Возьмите с собой удостоверение личности.,ham,false,false
+ad_ham_05_kk,egov_psc,true,kk,ХҚКО: сіз 14.05 күні сағат 10:30-ға жазылдыңыз. Өзіңізбен бірге жеке куәлікті алыңыз.,ham,false,false
+ad_ham_06_en,post,true,en,"Kazpost: your registered letter has been delivered to the post office. It will be kept for 15 days, tracking: kazpost-track.example",ham,true,false
+ad_ham_06_ru,post,true,ru,"Казпочта: ваше заказное письмо доставлено в отделение. Срок хранения 15 дней, отслеживание: kazpost-track.example",ham,true,false
+ad_ham_06_kk,post,true,kk,"Қазпошта: тапсырысты хатыңыз бөлімшеге жеткізілді. Сақтау мерзімі 15 күн, бақылау: kazpost-track.example",ham,true,false
+ad_ham_07_en,pension,true,en,ENPF: a contribution for April has been credited to your pension account.,ham,false,false
+ad_ham_07_ru,pension,true,ru,ЕНПФ: на ваш пенсионный счёт поступил взнос за апрель.,ham,false,false
+ad_ham_07_kk,pension,true,kk,БЖЗҚ: зейнетақы шотыңызға сәуір айы үшін жарна түсті.,ham,false,false
+ad_ham_08_en,mobile_operator,true,en,Your balance is 350 tenge. Top up your account to stay connected.,ham,false,false
+ad_ham_08_ru,mobile_operator,true,ru,"Ваш баланс 350 тенге. Пополните счёт, чтобы оставаться на связи.",ham,false,false
+ad_ham_08_kk,mobile_operator,true,kk,Балансыңыз 350 теңге. Байланыста болу үшін шотыңызды толтырыңыз.,ham,false,false
+ad_ham_09_en,mobile_operator,true,en,Kcell: you have used 80% of your internet package.,ham,false,false
+ad_ham_09_ru,mobile_operator,true,ru,Kcell: интернет-пакет израсходован на 80%.,ham,false,false
+ad_ham_09_kk,mobile_operator,true,kk,Kcell: интернет-пакеттің 80%-ы пайдаланылды.,ham,false,false
+ad_ham_10_en,bank_security,true,en,"Halyk: a payment of 40 000 tenge has been confirmed. If you did not make it, contact the bank via the number on your card.",ham,false,false
+ad_ham_10_ru,bank_security,true,ru,"Halyk: операция на 40 000 тенге подтверждена. Если вы её не совершали, обратитесь в банк по номеру на карте.",ham,false,false
+ad_ham_10_kk,bank_security,true,kk,"Halyk: 40 000 теңгеге операция расталды. Егер оны сіз жасамаған болсаңыз, картадағы нөмір бойынша банкке хабарласыңыз.",ham,false,false
+ad_ham_11_en,traffic_fine,false,en,A fine has been issued for your car. You can check and pay it in the eGov app or in your banking app.,ham,false,false
+ad_ham_11_ru,traffic_fine,false,ru,На ваш автомобиль выписан штраф. Проверить и оплатить его можно в приложении eGov или в приложении банка.,ham,false,false
+ad_ham_11_kk,traffic_fine,false,kk,"Көлігіңізге айыппұл салынды. Оны eGov қосымшасында немесе банк қосымшасында тексеріп, төлеуге болады.",ham,false,false
+ad_ham_12_en,tax,false,en,SRC: the property tax is due by 1 October. The amount is in your taxpayer account at kgd-cabinet.example,ham,true,false
+ad_ham_12_ru,tax,false,ru,КГД: срок уплаты налога на имущество — до 1 октября. Сумма указана в кабинете налогоплательщика на kgd-cabinet.example,ham,true,false
+ad_ham_12_kk,tax,false,kk,МКК: мүлік салығын төлеу мерзімі — 1 қазанға дейін. Сома kgd-cabinet.example сайтындағы салық төлеушінің кабинетінде көрсетілген.,ham,true,false
+ad_ham_13_en,marketplace_delivery,false,en,Your order has been handed over to the delivery service. Track it at shop-track.example,ham,true,false
+ad_ham_13_ru,marketplace_delivery,false,ru,Ваш заказ передан в службу доставки. Отследить: shop-track.example,ham,true,false
+ad_ham_13_kk,marketplace_delivery,false,kk,Тапсырысыңыз жеткізу қызметіне берілді. Бақылау: shop-track.example,ham,true,false
+ad_ham_14_en,marketplace_delivery,false,en,Your order has arrived at the pickup point. Pickup code: 4821.,ham,false,false
+ad_ham_14_ru,marketplace_delivery,false,ru,Заказ доставлен в пункт выдачи. Код получения: 4821.,ham,false,false
+ad_ham_14_kk,marketplace_delivery,false,kk,Тапсырысыңыз алу пунктіне жеткізілді. Алу коды: 4821.,ham,false,false
+ad_ham_15_en,classifieds,false,en,"Hello, is the apartment still for rent? I can come and see it today after 6.",ham,false,false
+ad_ham_15_ru,classifieds,false,ru,"Здравствуйте, квартира ещё сдаётся? Могу посмотреть сегодня после 6.",ham,false,false
+ad_ham_15_kk,classifieds,false,kk,"Сәлеметсіз бе, пәтер әлі жалға беріле ме? Бүгін сағат 6-дан кейін көруге келе аламын.",ham,false,false
+ad_ham_16_en,classifieds,false,en,"Good afternoon, about the car: is the price negotiable? I'd like to come on Saturday.",ham,false,false
+ad_ham_16_ru,classifieds,false,ru,"Добрый день, по поводу машины: торг возможен? Хочу приехать в субботу.",ham,false,false
+ad_ham_16_kk,classifieds,false,kk,"Қайырлы күн, көлік туралы: бағасын түсіруге бола ма? Сенбі күні келгім келеді.",ham,false,false
+ad_ham_17_en,personal,false,en,"I've already left, I'll be there in 20 minutes.",ham,false,false
+ad_ham_17_ru,personal,false,ru,"Я уже выехал, буду через 20 минут.",ham,false,false
+ad_ham_17_kk,personal,false,kk,"Мен шығып кеттім, 20 минуттан кейін боламын.",ham,false,false
+ad_ham_18_en,personal,false,en,"Mom, I passed the exam! I'll call you in the evening.",ham,false,false
+ad_ham_18_ru,personal,false,ru,"Мам, я сдал экзамен! Вечером позвоню.",ham,false,false
+ad_ham_18_kk,personal,false,kk,"Мама, емтиханды тапсырдым! Кешке қоңырау шаламын.",ham,false,false
+ad_ham_19_en,personal,false,en,Don't forget to buy bread and milk on the way home.,ham,false,false
+ad_ham_19_ru,personal,false,ru,Не забудь купить хлеб и молоко по дороге домой.,ham,false,false
+ad_ham_19_kk,personal,false,kk,Үйге келе жатып нан мен сүт алуды ұмытпа.,ham,false,false
+ad_ham_20_en,personal,false,en,"Happy birthday! Wishing you health and happiness, come visit us.",ham,false,false
+ad_ham_20_ru,personal,false,ru,"С днём рождения! Желаю здоровья и счастья, ждём в гости.",ham,false,false
+ad_ham_20_kk,personal,false,kk,"Туған күніңмен! Денсаулық пен бақыт тілеймін, қонаққа келуіңді күтеміз.",ham,false,false
+ad_ham_21_en,personal,false,en,The school parents' meeting has been moved to Thursday at 18:00.,ham,false,false
+ad_ham_21_ru,personal,false,ru,"Родительское собрание в школе перенесли на четверг, 18:00.",ham,false,false
+ad_ham_21_kk,personal,false,kk,Мектептегі ата-аналар жиналысы бейсенбі күні сағат 18:00-ге ауыстырылды.,ham,false,false
+ad_ham_22_en,personal,false,en,Shall we meet at the entrance of the mall at 7?,ham,false,false
+ad_ham_22_ru,personal,false,ru,Встретимся у входа в ТРЦ в 7?,ham,false,false
+ad_ham_22_kk,personal,false,kk,Сауда орталығының кіреберісінде сағат 7-де кездесеміз бе?,ham,false,false
+ad_ham_23_en,confirmation_code,false,en,"Confirmation code: 573910. Do not share this code with anyone, not even bank employees.",ham,false,false
+ad_ham_23_ru,confirmation_code,false,ru,"Код подтверждения: 573910. Никому не сообщайте этот код, даже сотрудникам банка.",ham,false,false
+ad_ham_23_kk,confirmation_code,false,kk,"Растау коды: 573910. Бұл кодты ешкімге, тіпті банк қызметкерлеріне де айтпаңыз.",ham,false,false
+ad_ham_24_en,confirmation_code,false,en,Your login code: 2468. It is valid for 5 minutes.,ham,false,false
+ad_ham_24_ru,confirmation_code,false,ru,Ваш код для входа: 2468. Действует 5 минут.,ham,false,false
+ad_ham_24_kk,confirmation_code,false,kk,Кіру кодыңыз: 2468. 5 минут жарамды.,ham,false,false
+ad_ham_25_en,medical,false,en,"Clinic: you have an appointment with the therapist on 12.06 at 11:00, room 204. To reschedule, use clinic-booking.example",ham,true,false
+ad_ham_25_ru,medical,false,ru,"Поликлиника: вы записаны к терапевту на 12.06 в 11:00, кабинет 204. Перенести запись можно на clinic-booking.example",ham,true,false
+ad_ham_25_kk,medical,false,kk,"Емхана: сіз 12.06 күні сағат 11:00-ге терапевтке жазылдыңыз, 204 кабинет. Жазылуды clinic-booking.example сайтында ауыстыруға болады.",ham,true,false
+ad_ham_26_en,utilities,false,en,Your meter readings have been accepted. Thank you!,ham,false,false
+ad_ham_26_ru,utilities,false,ru,Показания счётчика приняты. Спасибо!,ham,false,false
+ad_ham_26_kk,utilities,false,kk,Есептегіш көрсеткіштері қабылданды. Рахмет!,ham,false,false
+ad_ham_27_en,taxi,false,en,"Your driver has arrived. White car, plate 000 AAA 02.",ham,false,false
+ad_ham_27_ru,taxi,false,ru,"Водитель подъехал. Белый автомобиль, номер 000 AAA 02.",ham,false,false
+ad_ham_27_kk,taxi,false,kk,"Жүргізуші келді. Ақ түсті көлік, нөмірі 000 AAA 02.",ham,false,false
+ad_ham_28_en,job,false,en,"Reminder: your job interview is tomorrow at 10:00, office on the 3rd floor.",ham,false,false
+ad_ham_28_ru,job,false,ru,"Напоминаем: собеседование завтра в 10:00, офис на 3 этаже.",ham,false,false
+ad_ham_28_kk,job,false,kk,"Еске саламыз: әңгімелесу ертең сағат 10:00-де, кеңсе 3-қабатта.",ham,false,false
+ad_ham_29_en,food_delivery,false,en,"Your order is being prepared, the courier will arrive in about 30 minutes. Track it at food-track.example",ham,true,false
+ad_ham_29_ru,food_delivery,false,ru,"Ваш заказ готовится, курьер приедет примерно через 30 минут. Отслеживать заказ: food-track.example",ham,true,false
+ad_ham_29_kk,food_delivery,false,kk,"Тапсырысыңыз дайындалуда, курьер шамамен 30 минуттан кейін келеді. Тапсырысты бақылау: food-track.example",ham,true,false
+ad_ham_30_en,travel,false,en,Check-in for your flight is open at airline-checkin.example,ham,true,false
+ad_ham_30_ru,travel,false,ru,Регистрация на рейс открыта на airline-checkin.example,ham,true,false
+ad_ham_30_kk,travel,false,kk,Рейске тіркеу airline-checkin.example сайтында ашылды.,ham,true,false
+ad_ham_31_en,university,false,en,The exam schedule has been published in your student account at student-portal.example,ham,true,false
+ad_ham_31_ru,university,false,ru,Расписание экзаменов опубликовано в личном кабинете студента на student-portal.example,ham,true,false
+ad_ham_31_kk,university,false,kk,Емтихан кестесі student-portal.example сайтындағы студенттің жеке кабинетінде жарияланды.,ham,true,false
+ad_ham_32_en,loan_reminder,false,en,Reminder: your loan payment of 25 000 tenge is due by the 15th. You can pay in your account at bank-cabinet.example,ham,true,false
+ad_ham_32_ru,loan_reminder,false,ru,Напоминаем о платеже по кредиту 25 000 тенге до 15 числа. Оплатить можно в личном кабинете на bank-cabinet.example,ham,true,false
+ad_ham_32_kk,loan_reminder,false,kk,Еске саламыз: 25 000 теңге несие төлемін айдың 15-іне дейін төлеу қажет. Оны bank-cabinet.example сайтындағы жеке кабинетте төлеуге болады.,ham,true,false
+ad_ham_33_en,gym,false,en,Your gym membership expires in 3 days. You can renew it at gym-club.example,ham,true,false
+ad_ham_33_ru,gym,false,ru,Ваш абонемент в спортзал заканчивается через 3 дня. Продлить можно на gym-club.example,ham,true,false
+ad_ham_33_kk,gym,false,kk,Спортзалға абонементіңіз 3 күннен кейін аяқталады. Оны gym-club.example сайтында ұзартуға болады.,ham,true,false
+ad_ham_34_en,housing,false,en,Tomorrow there will be no water from 10 to 14. Please let your neighbours know.,ham,false,false
+ad_ham_34_ru,housing,false,ru,"Завтра с 10 до 14 не будет воды. Предупредите, пожалуйста, соседей.",ham,false,false
+ad_ham_34_kk,housing,false,kk,Ертең сағат 10-нан 14-ке дейін су болмайды. Көршілеріңізге ескертіңізші.,ham,false,false
+ad_ham_35_en,personal,false,en,"Thanks for yesterday, it was great! Let's do it again next week.",ham,false,false
+ad_ham_35_ru,personal,false,ru,"Спасибо за вчера, было здорово! Давай повторим на следующей неделе.",ham,false,false
+ad_ham_35_kk,personal,false,kk,"Кешегі үшін рахмет, керемет болды! Келесі аптада тағы кездесейік.",ham,false,false
+ad_ham_36_en,personal,false,en,Can you pick up the kids from kindergarten today? I'm stuck at work.,ham,false,false
+ad_ham_36_ru,personal,false,ru,Сможешь сегодня забрать детей из садика? Я задерживаюсь на работе.,ham,false,false
+ad_ham_36_kk,personal,false,kk,Бүгін балаларды балабақшадан алып кете аласың ба? Мен жұмыста кешігіп жатырмын.,ham,false,false
+ad_ham_37_en,personal,false,en,Grandma is asking when we are coming to the village. Maybe on Sunday?,ham,false,false
+ad_ham_37_ru,personal,false,ru,"Бабушка спрашивает, когда мы приедем в аул. Может, в воскресенье?",ham,false,false
+ad_ham_37_kk,personal,false,kk,"Әжем ауылға қашан келетінімізді сұрап жатыр. Мүмкін, жексенбіде?",ham,false,false
+ad_ham_38_en,personal,false,en,"The meeting has started, I can't talk now. I'll call you back in an hour.",ham,false,false
+ad_ham_38_ru,personal,false,ru,"У меня совещание, сейчас не могу говорить. Перезвоню через час.",ham,false,false
+ad_ham_38_kk,personal,false,kk,"Менде жиналыс, қазір сөйлесе алмаймын. Бір сағаттан кейін қайта қоңырау шаламын.",ham,false,false
+ad_spam_01_en,bank_prize_promo,true,en,Halyk: get a card and receive up to 5% cashback on everything in the first month. Apply at halyk-cards.example,spam,true,false
+ad_spam_01_ru,bank_prize_promo,true,ru,Halyk: оформите карту и получите кешбэк до 5% на всё в первый месяц. Заявка на halyk-cards.example,spam,true,false
+ad_spam_01_kk,bank_prize_promo,true,kk,"Halyk: карта рәсімдеп, алғашқы айда барлық сатып алуға 5%-ға дейін кешбэк алыңыз. Өтінім: halyk-cards.example",spam,true,false
+ad_spam_02_en,bank_prize_promo,true,en,Jusan: a deposit with a high rate. Open it online at jusan-deposit.example,spam,true,false
+ad_spam_02_ru,bank_prize_promo,true,ru,Jusan: депозит под высокую ставку. Откройте онлайн на jusan-deposit.example,spam,true,false
+ad_spam_02_kk,bank_prize_promo,true,kk,Jusan: жоғары мөлшерлемелі депозит. Оны jusan-deposit.example сайтында онлайн ашыңыз.,spam,true,false
+ad_spam_03_en,bank_prize_promo,true,en,"Freedom: invest from 1000 tenge in the app, your first trade without commission.",spam,false,false
+ad_spam_03_ru,bank_prize_promo,true,ru,"Freedom: инвестируйте от 1000 тенге в приложении, первая сделка без комиссии.",spam,false,false
+ad_spam_03_kk,bank_prize_promo,true,kk,"Freedom: қосымшада 1000 теңгеден бастап инвестициялаңыз, алғашқы мәміле комиссиясыз.",spam,false,false
+ad_spam_04_en,bank_prize_promo,true,en,Cash loan at a reduced rate. Apply in your bank's app.,spam,false,false
+ad_spam_04_ru,bank_prize_promo,true,ru,Кредит наличными по сниженной ставке. Подайте заявку в приложении банка.,spam,false,false
+ad_spam_04_kk,bank_prize_promo,true,kk,Төмендетілген мөлшерлемемен қолма-қол ақшаға несие. Өтінімді банк қосымшасында беріңіз.,spam,false,false
+ad_spam_05_en,mobile_operator,true,en,Kcell: unlimited internet for the weekend for just 500 tenge. Connect at kcell-tariff.example,spam,true,false
+ad_spam_05_ru,mobile_operator,true,ru,Kcell: безлимитный интернет на выходные всего за 500 тенге. Подключение на kcell-tariff.example,spam,true,false
+ad_spam_05_kk,mobile_operator,true,kk,Kcell: демалыс күндеріне шексіз интернет небәрі 500 теңге. Қосылу: kcell-tariff.example,spam,true,false
+ad_spam_06_en,mobile_operator,true,en,Tele2: we give you 2 GB when you top up from 3000 tenge until the end of the week. Terms at tele2-promo.example,spam,true,false
+ad_spam_06_ru,mobile_operator,true,ru,Tele2: дарим 2 ГБ при пополнении от 3000 тенге до конца недели. Условия на tele2-promo.example,spam,true,false
+ad_spam_06_kk,mobile_operator,true,kk,Tele2: апта соңына дейін 3000 теңгеден толтырғанда 2 ГБ сыйлаймыз. Шарттары: tele2-promo.example,spam,true,false
+ad_spam_07_en,mobile_operator,true,en,Beeline: watch movies in the app free for 30 days.,spam,false,false
+ad_spam_07_ru,mobile_operator,true,ru,Beeline: смотрите кино в приложении бесплатно 30 дней.,spam,false,false
+ad_spam_07_kk,mobile_operator,true,kk,Beeline: қосымшада 30 күн тегін кино көріңіз.,spam,false,false
+ad_spam_08_en,post,true,en,Kazpost: send parcels across Kazakhstan with a 20% discount until the end of the month.,spam,false,false
+ad_spam_08_ru,post,true,ru,Казпочта: отправляйте посылки по Казахстану со скидкой 20% до конца месяца.,spam,false,false
+ad_spam_08_kk,post,true,kk,Қазпошта: ай соңына дейін Қазақстан бойынша сәлемдемелерді 20% жеңілдікпен жіберіңіз.,spam,false,false
+ad_spam_09_en,store,false,en,Supermarket: up to 50% off fruit this weekend! All offers at supermarket-sale.example,spam,true,false
+ad_spam_09_ru,store,false,ru,Супермаркет: скидки до 50% на фрукты в эти выходные! Все акции на supermarket-sale.example,spam,true,false
+ad_spam_09_kk,store,false,kk,Супермаркет: осы демалыста жемістерге 50%-ға дейін жеңілдік! Барлық акциялар: supermarket-sale.example,spam,true,false
+ad_spam_10_en,store,false,en,"Electronics store: smartphone sale, installments 0-0-12. Catalogue at techno-sale.example",spam,true,false
+ad_spam_10_ru,store,false,ru,"Магазин электроники: распродажа смартфонов, рассрочка 0-0-12. Каталог на techno-sale.example",spam,true,false
+ad_spam_10_kk,store,false,kk,"Электроника дүкені: смартфондар сатылымы, 0-0-12 бөліп төлеу. Каталог: techno-sale.example",spam,true,false
+ad_spam_11_en,store,false,en,Only today: TVs with a 30% discount!,spam,false,false
+ad_spam_11_ru,store,false,ru,Только сегодня телевизоры со скидкой 30%!,spam,false,false
+ad_spam_11_kk,store,false,kk,Тек бүгін теледидарларға 30% жеңілдік!,spam,false,false
+ad_spam_12_en,store,false,en,The new spring-summer collection is in stores and at fashion-store.example! 15% off with this SMS.,spam,true,false
+ad_spam_12_ru,store,false,ru,Новая коллекция весна-лето уже в магазинах и на fashion-store.example! Скидка 15% по этому SMS.,spam,true,false
+ad_spam_12_kk,store,false,kk,Жаңа көктем-жаз коллекциясы дүкендерде және fashion-store.example сайтында! Осы SMS бойынша 15% жеңілдік.,spam,true,false
+ad_spam_13_en,cafe,false,en,Pizza 2+1 when you order through the app until Sunday.,spam,false,false
+ad_spam_13_ru,cafe,false,ru,Пицца по акции 2+1 при заказе через приложение до воскресенья.,spam,false,false
+ad_spam_13_kk,cafe,false,kk,Жексенбіге дейін қосымша арқылы тапсырыс бергенде пиццаға 2+1 акциясы.,spam,false,false
+ad_spam_14_en,taxi,false,en,Promo code for 30% off your first taxi ride: SPRING30. Get the app at taxi-app.example,spam,true,false
+ad_spam_14_ru,taxi,false,ru,Промокод на скидку 30% на первую поездку в такси: SPRING30. Приложение: taxi-app.example,spam,true,false
+ad_spam_14_kk,taxi,false,kk,Таксидегі алғашқы сапарға 30% жеңілдік промокоды: SPRING30. Қосымша: taxi-app.example,spam,true,false
+ad_spam_15_en,fitness,false,en,Fitness club: your first workout is free. Sign up at fitness-club.example,spam,true,false
+ad_spam_15_ru,fitness,false,ru,Фитнес-клуб: первая тренировка бесплатно. Запишитесь на fitness-club.example,spam,true,false
+ad_spam_15_kk,fitness,false,kk,Фитнес-клуб: алғашқы жаттығу тегін. fitness-club.example сайтында жазылыңыз.,spam,true,false
+ad_spam_16_en,courses,false,en,"English courses: new groups are starting, the first lesson is free. Sign up at english-courses.example",spam,true,false
+ad_spam_16_ru,courses,false,ru,"Курсы английского языка: набор в группы, первое занятие бесплатно. Запись на english-courses.example",spam,true,false
+ad_spam_16_kk,courses,false,kk,"Ағылшын тілі курстары: топтарға қабылдау, алғашқы сабақ тегін. Жазылу: english-courses.example",spam,true,false
+ad_spam_17_en,real_estate,false,en,New residential complex in Astana: apartments in installments without overpayment. The sales office is open daily.,spam,false,false
+ad_spam_17_ru,real_estate,false,ru,Новый ЖК в Астане: квартиры в рассрочку без переплаты. Офис продаж открыт ежедневно.,spam,false,false
+ad_spam_17_kk,real_estate,false,kk,Астанадағы жаңа ТК: үстеме төлемсіз бөліп төлеуге пәтерлер. Сату кеңсесі күн сайын ашық.,spam,false,false
+ad_spam_18_en,car_dealer,false,en,Car dealership: test drives of new models and gifts for every visitor on Saturday.,spam,false,false
+ad_spam_18_ru,car_dealer,false,ru,Автосалон: тест-драйв новых моделей и подарки каждому посетителю в субботу.,spam,false,false
+ad_spam_18_kk,car_dealer,false,kk,Автосалон: сенбі күні жаңа модельдерге тест-драйв және әр келушіге сыйлық.,spam,false,false
+ad_spam_19_en,pharmacy,false,en,Pharmacy: 10% off vitamins with the loyalty card.,spam,false,false
+ad_spam_19_ru,pharmacy,false,ru,Аптека: скидка 10% на витамины по карте лояльности.,spam,false,false
+ad_spam_19_kk,pharmacy,false,kk,Дәріхана: адалдық картасы бойынша дәрумендерге 10% жеңілдік.,spam,false,false
+ad_spam_20_en,beauty,false,en,Beauty salon: manicure and pedicure at a special price on weekdays.,spam,false,false
+ad_spam_20_ru,beauty,false,ru,Салон красоты: маникюр и педикюр по специальной цене в будни.,spam,false,false
+ad_spam_20_kk,beauty,false,kk,Сұлулық салоны: жұмыс күндері маникюр мен педикюр арнайы бағамен.,spam,false,false
+ad_spam_21_en,marketplace_delivery,false,en,"Marketplace: big 11.11 sale, discounts up to 70% at market-sale.example",spam,true,false
+ad_spam_21_ru,marketplace_delivery,false,ru,"Маркетплейс: большая распродажа 11.11, скидки до 70% на market-sale.example",spam,true,false
+ad_spam_21_kk,marketplace_delivery,false,kk,"Маркетплейс: 11.11 үлкен сатылым, market-sale.example сайтында 70%-ға дейін жеңілдік.",spam,true,false
+ad_spam_22_en,travel,false,en,"Flights to Istanbul from 45 000 tenge, buy before Friday at fly-sale.example",spam,true,false
+ad_spam_22_ru,travel,false,ru,"Авиабилеты в Стамбул от 45 000 тенге, успейте купить до пятницы на fly-sale.example",spam,true,false
+ad_spam_22_kk,travel,false,kk,"Ыстамбұлға әуе билеттері 45 000 теңгеден, жұмаға дейін fly-sale.example сайтында сатып алып үлгеріңіз.",spam,true,false
+ad_spam_23_en,insurance,false,en,Buy a comprehensive car insurance policy online and get 10% off.,spam,false,false
+ad_spam_23_ru,insurance,false,ru,Оформите полис КАСКО онлайн и получите скидку 10%.,spam,false,false
+ad_spam_23_kk,insurance,false,kk,"КАСКО полисін онлайн рәсімдеп, 10% жеңілдік алыңыз.",spam,false,false
+ad_spam_24_en,restaurant,false,en,Restaurant: live music and business lunch from 2500 tenge.,spam,false,false
+ad_spam_24_ru,restaurant,false,ru,Ресторан: живая музыка и бизнес-ланч от 2500 тенге.,spam,false,false
+ad_spam_24_kk,restaurant,false,kk,Мейрамхана: жанды музыка және 2500 теңгеден бизнес-ланч.,spam,false,false
+ad_spam_25_en,furniture,false,en,Furniture showroom: 25% off custom kitchens.,spam,false,false
+ad_spam_25_ru,furniture,false,ru,Мебельный салон: скидка 25% на кухни на заказ.,spam,false,false
+ad_spam_25_kk,furniture,false,kk,Жиһаз салоны: тапсырыс бойынша асүйлерге 25% жеңілдік.,spam,false,false
+ad_spam_26_en,kids,false,en,"Children's center: summer camp, early registration with a discount.",spam,false,false
+ad_spam_26_ru,kids,false,ru,"Детский центр: летний лагерь, ранняя запись со скидкой.",spam,false,false
+ad_spam_26_kk,kids,false,kk,"Балалар орталығы: жазғы лагерь, ерте жазылуға жеңілдік.",spam,false,false
+ad_spam_27_en,cinema,false,en,Cinema: tickets for 1000 tenge for all shows on Tuesdays.,spam,false,false
+ad_spam_27_ru,cinema,false,ru,Кинотеатр: билеты по 1000 тенге на все сеансы по вторникам.,spam,false,false
+ad_spam_27_kk,cinema,false,kk,Кинотеатр: сейсенбі күндері барлық сеанстарға билет 1000 теңге.,spam,false,false
+ad_spam_28_en,classifieds,false,en,Krisha: boost your listing to the top and get more views.,spam,false,false
+ad_spam_28_ru,classifieds,false,ru,Krisha: поднимите объявление в топ и получите больше просмотров.,spam,false,false
+ad_spam_28_kk,classifieds,false,kk,"Krisha: хабарландыруыңызды топқа көтеріп, көбірек қаралым алыңыз.",spam,false,false
+ad_spam_29_en,classifieds,false,en,"OLX: sell faster with paid promotion, the first week at a discount.",spam,false,false
+ad_spam_29_ru,classifieds,false,ru,"OLX: продавайте быстрее с платным продвижением, первая неделя со скидкой.",spam,false,false
+ad_spam_29_kk,classifieds,false,kk,"OLX: ақылы жарнамамен тезірек сатыңыз, алғашқы апта жеңілдікпен.",spam,false,false
+ad_spam_30_en,grocery_delivery,false,en,Free grocery delivery for orders over 10 000 tenge. Order at grocery-shop.example,spam,true,false
+ad_spam_30_ru,grocery_delivery,false,ru,Бесплатная доставка продуктов при заказе от 10 000 тенге. Заказ на grocery-shop.example,spam,true,false
+ad_spam_30_kk,grocery_delivery,false,kk,10 000 теңгеден асатын тапсырысқа азық-түлікті тегін жеткізу. Тапсырыс: grocery-shop.example,spam,true,false
+ad_spam_31_en,optician,false,en,Optician: free eye test when you buy glasses.,spam,false,false
+ad_spam_31_ru,optician,false,ru,Оптика: бесплатная проверка зрения при покупке очков.,spam,false,false
+ad_spam_31_kk,optician,false,kk,Оптика: көзілдірік сатып алғанда көру қабілетін тегін тексеру.,spam,false,false
+ad_spam_32_en,dental,false,en,Dental clinic: professional teeth cleaning 20% off until the end of the month.,spam,false,false
+ad_spam_32_ru,dental,false,ru,Стоматология: профессиональная чистка зубов со скидкой 20% до конца месяца.,spam,false,false
+ad_spam_32_kk,dental,false,kk,Стоматология: ай соңына дейін тісті кәсіби тазалауға 20% жеңілдік.,spam,false,false
+ad_spam_33_en,electronics,false,en,Laptop discount for students with a student ID.,spam,false,false
+ad_spam_33_ru,electronics,false,ru,Скидка на ноутбуки для студентов при предъявлении студенческого.,spam,false,false
+ad_spam_33_kk,electronics,false,kk,Студенттік билет көрсеткен студенттерге ноутбуктарға жеңілдік.,spam,false,false
+ad_spam_34_en,travel,false,en,Tours to Issyk-Kul: early booking discount.,spam,false,false
+ad_spam_34_ru,travel,false,ru,Туры на Иссык-Куль: раннее бронирование со скидкой.,spam,false,false
+ad_spam_34_kk,travel,false,kk,Ыстықкөлге турлар: ерте брондауға жеңілдік.,spam,false,false
+ad_spam_35_en,store,false,en,Bookstore: buy two books and get a third one as a gift.,spam,false,false
+ad_spam_35_ru,store,false,ru,Книжный магазин: купите две книги и получите третью в подарок.,spam,false,false
+ad_spam_35_kk,store,false,kk,"Кітап дүкені: екі кітап сатып алып, үшіншісін сыйлыққа алыңыз.",spam,false,false
+ad_spam_36_en,courses,false,en,Driving school: enrol now at autoschool.example and get theory lessons free.,spam,true,false
+ad_spam_36_ru,courses,false,ru,Автошкола: запишитесь сейчас на autoschool.example и получите теорию бесплатно.,spam,true,false
+ad_spam_36_kk,courses,false,kk,"Автомектеп: қазір autoschool.example сайтында жазылып, теориялық сабақтарды тегін алыңыз.",spam,true,false
