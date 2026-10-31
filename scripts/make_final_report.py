@@ -105,9 +105,10 @@ def figures(m, lat, curve, pr, cm, e2e):
     FIG.mkdir(parents=True, exist_ok=True)
     others = ["svm_char_aug", "svm_char", "distilbert_aug", "distilbert", "bert", "smishfuse_v1", "smishfuse_v2",
               "linear_svm", "logreg", "textcnn", "bilstm", "distilbert_step3", "random_forest", "xgboost"]
+    # 16 distinct colour / marker pairs (no repetition for up to 16 models in one figure)
     greys = ["#2166ac", "#4393c3", "#1b7837", "#5aae61", "#762a83", "#e08214", "#8c510a", "#404040", "#878787",
-             "#35978f", "#80cdc1", "#c51b7d", "#de77ae", "#bababa"]
-    markers = ["o", "s", "^", "v", "D", "P", "X", "<", ">", "h", "*", "p", "d", "8"]
+             "#35978f", "#80cdc1", "#c51b7d", "#de77ae", "#bababa", "#01665e", "#fdb863"]
+    markers = ["o", "s", "^", "v", "D", "P", "X", "<", ">", "h", "*", "p", "d", "8", "$\\oplus$", "$\\diamond$"]
     styles = ["--", ":", "-.", (0, (3, 1, 1, 1)), (0, (5, 2)), (0, (1, 1)), (0, (4, 1, 1, 1, 1, 1))] * 2
 
     def style(model, i):
@@ -163,9 +164,9 @@ def figures(m, lat, curve, pr, cm, e2e):
                 continue
             pts.append((r.p50_ms, q, r.model))
             st = style(r.model, i)
-            ax.scatter(r.p50_ms, q, s=60 if r.model == "cascade" else 22, color=st["color"], marker=st["marker"],
-                       zorder=st["zorder"], edgecolor="black", linewidth=0.4)
-            ax.annotate(name(r.model).split(" = ")[0], (r.p50_ms, q), fontsize=8, xytext=(3, 2), textcoords="offset points")
+            # names go to the legend (labels next to the points overlapped in the 40-90 ms cluster)
+            ax.scatter(r.p50_ms, q, s=70 if r.model == "cascade" else 28, color=st["color"], marker=st["marker"],
+                       zorder=st["zorder"], edgecolor="black", linewidth=0.5, label=name(r.model))
         front, best = [], -1
         for x, y, _ in sorted(pts):
             if y > best:
@@ -177,7 +178,7 @@ def figures(m, lat, curve, pr, cm, e2e):
         ax.set_xlabel("Задержка p50, мс на сообщение (CPU, 1 поток, батч 1; log)")
         ax.set_ylabel("Macro F1 (чистый test)")
         ax.grid(alpha=0.3, lw=0.5)
-        ax.legend(frameon=False, loc="lower right")
+        ax.legend(frameon=False, loc="center left", bbox_to_anchor=(1.02, 0.5))
         fig.savefig(FIG / "quality_vs_latency.pdf", bbox_inches="tight")
         plt.close(fig)
 
@@ -190,8 +191,8 @@ def figures(m, lat, curve, pr, cm, e2e):
                     zorder=st["zorder"])
         ax.set_xlabel("Recall (вредоносные)")
         ax.set_ylabel("Precision")
-        ax.set_xlim(0.5, 1.0)
-        ax.set_ylim(0.5, 1.01)
+        ax.set_xlim(0.80, 1.0)   # the curves differ only in this corner
+        ax.set_ylim(0.80, 1.005)
         ax.grid(alpha=0.3, lw=0.5)
         ax.legend(frameon=False, loc="lower left")
         fig.savefig(FIG / "pr_curves.pdf", bbox_inches="tight")
@@ -208,7 +209,12 @@ def figures(m, lat, curve, pr, cm, e2e):
             ax.axvline(100 * e2e["routed_share"], color="black", lw=0.8, ls=(0, (1, 1)),
                        label=f"фактическая доля на test ({100 * e2e['routed_share']:.1f}%)")
         ax.set_xscale("symlog", linthresh=1)
-        ax.set_xlabel("Доля сообщений, отправленных в DistilBERT, %")
+        ticks = [0, 1, 2, 5, 10, 20, 50, 100]
+        ax.set_xlim(0, 100)
+        ax.set_xticks(ticks)
+        ax.set_xticklabels([str(t) for t in ticks])
+        ax.minorticks_off()
+        ax.set_xlabel("Доля сообщений, отправленных в DistilBERT, % (шкала symlog)")
         ax.set_ylabel("Macro F1 (test, среднее по 5 seed)")
         ax.grid(alpha=0.3, lw=0.5)
         ax.legend(frameon=False)
@@ -352,6 +358,29 @@ def main():
                          "Разница seed 1, п.п. [95% ДИ]", "p бутстреп (Холм)", "b/c", "p Макнемар (Холм)"], rows))
         md.append("\n* — значимо при α = 0.05 после поправки Холма. b — только каскад прав, c — только другая модель.\n")
 
+    md.append("## 9б. Пост-хок анализ после финальной оценки (решение 20 в README)\n")
+    md.append("**Не входил в замороженный план (`configs/final.yaml`).** Добавлен после финальной оценки по решению "
+              "руководителя. Без обучения, на Kaggle CPU (`smishfuse-final-posthoc`, `src/final/posthoc.py`), из "
+              "сохранённых test-предсказаний. Сравнения: символьный LinearSVM без аугментации и с ней против "
+              "воспроизведённых опубликованных методов во всех их условиях. Seed 1, бутстреп 10 000 и Макнемар, "
+              "поправка Холма внутри условия × test-набора отдельно для каждого теста.\n")
+    ph = F / "posthoc_significance.csv"
+    if ph.exists():
+        d = pd.read_csv(ph)
+        rows = [[COND_NAMES.get(r.condition, r.condition), SETS.get(r.test_set, r.test_set), name(r.ours), name(r.other),
+                 f"{cell(m, r.condition, r.ours, r.test_set)} / {cell(m, r.condition, r.other, r.test_set)}",
+                 f"{100 * r.diff_macro_f1_seed1:+.2f} [{100 * r.ci95_low:+.2f}; {100 * r.ci95_high:+.2f}]",
+                 f"{r.p_bootstrap_holm:.4f}{' *' if r.significant_bootstrap_holm else ''}",
+                 f"{r.mcnemar_b_ours_only_correct}/{r.mcnemar_c_other_only_correct}",
+                 f"{r.p_mcnemar_holm:.4f}{' *' if r.significant_mcnemar_holm else ''}"] for r in d.itertuples()]
+        md.append(table(["Условие", "Test", "Наш", "Опубликованный", "Macro F1 (5 seed)", "Разница seed 1, п.п. [95% ДИ]",
+                         "p бутстреп (Холм)", "b/c", "p Макнемар (Холм)"], rows))
+        md.append("\n* — значимо при α = 0.05 после поправки Холма. b — только наша модель права, c — только "
+                  "опубликованная.\n")
+        md += POSTHOC + [""]
+    else:
+        md.append("Нет данных.\n")
+
     md.append("## 10. Скорость (Kaggle CPU, 1 поток, батч 1)\n")
     if lat is not None:
         rows = [[name(r.model), r.device, f"{r.p50_ms:.3f}" if not pd.isna(r.p50_ms) else "—",
@@ -437,8 +466,27 @@ GPU = ["| Ноутбук | Часы сессии 2× T4 |", "|---|---|",
        "",
        "CPU-ноутбуки квоту GPU не тратят: smishfuse-final-dry-cpu (2 версии), smishfuse-final-cpu (2 версии), "
        "smishfuse-final-pack, smishfuse-final-assemble. Источники: `results/kaggle_runs/*/results/runtime/`."]
+# Checked against results/final/posthoc_significance.csv (2026-10-31).
+POSTHOC = [
+    "- **Mahmud (ham против spam+smishing).** Оба символьных LinearSVM значимо лучше CNN-BiGRU на HELD-OUT "
+    "5/10/20% по обоим тестам (+4.3 … +14.2 п.п. на seed 1). На чистом test разница +1.6 и +1.4 п.п. "
+    "незначима, как и у каскада.",
+    "- **Shim (smishing против spam), чистый test.** Значима только разница с RoBERTa-base (оба SVM, оба теста). "
+    "С BERT-base и DistilBERT-base разница незначима; каскад там был лучше по бутстрепу.",
+    "- **Shim, HELD-OUT 5%.** LinearSVM без аугментации значимо лучше только RoBERTa-base (оба теста), с "
+    "аугментацией — RoBERTa только по бутстрепу. Разница с BERT-base и DistilBERT-base незначима.",
+    "- **Shim, HELD-OUT 10% и 20%.** Оба SVM значимо лучше всех трёх методов по обоим тестам (+8.9 … +52.4 п.п.).",
+    "- Вывод: выигрыш над опубликованными методами на сильных искажениях даёт уже символьный LinearSVM. Каскад "
+    "добавляет значимость на чистом test против BERT-base и DistilBERT-base (Shim) по бутстрепу и на "
+    "HELD-OUT 5% против BERT-base.",
+]
 LIMITATIONS = [
     "tau подбирался на val по seed 1–3 и фиксировался для всех запусков, в том числе для seed 4–5.",
+    "Высокий tau в двухклассовых постановках оставлен как есть: так решила замороженная процедура (тот же "
+    "критерий на полном val задачи, `configs/final.yaml`). В постановке Mahmud tau = 0.9990, в переносе "
+    "0.9840 (zero-shot) и 0.9985 (дообучение). Поэтому во DistilBERT уходит 45–61% и 68–77% сообщений: "
+    "каскад там близок к DistilBERT по качеству и намного дороже, чем на mendeley_3class (2–3% вызовов). "
+    "Скорость измерялась только для mendeley_3class.",
     "Обе ступени каскада остановлены по чистому val, параметры LinearSVM подобраны на val в шаге 2. Так же "
     "устроены все модели, поэтому сравнения между ними честные, но абсолютные числа на val были оптимистичны.",
     "Значимость считается по одному seed, а различия между seed бывают сопоставимы с разницей моделей "

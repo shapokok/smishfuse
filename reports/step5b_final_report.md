@@ -267,6 +267,53 @@ tau: mendeley_3class и мало данных — замороженные зн�
 
 * — значимо при α = 0.05 после поправки Холма. b — только каскад прав, c — только другая модель.
 
+## 9б. Пост-хок анализ после финальной оценки (решение 20 в README)
+
+**Не входил в замороженный план (`configs/final.yaml`).** Добавлен после финальной оценки по решению руководителя. Без обучения, на Kaggle CPU (`smishfuse-final-posthoc`, `src/final/posthoc.py`), из сохранённых test-предсказаний. Сравнения: символьный LinearSVM без аугментации и с ней против воспроизведённых опубликованных методов во всех их условиях. Seed 1, бутстреп 10 000 и Макнемар, поправка Холма внутри условия × test-набора отдельно для каждого теста.
+
+| Условие | Test | Наш | Опубликованный | Macro F1 (5 seed) | Разница seed 1, п.п. [95% ДИ] | p бутстреп (Холм) | b/c | p Макнемар (Холм) |
+|---|---|---|---|---|---|---|---|---|
+| Mahmud: ham против spam+smishing | чистый | LinearSVM char без аугм. | Mahmud et al. 2024, CNN-BiGRU | 0.9864 ± 0.0009 / 0.9712 ± 0.0026 | +1.57 [+0.08; +3.14] | 0.0652 | 15/6 | 0.1567 |
+| Mahmud: ham против spam+smishing | чистый | LinearSVM char (аугм.) = только SVM | Mahmud et al. 2024, CNN-BiGRU | 0.9836 ± 0.0007 / 0.9712 ± 0.0026 | +1.41 [-0.09; +3.00] | 0.0660 | 15/7 | 0.1567 |
+| Mahmud: ham против spam+smishing | HELD-OUT 5% | LinearSVM char без аугм. | Mahmud et al. 2024, CNN-BiGRU | 0.9871 ± 0.0000 / 0.9497 ± 0.0048 | +4.47 [+2.55; +6.58] | 0.0004 * | 30/5 | 0.0001 * |
+| Mahmud: ham против spam+smishing | HELD-OUT 5% | LinearSVM char (аугм.) = только SVM | Mahmud et al. 2024, CNN-BiGRU | 0.9861 ± 0.0009 / 0.9497 ± 0.0048 | +4.31 [+2.36; +6.43] | 0.0004 * | 30/6 | 0.0001 * |
+| Mahmud: ham против spam+smishing | HELD-OUT 10% | LinearSVM char без аугм. | Mahmud et al. 2024, CNN-BiGRU | 0.9886 ± 0.0000 / 0.9205 ± 0.0079 | +7.53 [+5.16; +10.01] | 0.0004 * | 45/4 | 0.0000 * |
+| Mahmud: ham против spam+smishing | HELD-OUT 10% | LinearSVM char (аугм.) = только SVM | Mahmud et al. 2024, CNN-BiGRU | 0.9833 ± 0.0018 / 0.9205 ± 0.0079 | +6.74 [+4.28; +9.29] | 0.0004 * | 45/9 | 0.0000 * |
+| Mahmud: ham против spam+smishing | HELD-OUT 20% | LinearSVM char без аугм. | Mahmud et al. 2024, CNN-BiGRU | 0.9870 ± 0.0000 / 0.8555 ± 0.0084 | +14.24 [+11.07; +17.68] | 0.0004 * | 75/4 | 0.0000 * |
+| Mahmud: ham против spam+smishing | HELD-OUT 20% | LinearSVM char (аугм.) = только SVM | Mahmud et al. 2024, CNN-BiGRU | 0.9857 ± 0.0007 / 0.8555 ± 0.0084 | +14.09 [+10.88; +17.55] | 0.0004 * | 76/6 | 0.0000 * |
+| Shim: smishing против spam | чистый | LinearSVM char без аугм. | Shim et al. 2024, BERT-base | 0.9276 ± 0.0025 / 0.9027 ± 0.0186 | +3.98 [+0.14; +8.06] | 0.1184 | 10/3 | 0.3691 |
+| Shim: smishing против spam | чистый | LinearSVM char без аугм. | Shim et al. 2024, DistilBERT-base | 0.9276 ± 0.0025 / 0.8935 ± 0.0174 | +3.36 [+0.05; +6.85] | 0.1184 | 8/2 | 0.3691 |
+| Shim: smishing против spam | чистый | LinearSVM char без аугм. | Shim et al. 2024, RoBERTa-base | 0.9276 ± 0.0025 / 0.8592 ± 0.0447 | +11.81 [+6.18; +17.85] | 0.0012 * | 25/5 | 0.0031 * |
+| Shim: smishing против spam | чистый | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, BERT-base | 0.9254 ± 0.0083 / 0.9027 ± 0.0186 | +3.42 [-0.00; +7.34] | 0.1184 | 9/3 | 0.3691 |
+| Shim: smishing против spam | чистый | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, DistilBERT-base | 0.9254 ± 0.0083 / 0.8935 ± 0.0174 | +2.79 [-0.54; +6.57] | 0.1184 | 8/3 | 0.3691 |
+| Shim: smishing против spam | чистый | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, RoBERTa-base | 0.9254 ± 0.0083 / 0.8592 ± 0.0447 | +11.25 [+5.86; +16.95] | 0.0030 * | 23/4 | 0.0031 * |
+| Shim: smishing против spam | HELD-OUT 5% | LinearSVM char без аугм. | Shim et al. 2024, BERT-base | 0.9232 ± 0.0000 / 0.8925 ± 0.0081 | +3.29 [+0.01; +6.65] | 0.1840 | 8/2 | 0.4375 |
+| Shim: smishing против spam | HELD-OUT 5% | LinearSVM char без аугм. | Shim et al. 2024, DistilBERT-base | 0.9232 ± 0.0000 / 0.8676 ± 0.0440 | +0.53 [-2.74; +3.81] | 1.0000 | 5/4 | 1.0000 |
+| Shim: smishing против spam | HELD-OUT 5% | LinearSVM char без аугм. | Shim et al. 2024, RoBERTa-base | 0.9232 ± 0.0000 / 0.8705 ± 0.0380 | +8.07 [+3.41; +13.05] | 0.0024 * | 17/3 | 0.0155 * |
+| Shim: smishing против spam | HELD-OUT 5% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, BERT-base | 0.9188 ± 0.0072 / 0.8925 ± 0.0081 | +1.62 [-2.20; +5.48] | 1.0000 | 8/5 | 1.0000 |
+| Shim: smishing против spam | HELD-OUT 5% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, DistilBERT-base | 0.9188 ± 0.0072 / 0.8676 ± 0.0440 | -1.14 [-4.96; +2.67] | 1.0000 | 5/7 | 1.0000 |
+| Shim: smishing против spam | HELD-OUT 5% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, RoBERTa-base | 0.9188 ± 0.0072 / 0.8705 ± 0.0380 | +6.41 [+2.09; +10.95] | 0.0150 * | 14/3 | 0.0636 |
+| Shim: smishing против spam | HELD-OUT 10% | LinearSVM char без аугм. | Shim et al. 2024, BERT-base | 0.9233 ± 0.0000 / 0.7895 ± 0.0467 | +14.48 [+8.92; +20.30] | 0.0012 * | 29/3 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 10% | LinearSVM char без аугм. | Shim et al. 2024, DistilBERT-base | 0.9233 ± 0.0000 / 0.7109 ± 0.0751 | +21.20 [+14.76; +28.00] | 0.0012 * | 41/4 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 10% | LinearSVM char без аугм. | Shim et al. 2024, RoBERTa-base | 0.9233 ± 0.0000 / 0.8288 ± 0.0092 | +8.94 [+3.93; +14.22] | 0.0012 * | 20/4 | 0.0031 * |
+| Shim: smishing против spam | HELD-OUT 10% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, BERT-base | 0.9244 ± 0.0025 / 0.7895 ± 0.0467 | +14.48 [+8.92; +20.30] | 0.0012 * | 29/3 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 10% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, DistilBERT-base | 0.9244 ± 0.0025 / 0.7109 ± 0.0751 | +21.20 [+14.76; +28.00] | 0.0012 * | 41/4 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 10% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, RoBERTa-base | 0.9244 ± 0.0025 / 0.8288 ± 0.0092 | +8.94 [+3.93; +14.22] | 0.0012 * | 20/4 | 0.0031 * |
+| Shim: smishing против spam | HELD-OUT 20% | LinearSVM char без аугм. | Shim et al. 2024, BERT-base | 0.9233 ± 0.0000 / 0.5956 ± 0.0867 | +38.32 [+30.88; +45.78] | 0.0012 * | 65/3 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 20% | LinearSVM char без аугм. | Shim et al. 2024, DistilBERT-base | 0.9233 ± 0.0000 / 0.4416 ± 0.0663 | +52.42 [+45.29; +59.18] | 0.0012 * | 81/4 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 20% | LinearSVM char без аугм. | Shim et al. 2024, RoBERTa-base | 0.9233 ± 0.0000 / 0.6847 ± 0.1131 | +12.59 [+7.07; +18.49] | 0.0012 * | 27/4 | 0.0002 * |
+| Shim: smishing против spam | HELD-OUT 20% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, BERT-base | 0.9222 ± 0.0046 / 0.5956 ± 0.0867 | +37.77 [+30.24; +45.30] | 0.0012 * | 65/4 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 20% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, DistilBERT-base | 0.9222 ± 0.0046 / 0.4416 ± 0.0663 | +51.87 [+44.57; +58.74] | 0.0012 * | 81/5 | 0.0000 * |
+| Shim: smishing против spam | HELD-OUT 20% | LinearSVM char (аугм.) = только SVM | Shim et al. 2024, RoBERTa-base | 0.9222 ± 0.0046 / 0.6847 ± 0.1131 | +12.04 [+6.44; +17.98] | 0.0012 * | 27/5 | 0.0002 * |
+
+* — значимо при α = 0.05 после поправки Холма. b — только наша модель права, c — только опубликованная.
+
+- **Mahmud (ham против spam+smishing).** Оба символьных LinearSVM значимо лучше CNN-BiGRU на HELD-OUT 5/10/20% по обоим тестам (+4.3 … +14.2 п.п. на seed 1). На чистом test разница +1.6 и +1.4 п.п. незначима, как и у каскада.
+- **Shim (smishing против spam), чистый test.** Значима только разница с RoBERTa-base (оба SVM, оба теста). С BERT-base и DistilBERT-base разница незначима; каскад там был лучше по бутстрепу.
+- **Shim, HELD-OUT 5%.** LinearSVM без аугментации значимо лучше только RoBERTa-base (оба теста), с аугментацией — RoBERTa только по бутстрепу. Разница с BERT-base и DistilBERT-base незначима.
+- **Shim, HELD-OUT 10% и 20%.** Оба SVM значимо лучше всех трёх методов по обоим тестам (+8.9 … +52.4 п.п.).
+- Вывод: выигрыш над опубликованными методами на сильных искажениях даёт уже символьный LinearSVM. Каскад добавляет значимость на чистом test против BERT-base и DistilBERT-base (Shim) по бутстрепу и на HELD-OUT 5% против BERT-base.
+
 ## 10. Скорость (Kaggle CPU, 1 поток, батч 1)
 
 | Модель | Устройство | p50, мс | p95, мс | Сообщений/с | Размер, МБ | Macro F1 чистый test | Источник |
@@ -335,6 +382,7 @@ CPU-ноутбуки квоту GPU не тратят: smishfuse-final-dry-cpu (
 ## 14. Ограничения
 
 - tau подбирался на val по seed 1–3 и фиксировался для всех запусков, в том числе для seed 4–5.
+- Высокий tau в двухклассовых постановках оставлен как есть: так решила замороженная процедура (тот же критерий на полном val задачи, `configs/final.yaml`). В постановке Mahmud tau = 0.9990, в переносе 0.9840 (zero-shot) и 0.9985 (дообучение). Поэтому во DistilBERT уходит 45–61% и 68–77% сообщений: каскад там близок к DistilBERT по качеству и намного дороже, чем на mendeley_3class (2–3% вызовов). Скорость измерялась только для mendeley_3class.
 - Обе ступени каскада остановлены по чистому val, параметры LinearSVM подобраны на val в шаге 2. Так же устроены все модели, поэтому сравнения между ними честные, но абсолютные числа на val были оптимистичны.
 - Значимость считается по одному seed, а различия между seed бывают сопоставимы с разницей моделей (например, мало данных 1%).
 - В test mendeley_3class всего 99 smishing и 84 spam: одно-два сообщения заметно меняют macro F1.

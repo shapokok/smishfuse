@@ -1,6 +1,7 @@
 """Step 5b CPU notebook: scoring of the final predictions, then the speed measurement.
 
 Jobs (--queue, JSON list, in order): assemble (src/final/assemble.py), latency (src/final/latency.py),
+posthoc (src/final/posthoc.py, post-hoc significance after the final evaluation),
 pack (one zip of results/final and results/runtime without model files, /kaggle/working/final_pack.zip:
 the full output with every restored prediction is slow to download).
 Run: python src/final/cpu.py --queue '["assemble", "latency"]' --worker cpu
@@ -40,13 +41,13 @@ def main():
     ap.add_argument("--queue", required=True)
     ap.add_argument("--worker", required=True)
     args = ap.parse_args()
-    from final import assemble, latency
+    from final import assemble, latency, posthoc
 
     check_versions(args.worker, assemble.OUT / "environment")
     failed = 0
     for job in json.loads(args.queue):
         try:
-            {"assemble": assemble.main, "latency": latency.main, "pack": pack}[job]()
+            {"assemble": assemble.main, "latency": latency.main, "pack": pack, "posthoc": posthoc.main}[job]()
         except Exception:  # noqa: BLE001 - record and continue
             failed += 1
             (assemble.OUT / "errors").mkdir(parents=True, exist_ok=True)

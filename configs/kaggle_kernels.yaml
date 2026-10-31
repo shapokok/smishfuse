@@ -311,4 +311,14 @@ kernels:
       script: src/final/cpu.py
       state_from: [smishfuse-final-3class, smishfuse-final-settings, smishfuse-final-supersms]
       queues: [[assemble, pack]]
+  # POST-HOC after the final evaluation (README decision 20): significance of the char LinearSVM vs the
+  # published methods from the saved test predictions of smishfuse-final-settings. CPU, no training.
+  smishfuse-final-posthoc:
+    accelerator: none
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/cpu.py
+      state_from: smishfuse-final-settings
+      queues: [[posthoc]]
 
