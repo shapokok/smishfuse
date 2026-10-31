@@ -330,4 +330,13 @@ kernels:
       kind: stress
       script: src/step6/run.py
       queues: [[run]]
+  # Step 6b, POST-HOC (README decision 21): sentence-wise NLLB translation of the case-study messages.
+  smishfuse-step6b-mt:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-3class]
+    spec:
+      kind: stress
+      script: src/step6/mt_sentence.py
+      queues: [[run]]
 
