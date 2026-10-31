@@ -1,0 +1,21 @@
+{
+  "id": "shapok/smishfuse-step6b-adapt",
+  "title": "smishfuse-step6b-adapt",
+  "code_file": "smishfuse-step6b-adapt.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "shapok/smishfuse-data",
+    "shapok/smishfuse-code",
+    "shapok/smishfuse-state"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [
+    "shapok/smishfuse-final-3class"
+  ],
+  "model_sources": []
+}

@@ -275,6 +275,21 @@ uv pip install --python .venv/bin/python -r requirements.txt
 Раннер: [src/step6/run.py](src/step6/run.py). Результаты: `results/step6/` (предсказания, переводы, задержка).
 Отчёт: [reports/step6_kz_cases.md](reports/step6_kz_cases.md).
 
+## Шаг 6б: пост-хок дополнения к кейс-стади (решение 21, Kaggle CPU)
+
+Всё введено после результатов шага 6. 42 кейса и их варианты не менялись.
+
+```bash
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step6b-mt       # перевод по предложениям (mt_sentence)
+.venv/bin/python scripts/make_kz_adapt_draft.py                        # набор адаптации data/kz_adapt/adapt.csv
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step6b-adapt    # адаптация Lite (условия A / B, кривая)
+.venv/bin/python scripts/make_step6b_report.py
+```
+
+Набор адаптации синтетический: создан с помощью LLM и проверен автором. Перед обучением он зафиксирован
+коммитом 8644b17. Код: [src/step6/mt_sentence.py](src/step6/mt_sentence.py),
+[src/step6/adapt.py](src/step6/adapt.py). Отчёт: [reports/step6b_kz_adapt.md](reports/step6b_kz_adapt.md).
+
 ## Датасеты: источники и лицензии
 
 | Датасет | Источник | Закреплённая версия | Лицензия |

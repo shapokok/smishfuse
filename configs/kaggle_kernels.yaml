@@ -339,4 +339,13 @@ kernels:
       kind: stress
       script: src/step6/mt_sentence.py
       queues: [[run]]
+  # Step 6b, POST-HOC (README decision 21): adaptation of Lite with the Kazakhstan set (CPU only).
+  smishfuse-step6b-adapt:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-3class]
+    spec:
+      kind: stress
+      script: src/step6/adapt.py
+      queues: [[run]]
 

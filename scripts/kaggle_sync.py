@@ -30,7 +30,8 @@ OWNER = CFG["owner"]
 # inputs of step 5b
 CODE_PARTS = ["src", "configs", "tests", "requirements.txt", "results/best_params", "results/step4c",
               "results/step4b/baseline", "results/step5a/inputs", "results/raw", "results/latency",
-              "results/step4b/low_data/subsets", "results/step4b/transfer/subsets", "data/kz_cases"]
+              "results/step4b/low_data/subsets", "results/step4b/transfer/subsets", "data/kz_cases",
+              "data/kz_adapt"]
 OUTPUT_PATTERN = r"^(?!.*(/models/|^models/|/code/|^code/)).*$"
 
 

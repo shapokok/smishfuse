@@ -1,0 +1,43 @@
+{
+  "sessions": [
+    {
+      "kernel": "smishfuse-step6b-adapt",
+      "spec": {
+        "kind": "stress",
+        "script": "src/step6/adapt.py",
+        "queues": [
+          [
+            "run"
+          ]
+        ]
+      },
+      "restored_files": 0,
+      "environment": {
+        "python": "3.13.15",
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "cpu_count": 4,
+        "gpus": "",
+        "packages": {
+          "torch": "2.11.0+cpu",
+          "transformers": "5.16.1",
+          "bitsandbytes": "0.50.2",
+          "accelerate": "1.14.0",
+          "optuna": "5.0.0",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.4.6",
+          "pandas": "3.1.0",
+          "xgboost": "3.2.0",
+          "scipy": "1.17.1",
+          "pyspellchecker": "0.8.3"
+        }
+      },
+      "start_unix": 1793470780.268955,
+      "end_unix": 1793471010.3694932,
+      "wall_seconds": 230.10053896903992,
+      "return_codes": [
+        0
+      ]
+    }
+  ]
+}
