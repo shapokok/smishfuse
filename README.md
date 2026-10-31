@@ -65,6 +65,13 @@
     и потеря как в 4а; аугментация только TRAIN-типами обфускации (замены символов, пробелы), с вероятностью
     0.5 на уровне U(0, 0.2), новая на каждой эпохе; HELD-OUT-типы (гомоглифы, удвоение букв, удаление гласных)
     только для оценки. mendeley_3class, seed 1–3, только val, без подбора.
+16. **Шаг 5а: третья итерация дизайна (2026-10-30).** Научный руководитель разрешил третью итерацию
+    (сверх двух по ТЗ №2). Итоговый метод — каскад: символьный LinearSVM с аугментацией (4в) отвечает,
+    если его максимальная калиброванная вероятность не ниже tau, иначе отвечает DistilBERT с той же
+    аугментацией (4в). Модели не переобучаются, используются их сохранённые вероятности на val. tau
+    выбирается cross-fitting'ом по двум стратифицированным половинам val, только по чистому val. Все
+    сравнения шага 5а считаются по тем же половинам. Опубликованные методы воспроизводятся по описанию
+    в статьях; то, чего в статье нет, задано нами и помечено в `configs/step5a.yaml`. Test не читается.
 
 ## Воспроизведение данных
 
@@ -183,6 +190,24 @@ uv pip install --python .venv/bin/python -r requirements.txt
 Модели и аугментация: [configs/step4c.yaml](configs/step4c.yaml); типы обфускации TRAIN / HELD-OUT —
 [src/eval/obfuscation.py](src/eval/obfuscation.py); раннер [src/fusion/v2.py](src/fusion/v2.py).
 Отчёт: [reports/step4c_report.md](reports/step4c_report.md).
+
+## Шаг 5а: каскад, опубликованные методы, завышение (Kaggle, только val)
+
+```bash
+.venv/bin/python scripts/make_dedup_map.py                  # карта дедупликации Mendeley без текстов
+.venv/bin/python scripts/make_kernels.py smishfuse-step5a smishfuse-step5a-setting
+.venv/bin/python scripts/kaggle_sync.py code                # проверить, что Kaggle отдаёт новую версию (CODE_SHA256)
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step5a
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-step5a && .venv/bin/python scripts/collect_results.py smishfuse-step5a
+.venv/bin/python scripts/kaggle_sync.py state smishfuse-step5a && .venv/bin/python scripts/kaggle_sync.py push smishfuse-step5a-setting
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-step5a-setting && .venv/bin/python scripts/collect_results.py smishfuse-step5a-setting
+.venv/bin/python scripts/make_step5a_report.py
+```
+
+Протокол и дополнение к нему (записано до получения результатов): [configs/step5a.yaml](configs/step5a.yaml).
+Раннер: [src/step5a/run.py](src/step5a/run.py), воспроизведённые методы: [src/step5a/methods.py](src/step5a/methods.py).
+Числа из статей хранятся отдельно, в [results/step5a/published_claims.yaml](results/step5a/published_claims.yaml).
+Отчёт: [reports/step5a_report.md](reports/step5a_report.md).
 
 ## Датасеты: источники и лицензии
 

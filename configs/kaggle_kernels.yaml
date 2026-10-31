@@ -171,3 +171,39 @@ kernels:
       queues:
         - [smishfuse_v2_aug, smishfuse_v2, svm_char_aug, svm_char, svm_step2]
         - [distilbert_aug, distilbert, smishfuse_v1, bert]
+  # Step 5a: cascade (from step-4c predictions), re-implemented published methods, duplicate
+  # inflation CV; val only (inflation: train + val). Comparison after both queues.
+  smishfuse-step5a:
+    accelerator: NvidiaTeslaT4
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/step5a/run.py
+      budget_hours: 1.8
+      queues:
+        - ["published:shim2024_bert_base", "published:shim2024_distilbert_base",
+           "inflation:shim2024_bert_base", "inflation:shim2024_distilbert_base"]
+        - [cascade, "published:mahmud2024_cnn_bigru", "published:shim2024_roberta_base", "inflation:linear_svm",
+           "inflation:logreg", "inflation:mahmud2024_cnn_bigru", "inflation:shim2024_roberta_base"]
+      post: [compare]
+  # Step 5a addendum (configs/step5a.yaml, setting_runs) and the rerun of the Shim et al. jobs, which
+  # failed in smishfuse-step5a (label-mask bug, fixed); restores that kernel's output first.
+  smishfuse-step5a-setting:
+    accelerator: NvidiaTeslaT4
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/step5a/run.py
+      state_from: smishfuse-step5a
+      budget_hours: 1.5   # step 5a: 3 GPU h (raised by the user); smishfuse-step5a used 1.26 h
+      queues:
+        - ["published:shim2024_bert_base", "published:shim2024_distilbert_base",
+           "inflation:shim2024_bert_base", "inflation:shim2024_distilbert_base"]
+        - ["published:shim2024_roberta_base", "inflation:shim2024_roberta_base",
+           "setting:mendeley_binary:svm_char_aug", "setting:mendeley_binary:svm_char",
+           "setting:mendeley_binary:svm_step2", "setting:mendeley_binary:distilbert_aug",
+           "setting:mendeley_binary:distilbert", "setting:mendeley_binary:bert",
+           "setting:smishing_vs_spam:svm_char_aug", "setting:smishing_vs_spam:svm_char",
+           "setting:smishing_vs_spam:svm_step2", "setting:smishing_vs_spam:distilbert_aug",
+           "setting:smishing_vs_spam:distilbert", "setting:smishing_vs_spam:bert"]
+      post: [compare, setting_compare]

@@ -1,0 +1,65 @@
+{
+  "jobs": [
+    {
+      "job": "published:shim2024_bert_base__seed1",
+      "seconds": 574.0121999349999,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_bert_base__seed2",
+      "seconds": 572.960774553,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_bert_base__seed3",
+      "seconds": 560.7805569129998,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_distilbert_base__seed1",
+      "seconds": 313.1531250620001,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_distilbert_base__seed2",
+      "seconds": 302.13367062399993,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_distilbert_base__seed3",
+      "seconds": 296.4997147959998,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_bert_base__seed1",
+      "seconds": 240.444217836,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_bert_base__seed2",
+      "seconds": 240.42364366100037,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_bert_base__seed3",
+      "seconds": 239.98848273199974,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_distilbert_base__seed1",
+      "seconds": 234.70063648799987,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_distilbert_base__seed2",
+      "seconds": 236.05130567000015,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_distilbert_base__seed3",
+      "seconds": 233.98377941499984,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-step5a-setting_gpu0"
+}

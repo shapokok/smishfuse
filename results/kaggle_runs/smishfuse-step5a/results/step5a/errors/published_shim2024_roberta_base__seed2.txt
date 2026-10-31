@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/kaggle/working/code/src/step5a/run.py", line 393, in main
+    job_published(arg, seed, device)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/code/src/step5a/run.py", line 204, in job_published
+    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)
+  File "/kaggle/working/code/src/step5a/methods.py", line 272, in select_shim
+    m.train(texts[tr], y[tr], bs, lr, sc["max_epochs"], seed, on_epoch)
+            ~~~~~^^^^
+IndexError: index 2472 is out of bounds for axis 0 with size 640

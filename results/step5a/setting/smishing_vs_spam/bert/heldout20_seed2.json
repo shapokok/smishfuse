@@ -1,0 +1,14 @@
+{
+  "accuracy": 0.6043956043956044,
+  "best_epoch": 1,
+  "epochs_run": 4,
+  "f1_pos": 0.4375,
+  "macro_f1": 0.566207627118644,
+  "model": "bert",
+  "n": 91,
+  "precision_pos": 0.9333333333333333,
+  "recall_pos": 0.2857142857142857,
+  "seed": 2,
+  "setting": "heldout20",
+  "task": "smishing_vs_spam"
+}

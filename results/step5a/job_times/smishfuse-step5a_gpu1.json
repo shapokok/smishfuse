@@ -1,0 +1,110 @@
+{
+  "jobs": [
+    {
+      "job": "cascade__seed1",
+      "seconds": 1.8693048800000156,
+      "status": "done"
+    },
+    {
+      "job": "cascade__seed2",
+      "seconds": 1.7980397039999616,
+      "status": "done"
+    },
+    {
+      "job": "cascade__seed3",
+      "seconds": 1.7422213960000477,
+      "status": "done"
+    },
+    {
+      "job": "published:mahmud2024_cnn_bigru__seed1",
+      "seconds": 162.69318266800002,
+      "status": "done"
+    },
+    {
+      "job": "published:mahmud2024_cnn_bigru__seed2",
+      "seconds": 137.456313808,
+      "status": "done"
+    },
+    {
+      "job": "published:mahmud2024_cnn_bigru__seed3",
+      "seconds": 137.48551139300002,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed1",
+      "seconds": 5.288956890999998,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed2",
+      "seconds": 0.6011557880000282,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed3",
+      "seconds": 0.5910184929999787,
+      "status": "error"
+    },
+    {
+      "job": "inflation:linear_svm__seed1",
+      "seconds": 24.646059901000058,
+      "status": "done"
+    },
+    {
+      "job": "inflation:linear_svm__seed2",
+      "seconds": 23.632383296000057,
+      "status": "done"
+    },
+    {
+      "job": "inflation:linear_svm__seed3",
+      "seconds": 23.39606212199999,
+      "status": "done"
+    },
+    {
+      "job": "inflation:logreg__seed1",
+      "seconds": 22.81712794200007,
+      "status": "done"
+    },
+    {
+      "job": "inflation:logreg__seed2",
+      "seconds": 23.277782488999947,
+      "status": "done"
+    },
+    {
+      "job": "inflation:logreg__seed3",
+      "seconds": 23.372815597,
+      "status": "done"
+    },
+    {
+      "job": "inflation:mahmud2024_cnn_bigru__seed1",
+      "seconds": 1302.4434494789998,
+      "status": "done"
+    },
+    {
+      "job": "inflation:mahmud2024_cnn_bigru__seed2",
+      "seconds": 1307.616095922,
+      "status": "done"
+    },
+    {
+      "job": "inflation:mahmud2024_cnn_bigru__seed3",
+      "seconds": 1290.0455608509997,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed1",
+      "seconds": 0.0034019510003417963,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed2",
+      "seconds": 0.004370963999463129,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed3",
+      "seconds": 0.004324620999796025,
+      "status": "error"
+    }
+  ],
+  "worker": "smishfuse-step5a_gpu1"
+}

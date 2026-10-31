@@ -1,0 +1,122 @@
+[
+  {
+    "clean": {
+      "routed_share": 0.0313588850174216
+    },
+    "heldout05": {
+      "routed_share": 0.0313588850174216
+    },
+    "heldout10": {
+      "routed_share": 0.033101045296167246
+    },
+    "heldout20": {
+      "routed_share": 0.027874564459930314
+    },
+    "seed": 1,
+    "task": "mendeley_binary",
+    "tau_by_half": {
+      "0": 0.629843364188856,
+      "1": 0.9536703185172779
+    }
+  },
+  {
+    "clean": {
+      "routed_share": 0.08188153310104529
+    },
+    "heldout05": {
+      "routed_share": 0.09059233449477352
+    },
+    "heldout10": {
+      "routed_share": 0.09407665505226481
+    },
+    "heldout20": {
+      "routed_share": 0.08885017421602788
+    },
+    "seed": 2,
+    "task": "mendeley_binary",
+    "tau_by_half": {
+      "0": 0.9685590715306569,
+      "1": 0.9615315269205486
+    }
+  },
+  {
+    "clean": {
+      "routed_share": 0.06968641114982578
+    },
+    "heldout05": {
+      "routed_share": 0.06794425087108014
+    },
+    "heldout10": {
+      "routed_share": 0.07491289198606271
+    },
+    "heldout20": {
+      "routed_share": 0.08188153310104529
+    },
+    "seed": 3,
+    "task": "mendeley_binary",
+    "tau_by_half": {
+      "0": 0.9839913047054457,
+      "1": 0.0
+    }
+  },
+  {
+    "clean": {
+      "routed_share": 0.4835164835164835
+    },
+    "heldout05": {
+      "routed_share": 0.4945054945054945
+    },
+    "heldout10": {
+      "routed_share": 0.5164835164835165
+    },
+    "heldout20": {
+      "routed_share": 0.5824175824175825
+    },
+    "seed": 1,
+    "task": "smishing_vs_spam",
+    "tau_by_half": {
+      "0": 0.7418504367523624,
+      "1": 0.991111451508327
+    }
+  },
+  {
+    "clean": {
+      "routed_share": 0.04395604395604396
+    },
+    "heldout05": {
+      "routed_share": 0.04395604395604396
+    },
+    "heldout10": {
+      "routed_share": 0.06593406593406594
+    },
+    "heldout20": {
+      "routed_share": 0.07692307692307693
+    },
+    "seed": 2,
+    "task": "smishing_vs_spam",
+    "tau_by_half": {
+      "0": 0.0,
+      "1": 0.7693767994518923
+    }
+  },
+  {
+    "clean": {
+      "routed_share": 0.12087912087912088
+    },
+    "heldout05": {
+      "routed_share": 0.15384615384615385
+    },
+    "heldout10": {
+      "routed_share": 0.14285714285714285
+    },
+    "heldout20": {
+      "routed_share": 0.17582417582417584
+    },
+    "seed": 3,
+    "task": "smishing_vs_spam",
+    "tau_by_half": {
+      "0": 0.7019797032342149,
+      "1": 0.795661757018435
+    }
+  }
+]

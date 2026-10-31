@@ -1,0 +1,70 @@
+{
+  "accuracy": 0.8385781433607521,
+  "choice": {
+    "batch_size": 16,
+    "epoch": 8,
+    "lr": 1e-05
+  },
+  "class_counts": {
+    "0": 395,
+    "1": 528
+  },
+  "folds": [
+    {
+      "accuracy": 0.8216216216216217,
+      "f1_pos": 0.8493150684931506,
+      "fold": 0,
+      "macro_f1": 0.8153860110677673,
+      "n_test": 185,
+      "n_test_with_duplicate_in_train": 57,
+      "precision_pos": 0.8230088495575221,
+      "recall_pos": 0.8773584905660378
+    },
+    {
+      "accuracy": 0.8162162162162162,
+      "f1_pos": 0.839622641509434,
+      "fold": 1,
+      "macro_f1": 0.8122163840458563,
+      "n_test": 185,
+      "n_test_with_duplicate_in_train": 50,
+      "precision_pos": 0.839622641509434,
+      "recall_pos": 0.839622641509434
+    },
+    {
+      "accuracy": 0.8702702702702703,
+      "f1_pos": 0.8867924528301887,
+      "fold": 2,
+      "macro_f1": 0.8674468593264868,
+      "n_test": 185,
+      "n_test_with_duplicate_in_train": 47,
+      "precision_pos": 0.8867924528301887,
+      "recall_pos": 0.8867924528301887
+    },
+    {
+      "accuracy": 0.8478260869565217,
+      "f1_pos": 0.8666666666666667,
+      "fold": 3,
+      "macro_f1": 0.8447257383966245,
+      "n_test": 184,
+      "n_test_with_duplicate_in_train": 51,
+      "precision_pos": 0.8666666666666667,
+      "recall_pos": 0.8666666666666667
+    },
+    {
+      "accuracy": 0.8369565217391305,
+      "f1_pos": 0.8571428571428571,
+      "fold": 4,
+      "macro_f1": 0.833634719710669,
+      "n_test": 184,
+      "n_test_with_duplicate_in_train": 41,
+      "precision_pos": 0.8571428571428571,
+      "recall_pos": 0.8571428571428571
+    }
+  ],
+  "macro_f1": 0.8346819425094807,
+  "model": "shim2024_distilbert_base",
+  "n": 923,
+  "seed": 2,
+  "task": "smishing_vs_spam",
+  "variant": "dirty"
+}

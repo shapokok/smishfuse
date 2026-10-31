@@ -1,0 +1,215 @@
+{
+  "jobs": [
+    {
+      "job": "published:shim2024_roberta_base__seed1",
+      "seconds": 22.804111794999983,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed2",
+      "seconds": 0.5561596299999678,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed3",
+      "seconds": 0.5353352010000094,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed1",
+      "seconds": 0.006287600999996812,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed2",
+      "seconds": 0.004247343000031378,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed3",
+      "seconds": 0.004539570000019921,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char_aug__seed1",
+      "seconds": 0.0011161150000020825,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char_aug__seed2",
+      "seconds": 0.0011210730000357216,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char_aug__seed3",
+      "seconds": 0.001117038999950637,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char__seed1",
+      "seconds": 0.0011632949999693665,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char__seed2",
+      "seconds": 0.001080655000009756,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char__seed3",
+      "seconds": 0.0011164549999875817,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_step2__seed1",
+      "seconds": 0.0007521549999864874,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_step2__seed2",
+      "seconds": 0.001069941999958246,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_step2__seed3",
+      "seconds": 0.0010728820000167616,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert_aug__seed1",
+      "seconds": 0.0010654650000105903,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert_aug__seed2",
+      "seconds": 0.001177096000049005,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert_aug__seed3",
+      "seconds": 0.0010648879999735072,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert__seed1",
+      "seconds": 0.0011226759999658498,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert__seed2",
+      "seconds": 0.0010745209999640792,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert__seed3",
+      "seconds": 0.0010566340000082164,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:bert__seed1",
+      "seconds": 0.0010216000000013992,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:bert__seed2",
+      "seconds": 0.0010240240000030099,
+      "status": "error"
+    },
+    {
+      "job": "setting:mendeley_binary:bert__seed3",
+      "seconds": 0.0010307350000289262,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char_aug__seed1",
+      "seconds": 0.0010225670000068021,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char_aug__seed2",
+      "seconds": 0.001035344999991139,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char_aug__seed3",
+      "seconds": 0.0010419889999866427,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char__seed1",
+      "seconds": 0.0010631889999785926,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char__seed2",
+      "seconds": 0.0010827469999981076,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char__seed3",
+      "seconds": 0.0011558620000187148,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_step2__seed1",
+      "seconds": 0.001107387999979892,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_step2__seed2",
+      "seconds": 0.001104362000035053,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_step2__seed3",
+      "seconds": 0.0010388899999611567,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert_aug__seed1",
+      "seconds": 0.0011389729999677911,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert_aug__seed2",
+      "seconds": 0.001030887000013081,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert_aug__seed3",
+      "seconds": 0.0010543970000185254,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert__seed1",
+      "seconds": 0.0010373850000178209,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert__seed2",
+      "seconds": 0.0012084129999720972,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert__seed3",
+      "seconds": 0.0011319800000251234,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:bert__seed1",
+      "seconds": 0.0010968569999931788,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:bert__seed2",
+      "seconds": 0.0011358560000189755,
+      "status": "error"
+    },
+    {
+      "job": "setting:smishing_vs_spam:bert__seed3",
+      "seconds": 0.0011033590000124605,
+      "status": "error"
+    }
+  ],
+  "worker": "smishfuse-step5a-setting_gpu1"
+}

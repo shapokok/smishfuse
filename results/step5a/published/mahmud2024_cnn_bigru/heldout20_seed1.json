@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.9355400696864111,
+  "f1_pos": 0.7482993197278912,
+  "macro_f1": 0.8556681413824272,
+  "method": "mahmud2024_cnn_bigru",
+  "n": 574,
+  "precision_pos": 0.9821428571428571,
+  "recall_pos": 0.6043956043956044,
+  "seconds_train": 162.11842338999998,
+  "seed": 1,
+  "setting": "heldout20",
+  "task": "mendeley_binary"
+}

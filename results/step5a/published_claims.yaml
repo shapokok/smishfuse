@@ -1,0 +1,110 @@
+# Step 5a: what the papers report. Every number here is FROM THE PAPER (из статьи), copied as
+# printed; none was computed by us. "not stated" = the paper does not say it. Checked 2026-10-30.
+# Our re-implementations and their results are in results/step5a/published/ (separate on purpose).
+
+on_mendeley:   # results reported on Mendeley SMS Phishing (DOI 10.17632/f45bkkt8pr.1)
+  mahmud2024:
+    citation: "Mahmud T., Prince M.A.H., Ali M.H., Hossain M.S., Andersson K. Enhancing Cybersecurity:
+      Hybrid Deep Learning Approaches to Smishing Attack Detection. Systems 2024, 12(11), 490.
+      doi:10.3390/systems12110490"
+    full_text: "https://ltu.diva-portal.org/smash/get/diva2:1919310/FULLTEXT01.pdf (read)"
+    dataset: "Dataset 3 = Hugging Face ealvaradob/phishing-dataset, 5971 SMS originally ham / smishing /
+      spam, cited as Mishra & Soni [10, 33]; regrouped into binary: ham 4844, smishing 1127 (spam + smishing)"
+    split: "75% / 10% / 15% train / validation / test, divided randomly; stratification not stated"
+    deduplication: not stated
+    positive_class_of_P_R_F1: not stated
+    method: "stop words and punctuation removed, lowercase, NLTK tokenization, Word2Vec 100-d, Embedding ->
+      Conv1D(32, kernel 3, ReLU) -> MaxPooling(2) -> BiGRU(64, dropout 0.2, recurrent dropout 0.2) ->
+      Dense(1, sigmoid); binary cross-entropy, Adam, batch 128, 50 epochs (Keras)"
+    not_stated: [Word2Vec window / min_count / algorithm / corpus, sequence length, padding side,
+                 stop-word list, learning rate, early stopping, embedding trainable or frozen]
+    reproducible: "yes, with the unstated settings chosen by us (configs/step5a.yaml)"
+    reported_table7_dataset3:   # Accuracy, Precision, Recall, F1, AUC-ROC (test of Dataset 3)
+      CNN-BiGRU: {accuracy: 0.9817, precision: 0.9813, recall: 0.9619, f1: 0.9715, auc_roc: 0.9975}
+      CNN-GRU: {accuracy: 0.9763, precision: 0.9771, recall: 0.9756, f1: 0.9764, auc_roc: 0.9972}
+      BiLSTM: {accuracy: 0.9717, precision: 0.9654, recall: 0.9787, f1: 0.9720, auc_roc: 0.9961}
+      Random Forest: {accuracy: 0.9564, precision: 0.9658, recall: 0.9466, f1: 0.9561, auc_roc: 0.9565}
+      SVM: {accuracy: 0.8372, precision: 0.8234, recall: 0.8598, f1: 0.8412, auc_roc: 0.8371}
+
+  shim2024:
+    citation: "Shim H.S., Park H., Lee K., Park J.-S., Kang S. A Persuasion-Based Prompt Learning Approach
+      to Improve Smishing Detection through Data Augmentation. arXiv:2411.02403, 2024"
+    full_text: "https://arxiv.org/pdf/2411.02403 (read)"
+    dataset: "SMS Phishing Benchmark Dataset [Mishra & Soni, Mendeley Data]; ham removed: 1127 messages,
+      489 spam, 638 smishing; task: smishing vs spam"
+    split: "8:2, repeated five times with different partitions (akin to five-fold CV), average reported"
+    deduplication: not stated
+    positive_class_of_P_R_F1: not stated
+    method: "fine-tuning, up to 10 epochs, AdamW; batch size in {8, 16, 32}, learning rate in {1e-6, 5e-6,
+      1e-5, 5e-5}; 'chose the best performing model'"
+    not_stated: [on which data the best configuration was chosen, maximum sequence length, lr schedule,
+                 weight decay, warmup]
+    reproducible: "yes for the 'Original Data' rows (no LLM augmentation), with the unstated settings
+      chosen by us (configs/step5a.yaml); the GPT augmentation rows are not reproduced"
+    reported_table1_original_data:   # P, R, Acc, F1 in %
+      RoBERTa-large: {precision: 93.7, recall: 92.2, accuracy: 92.0, f1: 92.9}
+      RoBERTa-base: {precision: 92.2, recall: 93.0, accuracy: 91.6, f1: 92.6}
+      BERT-large: {precision: 90.8, recall: 92.2, accuracy: 90.3, f1: 91.5}
+      BERT-base: {precision: 90.7, recall: 91.4, accuracy: 89.8, f1: 91.1}
+      DistilBERT-base: {precision: 92.1, recall: 91.4, accuracy: 90.7, f1: 91.8}
+      ALBERT-base: {precision: 93.6, recall: 91.4, accuracy: 91.6, f1: 92.5}
+
+  munoz2025:
+    citation: "Munoz M., Islam M. Deep Learning Approaches for Multi-Class Classification of Phishing Text
+      Messages. Journal of Cybersecurity and Privacy 2025, 5(4), 102. doi:10.3390/jcp5040102"
+    full_text: "not read: mdpi.com and preprints.org returned HTTP 403; only the abstract (Semantic Scholar)"
+    reported_in_abstract: "over 97% accuracy, F1 0.97, precision 0.98, recall 0.96 (chain transformer:
+      GPT-2 synthetic data + BERT embeddings)"
+    dataset_split_dedup: "not checked (full text not read)"
+    reproducible: "unknown (method details not read)"
+
+  remmide2024:
+    citation: "Remmide M.A., Boumahdi F., Ilhem B., Boustia N. A privacy-preserving approach for detecting
+      smishing attacks using federated deep learning. International Journal of Information Technology,
+      2024, pp. 1-7"
+    full_text: "not found / not read"
+    reported_secondary: "accuracy 0.8878, F1 0.8700 (GloVe + BiLSTM, federated) - as listed in the review
+      arXiv:2604.11429, Table 11, row 'Mendeley Smishing'; not checked against the paper"
+    reproducible: "unknown (federated setting; paper not read)"
+
+not_on_mendeley:   # the priority works of the task; none reports results on the Mendeley dataset
+  mishra_soni_dsmishsms:
+    citation: "Mishra S., Soni D. DSmishSMS - A System to Detect Smishing SMS. Neural Computing and
+      Applications 35 (2023) 4975-4992 (online 2021). doi:10.1007/s00521-021-06305-y"
+    full_text: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8318556/ (read)"
+    dataset: "5858 messages (538 smishing, 5320 legitimate) built from Almeida et al. and Pinterest; the
+      paper says it is not publicly available yet; binary smishing vs legitimate"
+    reported: "backpropagation accuracy 97.93%, AUC 0.988 (5-fold CV); RF 97.85, NB 97.76, DT 96.48"
+    reproducible: "no: the domain-checking phase queries the Google search engine; the 20 smishing
+      keywords are only in a figure; leet / misspelling detection not specified"
+  mishra_soni_smishing_detector:
+    citation: "Mishra S., Soni D. Implementation of 'Smishing Detector': An Efficient Model for Smishing
+      Detection Using Neural Network. SN Computer Science 3 (2022). (Earlier: Smishing Detector, Future
+      Generation Computer Systems 108 (2020) 803-815 - not read.)"
+    full_text: "Europe PMC full text of PMC8923090 (read)"
+    dataset: "the same 5858 messages (538 smishing, 5320 ham)"
+    reported: "neural network accuracy 97.40, TPR 92.37, TNR 97.91, F1 86.72; NB 96.29; DT 93.40"
+    reproducible: "no: blacklist / URL / APK checks without named services; feature extraction not specified"
+    note: "the review arXiv:2604.11429 (Table 11) lists Mishra & Soni 2020 / 2022a / 2023 under 'Mendeley
+      Smishing'; the papers themselves use the 5858-message dataset"
+  smishing4c:
+    citation: "Martinez-Mendoza A., Janez-Martino F., Carofilis A., Fernandez-Robles L., Alegre E.,
+      Fidalgo E. Towards Multi-Class Smishing Detection: A Novel Feature Vector Approach and the
+      Smishing-4C Dataset. SEPLN 2024, CEUR-WS Vol-3846, pp. 58-68"
+    full_text: "https://ceur-ws.org/Vol-3846/paper06.pdf (read)"
+    dataset: "Smishing-4C: 120 smishing messages (from Kaggle and Mendeley) in 4 smishing categories;
+      multi-class smishing typing, not ham / spam / smishing"
+    reported: "BOW + 6 features + LR F1 0.764, 0.788 after grid search (5-fold CV, Smishing-4C)"
+    reproducible: "no: the 'company name' feature was labelled manually by an annotator; slang labelling and
+      the writing-error counter are not specified"
+  sonowal2020:
+    citation: "Sonowal G. Detecting Phishing SMS Based on Multiple Correlation Algorithms. SN Computer
+      Science 1 (2020) 361"
+    full_text: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7604914/ (read)"
+    dataset: "Almeida (UCI) SMS: 5578, phishing 747, ham 4831"
+    reported: "Kendall-ranked 20 features: accuracy 98.40, F1 93.97; all 52 features AdaBoost accuracy 98.67"
+    reproducible: "no: split, classifier settings and tools (spell checker, POS tagger, readability) not stated"
+  mishra_soni_dataset_paper:
+    citation: "Mishra S., Soni D. SMS Phishing Dataset for Machine Learning and Pattern Recognition.
+      SoCPaR 2022, Springer LNNS, pp. 597-604. doi:10.1007/978-3-031-27524-1_57"
+    full_text: "not read (publisher page, no open copy found)"

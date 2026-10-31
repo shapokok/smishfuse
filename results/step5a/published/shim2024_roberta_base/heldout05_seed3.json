@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.8131868131868132,
+  "checkpoint": "roberta-base",
+  "chosen": {
+    "batch_size": 32,
+    "epoch": 5,
+    "inner_val_macro_f1": 0.898132843587389,
+    "lr": 5e-05
+  },
+  "f1_pos": 0.8172043010752689,
+  "macro_f1": 0.8130965325601063,
+  "method": "shim2024_roberta_base",
+  "n": 91,
+  "precision_pos": 0.8636363636363636,
+  "recall_pos": 0.7755102040816326,
+  "seconds_train": 569.9326542859999,
+  "seed": 3,
+  "setting": "heldout05",
+  "task": "smishing_vs_spam"
+}

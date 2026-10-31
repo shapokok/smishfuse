@@ -1,0 +1,14 @@
+{
+  "accuracy": 0.8901098901098901,
+  "best_epoch": 1,
+  "epochs_run": 4,
+  "f1_pos": 0.8979591836734694,
+  "macro_f1": 0.8894557823129252,
+  "model": "distilbert",
+  "n": 91,
+  "precision_pos": 0.8979591836734694,
+  "recall_pos": 0.8979591836734694,
+  "seed": 1,
+  "setting": "clean",
+  "task": "smishing_vs_spam"
+}

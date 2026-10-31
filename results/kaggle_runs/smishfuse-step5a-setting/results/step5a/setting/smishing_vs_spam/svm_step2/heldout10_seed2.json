@@ -1,0 +1,12 @@
+{
+  "accuracy": 0.8571428571428571,
+  "f1_pos": 0.8631578947368421,
+  "macro_f1": 0.8568663036902602,
+  "model": "svm_step2",
+  "n": 91,
+  "precision_pos": 0.8913043478260869,
+  "recall_pos": 0.8367346938775511,
+  "seed": 2,
+  "setting": "heldout10",
+  "task": "smishing_vs_spam"
+}

@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.8461538461538461,
+  "checkpoint": "distilbert-base-uncased",
+  "chosen": {
+    "batch_size": 8,
+    "epoch": 0,
+    "inner_val_macro_f1": 0.9136355272035821,
+    "lr": 5e-05
+  },
+  "f1_pos": 0.851063829787234,
+  "macro_f1": 0.8459864603481625,
+  "method": "shim2024_distilbert_base",
+  "n": 91,
+  "precision_pos": 0.8888888888888888,
+  "recall_pos": 0.8163265306122449,
+  "seconds_train": 296.1194002750003,
+  "seed": 3,
+  "setting": "clean",
+  "task": "smishing_vs_spam"
+}

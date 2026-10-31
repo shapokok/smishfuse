@@ -1,0 +1,12 @@
+{
+  "accuracy": 0.9878048780487805,
+  "f1_pos": 0.9613259668508287,
+  "macro_f1": 0.9770435418535426,
+  "model": "svm_char_aug",
+  "n": 574,
+  "precision_pos": 0.9666666666666667,
+  "recall_pos": 0.9560439560439561,
+  "seed": 3,
+  "setting": "heldout10",
+  "task": "mendeley_binary"
+}

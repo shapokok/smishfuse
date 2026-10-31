@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/kaggle/working/code/src/step5a/run.py", line 395, in main
+    job_inflation(arg, seed, device)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/code/src/step5a/run.py", line 267, in job_inflation
+    choice = shim_choice(model) if model.startswith("shim2024") else None
+             ~~~~~~~~~~~^^^^^^^
+  File "/kaggle/working/code/src/step5a/run.py", line 252, in shim_choice
+    sels = [read_json(OUT / "published" / method / f"selection_seed{k}.json")["chosen"] for k in CFG["seeds"]]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/code/src/neural/common.py", line 97, in read_json
+    return json.loads(path.read_text(encoding="utf-8"))
+                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_roberta_base/selection_seed1.json'

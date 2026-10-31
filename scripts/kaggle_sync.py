@@ -25,7 +25,9 @@ KAGGLE = ROOT / ".venv" / "bin" / "kaggle"
 BUILD = ROOT / "kaggle" / "build"
 CFG = yaml.safe_load((ROOT / "configs" / "kaggle_kernels.yaml").read_text(encoding="utf-8"))
 OWNER = CFG["owner"]
-CODE_PARTS = ["src", "configs", "tests", "requirements.txt", "results/best_params"]
+# results/step4c, results/step4b/baseline (val predictions) and results/step5a/inputs are inputs of step 5a
+CODE_PARTS = ["src", "configs", "tests", "requirements.txt", "results/best_params", "results/step4c",
+              "results/step4b/baseline", "results/step5a/inputs"]
 OUTPUT_PATTERN = r"^(?!.*(/models/|^models/|/code/|^code/)).*$"
 
 

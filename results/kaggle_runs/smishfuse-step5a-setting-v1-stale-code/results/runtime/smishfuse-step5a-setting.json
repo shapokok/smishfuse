@@ -1,0 +1,70 @@
+{
+  "sessions": [
+    {
+      "kernel": "smishfuse-step5a-setting",
+      "spec": {
+        "kind": "stress",
+        "script": "src/step5a/run.py",
+        "state_from": "smishfuse-step5a",
+        "budget_hours": 1.5,
+        "queues": [
+          [
+            "published:shim2024_bert_base",
+            "published:shim2024_distilbert_base",
+            "inflation:shim2024_bert_base",
+            "inflation:shim2024_distilbert_base"
+          ],
+          [
+            "published:shim2024_roberta_base",
+            "inflation:shim2024_roberta_base",
+            "setting:mendeley_binary:svm_char_aug",
+            "setting:mendeley_binary:svm_char",
+            "setting:mendeley_binary:svm_step2",
+            "setting:mendeley_binary:distilbert_aug",
+            "setting:mendeley_binary:distilbert",
+            "setting:mendeley_binary:bert",
+            "setting:smishing_vs_spam:svm_char_aug",
+            "setting:smishing_vs_spam:svm_char",
+            "setting:smishing_vs_spam:svm_step2",
+            "setting:smishing_vs_spam:distilbert_aug",
+            "setting:smishing_vs_spam:distilbert",
+            "setting:smishing_vs_spam:bert"
+          ]
+        ],
+        "post": [
+          "compare",
+          "setting_compare"
+        ]
+      },
+      "restored_files": 86,
+      "environment": {
+        "python": "3.13.15",
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+        "cpu_count": 4,
+        "gpus": "Tesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04",
+        "packages": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.16.1",
+          "bitsandbytes": "0.50.2",
+          "accelerate": "1.14.0",
+          "optuna": "5.0.0",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.4.6",
+          "pandas": "3.1.0",
+          "xgboost": "3.2.0",
+          "scipy": "1.17.1",
+          "pyspellchecker": "0.8.3"
+        }
+      },
+      "start_unix": 1793386936.01908,
+      "end_unix": 1793387020.7416031,
+      "wall_seconds": 84.72252416610718,
+      "return_codes": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

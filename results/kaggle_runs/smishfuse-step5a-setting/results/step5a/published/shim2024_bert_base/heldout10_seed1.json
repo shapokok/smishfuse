@@ -1,0 +1,20 @@
+{
+  "accuracy": 0.7802197802197802,
+  "checkpoint": "bert-base-uncased",
+  "chosen": {
+    "batch_size": 32,
+    "epoch": 7,
+    "inner_val_macro_f1": 0.9296832082036257,
+    "lr": 5e-05
+  },
+  "f1_pos": 0.7560975609756098,
+  "macro_f1": 0.7780487804878049,
+  "method": "shim2024_bert_base",
+  "n": 91,
+  "precision_pos": 0.9393939393939394,
+  "recall_pos": 0.6326530612244898,
+  "seconds_train": 572.7530380439999,
+  "seed": 1,
+  "setting": "heldout10",
+  "task": "smishing_vs_spam"
+}

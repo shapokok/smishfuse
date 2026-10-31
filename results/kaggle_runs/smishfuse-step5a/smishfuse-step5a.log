@@ -1,0 +1,458 @@
+[{"stream_name":"stderr","time":5.383787264,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":5.383831052,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":6.138155944,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.138184744,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.138189848,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.1381937,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.706930794,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.706965072,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.706971452,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.706978759,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":75.421884295,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":115.899523215,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":115.8995563,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":115.899563825,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899569557,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899575046,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899579645,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899583943,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899588174,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899592511,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899596874,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.89960126,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899605666,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.89960991,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":115.899629964,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103838226,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":116.103861457,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":116.103893308,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103898894,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103903322,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103907212,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.10391113,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103914721,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.10391841,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103922131,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103925866,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103931394,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.10393838,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103940962,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103943497,"data":"\n"}
+,{"stream_name":"stderr","time":116.103945892,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":116.103948442,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":116.103950976,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103953475,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103955993,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103959941,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103962462,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103988132,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103993426,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.103997934,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.104008887,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.104012674,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.10401635,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":116.104020085,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stdout","time":134.155678094,"data":"[entry] kernel smishfuse-step5a, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":148.315316272,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":148.316358013,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":148.317319626,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":148.318300576,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":156.34456068,"data":"[step5a] worker smishfuse-step5a_gpu0, device cuda, 12 units\n"}
+,{"stream_name":"stdout","time":156.425897107,"data":"[step5a] worker smishfuse-step5a_gpu1, device cuda, 21 units\n"}
+,{"stream_name":"stdout","time":158.295134,"data":"[cascade] seed 1: tau {1: 0.5677901991269275, 0: 0.6064840709998067}, routed [0.019, 0.017, 0.01, 0.012]\n"}
+,{"stream_name":"stdout","time":160.094001115,"data":"[cascade] seed 2: tau {1: 0.6057410236532371, 0: 0.5381623654014651}, routed [0.016, 0.016, 0.012, 0.017]\n"}
+,{"stream_name":"stdout","time":161.836240038,"data":"[cascade] seed 3: tau {1: 0.6558259393742584, 0: 0.5345553209528298}, routed [0.014, 0.017, 0.012, 0.016]\n"}
+,{"stream_name":"stdout","time":174.772152563,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":175.850341281,"data":"[step5a] published:shim2024_bert_base seed 1 FAILED:\n"}
+,{"stream_name":"stdout","time":175.851476,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":175.854477736,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":175.854494884,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":175.85462033,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":175.855079078,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":175.856445561,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":175.857569685,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":175.858607685,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":175.859504841,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":175.860439801,"data":"IndexError: index 1180 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":175.861413417,"data":"\n"}
+,{"stream_name":"stdout","time":176.326482694,"data":"[step5a] published:shim2024_bert_base seed 2 FAILED:\n"}
+,{"stream_name":"stdout","time":176.328814291,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":176.330675962,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":176.33221016,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":176.333686734,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":176.334738464,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":176.335948666,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":176.337270211,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":176.338554728,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":176.341519222,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":176.3415349,"data":"IndexError: index 2472 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":176.341984988,"data":"\n"}
+,{"stream_name":"stdout","time":176.798426075,"data":"[step5a] published:shim2024_bert_base seed 3 FAILED:\n"}
+,{"stream_name":"stdout","time":176.801729906,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":176.803334411,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":176.80570177,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":176.808419233,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":176.809827121,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":176.810956238,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":176.811980716,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":176.813004022,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":176.81397791,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":176.815185139,"data":"IndexError: index 3608 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":176.815994338,"data":"\n"}
+,{"stream_name":"stdout","time":177.893770412,"data":"[step5a] published:shim2024_distilbert_base seed 1 FAILED:\n"}
+,{"stream_name":"stdout","time":177.896482369,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":177.896499175,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":177.896882136,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":177.897905374,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":177.8990285,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":177.900059231,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":177.900879502,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":177.901929681,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":177.90293879,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":177.903923153,"data":"IndexError: index 1180 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":177.904718728,"data":"\n"}
+,{"stream_name":"stdout","time":178.440578053,"data":"[step5a] published:shim2024_distilbert_base seed 2 FAILED:\n"}
+,{"stream_name":"stdout","time":178.441658868,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":178.442881752,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":178.444102077,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":178.445082727,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.446176132,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":178.447281597,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":178.448338095,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":178.449454648,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":178.450568809,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":178.451658681,"data":"IndexError: index 2472 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":178.452683399,"data":"\n"}
+,{"stream_name":"stdout","time":178.9411629,"data":"[step5a] published:shim2024_distilbert_base seed 3 FAILED:\n"}
+,{"stream_name":"stdout","time":178.943516987,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":178.943636848,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":178.944487525,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":178.946335718,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.94740608,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":178.948729298,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":178.949903206,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":178.950958618,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":178.95181622,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":178.952649204,"data":"IndexError: index 3608 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":178.953571173,"data":"\n"}
+,{"stream_name":"stdout","time":178.958906411,"data":"[step5a] inflation:shim2024_bert_base seed 1 FAILED:\n"}
+,{"stream_name":"stdout","time":178.960843131,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":178.963312833,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":178.964168366,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":178.965041738,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.966026717,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":178.967044156,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":178.968063686,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.969074408,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":178.970307556,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":178.971345009,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.972385232,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":178.973438376,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":178.974466939,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.975502221,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":178.976507011,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":178.977671319,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.978829768,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":178.980464482,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":178.980951515,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.984310227,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":178.985234299,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":178.986217184,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.987098895,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_bert_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":178.98808559,"data":"\n"}
+,{"stream_name":"stdout","time":178.989062157,"data":"[step5a] inflation:shim2024_bert_base seed 2 FAILED:\n"}
+,{"stream_name":"stdout","time":178.989961167,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":178.990905343,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":178.991837441,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":178.99278949199999,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.993741892,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":178.994907347,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":178.99604647,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":178.996922301,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":178.997962245,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":178.998964821,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.000080851,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":179.000951479,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":179.002511584,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.003356734,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":179.004493687,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.005624576,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.006724986,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":179.007820913,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":179.008848516,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.010032063,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":179.011148618,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.012295222,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.013401437,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_bert_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":179.01454208,"data":"\n"}
+,{"stream_name":"stdout","time":179.015726453,"data":"[step5a] inflation:shim2024_bert_base seed 3 FAILED:\n"}
+,{"stream_name":"stdout","time":179.016852889,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":179.01800109,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":179.019106234,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":179.020266548,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.021453733,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":179.022608886,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":179.02376231,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.024751384,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":179.025852205,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":179.026969658,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.028107203,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":179.029102066,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":179.030157123,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.031100644,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":179.032091267,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.033064137,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.034121561,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":179.035093231,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":179.036045344,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.03701407,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":179.038055127,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.038945713,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.03993021,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_bert_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":179.040892814,"data":"\n"}
+,{"stream_name":"stdout","time":179.041837824,"data":"[step5a] inflation:shim2024_distilbert_base seed 1 FAILED:\n"}
+,{"stream_name":"stdout","time":179.042806104,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":179.043788091,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":179.044747148,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":179.045717879,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.046657957,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":179.047697296,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":179.048719272,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.049775531,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":179.050825633,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":179.051918093,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.052964057,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":179.054025797,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":179.055059392,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.056194005,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":179.057291951,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.058416713,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.059476161,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":179.060501905,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":179.06158793,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.062647063,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":179.06374248,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.065468383,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.065891242,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_distilbert_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":179.067021626,"data":"\n"}
+,{"stream_name":"stdout","time":179.068223456,"data":"[step5a] inflation:shim2024_distilbert_base seed 2 FAILED:\n"}
+,{"stream_name":"stdout","time":179.069332106,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":179.070473307,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":179.07246999,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":179.072628352,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.073682307,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":179.074950436,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":179.076179708,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.07727992,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":179.078395775,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":179.079511162,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.080599037,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":179.081659348,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":179.082783671,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.083862436,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":179.084931295,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.085928172,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.087161256,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":179.088284059,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":179.089509242,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.090678871,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":179.091923274,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.093010365,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.09413951,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_distilbert_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":179.095175153,"data":"\n"}
+,{"stream_name":"stdout","time":179.096273256,"data":"[step5a] inflation:shim2024_distilbert_base seed 3 FAILED:\n"}
+,{"stream_name":"stdout","time":179.097346941,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":179.098552249,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":179.099630798,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":179.100752098,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.101820407,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":179.10293816,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":179.103946064,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.105212978,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":179.106069391,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":179.107194576,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.108192479,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":179.109197204,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":179.110223659,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.111240066,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":179.112332664,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.113384173,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.114486739,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":179.115491875,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":179.116516762,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.117508602,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":179.118495963,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":179.119425548,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":179.12039941,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_distilbert_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":179.121303555,"data":"\n"}
+,{"stream_name":"stdout","time":324.540165923,"data":"[published] mahmud2024_cnn_bigru seed 1 done\n"}
+,{"stream_name":"stdout","time":461.999319412,"data":"[published] mahmud2024_cnn_bigru seed 2 done\n"}
+,{"stream_name":"stdout","time":599.480313658,"data":"[published] mahmud2024_cnn_bigru seed 3 done\n"}
+,{"stream_name":"stdout","time":603.315511249,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":603.316440524,"data":"WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":604.763071203,"data":"[step5a] published:shim2024_roberta_base seed 1 FAILED:\n"}
+,{"stream_name":"stdout","time":604.763098659,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":604.763999023,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":604.764874759,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":604.765905788,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":604.767454187,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":604.767699792,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":604.768668509,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":604.769619259,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":604.770642563,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":604.77142941,"data":"IndexError: index 1180 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":604.77216679,"data":"\n"}
+,{"stream_name":"stdout","time":605.378802698,"data":"[step5a] published:shim2024_roberta_base seed 2 FAILED:\n"}
+,{"stream_name":"stdout","time":605.379943062,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":605.383500025,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":605.383516883,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":605.383521754,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":605.383525231,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":605.384470147,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":605.385016074,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":605.386043176,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":605.386935232,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":605.387763217,"data":"IndexError: index 2472 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":605.388523335,"data":"\n"}
+,{"stream_name":"stdout","time":605.985302435,"data":"[step5a] published:shim2024_roberta_base seed 3 FAILED:\n"}
+,{"stream_name":"stdout","time":605.986216659,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":605.987030212,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 393, in main\n"}
+,{"stream_name":"stdout","time":605.987965733,"data":"    job_published(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":605.988830089,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":605.989816717,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 204, in job_published\n"}
+,{"stream_name":"stdout","time":605.990641118,"data":"    sel = methods.select_shim(sc, ckpt, tr_texts, ytr, seed, device)\n"}
+,{"stream_name":"stdout","time":605.991481091,"data":"  File \"/kaggle/working/code/src/step5a/methods.py\", line 272, in select_shim\n"}
+,{"stream_name":"stdout","time":605.992146533,"data":"    m.train(texts[tr], y[tr], bs, lr, sc[\"max_epochs\"], seed, on_epoch)\n"}
+,{"stream_name":"stdout","time":605.992896415,"data":"            ~~~~~^^^^\n"}
+,{"stream_name":"stdout","time":605.993633937,"data":"IndexError: index 3608 is out of bounds for axis 0 with size 640\n"}
+,{"stream_name":"stdout","time":605.99429102,"data":"\n"}
+,{"stream_name":"stdout","time":619.552807785,"data":"[inflation] linear_svm dirty seed 1: acc 0.9583 macro F1 0.8642\n"}
+,{"stream_name":"stdout","time":630.662242947,"data":"[inflation] linear_svm clean seed 1: acc 0.9708 macro F1 0.8979\n"}
+,{"stream_name":"stdout","time":643.383137415,"data":"[inflation] linear_svm dirty seed 2: acc 0.9581 macro F1 0.8629\n"}
+,{"stream_name":"stdout","time":654.274545777,"data":"[inflation] linear_svm clean seed 2: acc 0.9715 macro F1 0.8987\n"}
+,{"stream_name":"stdout","time":666.793052829,"data":"[inflation] linear_svm dirty seed 3: acc 0.9581 macro F1 0.8638\n"}
+,{"stream_name":"stdout","time":677.671098394,"data":"[inflation] linear_svm clean seed 3: acc 0.9719 macro F1 0.9014\n"}
+,{"stream_name":"stdout","time":689.578008309,"data":"[inflation] logreg dirty seed 1: acc 0.9544 macro F1 0.8542\n"}
+,{"stream_name":"stdout","time":700.501442971,"data":"[inflation] logreg clean seed 1: acc 0.9693 macro F1 0.8936\n"}
+,{"stream_name":"stdout","time":712.463753409,"data":"[inflation] logreg dirty seed 2: acc 0.9558 macro F1 0.8560\n"}
+,{"stream_name":"stdout","time":723.766356011,"data":"[inflation] logreg clean seed 2: acc 0.9671 macro F1 0.8862\n"}
+,{"stream_name":"stdout","time":735.950960687,"data":"[inflation] logreg dirty seed 3: acc 0.9552 macro F1 0.8552\n"}
+,{"stream_name":"stdout","time":747.139722867,"data":"[inflation] logreg clean seed 3: acc 0.9695 macro F1 0.8938\n"}
+,{"stream_name":"stdout","time":1415.092130733,"data":"[inflation] mahmud2024_cnn_bigru dirty seed 1: acc 0.9825 macro F1 0.9711\n"}
+,{"stream_name":"stdout","time":2049.596109502,"data":"[inflation] mahmud2024_cnn_bigru clean seed 1: acc 0.9797 macro F1 0.9607\n"}
+,{"stream_name":"stdout","time":2727.967562012,"data":"[inflation] mahmud2024_cnn_bigru dirty seed 2: acc 0.9815 macro F1 0.9693\n"}
+,{"stream_name":"stdout","time":3357.21304543,"data":"[inflation] mahmud2024_cnn_bigru clean seed 2: acc 0.9802 macro F1 0.9615\n"}
+,{"stream_name":"stdout","time":4022.821799046,"data":"[inflation] mahmud2024_cnn_bigru dirty seed 3: acc 0.9833 macro F1 0.9725\n"}
+,{"stream_name":"stdout","time":4647.262535289,"data":"[inflation] mahmud2024_cnn_bigru clean seed 3: acc 0.9802 macro F1 0.9618\n"}
+,{"stream_name":"stdout","time":4647.263764569,"data":"[step5a] inflation:shim2024_roberta_base seed 1 FAILED:\n"}
+,{"stream_name":"stdout","time":4647.264672053,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":4647.265599511,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":4647.266681543,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":4647.267506367,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.268597103,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":4647.26964644,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":4647.270716636,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.271752848,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":4647.273008988,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":4647.27411457,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.275422029,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":4647.276544347,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":4647.277544407,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.278696714,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":4647.279598916,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":4647.28075234,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.281792883,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":4647.282843202,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":4647.283835373,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.285021132,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":4647.286109083,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":4647.287175961,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.288298195,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_roberta_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":4647.289354033,"data":"\n"}
+,{"stream_name":"stdout","time":4647.290405784,"data":"[step5a] inflation:shim2024_roberta_base seed 2 FAILED:\n"}
+,{"stream_name":"stdout","time":4647.29145134,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":4647.29259596,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":4647.293562003,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":4647.2946331,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.295670645,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":4647.296869304,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":4647.297968276,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.298990996,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":4647.300132425,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":4647.301072614,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.302187778,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":4647.30328294,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":4647.304317468,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.305483141,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":4647.306327155,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":4647.307403804,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.308342951,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":4647.309353592,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":4647.310104207,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.310932361,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":4647.311746242,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":4647.312582176,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.313372735,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_roberta_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":4647.314156751,"data":"\n"}
+,{"stream_name":"stdout","time":4647.314957185,"data":"[step5a] inflation:shim2024_roberta_base seed 3 FAILED:\n"}
+,{"stream_name":"stdout","time":4647.315781083,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":4647.316563752,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 395, in main\n"}
+,{"stream_name":"stdout","time":4647.317372586,"data":"    job_inflation(arg, seed, device)\n"}
+,{"stream_name":"stdout","time":4647.318144009,"data":"    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.318988626,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 267, in job_inflation\n"}
+,{"stream_name":"stdout","time":4647.319828026,"data":"    choice = shim_choice(model) if model.startswith(\"shim2024\") else None\n"}
+,{"stream_name":"stdout","time":4647.32063602,"data":"             ~~~~~~~~~~~^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.321443324,"data":"  File \"/kaggle/working/code/src/step5a/run.py\", line 252, in shim_choice\n"}
+,{"stream_name":"stdout","time":4647.322180143,"data":"    sels = [read_json(OUT / \"published\" / method / f\"selection_seed{k}.json\")[\"chosen\"] for k in CFG[\"seeds\"]]\n"}
+,{"stream_name":"stdout","time":4647.323008349,"data":"            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.32384489,"data":"  File \"/kaggle/working/code/src/neural/common.py\", line 97, in read_json\n"}
+,{"stream_name":"stdout","time":4647.324720092,"data":"    return json.loads(path.read_text(encoding=\"utf-8\"))\n"}
+,{"stream_name":"stdout","time":4647.325576967,"data":"                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.326346399,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 546, in read_text\n"}
+,{"stream_name":"stdout","time":4647.327050213,"data":"    return PathBase.read_text(self, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":4647.327832379,"data":"           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.328635267,"data":"  File \"/usr/lib/python3.13/pathlib/_abc.py\", line 632, in read_text\n"}
+,{"stream_name":"stdout","time":4647.329400181,"data":"    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:\n"}
+,{"stream_name":"stdout","time":4647.33021481,"data":"         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.331034247,"data":"  File \"/usr/lib/python3.13/pathlib/_local.py\", line 537, in open\n"}
+,{"stream_name":"stdout","time":4647.331822681,"data":"    return io.open(self, mode, buffering, encoding, errors, newline)\n"}
+,{"stream_name":"stdout","time":4647.332613236,"data":"           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":4647.333328389,"data":"FileNotFoundError: [Errno 2] No such file or directory: '/kaggle/working/results/step5a/published/shim2024_roberta_base/selection_seed1.json'\n"}
+,{"stream_name":"stdout","time":4647.334077462,"data":"\n"}
+,{"stream_name":"stdout","time":4650.129993129,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":4650.130989028,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":4653.157167243,"data":"[step5a] worker smishfuse-step5a_post, device cuda, 1 units\n"}
+,{"stream_name":"stdout","time":4659.72987816,"data":"[compare] 870 rows -\u003e /kaggle/working/results/step5a/compare/crossfit.csv\n"}
+,{"stream_name":"stdout","time":4660.385729757,"data":"[entry] done in 1.26 h, return codes [1, 1, 0]\n"}
+,{"stream_name":"stdout","time":4660.399470458,"data":"exit code 1\n"}
+,{"stream_name":"stderr","time":4660.405121493,"data":"/usr/local/lib/python3.13/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":4660.40514562,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":4660.405151597,"data":"\n"}
+,{"stream_name":"stderr","time":4660.405155838,"data":"/usr/local/lib/python3.13/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":4660.405160025,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":4660.668576549,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":4660.669293631,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":4660.669303315,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":4660.669306991,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":4660.669309737,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":4660.669312415,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":4660.669314722,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":4660.669317577,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":4660.669342932,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":4660.669347365,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":4660.669351016,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":4660.669354684,"data":"Exception encountered at \"In [2]\":\n"}
+,{"stream_name":"stderr","time":4660.669358033,"data":"An exception has occurred, use %tb to see the full traceback.\n"}
+,{"stream_name":"stderr","time":4660.669361455,"data":"\n"}
+,{"stream_name":"stderr","time":4660.669365089,"data":"SystemExit: 1\n"}
+,{"stream_name":"stderr","time":4660.669397342,"data":"\n"}
+,{"stream_name":"stderr","time":4660.669401116,"data":"\n"}
+,{"stream_name":"stderr","time":4662.775851139,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":4662.775877936,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":4662.928086098,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":4662.92811143,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":4663.674310569,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":4663.789451759,"data":"[NbConvertApp] Writing 36254 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":4666.222513199,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":4666.710387178,"data":"[NbConvertApp] Writing 313784 bytes to __results__.html\n"}
+]

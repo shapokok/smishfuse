@@ -84,8 +84,9 @@ def run_neural(kernel: str, spec: dict, env_vars: dict) -> list[int]:
 
 
 def run_stress(kernel: str, spec: dict, env_vars: dict) -> list[int]:
-    """Steps 4b / 4c: one worker per GPU, each running its queue with spec["script"]
-    (default src/fusion/stress.py: conditions; src/fusion/v2.py: models)."""
+    """Steps 4b / 4c / 5a: one worker per GPU, each running its queue with spec["script"]
+    (default src/fusion/stress.py: conditions; src/fusion/v2.py: models; src/step5a/run.py: jobs),
+    then the optional spec["post"] queue once all workers have finished."""
     procs = []
     for i, conditions in enumerate(spec["queues"]):
         if not conditions:
@@ -94,7 +95,12 @@ def run_stress(kernel: str, spec: dict, env_vars: dict) -> list[int]:
         cmd = [sys.executable, str(CODE / spec.get("script", "src/fusion/stress.py")), "--queue", json.dumps(conditions),
                "--worker", f"{kernel}_gpu{i}"]
         procs.append(subprocess.Popen(cmd, env=env))
-    return [p.wait() for p in procs]
+    rcs = [p.wait() for p in procs]
+    if spec.get("post"):  # jobs that need the output of every queue (step 5a: comparison), run after them
+        cmd = [sys.executable, str(CODE / spec["script"]), "--queue", json.dumps(spec["post"]),
+               "--worker", f"{kernel}_post"]
+        rcs.append(subprocess.run(cmd, env={**os.environ, **env_vars}).returncode)
+    return rcs
 
 
 def main():

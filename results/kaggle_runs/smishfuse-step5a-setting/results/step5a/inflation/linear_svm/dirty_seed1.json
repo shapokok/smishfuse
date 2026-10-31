@@ -1,0 +1,52 @@
+{
+  "accuracy": 0.9583409209157129,
+  "choice": null,
+  "class_counts": {
+    "0": 3878,
+    "1": 528,
+    "2": 395
+  },
+  "folds": [
+    {
+      "accuracy": 0.963579604578564,
+      "fold": 0,
+      "macro_f1": 0.88260105203892,
+      "n_test": 961,
+      "n_test_with_duplicate_in_train": 48
+    },
+    {
+      "accuracy": 0.953125,
+      "fold": 1,
+      "macro_f1": 0.8481839303377505,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 61
+    },
+    {
+      "accuracy": 0.95625,
+      "fold": 2,
+      "macro_f1": 0.8477112814107258,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 41
+    },
+    {
+      "accuracy": 0.9635416666666666,
+      "fold": 3,
+      "macro_f1": 0.8834075982714286,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 55
+    },
+    {
+      "accuracy": 0.9552083333333333,
+      "fold": 4,
+      "macro_f1": 0.8591011429478743,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 58
+    }
+  ],
+  "macro_f1": 0.8642010010013397,
+  "model": "linear_svm",
+  "n": 4801,
+  "seed": 1,
+  "task": "mendeley_3class",
+  "variant": "dirty"
+}

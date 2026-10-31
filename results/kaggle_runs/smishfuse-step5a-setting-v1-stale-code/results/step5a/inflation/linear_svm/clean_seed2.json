@@ -1,0 +1,52 @@
+{
+  "accuracy": 0.9714660958084116,
+  "choice": null,
+  "class_counts": {
+    "0": 3860,
+    "1": 396,
+    "2": 335
+  },
+  "folds": [
+    {
+      "accuracy": 0.970620239390642,
+      "fold": 0,
+      "macro_f1": 0.8970756119701567,
+      "n_test": 919,
+      "n_test_with_duplicate_in_train": 0
+    },
+    {
+      "accuracy": 0.9705882352941176,
+      "fold": 1,
+      "macro_f1": 0.8999356321250626,
+      "n_test": 918,
+      "n_test_with_duplicate_in_train": 0
+    },
+    {
+      "accuracy": 0.9749455337690632,
+      "fold": 2,
+      "macro_f1": 0.9018333806123943,
+      "n_test": 918,
+      "n_test_with_duplicate_in_train": 0
+    },
+    {
+      "accuracy": 0.9673202614379085,
+      "fold": 3,
+      "macro_f1": 0.8818484659265575,
+      "n_test": 918,
+      "n_test_with_duplicate_in_train": 0
+    },
+    {
+      "accuracy": 0.9738562091503268,
+      "fold": 4,
+      "macro_f1": 0.9129736289502609,
+      "n_test": 918,
+      "n_test_with_duplicate_in_train": 0
+    }
+  ],
+  "macro_f1": 0.8987333439168864,
+  "model": "linear_svm",
+  "n": 4591,
+  "seed": 2,
+  "task": "mendeley_3class",
+  "variant": "clean"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "shapok/smishfuse-step5a",
+  "title": "smishfuse-step5a",
+  "code_file": "smishfuse-step5a.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "shapok/smishfuse-data",
+    "shapok/smishfuse-code",
+    "shapok/smishfuse-state"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

@@ -19,3 +19,4 @@ torch==2.11.0
 transformers==5.16.1
 bitsandbytes==0.50.2
 accelerate==1.14.0
+gensim==4.4.0       # step 5a: Word2Vec of the re-implemented Mahmud et al. (2024) model

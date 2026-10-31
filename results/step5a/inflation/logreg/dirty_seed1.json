@@ -1,0 +1,52 @@
+{
+  "accuracy": 0.9543836715227194,
+  "choice": null,
+  "class_counts": {
+    "0": 3878,
+    "1": 528,
+    "2": 395
+  },
+  "folds": [
+    {
+      "accuracy": 0.9583766909469302,
+      "fold": 0,
+      "macro_f1": 0.8661489511519473,
+      "n_test": 961,
+      "n_test_with_duplicate_in_train": 48
+    },
+    {
+      "accuracy": 0.9489583333333333,
+      "fold": 1,
+      "macro_f1": 0.8394379869738081,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 61
+    },
+    {
+      "accuracy": 0.95625,
+      "fold": 2,
+      "macro_f1": 0.8526972667480889,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 41
+    },
+    {
+      "accuracy": 0.9614583333333333,
+      "fold": 3,
+      "macro_f1": 0.8798804258379777,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 55
+    },
+    {
+      "accuracy": 0.946875,
+      "fold": 4,
+      "macro_f1": 0.8328009686613805,
+      "n_test": 960,
+      "n_test_with_duplicate_in_train": 58
+    }
+  ],
+  "macro_f1": 0.8541931198746406,
+  "model": "logreg",
+  "n": 4801,
+  "seed": 1,
+  "task": "mendeley_3class",
+  "variant": "dirty"
+}

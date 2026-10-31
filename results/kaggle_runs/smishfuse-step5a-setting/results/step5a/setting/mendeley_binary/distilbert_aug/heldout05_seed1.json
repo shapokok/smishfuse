@@ -1,0 +1,14 @@
+{
+  "accuracy": 0.9912891986062717,
+  "best_epoch": 3,
+  "epochs_run": 5,
+  "f1_pos": 0.9726775956284153,
+  "macro_f1": 0.9837481242390781,
+  "model": "distilbert_aug",
+  "n": 574,
+  "precision_pos": 0.967391304347826,
+  "recall_pos": 0.978021978021978,
+  "seed": 1,
+  "setting": "heldout05",
+  "task": "mendeley_binary"
+}

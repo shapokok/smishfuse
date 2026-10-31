@@ -1,0 +1,15 @@
+{
+  "jobs": [
+    {
+      "job": "compare__seedNone",
+      "seconds": 7.337913287000447,
+      "status": "done"
+    },
+    {
+      "job": "setting_compare__seedNone",
+      "seconds": 9.34262942999976,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-step5a-setting_post"
+}

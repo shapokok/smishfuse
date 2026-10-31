@@ -1,0 +1,65 @@
+{
+  "jobs": [
+    {
+      "job": "published:shim2024_bert_base__seed1",
+      "seconds": 19.505958487999976,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_bert_base__seed2",
+      "seconds": 0.46799062100001265,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_bert_base__seed3",
+      "seconds": 0.4627761500000247,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_distilbert_base__seed1",
+      "seconds": 1.0875461829999722,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_distilbert_base__seed2",
+      "seconds": 0.5346452790000171,
+      "status": "error"
+    },
+    {
+      "job": "published:shim2024_distilbert_base__seed3",
+      "seconds": 0.4962228030000233,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_bert_base__seed1",
+      "seconds": 0.01019427899996117,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_bert_base__seed2",
+      "seconds": 0.003706160000035652,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_bert_base__seed3",
+      "seconds": 0.00362005799996723,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_distilbert_base__seed1",
+      "seconds": 0.0036093520000122226,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_distilbert_base__seed2",
+      "seconds": 0.003793854999969426,
+      "status": "error"
+    },
+    {
+      "job": "inflation:shim2024_distilbert_base__seed3",
+      "seconds": 0.0036783150000019305,
+      "status": "error"
+    }
+  ],
+  "worker": "smishfuse-step5a_gpu0"
+}

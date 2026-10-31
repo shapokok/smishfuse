@@ -1,0 +1,215 @@
+{
+  "jobs": [
+    {
+      "job": "published:shim2024_roberta_base__seed1",
+      "seconds": 633.0646762959999,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed2",
+      "seconds": 625.7665980639999,
+      "status": "done"
+    },
+    {
+      "job": "published:shim2024_roberta_base__seed3",
+      "seconds": 570.62090248,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed1",
+      "seconds": 566.293626747,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed2",
+      "seconds": 567.6937801960003,
+      "status": "done"
+    },
+    {
+      "job": "inflation:shim2024_roberta_base__seed3",
+      "seconds": 566.4441484570002,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char_aug__seed1",
+      "seconds": 3.6195631329997013,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char_aug__seed2",
+      "seconds": 3.1513042400001723,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char_aug__seed3",
+      "seconds": 3.228622439999981,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char__seed1",
+      "seconds": 2.5498968860001696,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char__seed2",
+      "seconds": 2.535085024000182,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_char__seed3",
+      "seconds": 2.5495919999998478,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_step2__seed1",
+      "seconds": 2.303198059999886,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_step2__seed2",
+      "seconds": 2.1370953959999497,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:svm_step2__seed3",
+      "seconds": 2.229660712000168,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert_aug__seed1",
+      "seconds": 62.523957118,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert_aug__seed2",
+      "seconds": 58.33691942999985,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert_aug__seed3",
+      "seconds": 58.444446774000426,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert__seed1",
+      "seconds": 40.35612084500008,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert__seed2",
+      "seconds": 49.93793704499967,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:distilbert__seed3",
+      "seconds": 50.27464610399966,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:bert__seed1",
+      "seconds": 77.4938895489995,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:bert__seed2",
+      "seconds": 77.21696197300025,
+      "status": "done"
+    },
+    {
+      "job": "setting:mendeley_binary:bert__seed3",
+      "seconds": 58.33405225799925,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char_aug__seed1",
+      "seconds": 0.8445625280000968,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char_aug__seed2",
+      "seconds": 0.90413556600015,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char_aug__seed3",
+      "seconds": 0.8646521639993807,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char__seed1",
+      "seconds": 0.7273005460001514,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char__seed2",
+      "seconds": 0.7282991239999319,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_char__seed3",
+      "seconds": 0.7292092919997231,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_step2__seed1",
+      "seconds": 0.6565385809999498,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_step2__seed2",
+      "seconds": 0.688973664000514,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:svm_step2__seed3",
+      "seconds": 0.6691124660001151,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert_aug__seed1",
+      "seconds": 6.535517289999916,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert_aug__seed2",
+      "seconds": 10.374789856999996,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert_aug__seed3",
+      "seconds": 10.727889809999397,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert__seed1",
+      "seconds": 7.356954961000156,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert__seed2",
+      "seconds": 8.925352507000753,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:distilbert__seed3",
+      "seconds": 8.984995872999207,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:bert__seed1",
+      "seconds": 13.663884436999979,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:bert__seed2",
+      "seconds": 13.585015413000292,
+      "status": "done"
+    },
+    {
+      "job": "setting:smishing_vs_spam:bert__seed3",
+      "seconds": 16.610295376999602,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-step5a-setting_gpu1"
+}

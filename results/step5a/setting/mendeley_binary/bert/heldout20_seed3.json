@@ -1,0 +1,14 @@
+{
+  "accuracy": 0.9825783972125436,
+  "best_epoch": 0,
+  "epochs_run": 3,
+  "f1_pos": 0.9425287356321839,
+  "macro_f1": 0.9661308975902192,
+  "model": "bert",
+  "n": 574,
+  "precision_pos": 0.9879518072289156,
+  "recall_pos": 0.9010989010989011,
+  "seed": 3,
+  "setting": "heldout20",
+  "task": "mendeley_binary"
+}
