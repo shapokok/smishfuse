@@ -1,0 +1,50 @@
+id,language,translation,seconds
+kz1_fraud_ru,ru,Kaspi Bank: Your card is blocked due to suspicious activity.,3.2043606710000176
+kz1_fraud_kk,kk,Kaspi Bank: Your card has been blocked due to suspicious activity. Please confirm your data on kaspi-verify.example within 24 hours to unlock.,6.4885906009999985
+kz1_fraud_ru_heldout10,ru,Kaspi Bank: Your card is blocked due to suspicious activity.,3.281254421999961
+kz1_legit_ru,ru,Kaspi.kz: the app is entered from the new device at 12.03 at 14:25.,3.5855533820000005
+kz1_legit_kk,kk,Kaspi.kz: On 12.03 at 14:25 the app has been accessed from a new device.,4.085698359000048
+kz2_fraud_ru,ru,"Congratulations! You won 500,000 tenge in the Kaspi anniversary raffle.",3.621830839999973
+kz2_fraud_kk,kk,Congratulations! You won 500 000 tenge in the Kaspi anniversary game. Enter the card details on the kaspi-prize.example website to win the prize.,6.914533216999985
+kz2_fraud_ru_heldout10,ru,"You've won 500,000 tenge in the Kaspi anniversary game, and to win the prize, you'll need to enter the deck of cards on kasspi-prize.xample.",7.788622507000014
+kz2_legit_ru,ru,Kaspi: Cashback of 10% for purchases from Kaspi Gold partners until March 31,3.4143368489999943
+kz2_legit_kk,kk,Kaspi: 10% cashback on purchases through Kaspi Gold from partner stores until March 31.,3.775243804000013
+kz3_fraud_ru,ru,eGov: Your EPC expires today.,2.220345431999988
+kz3_fraud_kk,kk,"eGov: Your EPC expires today. To avoid losing access to government services, please extend it by using egov-ecp.example.",5.791621989999953
+kz3_fraud_ru_heldout10,ru,eGovv: your ECP expires today.,2.4924291969999786
+kz3_legit_ru,ru,"Your ID is ready, you can get it at the ID center where you applied, and you can have a signature with you.",4.845888349999996
+kz3_legit_kk,kk,CEN: Your ID is ready. You can get it from the CEN that applied. Bring your receipt with you.,4.673094848000005
+kz4_fraud_ru,ru,Kazpost: your package is delayed at the sorting station due to unpaid delivery of 450 tenge.,4.3105712300000505
+kz4_fraud_kk,kk,By Kazpost: Your delivery is held in the sorting center because delivery fee is not paid 450 tenge. Please pay at kazpost-pay.example or it will be refunded.,6.961305634999917
+kz4_fraud_ru_heldout10,ru,Kazpost: your package is delayed at the sorting point due to unpaid pre-delivery of 450 tenge.,4.815890570999954
+kz4_legit_ru,ru,The postal service: RR000000000KZ has arrived at your post office.,3.5163600719999977
+kz4_legit_kk,kk,By postal mail: RR000000000KZ has arrived at your post office. It is stored for 30 days. Bring your ID card with you.,5.8087531780000745
+kz5_fraud_ru,ru,"You have been approved for early retirement, please confirm your data on enpf-payout.example to receive your payment within 3 days.",5.502361678999932
+kz5_fraud_kk,kk,You are allowed to withdraw your pension savings early. Please confirm your details on enpf-payout.example to receive your payment within 3 days.,5.9799721960000625
+kz5_fraud_ru_heldout10,ru,You have been granted the right to withdraw your pension savings early in the year.,3.586374237999962
+kz5_legit_ru,ru,EPPF: The annual retirement account statement is available at the personal office of the fund on the website and in the eGov app.,5.14680419299998
+kz5_legit_kk,kk,The following is the list of the most common types of pension benefits for the person who has a disability:,4.013725455999975
+kz6_fraud_ru,ru,"Beeline, you're getting a 5GB bonus!",2.4583179149999523
+kz6_fraud_kk,kk,Beeline: You're getting a 5GB bonus! Please send the following SMS code as a reply to confirmation.,4.414476777999994
+kz6_fraud_ru_heldout10,ru,"Beelinne, you're getting a 5GB bonus, and to activate, you'll be able to respond with a code from the tracking SMS.",6.091069611999956
+kz6_legit_ru,ru,Beeline: new social networking rate for 2990 tenge per month.,3.2884070989999827
+kz6_legit_kk,kk,Beeline: new social networking rate for 2990 tenge per month.  Join my Beeline app.,4.735773655000003
+kz7_fraud_ru,ru,Bank security: You've been charged with attempting to get a loan in your name.,4.299300236000022
+kz7_fraud_kk,kk,"Bank security service: You have been identified for a loan. Now you will be called by an employee, and you will need to give him the code in the SMS to cancel the application.",7.086514587000011
+kz7_fraud_ru_heldout10,ru,"Bank security: a recorded attempt to obtain credit in your name. When an employee calls you, dictate a code from the SMMS to cancel the application.",6.047919243000024
+kz7_legit_ru,ru,"Bank: Suspicious card transaction for 85,000 tenge has been rejected. If you have not done so, call the number on the back of the card. Do not send the SMS codes to anyone.",7.857407228000056
+kz7_legit_kk,kk,"Bank: Your card has denied the suspicious transaction of 85,000 tenge. If you have not done it, call the number on the back of the card. Do not tell anyone the codes in the SMS.",8.159917389000043
+kz1_fraud_ru_cyr_homoglyph,ru,Kaspi Bank: Your card has been blocked due to suspicious activity.,3.4887742559999424
+kz1_fraud_kk_cyr_homoglyph,kk,Kaspi Bank: Your credit card has been disabled. Please check kaspi-verify.example immediately within 24 hours to exit the credit card.,5.874184430000014
+kz2_fraud_ru_cyr_homoglyph,ru,"Congratulations, you won 500,000 tenge in the Kaspi Jubilee.",3.612717259999954
+kz2_fraud_kk_cyr_homoglyph,kk,Congratulations! You have won 500 000 tenge in the Kaspi Merit Games.,3.9720785529999603
+kz3_fraud_ru_cyr_homoglyph,ru,eGov: Your ECP expires today.,2.311333483999988
+kz3_fraud_kk_cyr_homoglyph,kk,"eGov: Your ECD expires today. To avoid losing access to your government service, please extend it via egov-ecp.example.",6.03523390600003
+kz4_fraud_ru_cyr_homoglyph,ru,Kazpost: your package is debited at the point of delivery due to an unpaid delivery of 450 tenge.,4.648932113000001
+kz4_fraud_kk_cyr_homoglyph,kk,"By postal mail: your delivery fee is not paid for 450 tenge, so please check the postal service at kazpost-pay.example, otherwise it will be refunded.",6.615653899999984
+kz5_fraud_ru_cyr_homoglyph,ru,You have been granted the right to withdraw your pension savings early.,3.1910414599999513
+kz5_fraud_kk_cyr_homoglyph,kk,Payout: You are authorized to withdraw your pension savings before the due date.,3.945306733000052
+kz6_fraud_ru_cyr_homoglyph,ru,"Beeline, you're getting a 5GB bonus, so please send the code from the following SMS to activate.",4.5980059560000655
+kz6_fraud_kk_cyr_homoglyph,kk,Beeline: You've got a 5GB bonus! Please send the code in the following SMS as a response to confirm.,4.737565009999912
+kz7_fraud_ru_cyr_homoglyph,ru,Bank security service: you have a registered request to obtain a loan in your name.,3.513012724999953
+kz7_fraud_kk_cyr_homoglyph,kk,"Bank security service: You have been identified as a credit card issuer. Now you will be contacted by a telephone call, please provide the code in the SMS to cancel your application.",6.792052842000089

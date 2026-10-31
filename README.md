@@ -250,6 +250,25 @@ uv pip install --python .venv/bin/python -r requirements.txt
 Результаты: `results/final/` (предсказания хранятся один раз, в `results/final/preds`). Отчёт:
 [reports/step5b_final_report.md](reports/step5b_final_report.md), графики: `reports/figures/final/*.pdf`.
 
+## Шаг 6: кейс-стади в казахстанском контексте (Kaggle CPU)
+
+42 синтетических сообщения, написанных авторами (7 сценариев × мошенническое / легитимное × EN / RU / KK),
+плюс искажённые варианты мошеннических: `heldout10` (замороженная обфускация) и `cyr_homoglyph` (только для
+кейс-стади). Набор: [data/kz_cases/cases.csv](data/kz_cases/cases.csv), зафиксирован коммитом 924ff27 до
+запуска моделей. Модели заморожены: финальные веса seed 1 (Lite — LinearSVM char, Full — каскад, BERT).
+Перевод RU / KK → EN: facebook/nllb-200-distilled-600M на CPU. Это качественная демонстрация, а не
+статистическая оценка.
+
+```bash
+.venv/bin/python scripts/make_kz_cases.py                   # cases.csv из проверенного draft.csv
+.venv/bin/python scripts/kaggle_sync.py code                # затем проверить отдаваемый Kaggle CODE_SHA256
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step6
+.venv/bin/python scripts/make_step6_report.py
+```
+
+Раннер: [src/step6/run.py](src/step6/run.py). Результаты: `results/step6/` (предсказания, переводы, задержка).
+Отчёт: [reports/step6_kz_cases.md](reports/step6_kz_cases.md).
+
 ## Датасеты: источники и лицензии
 
 | Датасет | Источник | Закреплённая версия | Лицензия |

@@ -1,0 +1,73 @@
+{
+  "mismatch": [],
+  "packages": {
+    "accelerate": {
+      "installed": "1.14.0",
+      "pinned": "1.14.0"
+    },
+    "bitsandbytes": {
+      "installed": "0.50.2",
+      "pinned": "0.50.2"
+    },
+    "datasketch": {
+      "installed": "2.0.0",
+      "pinned": "2.0.0"
+    },
+    "gensim": {
+      "installed": "4.4.0",
+      "pinned": "4.4.0"
+    },
+    "joblib": {
+      "installed": "1.6.0",
+      "pinned": "1.6.0"
+    },
+    "langdetect": {
+      "installed": "1.0.9",
+      "pinned": "1.0.9"
+    },
+    "numpy": {
+      "installed": "2.4.6",
+      "pinned": "2.4.6"
+    },
+    "optuna": {
+      "installed": "5.0.0",
+      "pinned": "5.0.0"
+    },
+    "pandas": {
+      "installed": "3.1.0",
+      "pinned": "3.1.0"
+    },
+    "pyspellchecker": {
+      "installed": "0.8.3",
+      "pinned": "0.8.3"
+    },
+    "pyyaml": {
+      "installed": "6.0.3",
+      "pinned": "6.0.3"
+    },
+    "requests": {
+      "installed": "2.34.2",
+      "pinned": "2.34.2"
+    },
+    "scikit-learn": {
+      "installed": "1.9.1",
+      "pinned": "1.9.1"
+    },
+    "scipy": {
+      "installed": "1.17.1",
+      "pinned": "1.17.1"
+    },
+    "torch": {
+      "installed": "2.11.0+cpu",
+      "pinned": "2.11.0"
+    },
+    "transformers": {
+      "installed": "5.16.1",
+      "pinned": "5.16.1"
+    },
+    "xgboost": {
+      "installed": "3.2.0",
+      "pinned": "3.2.0"
+    }
+  }
+}

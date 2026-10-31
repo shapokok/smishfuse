@@ -321,4 +321,13 @@ kernels:
       script: src/final/cpu.py
       state_from: smishfuse-final-settings
       queues: [[posthoc]]
+  # Step 6: Kazakhstan case study, frozen final models (weights of smishfuse-final-3class), CPU only.
+  smishfuse-step6:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-3class]
+    spec:
+      kind: stress
+      script: src/step6/run.py
+      queues: [[run]]
 
