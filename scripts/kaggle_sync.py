@@ -26,8 +26,11 @@ BUILD = ROOT / "kaggle" / "build"
 CFG = yaml.safe_load((ROOT / "configs" / "kaggle_kernels.yaml").read_text(encoding="utf-8"))
 OWNER = CFG["owner"]
 # results/step4c, results/step4b/baseline (val predictions) and results/step5a/inputs are inputs of step 5a
+# results/raw (clean test predictions of steps 2-3), results/latency (Qwen GPU row), results/step4b/*/subsets:
+# inputs of step 5b
 CODE_PARTS = ["src", "configs", "tests", "requirements.txt", "results/best_params", "results/step4c",
-              "results/step4b/baseline", "results/step5a/inputs"]
+              "results/step4b/baseline", "results/step5a/inputs", "results/raw", "results/latency",
+              "results/step4b/low_data/subsets", "results/step4b/transfer/subsets"]
 OUTPUT_PATTERN = r"^(?!.*(/models/|^models/|/code/|^code/)).*$"
 
 

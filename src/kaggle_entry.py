@@ -114,7 +114,8 @@ def main():
     env_vars = {"SMISHFUSE_DATA": str(find_data()), "SMISHFUSE_RESULTS": str(RESULTS),
                 "PYTHONPATH": str(CODE / "src"), "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
                 # no new trial / seed / LLM batch after this point (session budget, default 8.5 h)
-                "SMISHFUSE_DEADLINE": str(start + 3600 * float(spec.get("budget_hours", 8.5)))}
+                "SMISHFUSE_DEADLINE": str(start + 3600 * float(spec.get("budget_hours", 8.5))),
+                **spec.get("env", {})}  # e.g. SMISHFUSE_FINAL_DRY=1 for the smoke test of step 5b
     # A continuation kernel (new name, so the first session's output with model weights stays
     # available as a kernel source) restores the state of the kernel named in state_from.
     sources = spec.get("state_from", args.kernel)

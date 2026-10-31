@@ -207,3 +207,88 @@ kernels:
            "setting:smishing_vs_spam:svm_step2", "setting:smishing_vs_spam:distilbert_aug",
            "setting:smishing_vs_spam:distilbert", "setting:smishing_vs_spam:bert"]
       post: [compare, setting_compare]
+
+  # Step 5b (configs/final.yaml). Smoke test first: SMISHFUSE_FINAL_DRY=1, val stands in for test
+  # (no test text is read), seed 1, 1 epoch, small train; output results/final_dry/.
+  smishfuse-final-dry:
+    accelerator: NvidiaTeslaT4
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/run.py
+      budget_hours: 0.3
+      env: {SMISHFUSE_FINAL_DRY: "1"}
+      queues:
+        - ["mendeley_3class:svm_char_aug", "mendeley_3class:distilbert_aug", "mendeley_3class:smishfuse_v2",
+           "mendeley_3class:textcnn", "low_data:distilbert_aug", "setting_shim:shim2024_bert_base",
+           "transfer:distilbert_aug", "super_sms:svm_char_aug"]
+        - ["mendeley_3class:svm_char", "mendeley_3class:distilbert", "mendeley_3class:smishfuse_v1",
+           "mendeley_3class:bert", "mendeley_3class:xgboost", "low_data:svm_char_aug", "low_data:svm_char",
+           "low_data:distilbert", "setting_mahmud:mahmud2024_cnn_bigru", "setting_mahmud:svm_step2",
+           "setting_shim:svm_char_aug", "setting_shim:distilbert_aug", "transfer:smishfuse_v1",
+           "transfer:linear_svm", "transfer:svm_char_aug", "super_sms:distilbert_aug"]
+      post: []
+  smishfuse-final-dry-cpu:
+    accelerator: none
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/cpu.py
+      state_from: smishfuse-final-dry
+      env: {SMISHFUSE_FINAL_DRY: "1"}
+      queues: [[assemble, latency]]
+
+  smishfuse-final-3class:
+    accelerator: NvidiaTeslaT4
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/run.py
+      budget_hours: 1.2
+      queues:
+        - ["mendeley_3class:distilbert_aug", "mendeley_3class:distilbert", "mendeley_3class:smishfuse_v2",
+           "mendeley_3class:smishfuse_v2_noaug", "mendeley_3class:textcnn", "mendeley_3class:bilstm",
+           "low_data:distilbert_aug", "low_data:distilbert", "low_data:smishfuse_v2"]
+        - ["mendeley_3class:smishfuse_v1", "mendeley_3class:bert", "mendeley_3class:distilbert_step3",
+           "mendeley_3class:svm_char_aug", "mendeley_3class:svm_char", "mendeley_3class:linear_svm",
+           "mendeley_3class:logreg", "mendeley_3class:random_forest", "mendeley_3class:xgboost",
+           "low_data:smishfuse_v1", "low_data:bert", "low_data:svm_char_aug", "low_data:svm_char",
+           "low_data:linear_svm", "low_data:logreg"]
+  smishfuse-final-settings:
+    accelerator: NvidiaTeslaT4
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/run.py
+      budget_hours: 1.5
+      queues:
+        - ["setting_shim:shim2024_bert_base", "setting_shim:shim2024_distilbert_base",
+           "setting_shim:shim2024_roberta_base", "setting_shim:svm_char_aug", "setting_shim:svm_char",
+           "setting_shim:svm_step2", "setting_shim:distilbert_aug", "setting_shim:distilbert", "setting_shim:bert"]
+        - ["setting_mahmud:svm_char_aug", "setting_mahmud:svm_char", "setting_mahmud:svm_step2",
+           "setting_mahmud:distilbert_aug", "setting_mahmud:distilbert", "setting_mahmud:bert",
+           "setting_mahmud:mahmud2024_cnn_bigru", "transfer:svm_char_aug", "transfer:svm_char",
+           "transfer:distilbert_aug", "transfer:distilbert", "transfer:smishfuse_v1", "transfer:linear_svm",
+           "transfer:logreg"]
+  smishfuse-final-supersms:
+    accelerator: NvidiaTeslaT4
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/run.py
+      budget_hours: 1.0
+      queues:
+        - ["super_sms:distilbert_aug@1,2,3"]
+        - ["super_sms:distilbert_aug@4,5", "super_sms:svm_char_aug", "super_sms:svm_char"]
+  # CPU only (no GPU quota): scoring (cascades, metrics, cost, significance) and the speed measurement.
+  # Predictions: restored from the three GPU notebooks (smishfuse-state); weights: kernel sources.
+  smishfuse-final-cpu:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-3class, shapok/smishfuse-final-settings]
+    spec:
+      kind: stress
+      script: src/final/cpu.py
+      state_from: [smishfuse-final-3class, smishfuse-final-settings, smishfuse-final-supersms]
+      queues: [[assemble, latency]]
+
