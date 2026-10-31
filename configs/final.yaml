@@ -1,0 +1,145 @@
+# Step 5b: the ONE evaluation on test for every model. FROZEN before any test text is read (this
+# file is committed and pushed before the first final notebook is sent). No design iteration after it.
+# Everything not written here is taken unchanged from the referenced step configs.
+frozen: 2026-10-31
+seeds: [1, 2, 3, 4, 5]
+
+# ---------------------------------------------------------------- final method
+method:
+  name: cascade
+  # stage 1 = step 4c `svm_char_aug`: TF-IDF of character 2-5-grams (lowercase, sublinear tf, min_df 1,
+  # fitted on train), LinearSVC with the best step-2 mendeley_3class C / class weight, sigmoid calibration
+  # (CalibratedClassifierCV, 5 folds, ensemble=False); trained on one TRAIN-type augmented copy of train
+  # per seed (p 0.5, level U(0, 0.2), src/eval/obfuscation.py augment, epoch 0).
+  stage1: svm_char_aug
+  # stage 2 = step 4c `distilbert_aug`: the step-4a text model (configs/step4a.yaml: distilbert-base-
+  # uncased [CLS], heads and loss of 4a, lr 6.187592551983267e-05, at most 5 epochs, patience 2), a new
+  # TRAIN-type augmentation every epoch, early stopping on the clean val.
+  stage2: distilbert_aug
+  rule: "answer of stage 1 if its max calibrated probability >= tau, otherwise answer of stage 2"
+  # chosen on the FULL clean val of mendeley_3class (scripts/freeze_tau.py): criterion of step 5a (max
+  # macro F1, ties -> smallest tau), one value for all seeds = max of the mean over the seeds with val
+  # probabilities (step 4c, seeds 1-3): mean val macro F1 0.9237, 2.8-3.3% of val messages to stage 2.
+  tau: 0.6651272030868384
+  # 2-class tasks (settings of the papers, transfer, super_sms_clean_binary): the same criterion on the
+  # FULL clean val of that task over the 5 seeds of the final run (transfer zero-shot: mendeley_binary val;
+  # fine-tuning: moz_binary val), computed from val predictions only and written to results/final/tau.json
+  # before any test prediction is scored.
+  tau_other_tasks: full_val_same_criterion
+
+# ---------------------------------------------------------------- ablations of the cascade
+ablations:
+  svm_only: svm_char_aug
+  distilbert_only: distilbert_aug
+  cascade_noaug: {stage1: svm_char, stage2: distilbert, tau: 0.5772472895390048}   # same freezing script
+  average: {of: [svm_char_aug, distilbert_aug], rule: "argmax of the mean probability"}
+
+# ---------------------------------------------------------------- models
+# Retrained in the final notebooks with the frozen settings of their step (seeds 1-5):
+models:
+  svm_char_aug:     {from: step4c}
+  svm_char:         {from: step4c}
+  distilbert_aug:   {from: step4c}
+  distilbert:       {from: step4c}     # step-4a text model without augmentation
+  smishfuse_v1:     {from: step4c}     # gated, 14 hand-crafted features
+  smishfuse_v2:     {from: step4c, key: smishfuse_v2_aug}   # char branch + augmentation
+  smishfuse_v2_noaug: {from: step4c, key: smishfuse_v2}
+  bert:             {from: step3, params: results/best_params/<task>/bert.json}
+  mahmud2024_cnn_bigru: {from: step5a}
+  # Shim et al.: seeds 1-3 use the step-5a choice (batch, lr, epochs) below; seeds 4-5 choose by the same
+  # grid on a stratified 20% part of train (seed = run seed). Then training on the whole train.
+  # choice per seed: [batch size, lr, number of epochs]
+  shim2024_bert_base:       {from: step5a, choice: {1: [32, 5.0e-5, 8], 2: [16, 5.0e-5, 10], 3: [16, 5.0e-5, 8]}}
+  shim2024_distilbert_base: {from: step5a, choice: {1: [16, 1.0e-5, 9], 2: [8, 1.0e-5, 2], 3: [8, 5.0e-5, 1]}}
+  shim2024_roberta_base:    {from: step5a, choice: {1: [8, 5.0e-5, 6], 2: [8, 5.0e-6, 8], 3: [32, 5.0e-5, 6]}}
+# Baselines of steps 2-3 (logreg, linear_svm, random_forest, xgboost, textcnn, bilstm, distilbert_step3,
+# bert, qwen_fewshot): their clean test predictions exist (results/raw, 5 seeds) and are NOT retrained for
+# the clean condition. For a new condition they are retrained with their best parameters and seeds.
+# qwen_fewshot: only the clean test (existing predictions); no new condition (cost; see the budget note).
+step23_baselines: [logreg, linear_svm, random_forest, xgboost, textcnn, bilstm, distilbert_step3, bert, qwen_fewshot]
+
+# ---------------------------------------------------------------- conditions on test
+# Obfuscation of test: src/eval/obfuscation.py, seeded by message id and level (as for val in step 4c).
+conditions:
+  mendeley_3class:
+    test_sets: [clean, train05, train10, train20, heldout05, heldout10, heldout20]
+    models: [cascade, svm_char_aug, svm_char, distilbert_aug, distilbert, smishfuse_v1, smishfuse_v2,
+             smishfuse_v2_noaug, bert, logreg, linear_svm, random_forest, xgboost, textcnn, bilstm,
+             distilbert_step3, cascade_noaug, average]           # + qwen_fewshot on clean only
+  low_data:   # nested stratified subsets of train of step 4b (results/step4b/low_data/subsets, seed 0,
+              # min 5 per class); early stopping on the full clean val; cascade with the frozen tau
+    task: mendeley_3class
+    fractions: [0.01, 0.05, 0.10, 0.25]
+    test_sets: [clean]
+    models: [cascade, svm_char_aug, svm_char, distilbert_aug, distilbert, smishfuse_v1, smishfuse_v2, bert,
+             linear_svm, logreg]
+  setting_mahmud:   # ham vs spam + smishing, all messages; SVM / DistilBERT / BERT with their mendeley_3class
+                    # parameters (as in the step-5a addendum); 2-class head, no auxiliary head
+    task: mendeley_binary
+    test_sets: [clean, heldout05, heldout10, heldout20]
+    models: [cascade, svm_char_aug, svm_char, svm_step2, distilbert_aug, distilbert, bert, mahmud2024_cnn_bigru]
+  setting_shim:     # smishing vs spam, ham removed from train, val and test
+    task: smishing_vs_spam
+    test_sets: [clean, heldout05, heldout10, heldout20]
+    models: [cascade, svm_char_aug, svm_char, svm_step2, distilbert_aug, distilbert, bert,
+             shim2024_bert_base, shim2024_distilbert_base, shim2024_roberta_base]
+  transfer:         # as step 4b (configs/step4b.yaml, transfer): mendeley_binary -> moz_binary;
+                    # zero-shot and fine-tuning on the 10% subset (results/step4b/transfer/subsets);
+                    # text branch distilbert-base-multilingual-cased; SVM / LogReg are re-fitted on
+                    # mendeley_binary train + the subset; linear_svm / logreg: mendeley_binary parameters,
+                    # svm_char*: mendeley_3class C / class weight (as step 4c)
+    test_sets: [zeroshot, finetune10]
+    models: [cascade, svm_char_aug, svm_char, distilbert_aug, distilbert, smishfuse_v1, linear_svm, logreg]
+  super_sms_clean_binary:
+    test_sets: [clean]
+    models: [cascade, svm_char_aug, svm_char, distilbert_aug, distilbert, cascade_noaug, average]
+                    # + the 9 step-2/3 baselines from their existing test predictions
+
+# ---------------------------------------------------------------- metrics
+metrics:
+  primary: macro_f1
+  all: src/eval/metrics.py (accuracy, macro / weighted F1, balanced accuracy, per-class P / R / F1, PR-AUC,
+       ECE, recall at FPR 1% for binary tasks)
+  # cost per message on the ham-vs-malicious view (smishing and spam = malicious): (r * FN + FP) / n,
+  # r = cost of a missed malicious message, a false alarm costs 1; predictions = argmax (no cost-
+  # sensitive threshold). Not defined for smishing vs spam (both classes malicious).
+  cost_ratios: [1, 5, 10]
+
+# ---------------------------------------------------------------- significance
+significance:
+  seed: 1                    # predictions of seed 1, as in steps 2-3
+  bootstrap: {n: 10000, seed: 42}   # paired bootstrap of the macro F1 difference
+  mcnemar: src/eval/stats.py
+  alpha: 0.05
+  holm: "within each condition (task x test set), over its comparisons, separately for bootstrap and McNemar"
+  comparisons:
+    - "cascade vs the best of our baselines in that condition: highest mean test macro F1 over the 5 seeds
+       among all models of the condition except cascade, cascade_noaug, average, smishfuse_v1/v2 and the
+       re-implemented published methods"
+    - "cascade vs every re-implemented published method of that condition (setting_mahmud: CNN-BiGRU;
+       setting_shim: BERT, DistilBERT, RoBERTa)"
+
+# ---------------------------------------------------------------- speed (one Kaggle CPU session)
+latency:
+  device: Kaggle CPU, 1 thread, batch 1
+  models: "seed-1 models of conditions.mendeley_3class (neural weights saved by the final notebooks, classical
+           models re-fitted with seed 1), the published methods of the settings; qwen_fewshot cannot run on
+           CPU (4-bit, bitsandbytes needs a GPU): its step-3 GPU measurement is reported, marked as GPU"
+  per_model: {messages: 1000, warmup: 20, report: [p50_ms, p95_ms, throughput_msg_per_s, size_mb]}
+  # cascade end to end: every mendeley_3class test message in file order, stage 1 then stage 2 when its
+  # max probability < tau; per-message wall time of the whole cascade; report p50, p95, mean,
+  # throughput and the realised share of stage-2 calls
+  cascade_end_to_end: true
+
+# ---------------------------------------------------------------- tables and figures (one command)
+outputs:
+  tables: [main_comparison, settings_of_papers, obfuscation, low_data, transfer, efficiency, cascade_ablations,
+           significance, cost]
+  figures:   # vector PDF, fonts >= 8 pt, readable in black and white (markers + line styles);
+             # the cascade: one fixed colour and the thickest line in every figure
+    - obfuscation_robustness_lines
+    - learning_curve
+    - quality_vs_latency_pareto
+    - pr_curves
+    - cascade_share_vs_f1
+    - confusion_matrix
