@@ -1,0 +1,7 @@
+{
+  "checkpoint": "distilbert-base-multilingual-cased",
+  "condition": "transfer",
+  "model": "smishfuse_v1",
+  "seed": 5,
+  "source_best_epoch": 3
+}

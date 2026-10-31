@@ -1,0 +1,9 @@
+{
+  "best_epoch": 3,
+  "condition": "mendeley_3class",
+  "epochs_run": 7,
+  "model": "textcnn",
+  "n_train": 4017,
+  "seconds_train": 3.0665306939999937,
+  "seed": 3
+}

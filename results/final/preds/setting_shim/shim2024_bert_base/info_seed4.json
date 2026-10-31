@@ -1,0 +1,14 @@
+{
+  "choice": {
+    "batch_size": 16,
+    "epoch": 9,
+    "inner_val_macro_f1": 0.9369458128078818,
+    "lr": 5e-06,
+    "source": "grid on 20% of train (this run)"
+  },
+  "condition": "setting_shim",
+  "model": "shim2024_bert_base",
+  "n_train": 640,
+  "seconds_train": 567.2877244050001,
+  "seed": 4
+}

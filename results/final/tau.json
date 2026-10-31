@@ -1,0 +1,70 @@
+{
+  "mendeley_3class": {
+    "cascade": 0.6651272030868384,
+    "cascade_noaug": 0.5772472895390048,
+    "source": "frozen"
+  },
+  "setting_mahmud": {
+    "cascade:clean": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.9990470704157343
+    },
+    "cascade:heldout05": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.9990470704157343
+    },
+    "cascade:heldout10": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.9990470704157343
+    },
+    "cascade:heldout20": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.9990470704157343
+    }
+  },
+  "setting_shim": {
+    "cascade:clean": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.772137322487591
+    },
+    "cascade:heldout05": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.772137322487591
+    },
+    "cascade:heldout10": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.772137322487591
+    },
+    "cascade:heldout20": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.772137322487591
+    }
+  },
+  "super_sms": {
+    "cascade:clean": {
+      "chosen_on": "val",
+      "n_seeds": 5,
+      "tau": 0.9690752724532712
+    }
+  },
+  "transfer": {
+    "cascade:finetune10": {
+      "chosen_on": "val_finetune10",
+      "n_seeds": 5,
+      "tau": 0.9984592431960055
+    },
+    "cascade:zeroshot": {
+      "chosen_on": "val_zeroshot",
+      "n_seeds": 5,
+      "tau": 0.9839913047054457
+    }
+  }
+}

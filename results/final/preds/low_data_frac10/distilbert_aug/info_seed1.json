@@ -1,0 +1,9 @@
+{
+  "best_epoch": 0,
+  "condition": "low_data_frac10",
+  "epochs_run": 3,
+  "model": "distilbert_aug",
+  "n_train": 402,
+  "seconds_train": 5.943425698000283,
+  "seed": 1
+}

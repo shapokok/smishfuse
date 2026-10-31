@@ -1,0 +1,85 @@
+{
+  "jobs": [
+    {
+      "job": "mendeley_3class:svm_char__seed1",
+      "seconds": 4.922530459999962,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert__seed1",
+      "seconds": 42.22538761699997,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v1__seed1",
+      "seconds": 9.136617917999956,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:bert__seed1",
+      "seconds": 11.834709547999978,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:xgboost__seed1",
+      "seconds": 9.275008459999981,
+      "status": "done"
+    },
+    {
+      "job": "low_data:svm_char_aug__seed1",
+      "seconds": 3.586557255999992,
+      "status": "done"
+    },
+    {
+      "job": "low_data:svm_char__seed1",
+      "seconds": 2.6720449870000493,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert__seed1",
+      "seconds": 10.752998945999991,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:mahmud2024_cnn_bigru__seed1",
+      "seconds": 27.66267973800001,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_step2__seed1",
+      "seconds": 1.5875032270000133,
+      "status": "done"
+    },
+    {
+      "job": "setting_shim:svm_char_aug__seed1",
+      "seconds": 1.2000664519999873,
+      "status": "done"
+    },
+    {
+      "job": "setting_shim:distilbert_aug__seed1",
+      "seconds": 3.5701316519999864,
+      "status": "done"
+    },
+    {
+      "job": "transfer:smishfuse_v1__seed1",
+      "seconds": 6.743917772000032,
+      "status": "done"
+    },
+    {
+      "job": "transfer:linear_svm__seed1",
+      "seconds": 0.9979722280000374,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char_aug__seed1",
+      "seconds": 1.2633118570000192,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:distilbert_aug__seed1",
+      "seconds": 7.61165042600004,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-final-dry_gpu1"
+}

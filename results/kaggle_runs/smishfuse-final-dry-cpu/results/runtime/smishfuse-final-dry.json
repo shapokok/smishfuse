@@ -1,0 +1,74 @@
+{
+  "sessions": [
+    {
+      "kernel": "smishfuse-final-dry",
+      "spec": {
+        "kind": "stress",
+        "script": "src/final/run.py",
+        "budget_hours": 0.3,
+        "env": {
+          "SMISHFUSE_FINAL_DRY": "1"
+        },
+        "queues": [
+          [
+            "mendeley_3class:svm_char_aug",
+            "mendeley_3class:distilbert_aug",
+            "mendeley_3class:smishfuse_v2",
+            "mendeley_3class:textcnn",
+            "low_data:distilbert_aug",
+            "setting_shim:shim2024_bert_base",
+            "transfer:distilbert_aug",
+            "super_sms:svm_char_aug"
+          ],
+          [
+            "mendeley_3class:svm_char",
+            "mendeley_3class:distilbert",
+            "mendeley_3class:smishfuse_v1",
+            "mendeley_3class:bert",
+            "mendeley_3class:xgboost",
+            "low_data:svm_char_aug",
+            "low_data:svm_char",
+            "low_data:distilbert",
+            "setting_mahmud:mahmud2024_cnn_bigru",
+            "setting_mahmud:svm_step2",
+            "setting_shim:svm_char_aug",
+            "setting_shim:distilbert_aug",
+            "transfer:smishfuse_v1",
+            "transfer:linear_svm",
+            "transfer:svm_char_aug",
+            "super_sms:distilbert_aug"
+          ]
+        ],
+        "post": []
+      },
+      "restored_files": 0,
+      "environment": {
+        "python": "3.13.15",
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+        "cpu_count": 4,
+        "gpus": "Tesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04",
+        "packages": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.16.1",
+          "bitsandbytes": "0.50.2",
+          "accelerate": "1.14.0",
+          "optuna": "5.0.0",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.4.6",
+          "pandas": "3.1.0",
+          "xgboost": "3.2.0",
+          "scipy": "1.17.1",
+          "pyspellchecker": "0.8.3"
+        }
+      },
+      "start_unix": 1793446373.1924303,
+      "end_unix": 1793446562.5334756,
+      "wall_seconds": 189.3410460948944,
+      "return_codes": [
+        0,
+        0
+      ]
+    }
+  ]
+}

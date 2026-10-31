@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/kaggle/working/code/src/final/cpu.py", line 32, in main
+    {"assemble": assemble.main, "latency": latency.main}[job]()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/kaggle/working/code/src/final/assemble.py", line 288, in main
+    significance(m)
+    ~~~~~~~~~~~~^^^
+  File "/kaggle/working/code/src/final/assemble.py", line 209, in significance
+    for (cond, s), g in metrics.groupby(["condition", "test_set"]):
+                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/util/_decorators.py", line 335, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py", line 13788, in groupby
+    return DataFrameGroupBy(
+        obj=self,
+    ...<6 lines>...
+        dropna=dropna,
+    )
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py", line 849, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<4 lines>...
+        dropna=self.dropna,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/grouper.py", line 925, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'condition'

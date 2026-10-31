@@ -1,0 +1,9 @@
+{
+  "best_epoch": 3,
+  "condition": "mendeley_3class",
+  "epochs_run": 7,
+  "model": "bilstm",
+  "n_train": 4017,
+  "seconds_train": 11.409337812000103,
+  "seed": 2
+}

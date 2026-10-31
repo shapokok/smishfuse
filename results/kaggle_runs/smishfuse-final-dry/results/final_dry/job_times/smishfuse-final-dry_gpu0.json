@@ -1,0 +1,45 @@
+{
+  "jobs": [
+    {
+      "job": "mendeley_3class:svm_char_aug__seed1",
+      "seconds": 5.283134696000047,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert_aug__seed1",
+      "seconds": 41.95382430900003,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2__seed1",
+      "seconds": 16.81336949499996,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:textcnn__seed1",
+      "seconds": 2.037314081999966,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert_aug__seed1",
+      "seconds": 13.437197391999973,
+      "status": "done"
+    },
+    {
+      "job": "setting_shim:shim2024_bert_base__seed1",
+      "seconds": 11.416708494999966,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert_aug__seed1",
+      "seconds": 10.232357035000007,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char_aug__seed1",
+      "seconds": 14.139702822000004,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-final-dry_gpu0"
+}

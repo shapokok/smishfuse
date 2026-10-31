@@ -1,0 +1,7 @@
+{
+  "condition": "mendeley_3class",
+  "model": "svm_char",
+  "n_train": 4017,
+  "seconds_train": 3.328159755000115,
+  "seed": 1
+}

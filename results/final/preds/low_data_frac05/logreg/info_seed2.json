@@ -1,0 +1,7 @@
+{
+  "condition": "low_data_frac05",
+  "model": "logreg",
+  "n_train": 201,
+  "seconds_train": 0.11181655299969862,
+  "seed": 2
+}

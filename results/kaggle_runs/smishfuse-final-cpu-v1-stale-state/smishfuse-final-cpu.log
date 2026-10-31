@@ -1,0 +1,253 @@
+[{"stream_name":"stderr","time":7.167327537,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.167375737,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":8.247416895,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.247444567,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.247448016,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.247451634,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.943250025,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.943291701,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.94329743,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.943301552,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":15.560731911,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":66.156938676,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":66.156972516,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":66.15697977,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.15698514,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.156988855,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.156992398,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.156995849,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.156999147,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.15700225,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.157195415,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.157217847,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.157223714,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.360977352,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":66.361016623,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":66.361021953,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361024784,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361027433,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361030161,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361032983,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361035633,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.36103818,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361040856,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.36104377,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361046556,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361049195,"data":"\n"}
+,{"stream_name":"stderr","time":66.361051663,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":66.361054388,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":66.361057574,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361060205,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361062822,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361065623,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361068262,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361072381,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361075022,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361077655,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361080227,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":66.361085443,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stdout","time":69.223374005,"data":"[entry] kernel smishfuse-final-cpu, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":85.02527697,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":85.026344197,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":89.890513915,"data":"[assemble] tau: {\"mendeley_3class\": {\"cascade\": 0.6651272030868384, \"cascade_noaug\": 0.5772472895390048, \"source\": \"frozen\"}}\n"}
+,{"stream_name":"stdout","time":89.893793682,"data":"[assemble] metrics: 0 rows\n"}
+,{"stream_name":"stdout","time":89.902169678,"data":"[final-cpu] assemble FAILED:\n"}
+,{"stream_name":"stdout","time":89.903425173,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stdout","time":89.904342588,"data":"  File \"/kaggle/working/code/src/final/cpu.py\", line 32, in main\n"}
+,{"stream_name":"stdout","time":89.905531724,"data":"    {\"assemble\": assemble.main, \"latency\": latency.main}[job]()\n"}
+,{"stream_name":"stdout","time":89.906484239,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stdout","time":89.907640523,"data":"  File \"/kaggle/working/code/src/final/assemble.py\", line 288, in main\n"}
+,{"stream_name":"stdout","time":89.908544968,"data":"    significance(m)\n"}
+,{"stream_name":"stdout","time":89.90965818,"data":"    ~~~~~~~~~~~~^^^\n"}
+,{"stream_name":"stdout","time":89.910726091,"data":"  File \"/kaggle/working/code/src/final/assemble.py\", line 209, in significance\n"}
+,{"stream_name":"stdout","time":89.911615899,"data":"    for (cond, s), g in metrics.groupby([\"condition\", \"test_set\"]):\n"}
+,{"stream_name":"stdout","time":89.912773084,"data":"                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":89.913755695,"data":"  File \"/usr/local/lib/python3.13/dist-packages/pandas/util/_decorators.py\", line 335, in wrapper\n"}
+,{"stream_name":"stdout","time":89.914765346,"data":"    return func(*args, **kwargs)\n"}
+,{"stream_name":"stdout","time":89.916266197,"data":"  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/frame.py\", line 13788, in groupby\n"}
+,{"stream_name":"stdout","time":89.916994216,"data":"    return DataFrameGroupBy(\n"}
+,{"stream_name":"stdout","time":89.918014045,"data":"        obj=self,\n"}
+,{"stream_name":"stdout","time":89.919069011,"data":"    ...\u003c6 lines\u003e...\n"}
+,{"stream_name":"stdout","time":89.920100873,"data":"        dropna=dropna,\n"}
+,{"stream_name":"stdout","time":89.921207029,"data":"    )\n"}
+,{"stream_name":"stdout","time":89.922250709,"data":"  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/groupby.py\", line 849, in __init__\n"}
+,{"stream_name":"stdout","time":89.923321805,"data":"    grouper, exclusions, obj = get_grouper(\n"}
+,{"stream_name":"stdout","time":89.924302232,"data":"                               ~~~~~~~~~~~^\n"}
+,{"stream_name":"stdout","time":89.925313356,"data":"        obj,\n"}
+,{"stream_name":"stdout","time":89.92629184,"data":"        ^^^^\n"}
+,{"stream_name":"stdout","time":89.927297125,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stdout","time":89.928373756,"data":"        dropna=self.dropna,\n"}
+,{"stream_name":"stdout","time":89.929366963,"data":"        ^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stdout","time":89.930377253,"data":"    )\n"}
+,{"stream_name":"stdout","time":89.931359776,"data":"    ^\n"}
+,{"stream_name":"stdout","time":89.932368225,"data":"  File \"/usr/local/lib/python3.13/dist-packages/pandas/core/groupby/grouper.py\", line 925, in get_grouper\n"}
+,{"stream_name":"stdout","time":89.93334152,"data":"    raise KeyError(gpr)\n"}
+,{"stream_name":"stdout","time":89.934360483,"data":"KeyError: 'condition'\n"}
+,{"stream_name":"stdout","time":89.935317578,"data":"\n"}
+,{"stream_name":"stdout","time":93.678997556,"data":"[latency] svm_char_aug: p50 1.972 ms, p95 2.536 ms\n"}
+,{"stream_name":"stdout","time":96.412072769,"data":"[latency] svm_char: p50 1.980 ms, p95 2.309 ms\n"}
+,{"stream_name":"stdout","time":125.526686587,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":129.984101986,"data":"\n"}
+,{"stream_name":"stdout","time":130.021506558,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":130.022406714,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2679.33it/s]\n"}
+,{"stream_name":"stdout","time":130.038000438,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":130.039067411,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":130.040097677,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":130.041116845,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":130.042157596,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":130.043152338,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":130.044169715,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":130.044938826,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":130.045752249,"data":"\n"}
+,{"stream_name":"stdout","time":130.046501676,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":130.047247532,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":191.908627706,"data":"[latency] distilbert_aug: p50 51.555 ms, p95 95.378 ms\n"}
+,{"stream_name":"stdout","time":197.766490258,"data":"\n"}
+,{"stream_name":"stdout","time":197.800842795,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":197.801739147,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2888.82it/s]\n"}
+,{"stream_name":"stdout","time":197.805316725,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":197.805730654,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":197.806655847,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":197.807710922,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":197.808549628,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":197.809579773,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":197.810471824,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":197.811354012,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":197.812158001,"data":"\n"}
+,{"stream_name":"stdout","time":197.812954766,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":197.813785664,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":258.373745444,"data":"[latency] distilbert: p50 51.437 ms, p95 95.580 ms\n"}
+,{"stream_name":"stdout","time":264.021283215,"data":"\n"}
+,{"stream_name":"stdout","time":264.056472107,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":264.057316402,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2830.85it/s]\n"}
+,{"stream_name":"stdout","time":264.059852283,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":264.060871807,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":264.061860235,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":264.063254106,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":264.064144605,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":264.065069689,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":264.065848649,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":264.066705699,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":264.067508008,"data":"\n"}
+,{"stream_name":"stdout","time":264.068277848,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":264.069061681,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":325.348412547,"data":"[latency] smishfuse_v1: p50 51.987 ms, p95 95.927 ms\n"}
+,{"stream_name":"stdout","time":331.61398765,"data":"\n"}
+,{"stream_name":"stdout","time":331.653333477,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":331.654484321,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2628.87it/s]\n"}
+,{"stream_name":"stdout","time":331.657493953,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":331.658358704,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":331.659331335,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":331.660349778,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":331.661417493,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":331.662466905,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":331.663612133,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":331.664307113,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":331.665031638,"data":"\n"}
+,{"stream_name":"stdout","time":331.665808311,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":331.666578198,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":463.679476858,"data":"[latency] smishfuse_v2: p50 119.569 ms, p95 165.321 ms\n"}
+,{"stream_name":"stdout","time":470.076204539,"data":"\n"}
+,{"stream_name":"stdout","time":470.113031486,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":470.113966942,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2726.83it/s]\n"}
+,{"stream_name":"stdout","time":470.116298924,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":470.11723861,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":470.118084114,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":470.119165111,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":470.120140961,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":470.121107622,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":470.122036591,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":470.123064472,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":470.124200281,"data":"\n"}
+,{"stream_name":"stdout","time":470.125311864,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":470.126451583,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":603.146788906,"data":"[latency] smishfuse_v2_noaug: p50 120.291 ms, p95 165.270 ms\n"}
+,{"stream_name":"stdout","time":603.868611686,"data":"\n"}
+,{"stream_name":"stdout","time":603.993816011,"data":"Loading weights:   0%|          | 0/201 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":604.129209809,"data":"Loading weights:   9%|▉         | 19/201 [00:00\u003c00:01, 151.88it/s]\n"}
+,{"stream_name":"stdout","time":604.250890687,"data":"Loading weights:  26%|██▋       | 53/201 [00:00\u003c00:00, 211.93it/s]\n"}
+,{"stream_name":"stdout","time":604.358324316,"data":"Loading weights:  37%|███▋      | 75/201 [00:00\u003c00:00, 198.36it/s]\n"}
+,{"stream_name":"stdout","time":604.48143808,"data":"Loading weights:  52%|█████▏    | 105/201 [00:00\u003c00:00, 227.31it/s]\n"}
+,{"stream_name":"stdout","time":604.59773542,"data":"Loading weights:  64%|██████▎   | 128/201 [00:00\u003c00:00, 212.20it/s]\n"}
+,{"stream_name":"stdout","time":604.701029877,"data":"Loading weights:  82%|████████▏ | 164/201 [00:00\u003c00:00, 244.53it/s]\n"}
+,{"stream_name":"stdout","time":604.702158318,"data":"Loading weights:  95%|█████████▍| 190/201 [00:00\u003c00:00, 246.86it/s]\n"}
+,{"stream_name":"stdout","time":604.702861808,"data":"Loading weights: 100%|██████████| 201/201 [00:00\u003c00:00, 241.07it/s]\n"}
+,{"stream_name":"stdout","time":730.583525916,"data":"[latency] bert: p50 102.007 ms, p95 195.381 ms\n"}
+,{"stream_name":"stdout","time":732.350538428,"data":"[latency] textcnn: p50 0.826 ms, p95 1.432 ms\n"}
+,{"stream_name":"stdout","time":736.526229645,"data":"[latency] bilstm: p50 2.900 ms, p95 6.338 ms\n"}
+,{"stream_name":"stdout","time":736.920090968,"data":"\n"}
+,{"stream_name":"stdout","time":737.040069336,"data":"Loading weights:   0%|          | 0/104 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":737.145622714,"data":"Loading weights:  30%|██▉       | 31/104 [00:00\u003c00:00, 259.28it/s]\n"}
+,{"stream_name":"stdout","time":737.36059031,"data":"Loading weights:  56%|█████▌    | 58/104 [00:00\u003c00:00, 257.33it/s]\n"}
+,{"stream_name":"stdout","time":737.435292282,"data":"Loading weights:  81%|████████  | 84/104 [00:00\u003c00:00, 172.87it/s]\n"}
+,{"stream_name":"stdout","time":737.436271565,"data":"Loading weights: 100%|██████████| 104/104 [00:00\u003c00:00, 202.13it/s]\n"}
+,{"stream_name":"stdout","time":803.481009121,"data":"[latency] distilbert_step3: p50 51.544 ms, p95 98.463 ms\n"}
+,{"stream_name":"stdout","time":807.661332922,"data":"[latency] linear_svm: p50 3.232 ms, p95 3.653 ms\n"}
+,{"stream_name":"stdout","time":810.818314405,"data":"[latency] logreg: p50 2.307 ms, p95 2.747 ms\n"}
+,{"stream_name":"stdout","time":870.641330706,"data":"[latency] random_forest: p50 57.403 ms, p95 59.981 ms\n"}
+,{"stream_name":"stdout","time":872.769352542,"data":"[latency] xgboost: p50 1.543 ms, p95 2.007 ms\n"}
+,{"stream_name":"stdout","time":881.65873874,"data":"[latency] mahmud2024_cnn_bigru: p50 8.110 ms, p95 8.571 ms\n"}
+,{"stream_name":"stdout","time":882.157710686,"data":"\n"}
+,{"stream_name":"stdout","time":882.275950915,"data":"Loading weights:   0%|          | 0/201 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":882.376258056,"data":"Loading weights:   7%|▋         | 14/201 [00:00\u003c00:01, 118.27it/s]\n"}
+,{"stream_name":"stdout","time":882.555058666,"data":"Loading weights:  21%|██        | 42/201 [00:00\u003c00:00, 206.47it/s]\n"}
+,{"stream_name":"stdout","time":882.663459105,"data":"Loading weights:  32%|███▏      | 64/201 [00:00\u003c00:00, 157.85it/s]\n"}
+,{"stream_name":"stdout","time":882.770285448,"data":"Loading weights:  56%|█████▌    | 113/201 [00:00\u003c00:00, 256.45it/s]\n"}
+,{"stream_name":"stdout","time":882.873130994,"data":"Loading weights:  71%|███████   | 142/201 [00:00\u003c00:00, 261.47it/s]\n"}
+,{"stream_name":"stdout","time":882.904125819,"data":"Loading weights:  85%|████████▍ | 170/201 [00:00\u003c00:00, 264.69it/s]\n"}
+,{"stream_name":"stdout","time":882.905016181,"data":"Loading weights: 100%|██████████| 201/201 [00:00\u003c00:00, 269.31it/s]\n"}
+,{"stream_name":"stdout","time":1010.113116703,"data":"[latency] shim2024_bert_base: p50 103.585 ms, p95 197.412 ms\n"}
+,{"stream_name":"stdout","time":1010.757047195,"data":"\n"}
+,{"stream_name":"stdout","time":1010.866800968,"data":"Loading weights:   0%|          | 0/104 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":1010.990413977,"data":"Loading weights:  24%|██▍       | 25/104 [00:00\u003c00:00, 228.50it/s]\n"}
+,{"stream_name":"stdout","time":1011.110652481,"data":"Loading weights:  46%|████▌     | 48/104 [00:00\u003c00:00, 202.47it/s]\n"}
+,{"stream_name":"stdout","time":1011.118190863,"data":"Loading weights:  86%|████████▌ | 89/104 [00:00\u003c00:00, 266.34it/s]\n"}
+,{"stream_name":"stdout","time":1011.119261256,"data":"Loading weights: 100%|██████████| 104/104 [00:00\u003c00:00, 288.29it/s]\n"}
+,{"stream_name":"stdout","time":1076.385155859,"data":"[latency] shim2024_distilbert_base: p50 51.647 ms, p95 97.548 ms\n"}
+,{"stream_name":"stdout","time":1077.736142127,"data":"\n"}
+,{"stream_name":"stdout","time":1077.855369145,"data":"Loading weights:   0%|          | 0/201 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":1077.977407441,"data":"Loading weights:  11%|█         | 22/201 [00:00\u003c00:00, 184.88it/s]\n"}
+,{"stream_name":"stdout","time":1078.100370676,"data":"Loading weights:  20%|██        | 41/201 [00:00\u003c00:00, 167.63it/s]\n"}
+,{"stream_name":"stdout","time":1078.244829881,"data":"Loading weights:  31%|███       | 62/201 [00:00\u003c00:00, 169.02it/s]\n"}
+,{"stream_name":"stdout","time":1078.3513233,"data":"Loading weights:  39%|███▉      | 79/201 [00:00\u003c00:00, 146.70it/s]\n"}
+,{"stream_name":"stdout","time":1078.497276795,"data":"Loading weights:  47%|████▋     | 94/201 [00:00\u003c00:00, 144.72it/s]\n"}
+,{"stream_name":"stdout","time":1078.622585391,"data":"Loading weights:  54%|█████▍    | 109/201 [00:00\u003c00:00, 128.72it/s]\n"}
+,{"stream_name":"stdout","time":1078.730808577,"data":"Loading weights:  62%|██████▏   | 124/201 [00:00\u003c00:00, 125.96it/s]\n"}
+,{"stream_name":"stdout","time":1078.856227629,"data":"Loading weights:  83%|████████▎ | 166/201 [00:00\u003c00:00, 199.84it/s]\n"}
+,{"stream_name":"stdout","time":1078.898802098,"data":"Loading weights:  94%|█████████▎| 188/201 [00:01\u003c00:00, 192.02it/s]\n"}
+,{"stream_name":"stdout","time":1078.899868131,"data":"Loading weights: 100%|██████████| 201/201 [00:01\u003c00:00, 172.94it/s]\n"}
+,{"stream_name":"stdout","time":1208.018317541,"data":"[latency] shim2024_roberta_base: p50 104.286 ms, p95 200.598 ms\n"}
+,{"stream_name":"stdout","time":1214.248790641,"data":"[latency] cascade end to end: {'n_messages': 1148, 'routed': 28, 'routed_share': 0.024390243902439025, 'tau': 0.6651272030868384, 'p50_ms': 2.032506999967154, 'p95_ms': 2.7834192000227596, 'mean_ms': 4.1115570923350235, 'throughput_msg_per_s': 243.21685861160765, 'size_mb': 272.90132800000003}\n"}
+,{"stream_name":"stdout","time":1216.347060277,"data":"[entry] done in 0.32 h, return codes [1]\n"}
+,{"stream_name":"stdout","time":1216.369207761,"data":"exit code 1\n"}
+,{"stream_name":"stderr","time":1216.379910077,"data":"/usr/local/lib/python3.13/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":1216.379943904,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":1216.37995044,"data":"\n"}
+,{"stream_name":"stderr","time":1216.379955274,"data":"/usr/local/lib/python3.13/dist-packages/IPython/core/interactiveshell.py:3561: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n"}
+,{"stream_name":"stderr","time":1216.37996057,"data":"  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"}
+,{"stream_name":"stderr","time":1216.830346149,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":1216.831606765,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":1216.831633291,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=43200)\n"}
+,{"stream_name":"stderr","time":1216.831642757,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":1216.831648719,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 131, in execute_notebook\n"}
+,{"stream_name":"stderr","time":1216.831653786,"data":"    raise_for_execution_errors(nb, output_path)\n"}
+,{"stream_name":"stderr","time":1216.831659145,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":1216.831663951,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 251, in raise_for_execution_errors\n"}
+,{"stream_name":"stderr","time":1216.831671459,"data":"    raise error\n"}
+,{"stream_name":"stderr","time":1216.831676662,"data":"papermill.exceptions.PapermillExecutionError: \n"}
+,{"stream_name":"stderr","time":1216.831695078,"data":"---------------------------------------------------------------------------\n"}
+,{"stream_name":"stderr","time":1216.831700619,"data":"Exception encountered at \"In [2]\":\n"}
+,{"stream_name":"stderr","time":1216.831704444,"data":"An exception has occurred, use %tb to see the full traceback.\n"}
+,{"stream_name":"stderr","time":1216.831708314,"data":"\n"}
+,{"stream_name":"stderr","time":1216.83171188,"data":"SystemExit: 1\n"}
+,{"stream_name":"stderr","time":1216.831715985,"data":"\n"}
+,{"stream_name":"stderr","time":1216.831719322,"data":"\n"}
+,{"stream_name":"stderr","time":1219.713279386,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1219.713309842,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1219.93830513,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1219.938334761,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1220.868256407,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1220.982148882,"data":"[NbConvertApp] Writing 18520 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1224.004419934,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1224.654033936,"data":"[NbConvertApp] Writing 296958 bytes to __results__.html\n"}
+]

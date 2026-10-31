@@ -1,0 +1,65 @@
+{
+  "jobs": [
+    {
+      "job": "super_sms:distilbert_aug__seed4",
+      "seconds": 695.3932903269999,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:distilbert_aug__seed5",
+      "seconds": 401.00196739699993,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char_aug__seed1",
+      "seconds": 32.3166429769999,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char_aug__seed2",
+      "seconds": 30.643175672000098,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char_aug__seed3",
+      "seconds": 30.764740975999985,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char_aug__seed4",
+      "seconds": 30.834336769999936,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char_aug__seed5",
+      "seconds": 31.111842186000104,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char__seed1",
+      "seconds": 23.358540188999996,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char__seed2",
+      "seconds": 22.989703881999958,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char__seed3",
+      "seconds": 23.501894312000104,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char__seed4",
+      "seconds": 23.192966812999884,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:svm_char__seed5",
+      "seconds": 25.702538832000073,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-final-supersms_gpu1"
+}

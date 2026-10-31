@@ -1,0 +1,355 @@
+{
+  "jobs": [
+    {
+      "job": "setting_mahmud:svm_char_aug__seed1",
+      "seconds": 7.379314421999993,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char_aug__seed2",
+      "seconds": 4.302334072000008,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char_aug__seed3",
+      "seconds": 4.012428181000018,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char_aug__seed4",
+      "seconds": 4.103316693000011,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char_aug__seed5",
+      "seconds": 4.4996525699999665,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char__seed1",
+      "seconds": 3.9988724140000045,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char__seed2",
+      "seconds": 3.2582977710000023,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char__seed3",
+      "seconds": 3.3556363980000015,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char__seed4",
+      "seconds": 3.318052085999966,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_char__seed5",
+      "seconds": 3.32928019000002,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_step2__seed1",
+      "seconds": 3.4812281399999847,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_step2__seed2",
+      "seconds": 2.9628617750000217,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_step2__seed3",
+      "seconds": 3.1080513760000485,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_step2__seed4",
+      "seconds": 3.016082376999975,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:svm_step2__seed5",
+      "seconds": 3.1523933940000006,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert_aug__seed1",
+      "seconds": 70.249092195,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert_aug__seed2",
+      "seconds": 57.99900770099998,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert_aug__seed3",
+      "seconds": 58.31638497900002,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert_aug__seed4",
+      "seconds": 58.736484620000056,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert_aug__seed5",
+      "seconds": 47.27797951900004,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert__seed1",
+      "seconds": 41.524444396000035,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert__seed2",
+      "seconds": 50.91571685200006,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert__seed3",
+      "seconds": 51.197166135999964,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert__seed4",
+      "seconds": 51.31934047899995,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:distilbert__seed5",
+      "seconds": 41.63919076000002,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:bert__seed1",
+      "seconds": 79.56753083800004,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:bert__seed2",
+      "seconds": 78.61058946100002,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:bert__seed3",
+      "seconds": 60.014396950000105,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:bert__seed4",
+      "seconds": 59.872343325999964,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:bert__seed5",
+      "seconds": 60.511471707000055,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:mahmud2024_cnn_bigru__seed1",
+      "seconds": 170.92942406099996,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:mahmud2024_cnn_bigru__seed2",
+      "seconds": 147.06925878899983,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:mahmud2024_cnn_bigru__seed3",
+      "seconds": 149.177727065,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:mahmud2024_cnn_bigru__seed4",
+      "seconds": 147.95536158200002,
+      "status": "done"
+    },
+    {
+      "job": "setting_mahmud:mahmud2024_cnn_bigru__seed5",
+      "seconds": 148.75120323800002,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char_aug__seed1",
+      "seconds": 5.819141908999882,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char_aug__seed2",
+      "seconds": 5.181307422999907,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char_aug__seed3",
+      "seconds": 5.421878045999847,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char_aug__seed4",
+      "seconds": 5.396726453999918,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char_aug__seed5",
+      "seconds": 5.403494761000047,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char__seed1",
+      "seconds": 4.367109798999991,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char__seed2",
+      "seconds": 4.345366968999997,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char__seed3",
+      "seconds": 4.605077724000012,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char__seed4",
+      "seconds": 4.356383489999871,
+      "status": "done"
+    },
+    {
+      "job": "transfer:svm_char__seed5",
+      "seconds": 4.651215734000061,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert_aug__seed1",
+      "seconds": 86.26583552200009,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert_aug__seed2",
+      "seconds": 54.00493446500013,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert_aug__seed3",
+      "seconds": 85.813266096,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert_aug__seed4",
+      "seconds": 85.54394831299987,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert_aug__seed5",
+      "seconds": 85.08814977800012,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert__seed1",
+      "seconds": 79.21499825000001,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert__seed2",
+      "seconds": 78.48408147700002,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert__seed3",
+      "seconds": 79.07746006299976,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert__seed4",
+      "seconds": 79.06609407800033,
+      "status": "done"
+    },
+    {
+      "job": "transfer:distilbert__seed5",
+      "seconds": 79.62528130100009,
+      "status": "done"
+    },
+    {
+      "job": "transfer:smishfuse_v1__seed1",
+      "seconds": 81.23136188299986,
+      "status": "done"
+    },
+    {
+      "job": "transfer:smishfuse_v1__seed2",
+      "seconds": 80.88291265199996,
+      "status": "done"
+    },
+    {
+      "job": "transfer:smishfuse_v1__seed3",
+      "seconds": 78.83942565500001,
+      "status": "done"
+    },
+    {
+      "job": "transfer:smishfuse_v1__seed4",
+      "seconds": 78.02226483599998,
+      "status": "done"
+    },
+    {
+      "job": "transfer:smishfuse_v1__seed5",
+      "seconds": 81.32057020000002,
+      "status": "done"
+    },
+    {
+      "job": "transfer:linear_svm__seed1",
+      "seconds": 4.4523355259998425,
+      "status": "done"
+    },
+    {
+      "job": "transfer:linear_svm__seed2",
+      "seconds": 4.347311064999758,
+      "status": "done"
+    },
+    {
+      "job": "transfer:linear_svm__seed3",
+      "seconds": 4.3792654190001485,
+      "status": "done"
+    },
+    {
+      "job": "transfer:linear_svm__seed4",
+      "seconds": 4.446455337999851,
+      "status": "done"
+    },
+    {
+      "job": "transfer:linear_svm__seed5",
+      "seconds": 4.358887718999995,
+      "status": "done"
+    },
+    {
+      "job": "transfer:logreg__seed1",
+      "seconds": 3.4349322970001595,
+      "status": "done"
+    },
+    {
+      "job": "transfer:logreg__seed2",
+      "seconds": 2.8425010830001156,
+      "status": "done"
+    },
+    {
+      "job": "transfer:logreg__seed3",
+      "seconds": 2.4717643339999995,
+      "status": "done"
+    },
+    {
+      "job": "transfer:logreg__seed4",
+      "seconds": 2.885449522000272,
+      "status": "done"
+    },
+    {
+      "job": "transfer:logreg__seed5",
+      "seconds": 2.6368327879999924,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-final-settings_gpu1"
+}

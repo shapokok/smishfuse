@@ -1,0 +1,9 @@
+{
+  "best_epoch": 1,
+  "condition": "setting_mahmud",
+  "epochs_run": 4,
+  "model": "distilbert_aug",
+  "n_train": 4017,
+  "seconds_train": 44.99062333699999,
+  "seed": 5
+}

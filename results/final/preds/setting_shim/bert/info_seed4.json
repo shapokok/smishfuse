@@ -1,0 +1,9 @@
+{
+  "best_epoch": 3,
+  "condition": "setting_shim",
+  "epochs_run": 5,
+  "model": "bert",
+  "n_train": 640,
+  "seconds_train": 16.14705749399991,
+  "seed": 4
+}

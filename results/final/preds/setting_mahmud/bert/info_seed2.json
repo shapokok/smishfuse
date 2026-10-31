@@ -1,0 +1,9 @@
+{
+  "best_epoch": 1,
+  "condition": "setting_mahmud",
+  "epochs_run": 4,
+  "model": "bert",
+  "n_train": 4017,
+  "seconds_train": 74.78092274000005,
+  "seed": 2
+}

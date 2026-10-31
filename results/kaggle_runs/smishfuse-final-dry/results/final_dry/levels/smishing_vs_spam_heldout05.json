@@ -1,0 +1,13 @@
+{
+  "level": 0.05,
+  "n_chars": 10103,
+  "n_messages": 91,
+  "n_ops": 507,
+  "realised_share": 0.050183113926556465,
+  "sha256": "c9ef15ade9275debce716a41090f75e59b0edc22d36a43c16b4db42a8f56620c",
+  "types": [
+    "homoglyph",
+    "double",
+    "delete_vowel"
+  ]
+}

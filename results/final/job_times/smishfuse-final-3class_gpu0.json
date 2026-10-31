@@ -1,0 +1,230 @@
+{
+  "jobs": [
+    {
+      "job": "mendeley_3class:distilbert_aug__seed1",
+      "seconds": 92.291950729,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert_aug__seed2",
+      "seconds": 62.124969856999996,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert_aug__seed3",
+      "seconds": 64.51102801499997,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert_aug__seed4",
+      "seconds": 64.96391477899999,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert_aug__seed5",
+      "seconds": 66.126464596,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert__seed1",
+      "seconds": 56.561769303999995,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert__seed2",
+      "seconds": 55.83924756600004,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert__seed3",
+      "seconds": 56.677986884999996,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert__seed4",
+      "seconds": 57.672291771000005,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:distilbert__seed5",
+      "seconds": 57.18108924899991,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2__seed1",
+      "seconds": 94.99309098699996,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2__seed2",
+      "seconds": 91.67570234599998,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2__seed3",
+      "seconds": 89.57461972200008,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2__seed4",
+      "seconds": 89.1078483450001,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2__seed5",
+      "seconds": 89.79513776699991,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2_noaug__seed1",
+      "seconds": 76.20711557699997,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2_noaug__seed2",
+      "seconds": 76.46522352700003,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2_noaug__seed3",
+      "seconds": 84.58602771899996,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2_noaug__seed4",
+      "seconds": 62.73064696300003,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:smishfuse_v2_noaug__seed5",
+      "seconds": 84.07349587999988,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:textcnn__seed1",
+      "seconds": 7.441344956999956,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:textcnn__seed2",
+      "seconds": 6.07762858000001,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:textcnn__seed3",
+      "seconds": 5.547827312000209,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:textcnn__seed4",
+      "seconds": 6.081457160000127,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:textcnn__seed5",
+      "seconds": 6.728672082000003,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:bilstm__seed1",
+      "seconds": 17.814523603999987,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:bilstm__seed2",
+      "seconds": 12.962777995000124,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:bilstm__seed3",
+      "seconds": 20.42779240500022,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:bilstm__seed4",
+      "seconds": 40.35797258299999,
+      "status": "done"
+    },
+    {
+      "job": "mendeley_3class:bilstm__seed5",
+      "seconds": 24.598003902000073,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert_aug__seed1",
+      "seconds": 37.41076105299999,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert_aug__seed2",
+      "seconds": 40.21173685599979,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert_aug__seed3",
+      "seconds": 39.441291900000124,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert_aug__seed4",
+      "seconds": 42.00698885800011,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert_aug__seed5",
+      "seconds": 39.69901887399965,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert__seed1",
+      "seconds": 37.09346290800022,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert__seed2",
+      "seconds": 36.23123802800001,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert__seed3",
+      "seconds": 34.52716862300031,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert__seed4",
+      "seconds": 33.341847365000376,
+      "status": "done"
+    },
+    {
+      "job": "low_data:distilbert__seed5",
+      "seconds": 33.04439237999986,
+      "status": "done"
+    },
+    {
+      "job": "low_data:smishfuse_v2__seed1",
+      "seconds": 55.013774510000076,
+      "status": "done"
+    },
+    {
+      "job": "low_data:smishfuse_v2__seed2",
+      "seconds": 54.80378334499983,
+      "status": "done"
+    },
+    {
+      "job": "low_data:smishfuse_v2__seed3",
+      "seconds": 49.08819162300006,
+      "status": "done"
+    },
+    {
+      "job": "low_data:smishfuse_v2__seed4",
+      "seconds": 50.48570182100002,
+      "status": "done"
+    },
+    {
+      "job": "low_data:smishfuse_v2__seed5",
+      "seconds": 53.41751195400002,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-final-3class_gpu0"
+}

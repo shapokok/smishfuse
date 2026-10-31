@@ -21,3 +21,7 @@ reports/overlap_mendeley_uci_pairs.csv
 results/kaggle_runs/*/results/latency/retrained/
 results/models/
 reports/step4a_hard_cases.csv
+# step 5b: the predictions of the final notebooks are kept once, in results/final/preds (the copies
+# inside the kernel outputs, incl. the restored ones of the CPU notebooks, are not committed)
+results/kaggle_runs/smishfuse-final-*/results/final/preds/
+results/kaggle_runs/smishfuse-final-*/results/final_dry/preds/

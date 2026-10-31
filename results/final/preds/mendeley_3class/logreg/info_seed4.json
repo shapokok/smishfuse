@@ -1,0 +1,7 @@
+{
+  "condition": "mendeley_3class",
+  "model": "logreg",
+  "n_train": 4017,
+  "seconds_train": 3.040429948999872,
+  "seed": 4
+}

@@ -1,6 +1,8 @@
 """Step 5b CPU notebook: scoring of the final predictions, then the speed measurement.
 
-Jobs (--queue, JSON list, in order): assemble (src/final/assemble.py), latency (src/final/latency.py).
+Jobs (--queue, JSON list, in order): assemble (src/final/assemble.py), latency (src/final/latency.py),
+pack (one zip of results/final and results/runtime without model files, /kaggle/working/final_pack.zip:
+the full output with every restored prediction is slow to download).
 Run: python src/final/cpu.py --queue '["assemble", "latency"]' --worker cpu
 """
 from __future__ import annotations
@@ -18,6 +20,21 @@ sys.path.insert(0, str(ROOT / "src" / "baselines"))
 from fusion.envcheck import check_versions  # noqa: E402
 
 
+def pack() -> None:
+    import zipfile
+
+    from final import assemble
+
+    results = assemble.OUT.parent
+    out = Path("/kaggle/working/final_pack.zip")
+    with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
+        for sub in (assemble.OUT.name, "runtime"):
+            for f in sorted((results / sub).rglob("*")):
+                if f.is_file() and "/models/" not in f.as_posix():
+                    z.write(f, f"results/{f.relative_to(results)}")
+    print(f"[final-cpu] packed -> {out} ({out.stat().st_size / 1e6:.1f} MB)", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--queue", required=True)
@@ -29,7 +46,7 @@ def main():
     failed = 0
     for job in json.loads(args.queue):
         try:
-            {"assemble": assemble.main, "latency": latency.main}[job]()
+            {"assemble": assemble.main, "latency": latency.main, "pack": pack}[job]()
         except Exception:  # noqa: BLE001 - record and continue
             failed += 1
             (assemble.OUT / "errors").mkdir(parents=True, exist_ok=True)

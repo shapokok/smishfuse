@@ -1,0 +1,7 @@
+{
+  "condition": "transfer",
+  "model": "svm_char",
+  "n_finetune_subset": 177,
+  "seconds": 4.055098795000049,
+  "seed": 2
+}

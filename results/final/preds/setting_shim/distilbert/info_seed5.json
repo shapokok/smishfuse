@@ -1,0 +1,9 @@
+{
+  "best_epoch": 2,
+  "condition": "setting_shim",
+  "epochs_run": 5,
+  "model": "distilbert",
+  "n_train": 640,
+  "seconds_train": 8.716532198000095,
+  "seed": 5
+}

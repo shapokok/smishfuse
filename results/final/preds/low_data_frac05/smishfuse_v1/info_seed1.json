@@ -1,0 +1,9 @@
+{
+  "best_epoch": 3,
+  "condition": "low_data_frac05",
+  "epochs_run": 5,
+  "model": "smishfuse_v1",
+  "n_train": 201,
+  "seconds_train": 5.368421227999988,
+  "seed": 1
+}

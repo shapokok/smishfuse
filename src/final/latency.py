@@ -51,7 +51,7 @@ def log(msg: str) -> None:
 
 
 def find(cond: str, model: str) -> Path | None:
-    hits = sorted(glob.glob(f"/kaggle/input/**/final/models/{cond}/{model}/seed1", recursive=True))
+    hits = sorted(glob.glob(f"/kaggle/input/**/{OUT.name}/models/{cond}/{model}/seed1", recursive=True))
     local = OUT / "models" / cond / model / "seed1"
     return Path(hits[0]) if hits else (local if local.exists() else None)
 

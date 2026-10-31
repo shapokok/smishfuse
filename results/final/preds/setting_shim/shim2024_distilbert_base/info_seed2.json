@@ -1,0 +1,13 @@
+{
+  "choice": {
+    "batch_size": 8,
+    "epoch": 1,
+    "lr": 1e-05,
+    "source": "step 5a (frozen)"
+  },
+  "condition": "setting_shim",
+  "model": "shim2024_distilbert_base",
+  "n_train": 640,
+  "seconds_train": 10.030440818999978,
+  "seed": 2
+}

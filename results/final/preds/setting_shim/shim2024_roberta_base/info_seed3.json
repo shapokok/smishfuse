@@ -1,0 +1,13 @@
+{
+  "choice": {
+    "batch_size": 32,
+    "epoch": 5,
+    "lr": 5e-05,
+    "source": "step 5a (frozen)"
+  },
+  "condition": "setting_shim",
+  "model": "shim2024_roberta_base",
+  "n_train": 640,
+  "seconds_train": 18.042312069999753,
+  "seed": 3
+}

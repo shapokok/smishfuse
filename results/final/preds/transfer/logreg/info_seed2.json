@@ -1,0 +1,7 @@
+{
+  "condition": "transfer",
+  "model": "logreg",
+  "n_finetune_subset": 177,
+  "seconds": 2.622615999000118,
+  "seed": 2
+}

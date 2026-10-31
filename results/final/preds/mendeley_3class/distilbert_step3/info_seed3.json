@@ -1,0 +1,9 @@
+{
+  "best_epoch": 4,
+  "condition": "mendeley_3class",
+  "epochs_run": 5,
+  "model": "distilbert_step3",
+  "n_train": 4017,
+  "seconds_train": 54.59670234800001,
+  "seed": 3
+}

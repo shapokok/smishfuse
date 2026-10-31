@@ -1,0 +1,7 @@
+{
+  "condition": "setting_shim",
+  "model": "svm_char",
+  "n_train": 640,
+  "seconds_train": 0.454237472999921,
+  "seed": 4
+}

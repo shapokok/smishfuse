@@ -1,0 +1,48 @@
+{
+  "sessions": [
+    {
+      "kernel": "smishfuse-final-dry-cpu",
+      "spec": {
+        "kind": "stress",
+        "script": "src/final/cpu.py",
+        "state_from": "smishfuse-final-dry",
+        "env": {
+          "SMISHFUSE_FINAL_DRY": "1"
+        },
+        "queues": [
+          [
+            "assemble",
+            "latency"
+          ]
+        ]
+      },
+      "restored_files": 203,
+      "environment": {
+        "python": "3.13.15",
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.20GHz",
+        "cpu_count": 4,
+        "gpus": "",
+        "packages": {
+          "torch": "2.11.0+cpu",
+          "transformers": "5.16.1",
+          "bitsandbytes": "0.50.2",
+          "accelerate": "1.14.0",
+          "optuna": "5.0.0",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.4.6",
+          "pandas": "3.1.0",
+          "xgboost": "3.2.0",
+          "scipy": "1.17.1",
+          "pyspellchecker": "0.8.3"
+        }
+      },
+      "start_unix": 1793447495.863409,
+      "end_unix": 1793447663.6021292,
+      "wall_seconds": 167.73872089385986,
+      "return_codes": [
+        0
+      ]
+    }
+  ]
+}

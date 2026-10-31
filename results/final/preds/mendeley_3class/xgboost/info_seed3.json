@@ -1,0 +1,7 @@
+{
+  "condition": "mendeley_3class",
+  "model": "xgboost",
+  "n_train": 4017,
+  "seconds_train": 91.11053839300007,
+  "seed": 3
+}

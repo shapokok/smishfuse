@@ -1,0 +1,9 @@
+{
+  "best_epoch": 4,
+  "condition": "mendeley_3class",
+  "epochs_run": 5,
+  "model": "bert",
+  "n_train": 4017,
+  "seconds_train": 103.40591966600005,
+  "seed": 4
+}

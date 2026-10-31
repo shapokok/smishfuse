@@ -184,7 +184,7 @@ def all_metrics() -> pd.DataFrame:
         if cond in ("mendeley_3class", "super_sms") and not DRY:  # the dry run has no test predictions
             for name, raw in STEP23.items():
                 for k in SEEDS:
-                    f = RESULTS / "raw" / task / raw / f"seed{k}.csv"
+                    f = ROOT / "results" / "raw" / task / raw / f"seed{k}.csv"
                     if f.exists():
                         rows.append({"condition": cond, "task": task, "test_set": "clean", "model": name, "seed": k,
                                      "source": "steps 2-3 (results/raw)", **score(pd.read_csv(f, dtype={"id": str}), task)})
@@ -198,7 +198,7 @@ def all_metrics() -> pd.DataFrame:
 
 def seed1(cond, task, s, model) -> pd.DataFrame | None:
     if cond in ("mendeley_3class", "super_sms") and s == "clean" and model in STEP23 and not DRY:
-        f = RESULTS / "raw" / task / STEP23[model] / "seed1.csv"
+        f = ROOT / "results" / "raw" / task / STEP23[model] / "seed1.csv"
         return pd.read_csv(f, dtype={"id": str}) if f.exists() else None
     return read(cond, model, s, 1)
 

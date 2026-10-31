@@ -1,0 +1,20 @@
+{
+  "jobs": [
+    {
+      "job": "super_sms:distilbert_aug__seed1",
+      "seconds": 690.4321989289999,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:distilbert_aug__seed2",
+      "seconds": 661.304019922,
+      "status": "done"
+    },
+    {
+      "job": "super_sms:distilbert_aug__seed3",
+      "seconds": 652.9995223219998,
+      "status": "done"
+    }
+  ],
+  "worker": "smishfuse-final-supersms_gpu0"
+}

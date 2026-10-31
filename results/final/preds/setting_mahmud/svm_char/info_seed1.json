@@ -1,0 +1,7 @@
+{
+  "condition": "setting_mahmud",
+  "model": "svm_char",
+  "n_train": 4017,
+  "seconds_train": 1.887803530000042,
+  "seed": 1
+}

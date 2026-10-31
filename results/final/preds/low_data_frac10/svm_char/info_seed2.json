@@ -1,0 +1,7 @@
+{
+  "condition": "low_data_frac10",
+  "model": "svm_char",
+  "n_train": 402,
+  "seconds_train": 0.29981680600030813,
+  "seed": 2
+}

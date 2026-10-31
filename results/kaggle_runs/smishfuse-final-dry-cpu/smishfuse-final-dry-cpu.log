@@ -1,0 +1,145 @@
+[{"stream_name":"stderr","time":7.349822519,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.349884165,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":8.45012803,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.450163292,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.450169534,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.450174497999999,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.232156088,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.2321927,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.232198667,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.232203538,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":18.3395451,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":75.883061713,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":75.883097616,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":75.883105384,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883111786,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883118076,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883123963,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883129596,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883134894,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883140381,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883197371,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883210061,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":75.883215916,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087074705,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":76.08713834,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":76.087146327,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.0871555,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.08716113,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.0871665,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087172405,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.08717757,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087183065,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087188376,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087194418,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.08719991,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087205163,"data":"\n"}
+,{"stream_name":"stderr","time":76.087210722,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":76.087216525,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":76.08722159,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087226914,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087232488,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087237862,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087243001,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087249432,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087255693,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087261225,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087266919,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":76.087277,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stdout","time":78.988386453,"data":"[entry] kernel smishfuse-final-dry-cpu, data /kaggle/input/datasets/shapok/smishfuse-data, restored 203 files\n"}
+,{"stream_name":"stdout","time":96.859305276,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":96.860217888,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":131.71510559,"data":"[assemble] tau: {\"mendeley_3class\": {\"cascade\": 0.6651272030868384, \"cascade_noaug\": 0.5772472895390048, \"source\": \"frozen\"}, \"setting_shim\": {\"cascade:clean\": {\"tau\": 0.5684554005803737, \"chosen_on\": \"val\", \"n_seeds\": 1}, \"cascade:heldout05\": {\"tau\": 0.5684554005803737, \"chosen_on\": \"val\", \"n_seeds\": 1}, \"cascade:heldout10\": {\"tau\": 0.5684554005803737, \"chosen_on\": \"val\", \"n_seeds\": 1}, \"cascade:heldout20\": {\"tau\": 0.5684554005803737, \"chosen_on\": \"val\", \"n_seeds\": 1}}, \"transfer\": {\"cascade:zeroshot\": {\"tau\":\n"}
+,{"stream_name":"stdout","time":134.845065836,"data":"[assemble] metrics: 152 rows\n"}
+,{"stream_name":"stdout","time":148.349496859,"data":"[assemble] significance: 22 comparisons\n"}
+,{"stream_name":"stdout","time":150.272374297,"data":"[latency] svm_char_aug: p50 2.149 ms, p95 2.591 ms\n"}
+,{"stream_name":"stdout","time":150.788762779,"data":"[latency] svm_char: p50 2.147 ms, p95 2.622 ms\n"}
+,{"stream_name":"stdout","time":172.786992611,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":177.969588991,"data":"\n"}
+,{"stream_name":"stdout","time":178.01029092,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":178.011357123,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2454.27it/s]\n"}
+,{"stream_name":"stdout","time":178.024764659,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":178.025939829,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":178.027003874,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":178.028008546,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":178.028949428,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":178.03016606,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":178.03135938,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":178.032523428,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":178.033591046,"data":"\n"}
+,{"stream_name":"stdout","time":178.034690333,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":178.035721424,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":184.242097623,"data":"[latency] distilbert_aug: p50 62.001 ms, p95 139.378 ms\n"}
+,{"stream_name":"stdout","time":186.19170717,"data":"\n"}
+,{"stream_name":"stdout","time":186.234333352,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":186.23524253,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2363.43it/s]\n"}
+,{"stream_name":"stdout","time":186.238096988,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":186.239111313,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":186.240299389,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":186.241517452,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":186.242687332,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":186.243738583,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":186.24484242,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":186.245943359,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":186.247069191,"data":"\n"}
+,{"stream_name":"stdout","time":186.248189293,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":186.249205736,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":191.248764831,"data":"[latency] distilbert: p50 62.944 ms, p95 129.035 ms\n"}
+,{"stream_name":"stdout","time":193.205942007,"data":"\n"}
+,{"stream_name":"stdout","time":193.246225891,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":193.247144287,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2493.02it/s]\n"}
+,{"stream_name":"stdout","time":193.250266727,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":193.251478989,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":193.252325748,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":193.253492418,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":193.254518275,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":193.255734582,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":193.256575293,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":193.257419547,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":193.25824406,"data":"\n"}
+,{"stream_name":"stdout","time":193.259091394,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":193.259942225,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":198.614416038,"data":"[latency] smishfuse_v1: p50 63.051 ms, p95 130.191 ms\n"}
+,{"stream_name":"stdout","time":200.666380822,"data":"\n"}
+,{"stream_name":"stdout","time":200.706561851,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":200.707511006,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2496.71it/s]\n"}
+,{"stream_name":"stdout","time":200.711740054,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":200.712273743,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":200.713278521,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":200.714455193,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.715558094,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.716431374,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.717348616,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.71815193,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":200.719012996,"data":"\n"}
+,{"stream_name":"stdout","time":200.719867021,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":200.720726571,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":207.390333643,"data":"[latency] smishfuse_v2: p50 85.313 ms, p95 153.510 ms\n"}
+,{"stream_name":"stdout","time":208.177145179,"data":"\n"}
+,{"stream_name":"stdout","time":208.281616011,"data":"Loading weights:   0%|          | 0/201 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":208.388036138,"data":"Loading weights:  35%|███▍      | 70/201 [00:00\u003c00:00, 671.70it/s]\n"}
+,{"stream_name":"stdout","time":208.475357902,"data":"Loading weights:  69%|██████▊   | 138/201 [00:00\u003c00:00, 652.96it/s]\n"}
+,{"stream_name":"stdout","time":208.476598547,"data":"Loading weights: 100%|██████████| 201/201 [00:00\u003c00:00, 675.00it/s]\n"}
+,{"stream_name":"stdout","time":220.305123592,"data":"[latency] bert: p50 131.096 ms, p95 295.264 ms\n"}
+,{"stream_name":"stdout","time":220.681242144,"data":"[latency] textcnn: p50 0.893 ms, p95 1.642 ms\n"}
+,{"stream_name":"stdout","time":222.369033783,"data":"[latency] xgboost: p50 1.550 ms, p95 1.976 ms\n"}
+,{"stream_name":"stdout","time":223.218334891,"data":"[latency] mahmud2024_cnn_bigru: p50 9.142 ms, p95 9.564 ms\n"}
+,{"stream_name":"stdout","time":223.649638421,"data":"\n"}
+,{"stream_name":"stdout","time":223.753887122,"data":"Loading weights:   0%|          | 0/201 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":223.88545416,"data":"Loading weights:  31%|███       | 62/201 [00:00\u003c00:00, 597.65it/s]\n"}
+,{"stream_name":"stdout","time":223.988989851,"data":"Loading weights:  61%|██████    | 122/201 [00:00\u003c00:00, 505.47it/s]\n"}
+,{"stream_name":"stdout","time":224.002900234,"data":"Loading weights:  93%|█████████▎| 186/201 [00:00\u003c00:00, 552.90it/s]\n"}
+,{"stream_name":"stdout","time":224.00379285,"data":"Loading weights: 100%|██████████| 201/201 [00:00\u003c00:00, 569.38it/s]\n"}
+,{"stream_name":"stdout","time":235.934842481,"data":"[latency] shim2024_bert_base: p50 133.245 ms, p95 282.287 ms\n"}
+,{"stream_name":"stdout","time":242.68656697,"data":"[latency] cascade end to end: {'n_messages': 574, 'routed': 50, 'routed_share': 0.08710801393728224, 'tau': 0.6651272030868384, 'p50_ms': 2.287050500001442, 'p95_ms': 85.27616864998329, 'mean_ms': 9.977803118467683, 'throughput_msg_per_s': 100.22246261294967, 'size_mb': 268.16830200000004}\n"}
+,{"stream_name":"stdout","time":244.195515011,"data":"[entry] done in 0.05 h, return codes [0]\n"}
+,{"stream_name":"stdout","time":244.211892468,"data":"exit code 0\n"}
+,{"stream_name":"stderr","time":247.431947332,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":247.431985489,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":247.641425353,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":247.641472351,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":248.572072222,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":248.682422572,"data":"[NbConvertApp] Writing 13059 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":252.105522354,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":252.768419355,"data":"[NbConvertApp] Writing 292363 bytes to __results__.html\n"}
+]

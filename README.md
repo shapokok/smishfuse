@@ -218,6 +218,32 @@ uv pip install --python .venv/bin/python -r requirements.txt
 Числа из статей хранятся отдельно, в [results/step5a/published_claims.yaml](results/step5a/published_claims.yaml).
 Отчёт: [reports/step5a_report.md](reports/step5a_report.md).
 
+## Шаг 5б: финальная оценка на test (Kaggle)
+
+Единственное обращение к test. Всё, что влияет на результат, заморожено до него в
+[configs/final.yaml](configs/final.yaml) (коммиты f209949 и 087615d): модели, tau каскада, условия, метрики,
+сравнения. Перед каждой отправкой ноутбука проверялось, что Kaggle отдаёт ту версию кода, хэш которой
+записан в `kaggle/build/smishfuse-code.sha256`.
+
+```bash
+.venv/bin/python scripts/freeze_tau.py                    # tau на полном val (до test)
+.venv/bin/python scripts/kaggle_sync.py code               # затем проверить отдаваемый Kaggle CODE_SHA256
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-final-dry          # пробный прогон: val вместо test
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-final-3class       # mendeley_3class, обфускация, мало данных
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-final-settings     # постановки Mahmud / Shim, перенос
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-final-supersms     # super_sms_clean_binary
+.venv/bin/python scripts/kaggle_sync.py state smishfuse-final-3class smishfuse-final-settings smishfuse-final-supersms
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-final-cpu          # сборка + замер скорости (CPU)
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-final-assemble     # пересборка (CPU), выдаёт final_pack.zip
+.venv/bin/python -m pip install -r requirements-plots.txt                  # matplotlib, только локально
+.venv/bin/python scripts/make_final_report.py                             # все таблицы и графики
+```
+
+Обучение и предсказания: [src/final/run.py](src/final/run.py). Каскады, метрики, стоимость ошибок и
+значимость: [src/final/assemble.py](src/final/assemble.py). Скорость: [src/final/latency.py](src/final/latency.py).
+Результаты: `results/final/` (предсказания хранятся один раз, в `results/final/preds`). Отчёт:
+[reports/step5b_final_report.md](reports/step5b_final_report.md), графики: `reports/figures/final/*.pdf`.
+
 ## Датасеты: источники и лицензии
 
 | Датасет | Источник | Закреплённая версия | Лицензия |

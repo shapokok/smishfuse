@@ -1,0 +1,8 @@
+{
+  "choice": null,
+  "condition": "setting_mahmud",
+  "model": "mahmud2024_cnn_bigru",
+  "n_train": 4017,
+  "seconds_train": 147.76619442600008,
+  "seed": 5
+}

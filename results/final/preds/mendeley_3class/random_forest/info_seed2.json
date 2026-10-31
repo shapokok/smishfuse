@@ -1,0 +1,7 @@
+{
+  "condition": "mendeley_3class",
+  "model": "random_forest",
+  "n_train": 4017,
+  "seconds_train": 13.572018579999849,
+  "seed": 2
+}

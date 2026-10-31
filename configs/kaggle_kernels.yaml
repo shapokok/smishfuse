@@ -231,6 +231,7 @@ kernels:
   smishfuse-final-dry-cpu:
     accelerator: none
     pip: requirements
+    kernel_sources: [shapok/smishfuse-final-dry]
     spec:
       kind: stress
       script: src/final/cpu.py
@@ -291,4 +292,23 @@ kernels:
       script: src/final/cpu.py
       state_from: [smishfuse-final-3class, smishfuse-final-settings, smishfuse-final-supersms]
       queues: [[assemble, latency]]
+  # The full smishfuse-final-cpu output did not download: one zip with only the needed files (no weights).
+  smishfuse-final-pack:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-cpu]
+    spec:
+      kind: stress
+      script: src/final/pack.py
+      queues: [[pack]]
+  # Re-scoring after the fix of the path to the step-2/3 test predictions (assemble only; the speed
+  # measurement of smishfuse-final-cpu v2 stays the one CPU session of the latency table).
+  smishfuse-final-assemble:
+    accelerator: none
+    pip: requirements
+    spec:
+      kind: stress
+      script: src/final/cpu.py
+      state_from: [smishfuse-final-3class, smishfuse-final-settings, smishfuse-final-supersms]
+      queues: [[assemble, pack]]
 

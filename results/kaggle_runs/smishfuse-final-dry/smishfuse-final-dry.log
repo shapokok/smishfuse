@@ -1,0 +1,372 @@
+[{"stream_name":"stderr","time":7.521490884,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":7.52153941,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":8.575077276,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.575108104,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.575112936,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.575131939,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.30319344,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.303231253,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.303243995,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.303247211,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":96.951552181,"data":"code from /kaggle/input/datasets/shapok/smishfuse-code\n"}
+,{"stream_name":"stderr","time":138.325356245,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":138.325398283,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":138.325441943,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325448319,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325455126,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325461202,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325467054,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325473268,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325478948,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325711077,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325724753,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325731516,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.325737933,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.32575716,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530069557,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":138.530108871,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":138.530116016,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530121832,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530127344,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530133311,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530139002,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530144537,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530149924,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530155009,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530160153,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530165583,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.53017146,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530177706,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530183458,"data":"\n"}
+,{"stream_name":"stderr","time":138.530188756,"data":"ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\n"}
+,{"stream_name":"stderr","time":138.530194487,"data":"bigframes 2.48.0 requires google-cloud-bigquery-storage\u003c3.0.0,\u003e=2.30.0, which is not installed.\n"}
+,{"stream_name":"stderr","time":138.530200504,"data":"ydata-profiling 4.18.4 requires numpy\u003c2.4,\u003e=1.22, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530206065,"data":"ydata-profiling 4.18.4 requires pandas!=1.4.0,\u003c3.0,\u003e1.5, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530212088,"data":"ydata-profiling 4.18.4 requires scipy\u003c1.17,\u003e=1.8, but you have scipy 1.17.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530219509,"data":"google-colab 1.0.0 requires jupyter-server==2.20.0, but you have jupyter-server 2.12.5 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530225245,"data":"google-colab 1.0.0 requires pandas==2.2.3, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530246958,"data":"google-colab 1.0.0 requires requests==2.32.4, but you have requests 2.34.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530252665,"data":"dopamine-rl 4.1.2 requires gym\u003c=0.25.2, but you have gym 0.26.2 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530258292,"data":"gradio 6.26.0 requires pillow\u003c13.0,\u003e=8.0, but you have pillow 13.0.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530263528,"data":"moviepy 1.0.3 requires decorator\u003c5.0,\u003e=4.0.2, but you have decorator 5.3.1 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530269238,"data":"numba 0.61.2 requires numpy\u003c2.3,\u003e=1.24, but you have numpy 2.4.6 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530275327,"data":"cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stderr","time":138.530281274,"data":"dask-cudf-cu12 26.2.1 requires pandas\u003c2.4.0,\u003e=2.0, but you have pandas 3.1.0 which is incompatible.\n"}
+,{"stream_name":"stdout","time":154.998311587,"data":"[entry] kernel smishfuse-final-dry, data /kaggle/input/datasets/shapok/smishfuse-data, restored 0 files\n"}
+,{"stream_name":"stdout","time":172.22325165,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":172.224548401,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":172.225695841,"data":"/usr/local/lib/python3.13/dist-packages/pandas/core/arrays/masked.py:63: UserWarning: Pandas requires version '1.5.0' or newer of 'bottleneck' (version '1.4.2' currently installed).\n"}
+,{"stream_name":"stdout","time":172.226919925,"data":"  from pandas.core import (\n"}
+,{"stream_name":"stdout","time":180.617156203,"data":"[final] worker smishfuse-final-dry_gpu0, device cuda, dry True, 8 units\n"}
+,{"stream_name":"stdout","time":180.701965163,"data":"[final] worker smishfuse-final-dry_gpu1, device cuda, dry True, 16 units\n"}
+,{"stream_name":"stdout","time":216.056546328,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":216.092689169,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":219.55099581,"data":"\n"}
+,{"stream_name":"stdout","time":219.55693904,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":219.58945046,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":219.590313699,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 3096.91it/s]\n"}
+,{"stream_name":"stdout","time":219.591245936,"data":"\n"}
+,{"stream_name":"stdout","time":219.592454837,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2277.21it/s]\n"}
+,{"stream_name":"stdout","time":219.60663747,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":219.607633696,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":219.609061756,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":219.610477491,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.611892412,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.613240197,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.614698584,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.616096625,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.617489968,"data":"\n"}
+,{"stream_name":"stdout","time":219.6187671,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":219.6202174,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":219.621559737,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":219.62280543,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":219.623726089,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":219.624721791,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.625689405,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.626746423,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.62771668,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.628714043,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":219.629672335,"data":"\n"}
+,{"stream_name":"stdout","time":219.630658763,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":219.631673348,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":222.19153968,"data":"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/attention_backward.cu:900.)\n"}
+,{"stream_name":"stdout","time":222.193139364,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stdout","time":222.19421371,"data":"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py:869: UserWarning: Memory Efficient attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/attention_backward.cu:900.)\n"}
+,{"stream_name":"stdout","time":222.195093455,"data":"  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n"}
+,{"stream_name":"stdout","time":229.29476264,"data":"\n"}
+,{"stream_name":"stdout","time":229.341992752,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":229.346114205,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2293.71it/s]\n"}
+,{"stream_name":"stdout","time":229.350195209,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":229.360343579,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":229.361853935,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":229.363153287,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":229.364420469,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":229.365750242,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":229.36701866,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":229.368261844,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":229.370003779,"data":"\n"}
+,{"stream_name":"stdout","time":229.373547427,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":229.37461514,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":235.475019388,"data":"\n"}
+,{"stream_name":"stdout","time":235.520741738,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":235.521750353,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2181.77it/s]\n"}
+,{"stream_name":"stdout","time":235.527096196,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":235.529898985,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":235.531113456,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":235.532139689,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":235.533148987,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":235.534277417,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":235.535612362,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":235.536985136,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":235.538377431,"data":"\n"}
+,{"stream_name":"stdout","time":235.539748461,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":235.541336114,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":240.202221212,"data":"\n"}
+,{"stream_name":"stdout","time":240.249859081,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":240.255362212,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 4242.25it/s]\n"}
+,{"stream_name":"stdout","time":240.268629568,"data":"[transformers] \u001b[1mBertForSequenceClassification LOAD REPORT\u001b[0m from: bert-base-uncased\n"}
+,{"stream_name":"stdout","time":240.27036325,"data":"Key                                        | Status     | \n"}
+,{"stream_name":"stdout","time":240.2713116,"data":"-------------------------------------------+------------+-\n"}
+,{"stream_name":"stdout","time":240.272222293,"data":"cls.predictions.transform.LayerNorm.weight | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.273079452,"data":"cls.predictions.transform.dense.weight     | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.274260814,"data":"cls.seq_relationship.weight                | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.276396269,"data":"cls.seq_relationship.bias                  | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.278708512,"data":"cls.predictions.transform.dense.bias       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.279882377,"data":"cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.281380527,"data":"cls.predictions.bias                       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":240.28259595,"data":"classifier.weight                          | MISSING    | \n"}
+,{"stream_name":"stdout","time":240.283688044,"data":"classifier.bias                            | MISSING    | \n"}
+,{"stream_name":"stdout","time":240.285101114,"data":"\n"}
+,{"stream_name":"stdout","time":240.286446575,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":240.287671894,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":240.289047047,"data":"- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\n"}
+,{"stream_name":"stdout","time":247.427205695,"data":"\n"}
+,{"stream_name":"stdout","time":247.464787515,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":247.467321013,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2309.26it/s]\n"}
+,{"stream_name":"stdout","time":247.468501882,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":247.470545578,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":247.473127908,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":247.475668948,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":247.47951812,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":247.480748922,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":247.482564867,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":247.485136754,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":247.486310118,"data":"\n"}
+,{"stream_name":"stdout","time":247.487493053,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":247.488648779,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":248.068004392,"data":"\n"}
+,{"stream_name":"stdout","time":248.70152707,"data":"Writing model shards:   0%|          | 0/1 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":248.702501117,"data":"Writing model shards: 100%|██████████| 1/1 [00:00\u003c00:00,  1.58it/s]\n"}
+,{"stream_name":"stdout","time":248.705479036,"data":"Writing model shards: 100%|██████████| 1/1 [00:00\u003c00:00,  1.58it/s]\n"}
+,{"stream_name":"stdout","time":249.713231165,"data":"\n"}
+,{"stream_name":"stdout","time":249.737768272,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":249.740928584,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 3699.20it/s]\n"}
+,{"stream_name":"stdout","time":249.743987474,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":249.748465128,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":249.748525593,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":249.752756708,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":249.754477794,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":249.756985579,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":249.759111155,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":249.760569444,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":249.761587815,"data":"\n"}
+,{"stream_name":"stdout","time":249.762996685,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":249.764164619,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":252.56067771,"data":"\n"}
+,{"stream_name":"stdout","time":252.585684237,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":252.58808214,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 4082.01it/s]\n"}
+,{"stream_name":"stdout","time":252.590831174,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":252.592738971,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":252.595927257,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":252.597278145,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":252.600477302,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":252.602449391,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":252.604768239,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":252.606245134,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":252.607524921,"data":"\n"}
+,{"stream_name":"stdout","time":252.608658969,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":252.609820428,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":256.069929932,"data":"\n"}
+,{"stream_name":"stdout","time":256.086032878,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":256.088538059,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 6277.77it/s]\n"}
+,{"stream_name":"stdout","time":256.090910843,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":256.093192554,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":256.09602458,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":256.098373816,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":256.101546707,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":256.104357411,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":256.106078016,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":256.107865971,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":256.109214503,"data":"\n"}
+,{"stream_name":"stdout","time":256.110317363,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":256.111247466,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":260.901024686,"data":"\n"}
+,{"stream_name":"stdout","time":260.995181896,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":260.996140303,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 2114.98it/s]\n"}
+,{"stream_name":"stdout","time":261.00657307,"data":"[transformers] \u001b[1mBertForSequenceClassification LOAD REPORT\u001b[0m from: bert-base-uncased\n"}
+,{"stream_name":"stdout","time":261.007494095,"data":"Key                                        | Status     | \n"}
+,{"stream_name":"stdout","time":261.008558385,"data":"-------------------------------------------+------------+-\n"}
+,{"stream_name":"stdout","time":261.009685822,"data":"cls.predictions.transform.dense.bias       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.010892949,"data":"cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.012080086,"data":"cls.seq_relationship.bias                  | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.013468139,"data":"cls.predictions.transform.dense.weight     | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.01450838,"data":"cls.seq_relationship.weight                | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.015816239,"data":"cls.predictions.bias                       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.01703252,"data":"cls.predictions.transform.LayerNorm.weight | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":261.018213318,"data":"classifier.weight                          | MISSING    | \n"}
+,{"stream_name":"stdout","time":261.019345654,"data":"classifier.bias                            | MISSING    | \n"}
+,{"stream_name":"stdout","time":261.020312391,"data":"\n"}
+,{"stream_name":"stdout","time":261.021184786,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":261.022140254,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":261.023021151,"data":"- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\n"}
+,{"stream_name":"stdout","time":264.997623378,"data":"\n"}
+,{"stream_name":"stdout","time":265.03813371,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":265.039274989,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2447.34it/s]\n"}
+,{"stream_name":"stdout","time":265.041295208,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":265.042618671,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":265.044463881,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":265.046300265,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":265.048447979,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":265.051060329,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":265.055454247,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":265.055867349,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":265.058055362,"data":"\n"}
+,{"stream_name":"stdout","time":265.059361939,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":265.060853561,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":265.148329083,"data":"[shim] bert-base-uncased bs 16 lr 5e-05: best so far {'batch_size': 16, 'lr': 5e-05, 'epoch': 0, 'inner_val_macro_f1': 0.8663324979114453}\n"}
+,{"stream_name":"stdout","time":265.833501832,"data":"\n"}
+,{"stream_name":"stdout","time":265.908643971,"data":"Loading weights:   0%|          | 0/199 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":265.910059835,"data":"Loading weights: 100%|██████████| 199/199 [00:00\u003c00:00, 2543.20it/s]\n"}
+,{"stream_name":"stdout","time":265.915704041,"data":"[transformers] \u001b[1mBertForSequenceClassification LOAD REPORT\u001b[0m from: bert-base-uncased\n"}
+,{"stream_name":"stdout","time":265.918255489,"data":"Key                                        | Status     | \n"}
+,{"stream_name":"stdout","time":265.920196786,"data":"-------------------------------------------+------------+-\n"}
+,{"stream_name":"stdout","time":265.922694634,"data":"cls.predictions.transform.dense.bias       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.924177129,"data":"cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.927263656,"data":"cls.seq_relationship.bias                  | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.928342345,"data":"cls.predictions.transform.dense.weight     | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.929565355,"data":"cls.seq_relationship.weight                | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.930769855,"data":"cls.predictions.bias                       | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.932064355,"data":"cls.predictions.transform.LayerNorm.weight | UNEXPECTED | \n"}
+,{"stream_name":"stdout","time":265.933261412,"data":"classifier.weight                          | MISSING    | \n"}
+,{"stream_name":"stdout","time":265.934517291,"data":"classifier.bias                            | MISSING    | \n"}
+,{"stream_name":"stdout","time":265.935686607,"data":"\n"}
+,{"stream_name":"stdout","time":265.936777597,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":265.937934479,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":265.939024824,"data":"- MISSING:\tthose params were newly initialized because missing from the checkpoint. Consider training on your downstream task.\n"}
+,{"stream_name":"stdout","time":266.917421473,"data":"\n"}
+,{"stream_name":"stdout","time":266.958829298,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":266.959562862,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2389.17it/s]\n"}
+,{"stream_name":"stdout","time":266.96275501,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":266.963660751,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":266.965452766,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":266.96581406,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.966847489,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.967855052,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.968898398,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.969904584,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":266.971160939,"data":"\n"}
+,{"stream_name":"stdout","time":266.972617535,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":266.973924744,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":269.099846968,"data":"\n"}
+,{"stream_name":"stdout","time":269.139006751,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":269.140218049,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2514.19it/s]\n"}
+,{"stream_name":"stdout","time":269.142080938,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":269.143341584,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":269.14501141,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":269.14911097,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":269.150740198,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":269.152513235,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":269.154611019,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":269.156755655,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":269.15807071,"data":"\n"}
+,{"stream_name":"stdout","time":269.159338864,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":269.160645695,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":271.014133775,"data":"\n"}
+,{"stream_name":"stdout","time":271.462800146,"data":"Writing model shards:   0%|          | 0/1 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":271.462854898,"data":"Writing model shards: 100%|██████████| 1/1 [00:00\u003c00:00,  2.24it/s]\n"}
+,{"stream_name":"stdout","time":271.463824686,"data":"Writing model shards: 100%|██████████| 1/1 [00:00\u003c00:00,  2.24it/s]\n"}
+,{"stream_name":"stdout","time":271.780890937,"data":"\n"}
+,{"stream_name":"stdout","time":271.821311945,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":271.823386409,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2468.08it/s]\n"}
+,{"stream_name":"stdout","time":271.825268819,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":271.826194312,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":271.827554217,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":271.828990496,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":271.830461366,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":271.831697417,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":271.832947478,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":271.834197751,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":271.83533191,"data":"\n"}
+,{"stream_name":"stdout","time":271.836506274,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":271.837742801,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":276.341796316,"data":"\n"}
+,{"stream_name":"stdout","time":276.377492588,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":276.379646291,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2966.71it/s]\n"}
+,{"stream_name":"stdout","time":276.382271655,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-multilingual-cased\n"}
+,{"stream_name":"stdout","time":276.384822056,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":276.388632654,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":276.389734215,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":276.390730899,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":276.391596768,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":276.393800167,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":276.398050461,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":276.399363239,"data":"\n"}
+,{"stream_name":"stdout","time":276.403492939,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":276.406181292,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":280.043649786,"data":"/kaggle/working/code/src/fusion/train.py:140: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stdout","time":280.044722714,"data":"  sched.step()\n"}
+,{"stream_name":"stdout","time":306.217825971,"data":"\n"}
+,{"stream_name":"stdout","time":306.255481786,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":306.256386224,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2656.35it/s]\n"}
+,{"stream_name":"stdout","time":306.259948107,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":306.260692466,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":306.261740593,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":306.262630339,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":306.263750709,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":306.264690994,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":306.265859602,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":306.266907682,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":306.267843901,"data":"\n"}
+,{"stream_name":"stdout","time":306.268673577,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":306.269446466,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":310.483610438,"data":"\n"}
+,{"stream_name":"stdout","time":310.505000028,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":310.506039351,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2604.90it/s]\n"}
+,{"stream_name":"stdout","time":310.511672028,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-multilingual-cased\n"}
+,{"stream_name":"stdout","time":310.51212022,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":310.513121394,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":310.514336709,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":310.515612032,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":310.516733605,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":310.517894746,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":310.519123691,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":310.520258152,"data":"\n"}
+,{"stream_name":"stdout","time":310.521396645,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":310.522555609,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":314.127478595,"data":"/kaggle/working/code/src/fusion/train.py:140: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate\n"}
+,{"stream_name":"stdout","time":314.128185122,"data":"  sched.step()\n"}
+,{"stream_name":"stdout","time":319.168771971,"data":"\n"}
+,{"stream_name":"stdout","time":319.206275347,"data":"Loading weights:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stdout","time":319.207106564,"data":"Loading weights: 100%|██████████| 100/100 [00:00\u003c00:00, 2620.39it/s]\n"}
+,{"stream_name":"stdout","time":319.209226488,"data":"[transformers] \u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\n"}
+,{"stream_name":"stdout","time":319.217482479,"data":"Key                     | Status     |  | \n"}
+,{"stream_name":"stdout","time":319.217499357,"data":"------------------------+------------+--+-\n"}
+,{"stream_name":"stdout","time":319.217505438,"data":"vocab_projector.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":319.217772938,"data":"vocab_transform.weight  | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":319.218626313,"data":"vocab_transform.bias    | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":319.21941251,"data":"vocab_layer_norm.weight | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":319.22017411,"data":"vocab_layer_norm.bias   | UNEXPECTED |  | \n"}
+,{"stream_name":"stdout","time":319.220959794,"data":"\n"}
+,{"stream_name":"stdout","time":319.221818085,"data":"Notes:\n"}
+,{"stream_name":"stdout","time":319.222547176,"data":"- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":328.309852834,"data":"[entry] done in 0.05 h, return codes [0, 0]\n"}
+,{"stream_name":"stdout","time":328.324436899,"data":"exit code 0\n"}
+,{"stream_name":"stderr","time":330.739284526,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":330.739309276,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":330.928677873,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":330.928717453,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":331.806991523,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":331.923300458,"data":"[NbConvertApp] Writing 29216 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":334.820945109,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":335.539641172,"data":"[NbConvertApp] Writing 307550 bytes to __results__.html\n"}
+]

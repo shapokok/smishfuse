@@ -1,0 +1,69 @@
+{
+  "sessions": [
+    {
+      "kernel": "smishfuse-final-settings",
+      "spec": {
+        "kind": "stress",
+        "script": "src/final/run.py",
+        "budget_hours": 1.5,
+        "queues": [
+          [
+            "setting_shim:shim2024_bert_base",
+            "setting_shim:shim2024_distilbert_base",
+            "setting_shim:shim2024_roberta_base",
+            "setting_shim:svm_char_aug",
+            "setting_shim:svm_char",
+            "setting_shim:svm_step2",
+            "setting_shim:distilbert_aug",
+            "setting_shim:distilbert",
+            "setting_shim:bert"
+          ],
+          [
+            "setting_mahmud:svm_char_aug",
+            "setting_mahmud:svm_char",
+            "setting_mahmud:svm_step2",
+            "setting_mahmud:distilbert_aug",
+            "setting_mahmud:distilbert",
+            "setting_mahmud:bert",
+            "setting_mahmud:mahmud2024_cnn_bigru",
+            "transfer:svm_char_aug",
+            "transfer:svm_char",
+            "transfer:distilbert_aug",
+            "transfer:distilbert",
+            "transfer:smishfuse_v1",
+            "transfer:linear_svm",
+            "transfer:logreg"
+          ]
+        ]
+      },
+      "restored_files": 0,
+      "environment": {
+        "python": "3.13.15",
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "cpu_model": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+        "cpu_count": 4,
+        "gpus": "Tesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04",
+        "packages": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.16.1",
+          "bitsandbytes": "0.50.2",
+          "accelerate": "1.14.0",
+          "optuna": "5.0.0",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.4.6",
+          "pandas": "3.1.0",
+          "xgboost": "3.2.0",
+          "scipy": "1.17.1",
+          "pyspellchecker": "0.8.3"
+        }
+      },
+      "start_unix": 1793448013.8944068,
+      "end_unix": 1793451463.8829584,
+      "wall_seconds": 3449.988552570343,
+      "return_codes": [
+        0,
+        0
+      ]
+    }
+  ]
+}

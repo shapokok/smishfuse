@@ -1,0 +1,7 @@
+{
+  "condition": "super_sms",
+  "model": "svm_char_aug",
+  "n_train": 42857,
+  "seconds_train": 26.44631665299994,
+  "seed": 3
+}

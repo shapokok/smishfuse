@@ -1,0 +1,9 @@
+{
+  "best_epoch": 0,
+  "condition": "mendeley_3class",
+  "epochs_run": 3,
+  "model": "smishfuse_v2_noaug",
+  "n_train": 4017,
+  "seconds_train": 52.77608349100001,
+  "seed": 4
+}
