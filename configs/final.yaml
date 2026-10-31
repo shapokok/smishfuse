@@ -143,3 +143,13 @@ outputs:
     - pr_curves
     - cascade_share_vs_f1
     - confusion_matrix
+
+# ---------------------------------------------------------------- addendum 1 (2026-10-31, before any test read)
+# Decisions of the user after the budget estimate (budget of step 5b: up to 3 GPU h):
+# - qwen_fewshot: clean test only (existing predictions), no obfuscated test (already so above);
+# - super_sms_clean_binary: the ablation cascade_noaug is dropped, and with it the step-4a DistilBERT
+#   without augmentation on this task (its only purpose there); the step-3 DistilBERT with existing test
+#   predictions stays among the baselines. The models of this condition are therefore:
+super_sms_clean_binary_models: [cascade, svm_char_aug, svm_char, distilbert_aug, average]
+# - tau: one value for all seeds (a hyperparameter of the method chosen before test). To be written in
+#   the paper as: tau was chosen on val with seeds 1-3 and fixed for every run.
