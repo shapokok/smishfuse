@@ -93,6 +93,11 @@
     адаптации около 300 SMS в казахстанском контексте, созданный с помощью LLM и проверенный автором
     (`data/kz_adapt/`). Пересечение с тестовыми кейсами (MinHash, Жаккар ≥ 0.5 по символьным 5-граммам)
     удаляется. (3) Адаптация Lite на Mendeley train + этот набор, только после проверки набора.
+22. **Шаг 6в: реальные публичные примеры (2026-11-01).** Пост-хок. Дословных реальных казахстанских SMS
+    в открытых источниках найдено только 4 (`data/kz_real/public_smishing.csv`): real03 — расшифровка
+    обрезанного скриншота, real04 — фрагмент. Они используются как качественная иллюстрация, без метрики
+    recall. Ложные тревоги на реальных данных не оценивались. После этого шага эксперименты закрыты,
+    следующий шаг — текст статьи.
 
 ## Воспроизведение данных
 
@@ -289,6 +294,15 @@ uv pip install --python .venv/bin/python -r requirements.txt
 Набор адаптации синтетический: создан с помощью LLM и проверен автором. Перед обучением он зафиксирован
 коммитом 8644b17. Код: [src/step6/mt_sentence.py](src/step6/mt_sentence.py),
 [src/step6/adapt.py](src/step6/adapt.py). Отчёт: [reports/step6b_kz_adapt.md](reports/step6b_kz_adapt.md).
+
+## Шаг 6в: реальные публичные примеры (решение 22, Kaggle CPU)
+
+```bash
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step6c-real
+.venv/bin/python scripts/make_step6c_report.py
+```
+
+Код: [src/step6/real.py](src/step6/real.py). Отчёт: [reports/step6c_kz_real.md](reports/step6c_kz_real.md).
 
 ## Датасеты: источники и лицензии
 

@@ -348,4 +348,13 @@ kernels:
       kind: stress
       script: src/step6/adapt.py
       queues: [[run]]
+  # Step 6c, POST-HOC (README decision 22): 4 public Kazakhstan smishing SMS through all models (CPU only).
+  smishfuse-step6c-real:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-3class]
+    spec:
+      kind: stress
+      script: src/step6/real.py
+      queues: [[run]]
 
