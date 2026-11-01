@@ -68,7 +68,7 @@ $^2$Affiliation Two, City, Country}
 \accepted{...}
 \published{...}
 
-\abstracttext{To be written after the main text.}
+\abstracttext{Fraudulent short text messages imitate banks or public agencies to extract data or money. Detection must be accurate, robust to misspellings and fast. We study a two-stage cascade: a calibrated linear classifier over character n-grams labels each message and passes it to a compact transformer only when its confidence is below a threshold chosen on validation data. The evaluation uses deduplicated splits of three public corpora in English and Portuguese, a protocol frozen before testing, \val{n-seeds} training seeds, paired bootstrap and McNemar tests with Holm correction, two published methods re-implemented in their own task settings, and character obfuscation of types unseen in training. On the three-class task the cascade reaches a macro-averaged F1 score of \val{cascade-clean-f1}, not significantly different from the character model alone (\val{svmchar-clean-f1}). Under the strongest held-out obfuscation it keeps \val{cascade-mahmud-ho20} and \val{cascade-shim-ho20} in the published settings, where the re-implemented methods fall to between \val{pub-ho20-min} and \val{pub-ho20-max}; the character model alone is equally robust. The cascade sends \val{lat-cascade-routed-pct}\% of messages to the transformer and needs a median of \val{lat-cascade-p50} milliseconds per message on one processor thread. A qualitative case study for Kazakhstan shows the limits of models trained on English messages.}
 
 \keywords{cascade classification, character n-grams, obfuscation robustness, phishing detection, statistical significance}
 
@@ -80,6 +80,8 @@ $^2$Affiliation Two, City, Country}
 \input{sections/conclusion}
 
 \input{bibliography}
+
+\input{sections/declarations}
 
 \input{sections/appendix}
 

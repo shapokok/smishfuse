@@ -285,7 +285,7 @@ def efficiency_table() -> str:
     lat["gpu"] = ~lat.device.str.startswith("cpu")
     lat = lat.sort_values(["gpu", "p50_ms"])
     costs = [("clean", r) for r in (1, 5, 10)] + [("heldout20", r) for r in (1, 5, 10)]
-    best = {k: best_in("mendeley_3class", k[0], list(lat.model), f"cost_{k[1]}to1", low=True) for k in costs}
+    best = {k: best_in("mendeley_3class", k[0], list(lat.model) + ["average"], f"cost_{k[1]}to1", low=True) for k in costs}
     body = []
     for r in lat.itertuples():
         f = lambda v, d: "--" if pd.isna(v) else f"{v:.{d}f}"  # noqa: E731
@@ -294,6 +294,10 @@ def efficiency_table() -> str:
         for k in costs:
             row.append(cell("mendeley_3class", k[0], r.model, f"cost_{k[1]}to1", sd=False, bold=best[k] == r.model))
         body.append(" & ".join(row) + " \\\\")
+    for x in ("average",):   # ablation without its own latency measurement (it runs both stages on every message)
+        row = [name(x) + "$^{b}$", "--", "--", "--", "--"]
+        row += [cell("mendeley_3class", k[0], x, f"cost_{k[1]}to1", sd=False, bold=best[k] == x) for k in costs]
+        body.append(" & ".join(row) + " \\\\")
     head = [" & \\multicolumn{4}{c}{CPU, one thread, batch 1} & \\multicolumn{3}{c}{$L_r$, clean} & "
             "\\multicolumn{3}{c}{$L_r$, HO 20\\%} \\\\",
             "\\cmidrule(lr){2-5}\\cmidrule(lr){6-8}\\cmidrule(lr){9-11}",
@@ -301,7 +305,8 @@ def efficiency_table() -> str:
     note = ("Latency per message on the three-class Mendeley test messages; the cascade is measured end to end on "
             "the whole test set, including the calls of the second stage. Size: saved model files. $L_r$: "
             "loss per message (\\ref{eq:cost}) in the ham-versus-malicious view, mean over 5 seeds; lowest per "
-            "column in bold. $^{a}$ 4-bit model on a T4 GPU (median only), not comparable with the CPU rows.")
+            "column in bold. $^{a}$ 4-bit model on a T4 GPU (median only), not comparable with the CPU rows. "
+            "$^{b}$ Ablation; not timed (it runs both stages on every message).")
     return wrap("tab:efficiency", "Efficiency and cost of errors on the three-class task",
                 "l" + "c" * 10, head, body, note, sep="2.5pt")
 

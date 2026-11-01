@@ -25,6 +25,7 @@ ALLOWED = {
     "97.5": "upper percentile of the 95% bootstrap interval",
     "50": "name of the median latency p50",
     "200": "model name NLLB-200",
+    "4.0": "licence name CC BY 4.0 (Mendeley data licence)",
 }
 
 
@@ -47,6 +48,7 @@ def strip(text: str) -> str:
                   r"|vspace|hspace|resizebox|multicolumn|cline|cmidrule|setcounter|def)\*?(\[[^\]]*\])?\{[^}]*\}", " ", text)
     text = re.sub(r"\{(tabular|table|figure)\*?\}\{[^}]*\}", " ", text)
     text = re.sub(r"\[[^\]]*(width|height|scale)[^\]]*\]", " ", text)
+    text = re.sub(r"\{[\d.]+\\(textwidth|columnwidth|linewidth)\}", " ", text)   # layout widths
     text = re.sub(r"\\[a-zA-Z]+", " ", text)
     return text
 

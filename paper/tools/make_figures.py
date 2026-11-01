@@ -91,7 +91,7 @@ def main() -> None:
     plt.close(fig)
 
     # learning curve (one column, legend below)
-    fig, ax = plt.subplots(figsize=(ONE, 12.0 * CM), layout="constrained")
+    fig, ax = plt.subplots(figsize=(TWO, 6.5 * CM), layout="constrained")
     fr = [1, 5, 10, 25, 100]
     conds = [f"low_data_frac{p:02d}" for p in fr[:-1]]
     present_ld = set(m[m.condition == "low_data_frac01"].model)
@@ -105,7 +105,7 @@ def main() -> None:
     ax.set_xlabel("Share of the training data (log scale)")
     ax.set_ylabel("Macro F1 (clean test)")
     ax.grid(alpha=0.3, lw=0.5)
-    fig.legend(loc="outside lower center", ncols=1, frameon=False)
+    fig.legend(loc="outside right center", frameon=False)
     save(fig, "learning_curve")
     plt.close(fig)
 
@@ -145,8 +145,8 @@ def main() -> None:
         g = curve[curve.test_set == s].groupby("share")["macro_f1"].mean()
         st = {"color": CASCADE_COLOR, "lw": 2.4} if s == "clean" else {"color": COLORS[i], "lw": 1.0}
         ax.plot(100 * g.index, g.values, marker=MARKERS[i], ms=3.2, ls=["-", "--", ":", "-."][i],
-                label=SETS_PLAIN[s].replace("HO", "HELD-OUT"), **st)
-    ax.axvline(100 * e2e["routed_share"], color="black", lw=0.8, ls=(0, (1, 1)), label="share at $\\tau^*$ on test")
+                label=SETS_PLAIN[s], **st)
+    ax.axvline(100 * e2e["routed_share"], color="black", lw=0.8, ls=(0, (1, 1)), label="at $\\tau^*$")
     ax.set_xscale("symlog", linthresh=1)
     ticks = [0, 1, 2, 5, 10, 20, 50, 100]
     ax.set_xlim(0, 100)
@@ -156,7 +156,7 @@ def main() -> None:
     ax.set_xlabel("Messages sent to DistilBERT, % (symlog scale)")
     ax.set_ylabel("Macro F1 (test, mean of 5 seeds)")
     ax.grid(alpha=0.3, lw=0.5)
-    ax.legend(frameon=False, loc="lower left")
+    ax.legend(frameon=False, loc="lower left", handlelength=1.8, borderaxespad=0.3)
     save(fig, "cascade_share_vs_f1")
     plt.close(fig)
 

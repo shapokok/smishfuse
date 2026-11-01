@@ -20,6 +20,8 @@ Table~\ref{tab:settings} shows the comparison in the task settings of these pape
 
 The post-hoc comparison (marks $\dagger$ in Table~\ref{tab:settings}) shows where this advantage comes from: the character SVM without augmentation is also significantly better than all re-implemented methods at the held-out levels where the cascade is, except at the \val{lvl-a}\% level of the Shim setting. On the clean test sets it is significantly better only than RoBERTa. The robustness of the cascade to obfuscation in these settings is therefore a property of its character-level first stage. In both settings the cascade does not differ significantly from our best baseline at any level (Table~\ref{tab:significance}).
 
+\input{tables/significance}
+
 \subsection{Robustness to obfuscation}\label{sec:robustness}
 
 \input{tables/robustness}
@@ -39,12 +41,12 @@ Against the best baseline of each obfuscated test set, the cascade is never sign
 
 \input{tables/lowdata}
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
 \includegraphics{figures/learning_curve}
 \caption{Macro F1 on the clean three-class test set as a function of the share of the training data}
 \label{fig:learning}
-\end{figure}
+\end{figure*}
 
 With less training data (Table~\ref{tab:lowdata}, Fig.~\ref{fig:learning}) the character SVM without augmentation has the highest mean macro F1 among the baselines at every fraction, and the cascade falls behind it. (The average of the two stages, an ablation, is higher at \val{ld-a}\% and \val{ld-b}\%, with \val{ld01-average} and \val{ld05-average}.) With \val{ld-c}\% of the data the cascade reaches \val{ld10-cascade} against \val{ld10-svmchar}, a significant difference by both tests; at \val{ld-b}\% the difference is significant by the bootstrap test only. At \val{ld-a}\% the McNemar test on seed 1 favours the cascade (\val{ld01-b} messages correct only for the cascade against \val{ld01-c}), but the bootstrap test is not significant and the mean over seeds is lower (\val{ld01-cascade} against \val{ld01-svmchar}). The reason is visible in the last row of the table: the frozen threshold sends \val{ld01-share}\% of the messages to the second stage at \val{ld-a}\% of the data, and the transformer trained on so few messages is weak (\val{ld01-distilaug}).
 
@@ -74,7 +76,7 @@ Fig.~\ref{fig:pareto} places these results on the quality-latency plane. The cha
 \begin{figure}[t]
 \centering
 \includegraphics{figures/cascade_share_vs_f1}
-\caption{Macro F1 of the cascade when a given share of the test messages with the lowest first-stage confidence is sent to the second stage (descriptive, not used for any choice)}
+\caption{Macro F1 of the cascade when a given share of the test messages with the lowest first-stage confidence is sent to the second stage (descriptive, not used for any choice). HO: held-out obfuscation family; dotted line: share sent at the frozen threshold}
 \label{fig:share}
 \end{figure}
 

@@ -348,6 +348,12 @@ def results_numbers(R: Registry) -> None:
     R.add("tr-ft-share", pct1(seed_stats(m, "transfer", "finetune10", "cascade", "routed_share")[0]), src)
     for k, x in (("cascade", "cascade"), ("distilaug", "distilbert_aug"), ("average", "average")):
         R.add(f"tr-ft-{k}", f4(seed_stats(m, "transfer", "finetune10", x)[0]), src)
+    sg = pd.read_csv(FINAL / "significance.csv")
+    sg = sg[sg.comparison == "best_baseline"]
+    win = sg[(sg.diff_macro_f1_seed1 > 0) & (sg.significant_bootstrap_holm | sg.significant_mcnemar_holm)]
+    if sorted(win.condition) != ["low_data_frac01", "transfer"] or \
+            (win.significant_bootstrap_holm & win.significant_mcnemar_holm).any():
+        raise ValueError("text: the cascade beats the best baseline twice, each time by one test only")
     R.add("tr-ft-p-boot", pvalue(sig_row("transfer", "finetune10", "best_baseline").p_bootstrap_holm), sig)
     # cost
     for test, k in (("clean", "clean"), ("heldout20", "ho20")):
