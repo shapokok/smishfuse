@@ -5,6 +5,7 @@ Run: python paper/tools/paper_numbers.py
 """
 from __future__ import annotations
 
+import ast
 import json
 from pathlib import Path
 
@@ -78,6 +79,13 @@ def data_numbers(R: Registry) -> None:
     R.add("men-in-uci", hit, src + "overlap.json mendeley_uci[clean] exact_or_near")
     R.add("men-in-uci-pct", pct1(hit / men_after), src + "overlap.json / dedup_mendeley.json")
     R.add("men-removed", load["mendeley"]["rows_before"] - men_after, src + "dedup_mendeley.json rows_before - rows_after")
+    sp = json.loads((STATS / "split_mendeley.json").read_text())["labels"]["test"]
+    R.add("men-test-n", sum(sp.values()), src + "split_mendeley.json")
+    R.add("men-test-smishing", sp["smishing"], src + "split_mendeley.json")
+    R.add("men-test-spam", sp["spam"], src + "split_mendeley.json")
+    R.add("shim-test-n", sp["smishing"] + sp["spam"], src + "split_mendeley.json (smishing + spam)")
+    ssc = json.loads((STATS / "super_sms_clean.json").read_text())
+    R.add("ssc-removed", sum(ssc["removed"].values()), src + "super_sms_clean.json removed")
     R.add("men-conflict-groups", sum(load["mendeley"]["conflict_groups"].values()),
           src + "dedup_mendeley.json conflict_groups (exact + near)")
 
@@ -129,9 +137,121 @@ def latency_numbers(R: Registry) -> None:
     R.add("lat-svmcharaug-p50", f2(lat.loc["svm_char_aug", "p50_ms"]), "results/final/latency.csv")
 
 
+def const(path: str, name: str):
+    """Value of a module-level constant NAME = <literal> in a source file (read, not imported)."""
+    for node in ast.parse((ROOT / path).read_text()).body:
+        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == name for t in node.targets):
+            return ast.literal_eval(node.value)
+    raise KeyError(f"{name} not in {path}")
+
+
+def cfg(name: str) -> dict:
+    return yaml.safe_load((ROOT / "configs" / f"{name}.yaml").read_text())
+
+
+def pct0(x: float) -> str:
+    return f"{100 * x:.0f}"
+
+
+def sci(x: float, digits: int = 2) -> str:
+    m, e = f"{x:.{digits}e}".split("e")
+    m = m.rstrip("0").rstrip(".") if "." in m else m
+    return f"{m}\\times 10^{{{int(e)}}}" if int(e) else m
+
+
 def config_numbers(R: Registry) -> None:
-    cfg = yaml.safe_load((ROOT / "configs" / "final.yaml").read_text())
-    R.add("n-seeds", len(cfg["seeds"]), "configs/final.yaml seeds")
+    fin, s2, s3, s4a, s4b, s4c, s5a = (cfg(n) for n in ("final", "step2", "step3", "step4a", "step4b", "step4c", "step5a"))
+    R.add("n-seeds", len(fin["seeds"]), "configs/final.yaml seeds")
+    R.add("seed-last", fin["seeds"][-1], "configs/final.yaml seeds")
+    # data (src/data)
+    R.add("shingle-k", const("src/data/common.py", "SHINGLE_K"), "src/data/common.py SHINGLE_K")
+    R.add("jaccard-thr", const("src/data/common.py", "JACCARD_THRESHOLD"), "src/data/common.py JACCARD_THRESHOLD")
+    R.add("num-perm", const("src/data/common.py", "NUM_PERM"), "src/data/common.py NUM_PERM")
+    R.add("lsh-thr", const("src/data/common.py", "LSH_CANDIDATE_THRESHOLD"), "src/data/common.py")
+    R.add("check-lsh-thr", const("src/data/split.py", "CHECK_LSH_THRESHOLD"), "src/data/split.py")
+    fr = const("src/data/split.py", "FRACTIONS")
+    for k in ("train", "val", "test"):
+        R.add(f"split-{k}", pct0(fr[k]), "src/data/split.py FRACTIONS")
+    R.add("split-seed", const("src/data/common.py", "SEED"), "src/data/common.py SEED")
+    # metrics
+    R.add("ece-bins", s2["protocol"]["ece_bins"], "configs/step2.yaml ece_bins")
+    lv = s4c["eval_levels"]
+    for i, x in enumerate(lv):
+        R.add(f"lvl-{'abc'[i]}", pct0(x), "configs/step4c.yaml eval_levels")
+    R.add("obf-seed", const("src/eval/obfuscation.py", "SEED"), "src/eval/obfuscation.py SEED")
+    R.add("aug-p", s4c["augmentation"]["p"], "configs/step4c.yaml augmentation")
+    R.add("aug-max", s4c["augmentation"]["max_level"], "configs/step4c.yaml augmentation")
+    # character model
+    ng = s4c["char_branch"]["ngram_range"]
+    R.add("char-ng-lo", ng[0], "configs/step4c.yaml char_branch")
+    R.add("char-ng-hi", ng[1], "configs/step4c.yaml char_branch")
+    bp = json.loads((ROOT / "results" / "best_params" / "mendeley_3class" / "linear_svm.json").read_text())
+    R.add("svm-c", f"{bp['model_params']['C']:.3f}", "results/best_params/mendeley_3class/linear_svm.json")
+    R.add("calib-folds", s2["models"]["linear_svm"]["fixed"]["calibration_cv"], "configs/step2.yaml linear_svm")
+    # stage 2
+    t = s4a["text"]
+    R.add("distil-lr", sci(t["lr"]), "configs/step4a.yaml text.lr")
+    R.add("distil-batch", t["batch_size"], "configs/step4a.yaml text")
+    R.add("distil-epochs", t["max_epochs"], "configs/step4a.yaml text")
+    R.add("distil-patience", t["patience"], "configs/step4a.yaml text")
+    R.add("max-len", t["max_len"], "configs/step4a.yaml text")
+    R.add("fusion-d", s4a["fusion"]["d"], "configs/step4a.yaml fusion.d")
+    R.add("aux-w", s4a["fusion"]["binary_loss_weight"], "configs/step4a.yaml fusion")
+    R.add("hand-n", len(const("src/fusion/features.py", "FEATURES")), "src/fusion/features.py FEATURES")
+    R.add("svd-k", s4c["char_branch"]["svd_components"], "configs/step4c.yaml char_branch")
+    # cascade
+    R.add("tau", f4(fin["method"]["tau"]), "configs/final.yaml method.tau")
+    R.add("tau-noaug", f4(fin["ablations"]["cascade_noaug"]["tau"]), "configs/final.yaml ablations")
+    seeds = [k for k in fin["seeds"] if (ROOT / "results" / "step4c" / "svm_char_aug" / f"clean_seed{k}.csv").exists()]
+    if seeds != list(range(seeds[0], seeds[-1] + 1)):
+        raise ValueError(f"tau seeds not contiguous: {seeds}")
+    R.add("tau-seeds", f"{seeds[0]}--{seeds[-1]}", "scripts/freeze_tau.py: seeds with step-4c val probabilities")
+    frozen = json.loads((FINAL / "tau.json").read_text())["mendeley_3class"]
+    if frozen["cascade"] != fin["method"]["tau"] or frozen["cascade_noaug"] != fin["ablations"]["cascade_noaug"]["tau"]:
+        raise ValueError("results/final/tau.json differs from configs/final.yaml")
+    # cost and tests
+    for i, r in enumerate(fin["metrics"]["cost_ratios"]):
+        R.add(f"cost-r{i + 1}", r, "configs/final.yaml cost_ratios")
+    sig = fin["significance"]
+    R.add("boot-n", f"{sig['bootstrap']['n']:,}".replace(",", "\\,"), "configs/final.yaml significance")
+    R.add("boot-seed", sig["bootstrap"]["seed"], "configs/final.yaml significance")
+    R.add("alpha", sig["alpha"], "configs/final.yaml significance")
+    import inspect
+    sys_path = str(ROOT / "src")
+    import sys
+    if sys_path not in sys.path:
+        sys.path.insert(0, sys_path)
+    from eval import stats
+    R.add("mcn-exact", inspect.signature(stats.mcnemar).parameters["exact_threshold"].default, "src/eval/stats.py mcnemar")
+    # protocol
+    R.add("optuna-trials", s2["protocol"]["n_trials"], "configs/step2.yaml n_trials")
+    if s3["protocol"]["n_trials"] != s2["protocol"]["n_trials"]:
+        raise ValueError("steps 2 and 3 use different numbers of trials")
+    q = s3["models"]["qwen_fewshot"]["fixed"]
+    R.add("qwen-shots", q["n_shots"], "configs/step3.yaml qwen_fewshot")
+    R.add("bert-epochs", s3["models"]["bert"]["fixed"]["max_epochs"], "configs/step3.yaml bert")
+    for i, x in enumerate(fin["conditions"]["low_data"]["fractions"]):
+        R.add(f"ld-{'abcd'[i]}", pct0(x), "configs/final.yaml low_data fractions")
+    R.add("ld-min", s4b["low_data"]["min_per_class"], "configs/step4b.yaml low_data")
+    R.add("tr-frac", pct0(s4b["transfer"]["finetune_fraction"]), "configs/step4b.yaml transfer")
+    mh = s5a["published"]["mahmud2024_cnn_bigru"]
+    R.add("mh-w2v", mh["word2vec"]["vector_size"], "configs/step5a.yaml mahmud")
+    R.add("mh-filters", mh["conv"]["filters"], "configs/step5a.yaml mahmud")
+    R.add("mh-kernel", mh["conv"]["kernel"], "configs/step5a.yaml mahmud")
+    R.add("mh-pool", mh["pool"], "configs/step5a.yaml mahmud")
+    R.add("mh-gru", mh["gru"]["units"], "configs/step5a.yaml mahmud")
+    R.add("mh-drop", mh["gru"]["dropout"], "configs/step5a.yaml mahmud")
+    R.add("mh-batch", mh["batch_size"], "configs/step5a.yaml mahmud")
+    R.add("mh-epochs", mh["epochs"], "configs/step5a.yaml mahmud")
+    R.add("mh-maxlen", mh["max_len"], "configs/step5a.yaml mahmud")
+    sh = s5a["published"]["shim2024"]
+    R.add("sh-batches", ", ".join(str(b) for b in sh["batch_sizes"]), "configs/step5a.yaml shim")
+    R.add("sh-lrs", ", ".join(sci(x, 0) for x in sh["lrs"]), "configs/step5a.yaml shim")
+    R.add("sh-epochs", sh["max_epochs"], "configs/step5a.yaml shim")
+    R.add("sh-inner", pct0(sh["inner_val"]), "configs/step5a.yaml shim")
+    lat = fin["latency"]["per_model"]
+    R.add("lat-msgs", f"{lat['messages']:,}".replace(",", "\\,"), "configs/final.yaml latency")
+    R.add("lat-warmup", lat["warmup"], "configs/final.yaml latency")
 
 
 def build() -> dict[str, tuple[str, str]]:

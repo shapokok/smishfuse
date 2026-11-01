@@ -19,7 +19,12 @@ PAPER = Path(__file__).resolve().parent
 sys.path.insert(0, str(PAPER / "tools"))
 
 # literal numbers allowed in the text, with the reason (anything else must come from \val{...})
-ALLOWED: dict[str, str] = {}
+ALLOWED = {
+    "95": "level of the bootstrap interval (2.5 and 97.5 percentiles in src/eval/stats.py) and p95 latency",
+    "2.5": "lower percentile of the 95% bootstrap interval; also the model name Qwen2.5",
+    "97.5": "upper percentile of the 95% bootstrap interval",
+    "50": "name of the median latency p50",
+}
 
 
 def load(name: str):
@@ -35,6 +40,7 @@ def text_files() -> list[Path]:
 
 def strip(text: str) -> str:
     text = re.sub(r"(?<!\\)%.*", "", text)
+    text = re.sub(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}", " ", text, flags=re.S)  # drawing layout only
     text = re.sub(r"\\val\{[^}]*\}", " ", text)
     text = re.sub(r"\\(ref|eqref|cite|label|input|includegraphics|url|href|hyperlink|begin|end|setlength"
                   r"|vspace|hspace|resizebox|multicolumn|cline|cmidrule|setcounter|def)\*?(\[[^\]]*\])?\{[^}]*\}", " ", text)
@@ -64,7 +70,7 @@ def main() -> int:
             raw = raw.split("\\begin{document}", 1)[1]
             raw = re.sub(r"\\def\\[a-z]+\{[^}]*\}", " ", raw)
         for line_no, line in enumerate(strip(raw).splitlines(), 1):
-            for tok in re.findall(r"\d+(?:[.,]\d+)*", line):
+            for tok in re.findall(r"\d+(?:\.\d+)*(?:,\d{3})*", line):
                 if len(tok) == 1 or tok in ALLOWED:
                     continue
                 fails.append(f"{p.name}: literal number '{tok}' (must come from \\val or be in ALLOWED)")

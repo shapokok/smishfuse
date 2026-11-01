@@ -1,3 +1,161 @@
 \section{Materials and Methods}\label{sec:methods}
 
-To be written.
+\subsection{Problem statement and notation}\label{sec:notation}
+
+A message is a finite string $x=x_1x_2\cdots x_L$ over the Unicode alphabet $\Sigma$. A classification task has a label set $\mathcal{Y}=\{1,\dots,K\}$ and data $D=\{(x_i,y_i)\}_{i=1}^{n}$ with $y_i\in\mathcal{Y}$. The main task has $K=3$ classes: \emph{ham} (a legitimate message), \emph{spam} (unsolicited advertising that does not try to obtain data or money) and \emph{smishing} (a message that tries to obtain personal or financial data, a payment, a click on a link or a call). Smishing and spam together form the \emph{malicious} messages; the indicator $m(y)=\mathbf{1}[y\neq\text{ham}]$ maps every task to the ham-versus-malicious view.
+
+A probabilistic classifier is a map $f:\Sigma^{*}\to\Delta^{K-1}$ into the probability simplex $\Delta^{K-1}=\{p\in[0,1]^K:\sum_k p_k=1\}$. Its prediction and its confidence are
+\begin{equation}\label{eq:pred}
+\hat{y}_f(x)=\arg\max_{k\in\mathcal{Y}} f_k(x),\qquad c_f(x)=\max_{k\in\mathcal{Y}} f_k(x).
+\end{equation}
+For predictions $\hat{y}_1,\dots,\hat{y}_n$, let $\mathrm{TP}_k$, $\mathrm{FP}_k$ and $\mathrm{FN}_k$ be the numbers of true positives, false positives and false negatives of class $k$. The primary metric is the macro-averaged F1 score
+\begin{equation}\label{eq:macrof1}
+\mathrm{F1}_k=\frac{2\,\mathrm{TP}_k}{2\,\mathrm{TP}_k+\mathrm{FP}_k+\mathrm{FN}_k},\qquad
+\mathrm{F1}_{\mathrm{macro}}=\frac{1}{K}\sum_{k=1}^{K}\mathrm{F1}_k,
+\end{equation}
+with $\mathrm{F1}_k=0$ when the denominator is zero. Macro F1 gives the two small malicious classes the same weight as the large ham class. We also report accuracy, the F1 score of each class, the area under the precision-recall curve (average precision of the positive class in binary tasks, which is the malicious class or, in the smishing-versus-spam task, smishing; the mean of the one-versus-rest values for $K=3$) and the expected calibration error of the top label,
+\begin{equation}\label{eq:ece}
+\mathrm{ECE}=\sum_{b=1}^{B}\frac{|I_b|}{n}\,\Bigl|\frac{1}{|I_b|}\sum_{i\in I_b}\mathbf{1}[\hat{y}_i=y_i]-\frac{1}{|I_b|}\sum_{i\in I_b}c_f(x_i)\Bigr|,
+\end{equation}
+where $I_b$ holds the messages whose confidence falls into the $b$-th of $B=\val{ece-bins}$ equal-width bins of $[0,1]$.
+
+\subsection{Data}\label{sec:data}
+
+Three corpora are used for training and testing (Table~\ref{tab:corpora}). The Mendeley SMS Phishing Dataset \cite{mendeley2022,mishra2023dataset} contains English messages labelled ham, smishing and spam. MOZ-Smishing \cite{moz2025} contains Portuguese messages from Mozambique labelled legitimate or smishing; it is published as a single file, so we split it ourselves. The Super SMS Dataset \cite{salman2024} contains English messages labelled ham or spam. The UCI SMS Spam Collection \cite{almeida2011} is used only to measure overlap. Smishing-4C \cite{smishing4c2024} is not used because its data are available only on request.
+
+\emph{Duplicates.} Let $\nu(x)$ be the message in lower case with every run of whitespace replaced by one space, and let $S_q(x)$ be the set of character $q$-grams of $\nu(x)$. Two messages are exact duplicates if $\nu(x)=\nu(x')$ and near duplicates if
+\begin{equation}\label{eq:jaccard}
+J(x,x')=\frac{|S_q(x)\cap S_q(x')|}{|S_q(x)\cup S_q(x')|}\ \ge\ \theta,\qquad q=\val{shingle-k},\ \theta=\val{jaccard-thr}.
+\end{equation}
+Candidate pairs are found with MinHash locality-sensitive hashing \cite{broder1997} (\val{num-perm} permutations, candidate threshold \val{lsh-thr}), and every candidate is verified with the exact value of $J$. Duplicate groups are the connected components of the graph whose edges are exact or near duplicate pairs. In a group with a single label, the message with the smallest identifier is kept. In a group with different labels, the majority label wins and the message with the smallest identifier among its carriers is kept; if the vote is tied, the whole group is removed. Labels are never rewritten. In the Mendeley corpus, \val{men-conflict-groups} groups had conflicting labels; in all of them the same or nearly the same text was labelled once as smishing and once as spam.
+
+\emph{Overlap between corpora.} The same criterion is applied across corpora. The Super SMS Dataset contains many messages of the Mendeley and UCI corpora, so every Super SMS message with an exact or near match in either of them was removed (\val{ssc-removed} messages). Only this clean variant is used.
+
+\emph{Splits.} Every corpus is split once into training, validation and test parts of \val{split-train}\%, \val{split-val}\% and \val{split-test}\%, stratified by class (random seed \val{split-seed}). A second search with a lower candidate threshold of \val{check-lsh-thr} found no exact or near duplicates between or within the parts. The Mendeley test part has \val{men-test-n} messages, of which only \val{men-test-smishing} are smishing and \val{men-test-spam} are spam; a single message therefore changes the F1 score of these classes noticeably.
+
+\input{tables/corpora}
+
+\emph{Tasks.} Five tasks are built from the corpora: (i) the main three-class task on the Mendeley corpus; (ii) ham versus malicious on the Mendeley corpus, the setting of Mahmud et al. \cite{mahmud2024}; (iii) smishing versus spam on the Mendeley corpus with ham removed from all parts, the setting of Shim et al. \cite{shim2024}, whose test part has \val{shim-test-n} messages; (iv) transfer from ham versus malicious on the Mendeley corpus to legitimate versus smishing on MOZ-Smishing; and (v) ham versus spam on the clean Super SMS corpus.
+
+\subsection{Obfuscation model}\label{sec:obfuscation}
+
+Obfuscation is modelled as a random transformation of a string. An operation $\omega$ is a pair of an applicability predicate $a_\omega(x,i)$ and an edit $e_\omega(x,i)\in\Sigma^{*}$ that replaces the character $x_i$. Five operations are defined:
+\begin{itemize}
+\item \emph{substitution}: $x_i$ belongs to one of the look-alike groups $\{0,\mathrm{o},\mathrm{O}\}$, $\{1,\mathrm{l},\mathrm{I}\}$, $\{\mathrm{a},\mathrm{A},@\}$, $\{\mathrm{e},\mathrm{E},3\}$, $\{\mathrm{s},\mathrm{S},\$\}$ and is replaced by another member of its group, chosen uniformly;
+\item \emph{space}: $x_{i-1}$ and $x_i$ are letters or digits, and a space is inserted before $x_i$;
+\item \emph{homoglyph}: $x_i$ is one of the Latin letters a, e, o, p, c, A, E, O, P, C and is replaced by the visually identical Cyrillic letter;
+\item \emph{doubling}: $x_i$ is a letter and is written twice;
+\item \emph{vowel deletion}: $x_i$ is one of the Latin vowels a, e, i, o, u (either case) and is removed.
+\end{itemize}
+The family $\Omega_{\mathrm{TR}}=\{\text{substitution},\text{space}\}$ is used for training augmentation; the family $\Omega_{\mathrm{HO}}=\{\text{homoglyph},\text{doubling},\text{vowel deletion}\}$ is held out and used only at test time.
+
+For a family $\Omega$ and a level $\lambda\in[0,1]$, let $E_\Omega(x)=\{i:\exists\,\omega\in\Omega,\ a_\omega(x,i)\}$ be the editable positions, $N(x)$ the number of non-whitespace characters and
+\begin{equation}\label{eq:nops}
+M=\min\bigl(\operatorname{round}(\lambda N(x)),\,|E_\Omega(x)|\bigr).
+\end{equation}
+The transformation $T_{\lambda,\Omega}$ draws a set $I\subseteq E_\Omega(x)$ of $M$ positions uniformly without replacement, draws for each $i\in I$ an operation $\omega_i$ uniformly from $\{\omega\in\Omega:a_\omega(x,i)\}$, and returns
+\begin{equation}\label{eq:obf}
+T_{\lambda,\Omega}(x)=z_1z_2\cdots z_L,\qquad z_i=\begin{cases}e_{\omega_i}(x,i),& i\in I,\\ x_i,& i\notin I.\end{cases}
+\end{equation}
+Applicability is evaluated on the original string, so the edits do not interact. $T_{\lambda,\Omega}(x)$ is thus a random string with a distribution determined by $x$, $\lambda$ and $\Omega$. When few positions are editable, the realised share of edited characters is below $\lambda$. Since homoglyphs and vowel deletion apply only to Latin letters, on Cyrillic text the held-out family reduces mostly to letter doubling.
+
+At test time the random stream is seeded with a fixed constant (\val{obf-seed}), the level $\lambda$ and a hash of the message identifier, so each obfuscated test set is one fixed draw that is the same for every model and independent of the order of the messages. The test levels are $\lambda\in\{\val{lvl-a}\%,\val{lvl-b}\%,\val{lvl-c}\%\}$ for both families. For training augmentation, a message is replaced with probability $p=\val{aug-p}$ by $T_{\lambda,\Omega_{\mathrm{TR}}}(x)$ with $\lambda\sim U(0,\val{aug-max})$, and is left unchanged otherwise. Neural models draw a new augmentation in every epoch; the linear model receives one augmented copy of the training data per seed in place of the original.
+
+\subsection{Character-level model}\label{sec:lite}
+
+Let $\varphi(x)\in\mathbb{R}^{d}$ be the TF-IDF vector of the character $n$-grams of $x$ for $n=\val{char-ng-lo},\dots,\val{char-ng-hi}$ (lower case, sublinear term frequency), fitted on the training data. A linear support vector machine \cite{cortes1995,joachims1998} is trained one-versus-rest and gives the scores $s_k(x)=\mathbf{w}_k^{\top}\varphi(x)+b_k$; the regularisation constant $C=\val{svm-c}$ and balanced class weights are those chosen for the word-and-character linear SVM baseline on the validation data. The scores are calibrated with Platt's sigmoid \cite{niculescu2005},
+\begin{equation}\label{eq:platt}
+q_k(x)=\frac{1}{1+\exp\bigl(A_k s_k(x)+B_k\bigr)},\qquad f_k(x)=\frac{q_k(x)}{\sum_{j=1}^{K}q_j(x)},
+\end{equation}
+where $(A_k,B_k)$ maximise the likelihood of the out-of-fold scores of a \val{calib-folds}-fold cross-validation on the training data, and the final machine is refitted on all training data. In binary tasks a single sigmoid gives the probability of the positive class. We call this calibrated model the \emph{character model}. Without augmentation it is a baseline; with augmentation it is the first stage of the cascade.
+
+\subsection{Cascade and the choice of the threshold}\label{sec:cascade}
+
+The second stage $g$ is DistilBERT \cite{sanh2019} (the uncased base model). Its [CLS] representation is projected to $\val{fusion-d}$ dimensions and fed to two linear heads, one for the three classes and one for ham versus malicious; the loss is $\mathcal{L}=\mathrm{CE}_3+\val{aux-w}\,\mathrm{CE}_2$, where $\mathrm{CE}$ is the cross-entropy. It is fine-tuned with learning rate $\val{distil-lr}$, batch size \val{distil-batch} and input length \val{max-len} tokens for at most \val{distil-epochs} epochs, with early stopping on the macro F1 of the clean validation data (patience \val{distil-patience}) and with a new augmentation in every epoch. In binary tasks it has a single two-class head.
+
+Given the first stage $f$, the second stage $g$ and a threshold $\tau$, the cascade predicts
+\begin{equation}\label{eq:cascade}
+h_\tau(x)=\begin{cases}\hat{y}_f(x), & c_f(x)\ge\tau,\\ \hat{y}_g(x), & c_f(x)<\tau,\end{cases}
+\end{equation}
+so the second stage runs only for messages on which the first stage is not confident (Fig.~\ref{fig:cascade}). The share of a data set $D$ that reaches the second stage and the resulting mean cost per message are
+\begin{equation}\label{eq:share}
+\rho_\tau(D)=\frac{1}{|D|}\sum_{x\in D}\mathbf{1}[c_f(x)<\tau],\qquad \bar{t}(h_\tau)=t_f+\rho_\tau(D)\,t_g,
+\end{equation}
+where $t_f$ and $t_g$ are the costs of the two stages. Since $c_f(x)\ge 1/K$, every $\tau\le 1/K$ gives the first stage alone and every $\tau>1$ gives the second stage alone.
+
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[font=\footnotesize, node distance=4mm,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=8mm, inner sep=3pt},
+  arr/.style={-{Stealth[length=2mm]}}]
+\node[box] (x) {message\\$x$};
+\node[box, right=of x] (f) {character model $f$\\(calibrated SVM)};
+\node[box, diamond, aspect=2.2, inner sep=1pt, right=of f] (d) {$c_f(x)\ge\tau$?};
+\node[box, above right=2mm and 4mm of d] (y1) {$\hat{y}_f(x)$};
+\node[box, below=7mm of d] (g) {DistilBERT $g$};
+\node[box, right=4mm of g] (y2) {$\hat{y}_g(x)$};
+\draw[arr] (x) -- (f);
+\draw[arr] (f) -- (d);
+\draw[arr] (d) |- node[pos=0.75, above] {yes} (y1);
+\draw[arr] (d) -- node[right] {no} (g);
+\draw[arr] (g) -- (y2);
+\end{tikzpicture}}
+\caption{Two-stage cascade: the transformer is called only when the calibrated confidence of the character model is below $\tau$}
+\label{fig:cascade}
+\end{figure}
+
+The threshold is chosen on the clean validation data $V$ of the three-class task. Let $\mathcal{S}$ be the training seeds for which validation probabilities of both stages were available (seeds \val{tau-seeds}), and $h^{(s)}_\tau$ the cascade of seed $s$. As a function of $\tau$, the predictions on $V$ change only when $\tau$ crosses a confidence value $c_{f^{(s)}}(x)$, so the candidate set
+\begin{equation}\label{eq:cands}
+\mathcal{T}=\{0\}\cup\{c_{f^{(s)}}(x):x\in V,\ s\in\mathcal{S}\}\cup\{1+\varepsilon\}
+\end{equation}
+contains every attainable value of the criterion. The threshold is
+\begin{equation}\label{eq:tau}
+\tau^{*}=\min\Bigl\{\arg\max_{\tau\in\mathcal{T}}\ \frac{1}{|\mathcal{S}|}\sum_{s\in\mathcal{S}}\mathrm{F1}_{\mathrm{macro}}\bigl(h^{(s)}_\tau;V\bigr)\Bigr\},
+\end{equation}
+that is, the value with the highest mean validation macro F1, and among ties the smallest one, which calls the second stage least often. This gives $\tau^{*}=\val{tau}$. The value was fixed before the test data were read and used for all \val{n-seeds} seeds, including those not in $\mathcal{S}$. For each binary task the same criterion was applied to the clean validation data of that task over the \val{n-seeds} seeds of the final run, again before any test prediction was scored.
+
+Four ablations isolate the parts of the cascade: the first stage alone, the second stage alone, the cascade of the two models trained without augmentation (with its own threshold $\val{tau-noaug}$ chosen by the same procedure) and the average of the probabilities of the two stages.
+
+\subsection{Cost of errors}\label{sec:cost}
+
+In the ham-versus-malicious view, let $\mathrm{FN}=|\{i:m(y_i)=1,\ m(\hat{y}_i)=0\}|$ be the missed malicious messages and $\mathrm{FP}=|\{i:m(y_i)=0,\ m(\hat{y}_i)=1\}|$ the false alarms. If a missed malicious message costs $r$ times as much as a false alarm, the mean loss per message is
+\begin{equation}\label{eq:cost}
+L_r=\frac{r\,\mathrm{FN}+\mathrm{FP}}{n},\qquad r\in\{\val{cost-r1},\val{cost-r2},\val{cost-r3}\}.
+\end{equation}
+Confusion between smishing and spam costs nothing in this view, and $L_r$ is not defined for the smishing-versus-spam task. All predictions use the argmax rule (\ref{eq:pred}). A rule that minimises the expected loss for a given $r$ would instead flag a message as malicious when its probability of being malicious exceeds $1/(1+r)$; this rule was not part of the frozen protocol and is not evaluated.
+
+\subsection{Statistical tests}\label{sec:stats}
+
+Two models $a$ and $b$ are compared on the same test set with the predictions of seed 1. Let $\Delta=\mathrm{F1}_{\mathrm{macro}}(a)-\mathrm{F1}_{\mathrm{macro}}(b)$.
+
+\emph{Paired bootstrap} \cite{efron1993}. For $j=1,\dots,B$ with $B=\val{boot-n}$, multiplicities $\mathbf{w}^{(j)}\sim\mathrm{Multinomial}(n;\tfrac{1}{n},\dots,\tfrac{1}{n})$ are drawn, which is equivalent to resampling the $n$ test messages with replacement, and $\Delta^{(j)}$ is computed for both models on the same weighted sample (random seed \val{boot-seed}). The 95\% interval is formed by the 2.5 and 97.5 percentiles of $\Delta^{(1)},\dots,\Delta^{(B)}$, and the two-sided $p$-value is
+\begin{equation}\label{eq:bootp}
+p=\min\Bigl\{1,\ 2\min\Bigl(\frac{1+|\{j:\Delta^{(j)}\le 0\}|}{B+1},\ \frac{1+|\{j:\Delta^{(j)}\ge 0\}|}{B+1}\Bigr)\Bigr\}.
+\end{equation}
+
+\emph{McNemar test} \cite{mcnemar1947,dietterich1998}. Let $b$ be the number of test messages that model $a$ classifies correctly and model $b$ does not, and $c$ the number of the opposite case. If $b+c<\val{mcn-exact}$, the exact two-sided binomial test of $b\sim\mathrm{Bin}(b+c,\tfrac{1}{2})$ is used; otherwise
+\begin{equation}\label{eq:mcnemar}
+\chi^2=\frac{(|b-c|-1)^2}{b+c}
+\end{equation}
+is compared with the $\chi^2$ distribution with one degree of freedom. The bootstrap tests the difference in macro F1; the McNemar test tests the difference in accuracy on the paired messages.
+
+\emph{Holm correction} \cite{holm1979,aickin1996}. Within each condition (a task and one test set), the $m$ $p$-values of one test are sorted, $p_{(1)}\le\dots\le p_{(m)}$, and adjusted as
+\begin{equation}\label{eq:holm}
+\tilde{p}_{(i)}=\max_{j\le i}\ \min\bigl\{1,\ (m-j+1)\,p_{(j)}\bigr\}.
+\end{equation}
+A difference is called significant if $\tilde{p}\le\alpha=\val{alpha}$; the correction is applied separately to the bootstrap and to the McNemar $p$-values.
+
+\emph{Comparisons.} In each condition the cascade is compared with the best baseline, defined as the model with the highest mean test macro F1 over the \val{n-seeds} seeds among the baselines. The two stages alone count as baselines; the cascade without augmentation, the average of the two stages, our earlier designs and the re-implemented published methods do not. Because this baseline is chosen on the test data, the comparison is conservative for the cascade. In the settings of the published methods, the cascade is also compared with each re-implemented method. A post-hoc comparison of the character model with the published methods, which was not part of the frozen plan, is reported separately and marked as such. Both tests capture the sampling variation of the test set for fixed trained models; the variation between training seeds is reported as the standard deviation over seeds, and a difference of means larger than the larger of the two standard deviations is described as beyond the seed spread.
+
+\subsection{Experimental protocol}\label{sec:protocol}
+
+\emph{Baselines.} The classical baselines are logistic regression, a linear SVM with sigmoid calibration, random forests \cite{breiman2001} and gradient-boosted trees \cite{chen2016} on TF-IDF features of words, characters or both. The neural baselines are a convolutional network \cite{kim2014}, a bidirectional LSTM \cite{hochreiter1997}, and fine-tuned DistilBERT and BERT \cite{devlin2019} with at most \val{bert-epochs} epochs and early stopping. Their hyperparameters were tuned on the validation data with the tree-structured Parzen estimator of Optuna \cite{akiba2019} (\val{optuna-trials} trials per model and task, macro F1 as the objective). Qwen2.5-7B-Instruct \cite{qwen2024} is used without training, with a fixed prompt, \val{qwen-shots} examples drawn from the training data and balanced over the classes, 4-bit weights and greedy decoding; an answer that is not one of the label words counts as an error. Two earlier designs of ours, which fuse the DistilBERT representation through a learned gate with \val{hand-n} hand-crafted features (version 1) or with these features and \val{svd-k} truncated SVD components of the character TF-IDF vector (version 2), are reported as negative results. The implementation uses scikit-learn \cite{pedregosa2011} and Transformers \cite{wolf2020}.
+
+\emph{Published methods.} The method of Mahmud et al. \cite{mahmud2024} is re-implemented as described in their paper: lower casing and removal of stop words and punctuation, \val{mh-w2v}-dimensional Word2Vec embeddings, a one-dimensional convolution with \val{mh-filters} filters of width \val{mh-kernel}, max pooling of size \val{mh-pool}, a bidirectional GRU with \val{mh-gru} units and dropout \val{mh-drop}, a sigmoid output, Adam, batch size \val{mh-batch} and \val{mh-epochs} epochs. For Shim et al. \cite{shim2024}, BERT, DistilBERT and RoBERTa \cite{liu2019} base models are fine-tuned with AdamW for at most \val{sh-epochs} epochs, and the batch size $\in\{\val{sh-batches}\}$, the learning rate $\in\{\val{sh-lrs}\}$ and the number of epochs are chosen on a stratified \val{sh-inner}\% part of the training data, as in their grid; the model is then retrained on all training data. The augmentation with generated messages of Shim et al. is not reproduced. Settings that the papers do not state (for example the stop-word list, the maximum length of \val{mh-maxlen} tokens for Mahmud et al. and the inner validation split for Shim et al.) were fixed by us before any result was seen. The cascade and our baselines are trained and evaluated in each published setting on the same data.
+
+\emph{Further conditions.} For low data, nested stratified subsets of \val{ld-a}\%, \val{ld-b}\%, \val{ld-c}\% and \val{ld-d}\% of the training data (at least \val{ld-min} messages per class) are used with the full validation data for early stopping and the frozen $\tau^{*}$. For transfer, models are trained on ham versus malicious in the Mendeley corpus and tested on MOZ-Smishing without target data (zero-shot) and after fine-tuning on a stratified \val{tr-frac}\% subset of the MOZ-Smishing training data; the transformer in this condition is the multilingual cased DistilBERT, and the linear models are refitted on the source training data together with the subset.
+
+\emph{Seeds and freezing.} Every model is trained with \val{n-seeds} seeds (1 to \val{seed-last}), and results are reported as the mean $\pm$ standard deviation over seeds. The design of the method was developed on the validation data only. Before the test data were read, the models, conditions, metrics, comparisons and $\tau^{*}$ were fixed in a configuration file under version control, with one addendum that was also committed before the test data were read. The test data were then evaluated once. For the clean test set, the classical, neural and few-shot baselines are scored from the saved predictions of their earlier final runs with the tuned hyperparameters and the same seeds; for every other test set they were retrained with these parameters and seeds.
+
+\emph{Hardware and timing.} Training ran on Kaggle with two NVIDIA T4 GPUs. Latency was measured on a Kaggle CPU with one thread and batch size one: for each model, \val{lat-msgs} test messages after \val{lat-warmup} warm-up calls, reporting the median (p50), the 95th percentile (p95) and the throughput. The cascade was measured end to end on all \val{men-test-n} messages of the three-class test set in file order, with the second stage called whenever $c_f(x)<\tau^{*}$. The few-shot language model needs a GPU for its 4-bit weights and was timed on a T4 GPU only.

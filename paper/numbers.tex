@@ -5,6 +5,11 @@
 \@namedef{val@men-in-uci}{4914}% reports/stats/overlap.json mendeley_uci[clean] exact_or_near
 \@namedef{val@men-in-uci-pct}{85.6}% reports/stats/overlap.json / dedup_mendeley.json
 \@namedef{val@men-removed}{232}% reports/stats/dedup_mendeley.json rows_before - rows_after
+\@namedef{val@men-test-n}{1148}% reports/stats/split_mendeley.json
+\@namedef{val@men-test-smishing}{99}% reports/stats/split_mendeley.json
+\@namedef{val@men-test-spam}{84}% reports/stats/split_mendeley.json
+\@namedef{val@shim-test-n}{183}% reports/stats/split_mendeley.json (smishing + spam)
+\@namedef{val@ssc-removed}{4431}% reports/stats/super_sms_clean.json removed
 \@namedef{val@men-conflict-groups}{41}% reports/stats/dedup_mendeley.json conflict_groups (exact + near)
 \@namedef{val@cascade-clean-f1}{0.9316}% results/final/metrics.csv (mean over 5 seeds)
 \@namedef{val@cascade-clean-f1-sd}{0.0074}% results/final/metrics.csv (mean over 5 seeds)
@@ -35,5 +40,69 @@
 \@namedef{val@lat-distilaug-p50}{41.8}% results/final/latency.csv
 \@namedef{val@lat-svmcharaug-p50}{1.46}% results/final/latency.csv
 \@namedef{val@n-seeds}{5}% configs/final.yaml seeds
+\@namedef{val@seed-last}{5}% configs/final.yaml seeds
+\@namedef{val@shingle-k}{5}% src/data/common.py SHINGLE_K
+\@namedef{val@jaccard-thr}{0.9}% src/data/common.py JACCARD_THRESHOLD
+\@namedef{val@num-perm}{128}% src/data/common.py NUM_PERM
+\@namedef{val@lsh-thr}{0.7}% src/data/common.py
+\@namedef{val@check-lsh-thr}{0.5}% src/data/split.py
+\@namedef{val@split-train}{70}% src/data/split.py FRACTIONS
+\@namedef{val@split-val}{10}% src/data/split.py FRACTIONS
+\@namedef{val@split-test}{20}% src/data/split.py FRACTIONS
+\@namedef{val@split-seed}{42}% src/data/common.py SEED
+\@namedef{val@ece-bins}{15}% configs/step2.yaml ece_bins
+\@namedef{val@lvl-a}{5}% configs/step4c.yaml eval_levels
+\@namedef{val@lvl-b}{10}% configs/step4c.yaml eval_levels
+\@namedef{val@lvl-c}{20}% configs/step4c.yaml eval_levels
+\@namedef{val@obf-seed}{2026}% src/eval/obfuscation.py SEED
+\@namedef{val@aug-p}{0.5}% configs/step4c.yaml augmentation
+\@namedef{val@aug-max}{0.2}% configs/step4c.yaml augmentation
+\@namedef{val@char-ng-lo}{2}% configs/step4c.yaml char_branch
+\@namedef{val@char-ng-hi}{5}% configs/step4c.yaml char_branch
+\@namedef{val@svm-c}{0.583}% results/best_params/mendeley_3class/linear_svm.json
+\@namedef{val@calib-folds}{5}% configs/step2.yaml linear_svm
+\@namedef{val@distil-lr}{6.19\times 10^{-5}}% configs/step4a.yaml text.lr
+\@namedef{val@distil-batch}{32}% configs/step4a.yaml text
+\@namedef{val@distil-epochs}{5}% configs/step4a.yaml text
+\@namedef{val@distil-patience}{2}% configs/step4a.yaml text
+\@namedef{val@max-len}{128}% configs/step4a.yaml text
+\@namedef{val@fusion-d}{256}% configs/step4a.yaml fusion.d
+\@namedef{val@aux-w}{0.5}% configs/step4a.yaml fusion
+\@namedef{val@hand-n}{14}% src/fusion/features.py FEATURES
+\@namedef{val@svd-k}{256}% configs/step4c.yaml char_branch
+\@namedef{val@tau}{0.6651}% configs/final.yaml method.tau
+\@namedef{val@tau-noaug}{0.5772}% configs/final.yaml ablations
+\@namedef{val@tau-seeds}{1--3}% scripts/freeze_tau.py: seeds with step-4c val probabilities
+\@namedef{val@cost-r1}{1}% configs/final.yaml cost_ratios
+\@namedef{val@cost-r2}{5}% configs/final.yaml cost_ratios
+\@namedef{val@cost-r3}{10}% configs/final.yaml cost_ratios
+\@namedef{val@boot-n}{10\,000}% configs/final.yaml significance
+\@namedef{val@boot-seed}{42}% configs/final.yaml significance
+\@namedef{val@alpha}{0.05}% configs/final.yaml significance
+\@namedef{val@mcn-exact}{25}% src/eval/stats.py mcnemar
+\@namedef{val@optuna-trials}{20}% configs/step2.yaml n_trials
+\@namedef{val@qwen-shots}{8}% configs/step3.yaml qwen_fewshot
+\@namedef{val@bert-epochs}{5}% configs/step3.yaml bert
+\@namedef{val@ld-a}{1}% configs/final.yaml low_data fractions
+\@namedef{val@ld-b}{5}% configs/final.yaml low_data fractions
+\@namedef{val@ld-c}{10}% configs/final.yaml low_data fractions
+\@namedef{val@ld-d}{25}% configs/final.yaml low_data fractions
+\@namedef{val@ld-min}{5}% configs/step4b.yaml low_data
+\@namedef{val@tr-frac}{10}% configs/step4b.yaml transfer
+\@namedef{val@mh-w2v}{100}% configs/step5a.yaml mahmud
+\@namedef{val@mh-filters}{32}% configs/step5a.yaml mahmud
+\@namedef{val@mh-kernel}{3}% configs/step5a.yaml mahmud
+\@namedef{val@mh-pool}{2}% configs/step5a.yaml mahmud
+\@namedef{val@mh-gru}{64}% configs/step5a.yaml mahmud
+\@namedef{val@mh-drop}{0.2}% configs/step5a.yaml mahmud
+\@namedef{val@mh-batch}{128}% configs/step5a.yaml mahmud
+\@namedef{val@mh-epochs}{50}% configs/step5a.yaml mahmud
+\@namedef{val@mh-maxlen}{100}% configs/step5a.yaml mahmud
+\@namedef{val@sh-batches}{8, 16, 32}% configs/step5a.yaml shim
+\@namedef{val@sh-lrs}{1\times 10^{-6}, 5\times 10^{-6}, 1\times 10^{-5}, 5\times 10^{-5}}% configs/step5a.yaml shim
+\@namedef{val@sh-epochs}{10}% configs/step5a.yaml shim
+\@namedef{val@sh-inner}{20}% configs/step5a.yaml shim
+\@namedef{val@lat-msgs}{1\,000}% configs/final.yaml latency
+\@namedef{val@lat-warmup}{20}% configs/final.yaml latency
 \makeatother
 \newcommand{\val}[1]{\ifcsname val@#1\endcsname\csname val@#1\endcsname\else\textbf{??#1??}\fi}
