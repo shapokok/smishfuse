@@ -1,0 +1,50 @@
+# key kind id; all verified (Crossref / arXiv / DataCite / official proceedings page) before inclusion
+almeida2011 doi 10.1145/2034691.2034742
+mishra2023dataset doi 10.1007/978-3-031-27524-1_57  # dropped: 45-reference limit
+mishra2023dsmishsms doi 10.1007/s00521-021-06305-y
+sonowal2020 doi 10.1007/s42979-020-00377-8
+mahmud2024 doi 10.3390/systems12110490
+shim2024 arxiv 2411.02403
+salman2024 doi 10.1109/ACCESS.2024.3364671
+timko2024 arxiv 2402.18430
+roy2020 doi 10.1016/j.future.2019.09.001
+ghourabi2023 doi 10.3390/s23083861
+cortes1995 doi 10.1007/BF00994018
+joachims1998 doi 10.1007/BFb0026683
+niculescu2005 doi 10.1145/1102351.1102430
+zadrozny2002 doi 10.1145/775047.775151  # dropped: 45-reference limit
+breiman2001 doi 10.1023/A:1010933404324
+chen2016 doi 10.1145/2939672.2939785
+kim2014 doi 10.3115/v1/D14-1181
+hochreiter1997 doi 10.1162/neco.1997.9.8.1735
+devlin2019 doi 10.18653/v1/N19-1423
+sanh2019 arxiv 1910.01108
+liu2019 arxiv 1907.11692
+qwen2024 arxiv 2412.15115
+nllb2024 doi 10.1038/s41586-024-07335-x
+gao2018 doi 10.1109/SPW.2018.00016
+li2019 doi 10.14722/ndss.2019.23138
+pruthi2019 doi 10.18653/v1/P19-1561
+boucher2022 doi 10.1109/SP46214.2022.9833641
+belinkov2018 arxiv 1711.02173
+viola2001 doi 10.1109/CVPR.2001.990517
+teerapittayanon2016 doi 10.1109/ICPR.2016.7900006
+schwartz2020 doi 10.18653/v1/2020.acl-main.593
+xin2020 doi 10.18653/v1/2020.acl-main.204  # dropped: 45-reference limit
+mcnemar1947 doi 10.1007/BF02295996
+efron1993 doi 10.1007/978-1-4899-4541-9
+dietterich1998 doi 10.1162/089976698300017197
+guo2017 arxiv 1706.04599
+kapoor2023 doi 10.1016/j.patter.2023.100804
+lee2022 doi 10.18653/v1/2022.acl-long.577
+allamanis2019 doi 10.1145/3359591.3359735  # dropped: 45-reference limit
+broder1997 doi 10.1109/SEQUEN.1997.666900
+akiba2019 doi 10.1145/3292500.3330701
+pedregosa2011 arxiv 1201.0490
+wolf2020 doi 10.18653/v1/2020.emnlp-demos.6
+mishra2022detector doi 10.1007/s42979-022-01078-0
+aickin1996 doi 10.2105/AJPH.86.5.726
+moz2025 doi 10.18653/v1/2025.africanlp-1.23
+mendeley2022 doi 10.17632/f45bkkt8pr.1 (DataCite)
+smishing4c2024 url https://ceur-ws.org/Vol-3846/paper06.pdf (CEUR index)
+holm1979 url https://www.jstor.org/stable/4615733 (author decision; JSTOR page not machine-readable)

@@ -1,0 +1,68 @@
+\documentclass[10pt]{NSP1}
+\usepackage{url,floatflt}
+\usepackage{helvet,times}
+\usepackage{psfig,graphics}
+\usepackage{mathptmx,amsmath,amssymb,bm}
+\usepackage{float}
+\usepackage[bf,hypcap]{caption}
+
+\usepackage[dvipsnames,table,xcdraw]{xcolor}
+
+\addtolength{\oddsidemargin}{.5in}
+\addtolength{\evensidemargin}{-.5in}
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+\topmargin=0.00cm
+
+\def\sm{\smallskip}
+\def\no{\noindent}
+
+\def\firstpage{1}
+\setcounter{page}{\firstpage}
+\def\thevol{1}
+\def\thenumber{?}
+\def\theyear{2026}
+
+% every number in the text comes from this generated file (paper/tools/paper_numbers.py)
+\input{numbers}
+
+\begin{document}
+
+\titlefigurecaption{{\large \bf \rm Applied Mathematics \& Information Sciences }\\ {\it\small An International Journal}}
+
+\title{Robust Real-Time Detection of Fraudulent Short Text Messages with Calibrated Character-Level Cascades}
+
+% placeholders: authors and affiliations are filled in by the authors
+\author{Author One\hyperlink{author1}{$^1$} and Author Two\hyperlink{author2}{$^2$}}
+\institute{$^1$Affiliation One, City, Country\\
+$^2$Affiliation Two, City, Country}
+
+\titlerunning{Calibrated character-level cascades for fraudulent message detection}
+\authorrunning{A. One, A. Two}
+
+%corresponding author email
+\mail{corresponding.author@example.org}
+
+\received{...}
+\revised{...}
+\accepted{...}
+\published{...}
+
+\abstracttext{To be written after the main text.}
+
+\keywords{cascade classification, character n-grams, obfuscation robustness, phishing detection, statistical significance}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/conclusion}
+
+\input{bibliography}
+
+\end{document}
