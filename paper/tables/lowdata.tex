@@ -2,23 +2,23 @@
 \begin{table*}[t]
 \caption{Low-data regime and transfer to Portuguese messages}
 \label{tab:lowdata}
-\centering\footnotesize\setlength{\tabcolsep}{2.5pt}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
 \begin{tabular}{lccccccc}
 \hline
  & \multicolumn{5}{c}{Share of the Mendeley training data} & \multicolumn{2}{c}{Transfer to MOZ-Smishing} \\
 \cmidrule(lr){2-6}\cmidrule(lr){7-8}
 Model & 1\% & 5\% & 10\% & 25\% & 100\% & zero-shot & fine-tuned \\
 \hline
-Cascade & 0.6957 $\pm$ 0.0312 & 0.8145 $\pm$ 0.0177 & 0.8116 $\pm$ 0.0146 & 0.8803 $\pm$ 0.0170 & 0.9316 $\pm$ 0.0074 & 0.6115 $\pm$ 0.0174 & \textbf{0.9705} $\pm$ 0.0037 \\
-Char SVM, aug. (stage 1) & 0.6972 $\pm$ 0.0115 & 0.8370 $\pm$ 0.0095 & 0.8685 $\pm$ 0.0086 & 0.8917 $\pm$ 0.0077 & 0.9310 $\pm$ 0.0036 & 0.5091 $\pm$ 0.0122 & 0.9320 $\pm$ 0.0058 \\
-Char SVM & \textbf{0.7073} $\pm$ 0.0100 & \textbf{0.8461} $\pm$ 0.0041 & \textbf{0.8843} $\pm$ 0.0026 & \textbf{0.8996} $\pm$ 0.0021 & \textbf{0.9374} $\pm$ 0.0000 & 0.5184 $\pm$ 0.0020 & 0.9423 $\pm$ 0.0047 \\
-DistilBERT, aug. (stage 2) & 0.5418 $\pm$ 0.1481 & 0.7276 $\pm$ 0.0508 & 0.7366 $\pm$ 0.0586 & 0.8529 $\pm$ 0.0187 & 0.9149 $\pm$ 0.0115 & \textbf{0.6133} $\pm$ 0.0193 & 0.9645 $\pm$ 0.0039 \\
-DistilBERT, stage-2 model, no aug. & 0.5988 $\pm$ 0.0697 & 0.7823 $\pm$ 0.0503 & 0.8036 $\pm$ 0.0185 & 0.8564 $\pm$ 0.0201 & 0.9183 $\pm$ 0.0108 & 0.5773 $\pm$ 0.0456 & 0.9617 $\pm$ 0.0049 \\
-BERT & 0.3341 $\pm$ 0.0663 & 0.5960 $\pm$ 0.0772 & 0.7865 $\pm$ 0.0411 & 0.8362 $\pm$ 0.0307 & 0.9195 $\pm$ 0.0039 & -- & -- \\
-TF-IDF + SVM & 0.6651 $\pm$ 0.0175 & 0.8036 $\pm$ 0.0108 & 0.8575 $\pm$ 0.0055 & 0.8762 $\pm$ 0.0023 & 0.9259 $\pm$ 0.0019 & 0.3859 $\pm$ 0.0016 & 0.9601 $\pm$ 0.0000 \\
-TF-IDF + LR & 0.6363 $\pm$ 0.0000 & 0.7171 $\pm$ 0.0000 & 0.8519 $\pm$ 0.0000 & 0.8669 $\pm$ 0.0000 & 0.9181 $\pm$ 0.0012 & 0.4162 $\pm$ 0.0000 & 0.9571 $\pm$ 0.0000 \\
-Gated fusion v1 & 0.6247 $\pm$ 0.0684 & 0.7736 $\pm$ 0.0105 & 0.8118 $\pm$ 0.0153 & 0.8518 $\pm$ 0.0131 & 0.9179 $\pm$ 0.0120 & 0.5536 $\pm$ 0.0254 & 0.9635 $\pm$ 0.0081 \\
-Gated fusion v2, aug. & 0.3640 $\pm$ 0.1330 & 0.7814 $\pm$ 0.0616 & 0.7641 $\pm$ 0.0389 & 0.8663 $\pm$ 0.0097 & 0.9234 $\pm$ 0.0097 & -- & -- \\
+Cascade & \begin{tabular}[t]{@{}c@{}}0.6957\\$\pm$0.0312\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8145\\$\pm$0.0177\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8116\\$\pm$0.0146\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8803\\$\pm$0.0170\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9316\\$\pm$0.0074\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.6115\\$\pm$0.0174\end{tabular} & \begin{tabular}[t]{@{}c@{}}\textbf{0.9705}\\$\pm$0.0037\end{tabular} \\
+Char SVM, aug. (stage 1) & \begin{tabular}[t]{@{}c@{}}0.6972\\$\pm$0.0115\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8370\\$\pm$0.0095\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8685\\$\pm$0.0086\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8917\\$\pm$0.0077\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9310\\$\pm$0.0036\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.5091\\$\pm$0.0122\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9320\\$\pm$0.0058\end{tabular} \\
+Char SVM & \begin{tabular}[t]{@{}c@{}}\textbf{0.7073}\\$\pm$0.0100\end{tabular} & \begin{tabular}[t]{@{}c@{}}\textbf{0.8461}\\$\pm$0.0041\end{tabular} & \begin{tabular}[t]{@{}c@{}}\textbf{0.8843}\\$\pm$0.0026\end{tabular} & \begin{tabular}[t]{@{}c@{}}\textbf{0.8996}\\$\pm$0.0021\end{tabular} & \begin{tabular}[t]{@{}c@{}}\textbf{0.9374}\\$\pm$0.0000\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.5184\\$\pm$0.0020\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9423\\$\pm$0.0047\end{tabular} \\
+DistilBERT, aug. (stage 2) & \begin{tabular}[t]{@{}c@{}}0.5418\\$\pm$0.1481\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7276\\$\pm$0.0508\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7366\\$\pm$0.0586\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8529\\$\pm$0.0187\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9149\\$\pm$0.0115\end{tabular} & \begin{tabular}[t]{@{}c@{}}\textbf{0.6133}\\$\pm$0.0193\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9645\\$\pm$0.0039\end{tabular} \\
+DistilBERT, stage-2 model, no aug. & \begin{tabular}[t]{@{}c@{}}0.5988\\$\pm$0.0697\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7823\\$\pm$0.0503\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8036\\$\pm$0.0185\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8564\\$\pm$0.0201\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9183\\$\pm$0.0108\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.5773\\$\pm$0.0456\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9617\\$\pm$0.0049\end{tabular} \\
+BERT & \begin{tabular}[t]{@{}c@{}}0.3341\\$\pm$0.0663\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.5960\\$\pm$0.0772\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7865\\$\pm$0.0411\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8362\\$\pm$0.0307\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9195\\$\pm$0.0039\end{tabular} & -- & -- \\
+TF-IDF + SVM & \begin{tabular}[t]{@{}c@{}}0.6651\\$\pm$0.0175\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8036\\$\pm$0.0108\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8575\\$\pm$0.0055\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8762\\$\pm$0.0023\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9259\\$\pm$0.0019\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.3859\\$\pm$0.0016\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9601\\$\pm$0.0000\end{tabular} \\
+TF-IDF + LR & \begin{tabular}[t]{@{}c@{}}0.6363\\$\pm$0.0000\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7171\\$\pm$0.0000\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8519\\$\pm$0.0000\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8669\\$\pm$0.0000\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9181\\$\pm$0.0012\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.4162\\$\pm$0.0000\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9571\\$\pm$0.0000\end{tabular} \\
+Gated fusion v1 & \begin{tabular}[t]{@{}c@{}}0.6247\\$\pm$0.0684\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7736\\$\pm$0.0105\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8118\\$\pm$0.0153\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8518\\$\pm$0.0131\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9179\\$\pm$0.0120\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.5536\\$\pm$0.0254\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9635\\$\pm$0.0081\end{tabular} \\
+Gated fusion v2, aug. & \begin{tabular}[t]{@{}c@{}}0.3640\\$\pm$0.1330\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7814\\$\pm$0.0616\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.7641\\$\pm$0.0389\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.8663\\$\pm$0.0097\end{tabular} & \begin{tabular}[t]{@{}c@{}}0.9234\\$\pm$0.0097\end{tabular} & -- & -- \\
 \hline
 Cascade: share routed to stage 2, \% & 17.9 & 9.2 & 7.8 & 5.3 & 2.1 & 68.4 & 77.3 \\
 \hline

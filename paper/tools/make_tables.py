@@ -108,6 +108,18 @@ def cell(cond, test, model, col="macro_f1", sd=True, digits=4, bold=False) -> st
     return txt + (f" $\\pm$ {v.std(ddof=1):.{digits}f}" if sd else "")
 
 
+def stacked(cond, test, model, bold=False) -> str:
+    """Mean over the standard deviation in one cell (keeps 8 pt type in tables with many columns)."""
+    v = vals(cond, test, model)
+    if not len(v):
+        return "--"
+    if len(v) != 5:
+        raise ValueError(f"{cond}/{test}/{model}: {len(v)} seeds")
+    m = f"{v.mean():.4f}"
+    m = f"\\textbf{{{m}}}" if bold else m
+    return f"\\begin{{tabular}}[t]{{@{{}}c@{{}}}}{m}\\\\$\\pm${v.std(ddof=1):.4f}\\end{{tabular}}"
+
+
 def best_in(cond, test, models, col="macro_f1", low=False) -> str | None:
     xs = {x: mean_of(cond, test, x, col) for x in models}
     xs = {k: v for k, v in xs.items() if not math.isnan(v)}
@@ -219,11 +231,11 @@ def robustness_table() -> str:
     best = {t: best_in(c, t, allrows) for t in ROB_TESTS}
     body = []
     for i, x in enumerate(ROB_MAIN):
-        body.append(" & ".join([name(x)] + [cell(c, t, x, bold=best[t] == x) for t in ROB_TESTS]) + " \\\\")
+        body.append(" & ".join([name(x)] + [stacked(c, t, x, bold=best[t] == x) for t in ROB_TESTS]) + " \\\\")
     body.append("\\hline")
     body.append(f"\\multicolumn{{{len(ROB_TESTS) + 1}}}{{l}}{{\\emph{{Ablations of the cascade and earlier designs}}}} \\\\")
     for x in ROB_ABL:
-        body.append(" & ".join([name(x)] + [cell(c, t, x, bold=best[t] == x) for t in ROB_TESTS]) + " \\\\")
+        body.append(" & ".join([name(x)] + [stacked(c, t, x, bold=best[t] == x) for t in ROB_TESTS]) + " \\\\")
     body.append("\\hline")
     share = [f"{100 * mean_of(c, t, 'cascade', 'routed_share'):.1f}" for t in ROB_TESTS]
     body.append(" & ".join(["Cascade: share routed to stage 2, \\%"] + share) + " \\\\")
@@ -234,7 +246,7 @@ def robustness_table() -> str:
             "column in bold. Percentages are obfuscation levels $\\lambda$. The TRAIN family is used in the "
             "augmentation of the models marked aug.; the HELD-OUT family is never used in training.")
     return wrap("tab:robustness", "Robustness to character obfuscation and ablations of the cascade",
-                "l" + "c" * len(ROB_TESTS), head, body, note, sep="2.5pt")
+                "l" + "c" * len(ROB_TESTS), head, body, note, sep="3pt")
 
 
 # ---------------------------------------------------------------- T5 low data and transfer
@@ -248,7 +260,7 @@ def lowdata_table() -> str:
     cols = [(f"low_data_frac{f}", "clean") for f in fr] + [("mendeley_3class", "clean"),
                                                            ("transfer", "zeroshot"), ("transfer", "finetune10")]
     best = {cc: best_in(cc[0], cc[1], LD_ROWS) for cc in cols}
-    body = [" & ".join([name(x)] + [cell(a, b, x, bold=best[(a, b)] == x) for a, b in cols]) + " \\\\"
+    body = [" & ".join([name(x)] + [stacked(a, b, x, bold=best[(a, b)] == x) for a, b in cols]) + " \\\\"
             for x in LD_ROWS]
     body.append("\\hline")
     share = [f"{100 * mean_of(a, b, 'cascade', 'routed_share'):.1f}" for a, b in cols]
@@ -262,7 +274,7 @@ def lowdata_table() -> str:
             "MOZ-Smishing without target data (zero-shot) and after fine-tuning on 10\\% of its training data; "
             "the transformer is the multilingual DistilBERT. -- : not run in this condition.")
     return wrap("tab:lowdata", "Low-data regime and transfer to Portuguese messages", "l" + "c" * len(cols),
-                head, body, note, sep="2.5pt")
+                head, body, note, sep="3pt")
 
 
 # ---------------------------------------------------------------- T6 efficiency and cost
