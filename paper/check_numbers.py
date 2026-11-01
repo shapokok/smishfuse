@@ -24,6 +24,7 @@ ALLOWED = {
     "2.5": "lower percentile of the 95% bootstrap interval; also the model name Qwen2.5",
     "97.5": "upper percentile of the 95% bootstrap interval",
     "50": "name of the median latency p50",
+    "200": "model name NLLB-200",
 }
 
 

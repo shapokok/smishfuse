@@ -1,3 +1,126 @@
 \section{Results and Discussion}\label{sec:results}
 
-To be written.
+All numbers in this section are test-set results of the single evaluation after freezing, reported as the mean $\pm$ standard deviation over \val{n-seeds} seeds; significance always refers to the seed-1 predictions with the Holm correction of Section~\ref{sec:stats}.
+
+\subsection{Main comparison}\label{sec:main}
+
+\input{tables/main}
+
+Table~\ref{tab:main} compares all models on the clean test sets. On the three-class Mendeley task, the highest macro F1 belongs to the character SVM without augmentation (\val{svmchar-clean-f1}). The cascade reaches \val{cascade-clean-f1}~$\pm$~\val{cascade-clean-f1-sd}, practically the same as its first stage alone (\val{svmcharaug-clean-f1}). On seed 1 the cascade is \val{clean-diff-abs} percentage points below the character SVM (95\% interval from \val{clean-ci-lo} to \val{clean-ci-hi}); the difference is not significant ($\tilde{p}=\val{clean-best-p-boot-holm}$ for the bootstrap and $\tilde{p}=\val{clean-best-p-mcn-holm}$ for the McNemar test). The fine-tuned transformers are lower on this task: BERT reaches \val{bert-clean-f1} and the second stage alone \val{distilaug-clean-f1}. The few-shot language model is the weakest model (\val{qwen-clean-f1}).
+
+For all models the F1 score of the spam class is lower than that of the smishing class, and for the cascade most errors are confusions between these two malicious classes. For the cascade on seed 1 (Fig.~\ref{fig:confusion} in the Appendix), \val{cm-spam-to-smish} of the \val{men-test-spam} spam messages are labelled smishing and \val{cm-smish-to-spam} of the \val{men-test-smishing} smishing messages are labelled spam, while \val{cm-ham-wrong} of the \val{cm-ham-n} ham messages are misclassified. The cascade also has a lower calibration error (\val{ece-cascade}) than either of its stages (\val{ece-svmcharaug} and \val{ece-distilaug}). On the clean Super SMS corpus all trained models lie between \val{ss-min} and \val{ss-max}; the cascade (\val{ss-cascade}) and the best baseline, BERT (\val{ss-bert}), do not differ significantly ($\tilde{p}=\val{ss-p-boot}$ and $\val{ss-p-mcn}$).
+
+\subsection{Settings of the published methods}\label{sec:published}
+
+\input{tables/settings}
+
+The published papers report an accuracy of \val{claim-mh-acc} for the CNN-BiGRU of Mahmud et al. \cite{mahmud2024} and F1 scores between \val{claim-sh-min} and \val{claim-sh-max}\% for the BERT-family models of Shim et al. \cite{shim2024}. These values come from their own random splits without reported deduplication and with an unstated positive class, so they are not directly comparable with ours.
+
+Table~\ref{tab:settings} shows the comparison in the task settings of these papers on our deduplicated data. On the clean test sets the differences between the cascade and the re-implemented methods are small. Against the CNN-BiGRU the difference is not significant; against the BERT and DistilBERT models of Shim et al. it is significant by the bootstrap test only, and against RoBERTa by both tests. Under held-out obfuscation the picture changes. The CNN-BiGRU falls to \val{mh-ho20} at the \val{lvl-c}\% level and the three models of Shim et al. to between \val{sh-ho20-min} and \val{sh-ho20-max}, while the cascade keeps \val{cascade-mahmud-ho20} and \val{cascade-shim-ho20}. These differences are significant by both tests at every held-out level in the Mahmud setting and at the \val{lvl-b}\% and \val{lvl-c}\% levels in the Shim setting; at \val{lvl-a}\% the difference to DistilBERT is not significant.
+
+The post-hoc comparison (marks $\dagger$ in Table~\ref{tab:settings}) shows where this advantage comes from: the character SVM without augmentation is also significantly better than all re-implemented methods at the held-out levels where the cascade is, except at the \val{lvl-a}\% level of the Shim setting. On the clean test sets it is significantly better only than RoBERTa. The robustness of the cascade to obfuscation in these settings is therefore a property of its character-level first stage. In both settings the cascade does not differ significantly from our best baseline at any level (Table~\ref{tab:significance}).
+
+\subsection{Robustness to obfuscation}\label{sec:robustness}
+
+\input{tables/robustness}
+
+\begin{figure*}[t]
+\centering
+\includegraphics{figures/obfuscation_robustness}
+\caption{Macro F1 on the three-class test set as a function of the obfuscation level, for the operation family used in augmentation (left) and the held-out family (right)}
+\label{fig:obfuscation}
+\end{figure*}
+
+Table~\ref{tab:robustness} and Fig.~\ref{fig:obfuscation} show the three-class results under obfuscation. The realised share of edited characters matches the nominal level (for example \val{realised-ho20}\% at the \val{lvl-c}\% held-out level). Models that work on word or subword tokens without augmentation degrade strongly: at the \val{lvl-c}\% held-out level, BERT, the convolutional and recurrent networks, the tuned DistilBERT and the first gated fusion design reach only between \val{rob-neural-ho20-min} and \val{rob-neural-ho20-max}. Augmentation with the TRAIN family carries over to the unseen HELD-OUT family for the transformer: with the same architecture, the second stage reaches \val{rob-distilaug-ho20} with augmentation and \val{rob-distil-ho20} without it. The character-level models change little under either family: the character SVM without augmentation stays at \val{rob-svmchar-ho20}, and the cascade at \val{rob-cascade-ho20}. A plausible reason is that doubling a letter or deleting a vowel leaves most character n-grams of a message intact, and the sigmoid calibration keeps the confidence of the first stage high enough that the share routed to the second stage grows only slightly (from \val{routed-clean-pct}\% on the clean test set to at most \val{routed-max-pct}\%).
+
+Against the best baseline of each obfuscated test set, the cascade is never significantly better (Table~\ref{tab:significance}); at the \val{lvl-a}\% TRAIN level it is significantly worse by the bootstrap test ($\tilde{p}=\val{tr05-p-boot}$), but not by the McNemar test.
+
+\subsection{Low data and transfer}\label{sec:lowdata}
+
+\input{tables/lowdata}
+
+\begin{figure}[t]
+\centering
+\includegraphics{figures/learning_curve}
+\caption{Macro F1 on the clean three-class test set as a function of the share of the training data}
+\label{fig:learning}
+\end{figure}
+
+With less training data (Table~\ref{tab:lowdata}, Fig.~\ref{fig:learning}) the character SVM without augmentation has the highest mean macro F1 among the baselines at every fraction, and the cascade falls behind it. (The average of the two stages, an ablation, is higher at \val{ld-a}\% and \val{ld-b}\%, with \val{ld01-average} and \val{ld05-average}.) With \val{ld-c}\% of the data the cascade reaches \val{ld10-cascade} against \val{ld10-svmchar}, a significant difference by both tests; at \val{ld-b}\% the difference is significant by the bootstrap test only. At \val{ld-a}\% the McNemar test on seed 1 favours the cascade (\val{ld01-b} messages correct only for the cascade against \val{ld01-c}), but the bootstrap test is not significant and the mean over seeds is lower (\val{ld01-cascade} against \val{ld01-svmchar}). The reason is visible in the last row of the table: the frozen threshold sends \val{ld01-share}\% of the messages to the second stage at \val{ld-a}\% of the data, and the transformer trained on so few messages is weak (\val{ld01-distilaug}).
+
+Transfer from English to Portuguese without target data fails for all models: the best mean macro F1 is \val{tr-zs-best}. With the threshold chosen on the source validation data ($\tau=\val{tau-tr-zs}$), the cascade sends \val{tr-zs-share}\% of the messages to the second stage and is identical to it on seed 1. After fine-tuning on \val{tr-frac}\% of the target training data, the cascade reaches \val{tr-ft-cascade} against \val{tr-ft-distilaug} for its second stage alone, a difference that is significant by the bootstrap test only ($\tilde{p}=\val{tr-ft-p-boot}$); the average of the two stages has the highest mean (\val{tr-ft-average}) but was not tested. In this condition, too, most messages reach the transformer (\val{tr-ft-share}\%), so the cascade offers no saving in computation.
+
+\subsection{Cost of errors}\label{sec:costres}
+
+The cost columns of Table~\ref{tab:efficiency} give $L_r$ in the ham-versus-malicious view. On the clean test set the lowest loss for every $r$ belongs to the average of the two stages, an ablation (\val{cost-clean-r3-average} for $r=\val{cost-r3}$). Among the other models the cascade has the lowest loss for $r=\val{cost-r1}$ (\val{cost-clean-r1-cascade}), and the second stage alone for $r=\val{cost-r2}$ and $r=\val{cost-r3}$, with the cascade close to it (\val{cost-clean-r3-cascade} against \val{cost-clean-r3-distilaug} for $r=\val{cost-r3}$). At the \val{lvl-c}\% held-out level the cascade has the lowest loss of all models for every $r$; for $r=\val{cost-r2}$ it is \val{cost-ho20-r2-cascade} against \val{cost-ho20-r2-svmcharaug} for its first stage and \val{cost-ho20-r2-distilaug} for its second stage. The cascade is not the cheapest everywhere: in the Mahmud setting at the same level its loss for $r=\val{cost-r2}$ is \val{cost-mh-ho20-r2-cascade} against \val{cost-mh-ho20-r2-svmcharaug} for the character SVM with augmentation, because there it mostly answers with the transformer. Differences in $L_r$ were not tested for significance.
+
+\subsection{Speed and the quality-latency trade-off}\label{sec:speed}
+
+\input{tables/efficiency}
+
+\begin{figure*}[t]
+\centering
+\includegraphics{figures/quality_vs_latency}
+\caption{Macro F1 on the clean three-class test set against the median latency per message on one CPU thread; the dashed line is the Pareto front}
+\label{fig:pareto}
+\end{figure*}
+
+Measured end to end on all \val{men-test-n} test messages, the cascade has a median latency of \val{lat-cascade-p50}~ms, a 95th percentile of \val{lat-cascade-p95}~ms and a throughput of \val{lat-cascade-thr} messages per second on one CPU thread, with \val{lat-cascade-routed-pct}\% of the messages sent to the second stage (Table~\ref{tab:efficiency}). Its mean latency, \val{lat-cascade-mean}~ms, is about twice the median, because each routed message costs a full transformer call. For comparison, the first stage alone has a median of \val{lat-svmcharaug-p50}~ms (\val{lat-svmcharaug-thr} messages per second), DistilBERT \val{lat-distilaug-p50}~ms and BERT \val{lat-bert-p50}~ms. The few-shot language model needs \val{lat-qwen-p50}~ms per message even on a GPU.
+
+Fig.~\ref{fig:pareto} places these results on the quality-latency plane. The character SVM without augmentation is on the Pareto front; the cascade lies slightly below it in clean macro F1 and needs more time and memory, mainly the \val{size-cascade} MB of the transformer weights. On clean data, therefore, the cascade buys nothing over its first stage. What it adds is the fallback to a transformer for low-confidence messages, at a mean cost per message that stays within a few milliseconds, and the lowest error cost under strong obfuscation.
+
+\subsection{Analysis}\label{sec:analysis}
+
+\begin{figure}[t]
+\centering
+\includegraphics{figures/cascade_share_vs_f1}
+\caption{Macro F1 of the cascade when a given share of the test messages with the lowest first-stage confidence is sent to the second stage (descriptive, not used for any choice)}
+\label{fig:share}
+\end{figure}
+
+\emph{What the second stage contributes.} Fig.~\ref{fig:share} varies the share of test messages sent to the second stage, always choosing those with the lowest first-stage confidence. On the clean test set the macro F1 rises from \val{curve-clean-0} with no routing to \val{curve-clean-peak} at \val{curve-clean-peak-share}\% and then falls to \val{curve-clean-100} when every message goes to the transformer; the held-out sets behave similarly. A small share of uncertain messages thus benefits from the transformer, and the frozen threshold, with \val{lat-cascade-routed-pct}\% on the test set, lies in this region. The curve is computed on the test set and is descriptive only.
+
+\emph{Ablations.} The cascade of the two models trained without augmentation (Table~\ref{tab:robustness}) has a higher mean macro F1 than the final cascade on \val{noaug-wins} of the \val{n-rob-sets} three-class test sets, all except the \val{lvl-b}\% held-out set; only \val{noaug-beyond} of these differences exceeds the seed spread. Augmentation therefore did not improve the cascade on test, although it is essential for the transformer alone. Averaging the probabilities of the two stages is lower than the cascade under every obfuscation level.
+
+\emph{Earlier designs.} The two gated fusion models of a DistilBERT representation with hand-crafted features are not better than the character SVM on any test set. The first design degrades under obfuscation like the other transformers (\val{rob-v1-ho20} at the \val{lvl-c}\% held-out level); the second, with character features and augmentation, is robust (\val{rob-v2-ho20}) but lower and about \val{v2-slowdown} times slower than the cascade. We report them as negative results; they were developed on validation data before the final design was frozen.
+
+\emph{Label noise between smishing and spam.} The boundary between the two malicious classes is not labelled consistently in the Mendeley corpus. All \val{men-conflict-groups} groups of duplicates with conflicting labels pair a smishing and a spam label on the same or nearly the same text, and of the \val{men-uci-smish} deduplicated Mendeley smishing messages, \val{men-smish-uci-spam} have a duplicate in the UCI collection, where they are labelled spam. Part of the remaining confusion between these classes is therefore likely to come from the labels rather than from the models.
+
+\input{tables/inflation}
+
+\emph{Duplicates and inflated scores.} Table~\ref{tab:inflation} compares five-fold cross-validation on the raw Mendeley data with the same procedure on our deduplicated data. In the binary ham-versus-malicious task, the raw data give higher scores: for the CNN-BiGRU, accuracy is higher by \val{infl-mh-acc} and macro F1 by \val{infl-mh-f1} percentage points, and the raw-data accuracy (\val{infl-mh-acc-dirty}) is close to the value reported in the original paper (\val{claim-mh-acc}). In the three-class and smishing-versus-spam tasks the raw data give \emph{lower} scores, by up to \val{infl-max-drop} points of macro F1. The raw data keep both members of the conflicting smishing and spam pairs, which give contradictory training and test labels; in the binary task both labels are malicious and the conflict disappears. The analysis therefore mixes two effects, duplicates and conflicting labels, which we did not separate. It shows that the treatment of duplicates changes the scores by several points in either direction, which is larger than most differences between models in Table~\ref{tab:main}.
+
+\subsection{Case study: Kazakhstan}\label{sec:kz}
+
+The models above were trained on English messages. To see how they behave in a different context, we wrote a small set of messages for Kazakhstan, where text messages are commonly written in Russian or Kazakh. This part is a qualitative demonstration with a few dozen messages, not a statistical evaluation, and the translation and adaptation experiments were added after the main results (post hoc).
+
+\emph{Messages.} Seven scenarios (a bank card blocked, a prize, an expiring digital signature, a parcel held for payment, early pension withdrawal, a bonus for a code, a call from a bank security service) each have a fraudulent message and a legitimate counterpart, written in English, Russian and Kazakh (\val{kz-orig} messages). For safety, all links point to the reserved domain \texttt{.example} and all phone numbers are fictitious. Fraudulent Russian messages also appear with the held-out obfuscation and fraudulent Russian and Kazakh messages with Cyrillic letters replaced by Latin look-alikes (\val{kz-all} messages in total). We tested the character SVM without augmentation, the cascade and BERT, on the messages as written and on English translations by NLLB-200 \cite{nllb2024}.
+
+\emph{As written.} Russian and Kazakh are outside the training distribution: the character SVM and the cascade label \val{kz-ru-missed-lite} of the \val{kz-fraud-lang} Russian and \val{kz-kk-missed-lite} of the \val{kz-fraud-lang} Kazakh fraudulent messages as ham, and BERT \val{kz-ru-missed-bert} and \val{kz-kk-missed-bert}. Even in English, the character SVM labels only \val{kz-en-correct-lite} of the \val{kz-en-n} messages correctly, which points to a shift in domain and not only in language.
+
+\emph{Translation.} Translating the whole message helps for Kazakh, where no fraudulent message is labelled ham afterwards, but less for Russian, where \val{kz-ru-tr-missed-min} to \val{kz-ru-tr-missed-max} remain missed. The translation model often translates only the first sentence: the link disappears in \val{kz-link-lost-word} of the \val{kz-link-n} Russian and Kazakh messages that contain one. Translating sentence by sentence with links, numbers and codes protected by placeholders keeps every link and raises the number of correct labels for the original Russian messages from \val{kz-ru-sent-before} to \val{kz-ru-sent-after} of \val{kz-ru-orig-n} for the character SVM, but not for Kazakh (from \val{kz-kk-sent-before} to \val{kz-kk-sent-after}). Translation costs a median of \val{kz-mt-p50}~s per message for whole messages and \val{kz-mts-p50}~s sentence by sentence on one CPU thread, three orders of magnitude more than classification, so it is not compatible with real-time filtering on such hardware.
+
+\begin{figure*}[t]
+\centering
+\includegraphics{figures/adaptation_curve}
+\caption{Kazakhstan case study: adaptation of the character SVM with a synthetic set of Russian, Kazakh and English messages. Left: correct labels on the \val{kz-orig} original case-study messages; right: fraudulent messages labelled smishing. Points: mean $\pm$ standard deviation over five random subsets}
+\label{fig:adaptation}
+\end{figure*}
+
+\emph{Adaptation.} We retrained the character SVM on the Mendeley training data together with a synthetic adaptation set of \val{kz-adapt-n} messages (\val{kz-adapt-ideas} message ideas in three languages, drafted with a language model and checked by the authors, with no near duplicates of the case-study messages). With the whole set (condition B), the fraudulent case-study messages labelled smishing rise from \val{kz-fraud-before} to \val{kz-fraud-after-b} of \val{kz-fraud-n}, and the share of correct labels from \val{kz-acc-before} to \val{kz-acc-after-b} (Fig.~\ref{fig:adaptation}). Using only message categories that do not occur in the case study (condition A) gives \val{kz-fraud-after-a} of \val{kz-fraud-n} and \val{kz-acc-after-a}. The macro F1 on the Mendeley validation data stays between \val{kz-val-min} and \val{kz-val-max}, against \val{kz-val-before} before adaptation, and the latency does not change. The price is false alarms. On the legitimate adaptation messages with links that were not used for training, the adapted models label between \val{kz-legit-link-min} and \val{kz-legit-link-max} correctly, about as many as before adaptation (\val{kz-legit-link-before}), but the errors move from spam to smishing: \val{kz-legit-link-smish-after}\% of these messages are flagged as smishing after adaptation against \val{kz-legit-link-smish-before}\% before. The genuine bank warning about a suspicious transaction is flagged as smishing by the adapted model in all three languages, and by all three models after translation. Because the adaptation set and the case-study messages were written in a similar style, these effects may be overestimated.
+
+\emph{Real messages.} In public sources (news articles) we found only \val{kz-real-n} verbatim texts of fraudulent messages sent in Kazakhstan, one of them a fragment and one cut off in a screenshot. As written, the adapted character SVM labels \val{kz-real-flagged} of them smishing, with a confidence between \val{kz-real-conf-min} and \val{kz-real-conf-max}; the models without adaptation, the cascade and BERT label none of them smishing. After sentence-wise translation some of them are recognised by the other models, but \val{kz-real-never} message, a fragment that only reports a change in the status of a loan and contains no link or request, is labelled smishing by no model with either input. With so few messages this is an illustration only.
+
+\subsection{Limitations}\label{sec:limitations}
+
+\begin{itemize}
+\item \emph{Small test classes.} The three-class test set has \val{men-test-smishing} smishing and \val{men-test-spam} spam messages, so one or two messages change the F1 score of these classes noticeably, and only large differences can be significant.
+\item \emph{Significance on one seed.} The tests use the predictions of seed 1 and capture the variation of the test set, not that of training; for some conditions the spread between seeds is comparable to the differences between models.
+\item \emph{Threshold.} $\tau^{*}$ was chosen on validation data with seeds \val{tau-seeds} and used for all seeds. In the binary settings the same criterion selected high thresholds (\val{tau-mh} in the Mahmud setting and up to \val{tau-tr-ft} for transfer), which send \val{routed-binary-min-pct}\% to \val{routed-binary-max-pct}\% of the messages to the transformer; there the cascade is close to the transformer in quality and much more expensive. Latency was measured only for the three-class task.
+\item \emph{Selection on validation data.} Both stages were early-stopped on the clean validation data, and the hyperparameters of the baselines were tuned on it. This holds for all models, so the comparisons are fair, but validation scores were optimistic.
+\item \emph{Obfuscation model.} The operations are simple and random; real senders choose their edits, may combine them with paraphrasing and may target the detector. The held-out family acts on Latin letters only, so on Cyrillic text it reduces mostly to letter doubling.
+\item \emph{Re-implementation.} The published methods were re-implemented from their descriptions; settings that the papers do not state were chosen by us, and the data augmentation with generated messages of Shim et al. was not reproduced.
+\item \emph{Cost.} $L_r$ uses the argmax rule and not a cost-sensitive threshold.
+\item \emph{Duplicates.} The inflation analysis does not separate the effect of duplicates from that of conflicting labels.
+\item \emph{Case study.} The Kazakhstan messages are few, written by the authors or synthetic, and the four real messages are not enough for any metric.
+\end{itemize}
