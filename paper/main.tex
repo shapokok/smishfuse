@@ -1,3 +1,7 @@
+% NSP1.cls loads color and defines named colours (LimeGreen, PineGreen): the dvips names must be enabled
+% before the class is read; xcolor, loaded below with the same option, then takes over from color.
+\PassOptionsToPackage{dvipsnames}{color}
+\PassOptionsToPackage{dvipsnames}{xcolor}
 \documentclass[10pt]{NSP1}
 \usepackage{url,floatflt}
 \usepackage{helvet,times}
@@ -8,7 +12,16 @@
 
 \usepackage[dvipsnames,table,xcdraw]{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,positioning}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage{etoolbox}
+
+% NSP1.cls: the rule under the even-page head is a \hbox of \textwidth set in a paragraph of \columnwidth
+% (overfull by \textwidth-\columnwidth in two-column mode); wrap it in \rlap as the odd-page head does.
+% Only the box nesting changes, the printed head is the same; the class file itself is not edited.
+\makeatletter
+\patchcmd{\@evenhead}{\leavevmode\lower2pt\hbox to\textwidth{\hrulefill}}
+  {\leavevmode\lower2pt\rlap{\hbox to\textwidth{\hrulefill}}}{}{\typeout{NSP1 even head: patch not applied}}
+\makeatother
 
 \addtolength{\oddsidemargin}{.5in}
 \addtolength{\evensidemargin}{-.5in}

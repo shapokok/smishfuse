@@ -39,16 +39,19 @@ def corpora() -> str:
         else:
             sp = js(f"split_{key}.json")["labels"]
             parts = [str(sum(sp[s].values())) for s in ("train", "val", "test")]
-        cls = ", ".join(f"{k} {v}" for k, v in sorted(labels.items()))
-        rows.append(" & ".join([label, lang, str(before), str(removed), str(kept), *parts, cls]) + " \\\\")
+        cls = [str(labels[c]) if c in labels else "--" for c in ("ham", "smishing", "spam")]
+        if set(labels) - {"ham", "smishing", "spam"}:
+            raise ValueError(f"{key}: unexpected classes {sorted(labels)}")
+        rows.append(" & ".join([label, lang, str(before), str(removed), str(kept), *parts, *cls]) + " \\\\")
     return HEADER + "\n".join([
         "\\begin{table*}[t]",
         "\\caption{Corpora after deduplication: messages before and after, splits and classes$^{a}$}",
         "\\label{tab:corpora}",
-        "\\centering\\small",
-        "\\begin{tabular}{llrrrrrrl}",
+        "\\centering\\footnotesize\\setlength{\\tabcolsep}{3.5pt}",
+        "\\begin{tabular}{llrrrrrrrrr}",
         "\\hline",
-        "Corpus & Lang. & Before & Removed & Kept & Train & Val & Test & Classes (kept) \\\\",
+        " & & & & & \\multicolumn{3}{c}{Split} & \\multicolumn{3}{c}{Classes (kept)} \\\\",
+        "Corpus & Lang. & Before & Removed & Kept & Train & Val & Test & ham & smishing & spam \\\\",
         "\\hline",
         *rows,
         "\\hline",

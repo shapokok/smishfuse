@@ -127,14 +127,18 @@ Confusion between smishing and spam costs nothing in this view, and $L_r$ is not
 
 \subsection{Statistical tests}\label{sec:stats}
 
-Two models $a$ and $b$ are compared on the same test set with the predictions of seed 1. Let $\Delta=\mathrm{F1}_{\mathrm{macro}}(a)-\mathrm{F1}_{\mathrm{macro}}(b)$.
+Two models $u$ and $v$ are compared on the same test set with the predictions of seed 1. Let $\Delta=\mathrm{F1}_{\mathrm{macro}}(u)-\mathrm{F1}_{\mathrm{macro}}(v)$.
 
 \emph{Paired bootstrap} \cite{efron1993}. For $j=1,\dots,B$ with $B=\val{boot-n}$, multiplicities $\mathbf{w}^{(j)}\sim\mathrm{Multinomial}(n;\tfrac{1}{n},\dots,\tfrac{1}{n})$ are drawn, which is equivalent to resampling the $n$ test messages with replacement, and $\Delta^{(j)}$ is computed for both models on the same weighted sample (random seed \val{boot-seed}). The 95\% interval is formed by the 2.5 and 97.5 percentiles of $\Delta^{(1)},\dots,\Delta^{(B)}$, and the two-sided $p$-value is
 \begin{equation}\label{eq:bootp}
-p=\min\Bigl\{1,\ 2\min\Bigl(\frac{1+|\{j:\Delta^{(j)}\le 0\}|}{B+1},\ \frac{1+|\{j:\Delta^{(j)}\ge 0\}|}{B+1}\Bigr)\Bigr\}.
+\begin{aligned}
+p&=\min\bigl\{1,\ 2\min(p_{\le},\,p_{\ge})\bigr\},\\
+p_{\le}&=\frac{1+|\{j:\Delta^{(j)}\le 0\}|}{B+1},\\
+p_{\ge}&=\frac{1+|\{j:\Delta^{(j)}\ge 0\}|}{B+1}.
+\end{aligned}
 \end{equation}
 
-\emph{McNemar test} \cite{mcnemar1947,dietterich1998}. Let $b$ be the number of test messages that model $a$ classifies correctly and model $b$ does not, and $c$ the number of the opposite case. If $b+c<\val{mcn-exact}$, the exact two-sided binomial test of $b\sim\mathrm{Bin}(b+c,\tfrac{1}{2})$ is used; otherwise
+\emph{McNemar test} \cite{mcnemar1947,dietterich1998}. Let $b$ be the number of test messages that model $u$ classifies correctly and model $v$ does not, and $c$ the number of the opposite case. If $b+c<\val{mcn-exact}$, the exact two-sided binomial test of $b\sim\mathrm{Bin}(b+c,\tfrac{1}{2})$ is used; otherwise
 \begin{equation}\label{eq:mcnemar}
 \chi^2=\frac{(|b-c|-1)^2}{b+c}
 \end{equation}

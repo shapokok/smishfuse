@@ -2,15 +2,16 @@
 \begin{table*}[t]
 \caption{Corpora after deduplication: messages before and after, splits and classes$^{a}$}
 \label{tab:corpora}
-\centering\small
-\begin{tabular}{llrrrrrrl}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{llrrrrrrrrr}
 \hline
-Corpus & Lang. & Before & Removed & Kept & Train & Val & Test & Classes (kept) \\
+ & & & & & \multicolumn{3}{c}{Split} & \multicolumn{3}{c}{Classes (kept)} \\
+Corpus & Lang. & Before & Removed & Kept & Train & Val & Test & ham & smishing & spam \\
 \hline
-Mendeley SMS Phishing \cite{mendeley2022} & EN & 5971 & 232 & 5739 & 4017 & 574 & 1148 & ham 4825, smishing 495, spam 419 \\
-MOZ-Smishing \cite{moz2025} & PT & 2561 & 38 & 2523 & 1765 & 253 & 505 & ham 1986, smishing 537 \\
-Super SMS, clean$^{b}$ \cite{salman2024} & EN & 67008 & 1352 + 4431 & 61225 & 42857 & 6123 & 12245 & ham 36745, spam 24480 \\
-UCI SMS Spam$^{c}$ \cite{almeida2011} & EN & 5574 & 466 & 5108 & \multicolumn{3}{c}{not split} & ham 4510, spam 598 \\
+Mendeley SMS Phishing \cite{mendeley2022} & EN & 5971 & 232 & 5739 & 4017 & 574 & 1148 & 4825 & 495 & 419 \\
+MOZ-Smishing \cite{moz2025} & PT & 2561 & 38 & 2523 & 1765 & 253 & 505 & 1986 & 537 & -- \\
+Super SMS, clean$^{b}$ \cite{salman2024} & EN & 67008 & 1352 + 4431 & 61225 & 42857 & 6123 & 12245 & 36745 & -- & 24480 \\
+UCI SMS Spam$^{c}$ \cite{almeida2011} & EN & 5574 & 466 & 5108 & \multicolumn{3}{c}{not split} & 4510 & -- & 598 \\
 \hline
 \end{tabular}
 \par\smallskip\footnotesize
