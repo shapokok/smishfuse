@@ -49,6 +49,7 @@ def strip(text: str) -> str:
     text = re.sub(r"\{(tabular|table|figure)\*?\}\{[^}]*\}", " ", text)
     text = re.sub(r"\[[^\]]*(width|height|scale)[^\]]*\]", " ", text)
     text = re.sub(r"\{[\d.]+\\(textwidth|columnwidth|linewidth)\}", " ", text)   # layout widths
+    text = re.sub(r"\\rule\{[^}]*\}\{[^}]*\}", " ", text)   # layout rules
     text = re.sub(r"\\[a-zA-Z]+", " ", text)
     return text
 
