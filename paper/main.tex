@@ -15,6 +15,17 @@
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
 \usepackage{etoolbox}
 \usepackage{booktabs}
+\usepackage{xurl}   % line breaks anywhere in long URLs (declarations, bibliography)
+
+% NSP1.cls leaves \labelsep, \leftmargini and the first-level \labelwidth at 0 pt, so list labels touch the
+% text ("1.An"); set them here (the class file is not edited).
+\setlength{\labelsep}{0.5em}
+\setlength{\leftmargini}{1.8em}
+\makeatletter
+\apptocmd{\@listi}{\labelwidth\leftmargini\advance\labelwidth-\labelsep}{}{\typeout{NSP1 list: patch not applied}}
+\let\@listI\@listi
+\@listi
+\makeatother
 
 % NSP1.cls: the rule under the even-page head is a \hbox of \textwidth set in a paragraph of \columnwidth
 % (overfull by \textwidth-\columnwidth in two-column mode); wrap it in \rlap as the odd-page head does.
