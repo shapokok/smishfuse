@@ -111,7 +111,7 @@ def item(key: str, e: dict) -> str:
         pg = f", {pages(e['pages'])}" if "pages" in e else ""
         s = f"{a}, {t}, {e['journal']}{vol}{pg} ({y})."
     elif typ in ("inproceedings", "incollection"):
-        series = f", {e['series']} \\textbf{{{e['volume']}}}" if "series" in e else ""
+        series = (f", {e['series']}" + (f" \\textbf{{{e['volume']}}}" if "volume" in e else "")) if "series" in e else ""
         pub = f", {e['publisher']}" if "publisher" in e else ""
         pg = f", {pages(e['pages'])}" if "pages" in e else ""
         s = f"{a}, {t}, in: {e['booktitle']}{series}{pub}{pg} ({y})."

@@ -1,6 +1,6 @@
 # key kind id; all verified (Crossref / arXiv / DataCite / official proceedings page) before inclusion
 almeida2011 doi 10.1145/2034691.2034742
-mishra2023dataset doi 10.1007/978-3-031-27524-1_57  # dropped: 45-reference limit
+mishra2023dataset doi 10.1007/978-3-031-27524-1_57  # restored: the dataset authors ask to cite it
 mishra2023dsmishsms doi 10.1007/s00521-021-06305-y
 sonowal2020 doi 10.1007/s42979-020-00377-8
 mahmud2024 doi 10.3390/systems12110490
@@ -26,7 +26,7 @@ gao2018 doi 10.1109/SPW.2018.00016
 li2019 doi 10.14722/ndss.2019.23138
 pruthi2019 doi 10.18653/v1/P19-1561
 boucher2022 doi 10.1109/SP46214.2022.9833641
-belinkov2018 arxiv 1711.02173
+belinkov2018 arxiv 1711.02173  # dropped: 45-reference limit (least central to related work)
 viola2001 doi 10.1109/CVPR.2001.990517
 teerapittayanon2016 doi 10.1109/ICPR.2016.7900006
 schwartz2020 doi 10.18653/v1/2020.acl-main.593
