@@ -25,3 +25,6 @@ reports/step4a_hard_cases.csv
 # inside the kernel outputs, incl. the restored ones of the CPU notebooks, are not committed)
 results/kaggle_runs/smishfuse-final-*/results/final/preds/
 results/kaggle_runs/smishfuse-final-*/results/final_dry/preds/
+
+# Overleaf upload, built by paper/tools/make_zip.py
+paper.zip

@@ -21,3 +21,4 @@ Regenerate and check (from the repository root):
     .venv/bin/python paper/tools/paper_numbers.py
     .venv/bin/python paper/tools/make_bibliography.py
     .venv/bin/python paper/check_numbers.py
+    .venv/bin/python paper/tools/make_zip.py   # paper.zip for Overleaf (repository root, not committed)
