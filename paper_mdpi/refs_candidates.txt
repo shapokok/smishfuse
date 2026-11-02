@@ -48,3 +48,17 @@ moz2025 doi 10.18653/v1/2025.africanlp-1.23
 mendeley2022 doi 10.17632/f45bkkt8pr.1 (DataCite)
 smishing4c2024 url https://ceur-ws.org/Vol-3846/paper06.pdf (CEUR index)
 holm1979 url https://www.jstor.org/stable/4615733 (author decision; JSTOR page not machine-readable)
+# MDPI version (step 8): works of 2025-2026, verified with the arXiv API (export.arxiv.org, ID, title, authors,
+# submission date) or with Crossref (DOI); summaries in the text use only the abstracts
+salman2025spallm arxiv 2501.04985 (2025-01-09)
+chang2025scamshield arxiv 2511.01746 (2025-11-03)
+topcuoglu2026 arxiv 2607.17353 (2026-07-19)
+elzemity2026 arxiv 2602.10869 (2026-02-11)
+huang2026recast arxiv 2609.04878 (2026-09-04; comment: accepted at EMNLP 2026 Industry Track)
+tang2025 arxiv 2504.09776 (2025-04-14; HotSoS 2025 work in progress)
+taylor2025 doi 10.1007/978-3-032-08260-2_12 (Crossref: CCIS book chapter, 2025, pp. 143-169; also arXiv 2502.16947)
+shahbazov2026 doi 10.25045/jpit.v17.i1.04 (Crossref: Problems of Information Technology 17(1), 32-39, 2026)
+hosseinpour2025 arxiv 2505.18233 (2025-05-23)
+pritom2026 arxiv 2604.11429 (2026-04-13; under review)
+tanbhir2025 arxiv 2502.01518 / doi 10.1109/ICECE64886.2024.11024872  # not used: published in 2024 (ICECE 2024)
+kulal2025 arxiv 2510.11915  # not used: phishing e-mail, not short messages; 10-work limit
