@@ -1,25 +1,8 @@
 \section{Materials and Methods}\label{sec:methods}
 
-\subsection{Problem Statement and Notation}\label{sec:notation}
-
-A message is a finite string $x=x_1x_2\cdots x_L$ over the Unicode alphabet $\Sigma$. A classification task has a label set $\mathcal{Y}=\{1,\dots,K\}$ and data $D=\{(x_i,y_i)\}_{i=1}^{n}$ with $y_i\in\mathcal{Y}$. The main task has $K=3$ classes: \emph{ham} (a legitimate message), \emph{spam} (unsolicited advertising that does not try to obtain data or money) and \emph{smishing} (a message that tries to obtain personal or financial data, a payment, a click on a link or a call). Smishing and spam together form the \emph{malicious} messages; the indicator $m(y)=\mathbf{1}[y\neq\text{ham}]$ maps every task to the ham-versus-malicious view.
-
-A probabilistic classifier is a map $f:\Sigma^{*}\to\Delta^{K-1}$ into the probability simplex $\Delta^{K-1}=\{p\in[0,1]^K:\sum_k p_k=1\}$. Its prediction and its confidence are
-\begin{equation}\label{eq:pred}
-\hat{y}_f(x)=\arg\max_{k\in\mathcal{Y}} f_k(x),\qquad c_f(x)=\max_{k\in\mathcal{Y}} f_k(x).
-\end{equation}
-For predictions $\hat{y}_1,\dots,\hat{y}_n$, let $\mathrm{TP}_k$, $\mathrm{FP}_k$ and $\mathrm{FN}_k$ be the numbers of true positives, false positives and false negatives of class $k$. The primary metric is the macro-averaged F1 score
-\begin{equation}\label{eq:macrof1}
-\mathrm{F1}_k=\frac{2\,\mathrm{TP}_k}{2\,\mathrm{TP}_k+\mathrm{FP}_k+\mathrm{FN}_k},\qquad
-\mathrm{F1}_{\mathrm{macro}}=\frac{1}{K}\sum_{k=1}^{K}\mathrm{F1}_k,
-\end{equation}
-with $\mathrm{F1}_k=0$ when the denominator is zero. Macro F1 gives the two small malicious classes the same weight as the large ham class. We also report accuracy, the F1 score of each class, the area under the precision-recall curve (average precision of the positive class in binary tasks, which is the malicious class or, in the smishing-versus-spam task, smishing; the mean of the one-versus-rest values for $K=3$) and the expected calibration error of the top label,
-\begin{equation}\label{eq:ece}
-\mathrm{ECE}=\sum_{b=1}^{B}\frac{|I_b|}{n}\,\Bigl|\frac{1}{|I_b|}\sum_{i\in I_b}\mathbf{1}[\hat{y}_i=y_i]-\frac{1}{|I_b|}\sum_{i\in I_b}c_f(x_i)\Bigr|,
-\end{equation}
-where $I_b$ holds the messages whose confidence falls into the $b$-th of $B=\val{ece-bins}$ equal-width bins of $[0,1]$.
-
 \subsection{Data}\label{sec:data}
+
+The main task has three classes: \emph{ham} (a legitimate message), \emph{spam} (unsolicited advertising that does not try to obtain data or money) and \emph{smishing} (a message that tries to obtain personal or financial data, a payment, a click on a link or a call). Smishing and spam together form the \emph{malicious} messages; the indicator $m(y)=\mathbf{1}[y\neq\text{ham}]$ maps every task to the ham-versus-malicious view.
 
 Three corpora are used for training and testing (Table~\ref{tab:corpora}). The Mendeley SMS Phishing Dataset \cite{mendeley2022,mishra2023dataset} contains English messages labelled ham, smishing and spam. MOZ-Smishing \cite{moz2025} contains Portuguese messages from Mozambique labelled legitimate or smishing; it is published as a single file, so we split it ourselves. The Super SMS Dataset \cite{salman2024} contains English messages labelled ham or spam. The UCI SMS Spam Collection \cite{almeida2011} is used only to measure overlap. Smishing-4C \cite{smishing4c2024} is not used because its data are available only on request.
 
@@ -39,7 +22,7 @@ Candidate pairs are found with MinHash locality-sensitive hashing \cite{broder19
 
 \subsection{Obfuscation Model}\label{sec:obfuscation}
 
-Obfuscation is modelled as a random transformation of a string. An operation $\omega$ is a pair of an applicability predicate $a_\omega(x,i)$ and an edit $e_\omega(x,i)\in\Sigma^{*}$ that replaces the character $x_i$. Five operations are defined:
+A message is a finite string $x=x_1x_2\cdots x_L$ over the Unicode alphabet $\Sigma$. Obfuscation is modelled as a random transformation of a string. An operation $\omega$ is a pair of an applicability predicate $a_\omega(x,i)$ and an edit $e_\omega(x,i)\in\Sigma^{*}$ that replaces the character $x_i$. Five operations are defined:
 \begin{itemize}
 \item \emph{substitution}: $x_i$ belongs to one of the look-alike groups $\{0,\mathrm{o},\mathrm{O}\}$, $\{1,\mathrm{l},\mathrm{I}\}$, $\{\mathrm{a},\mathrm{A},@\}$, $\{\mathrm{e},\mathrm{E},3\}$, $\{\mathrm{s},\mathrm{S},\$\}$ and is replaced by another member of its group, chosen uniformly;
 \item \emph{space}: $x_{i-1}$ and $x_i$ are letters or digits, and a space is inserted before $x_i$;
@@ -63,11 +46,16 @@ At test time the random stream is seeded with a fixed constant (\val{obf-seed}),
 
 \subsection{Lite: A Calibrated Character-Level Model}\label{sec:lite}
 
+A classification task has a label set $\mathcal{Y}=\{1,\dots,K\}$ and data $D=\{(x_i,y_i)\}_{i=1}^{n}$ with $y_i\in\mathcal{Y}$. A probabilistic classifier is a map $f:\Sigma^{*}\to\Delta^{K-1}$ into the probability simplex $\Delta^{K-1}=\{p\in[0,1]^K:\sum_k p_k=1\}$. Its prediction and its confidence are
+\begin{equation}\label{eq:pred}
+\hat{y}_f(x)=\arg\max_{k\in\mathcal{Y}} f_k(x),\qquad c_f(x)=\max_{k\in\mathcal{Y}} f_k(x).
+\end{equation}
+
 Let $\varphi(x)\in\mathbb{R}^{d}$ be the TF-IDF vector of the character $n$-grams of $x$ for $n=\val{char-ng-lo},\dots,\val{char-ng-hi}$ (lower case, sublinear term frequency), fitted on the training data. A linear support vector machine \cite{cortes1995,joachims1998} is trained one-versus-rest and gives the scores $s_k(x)=\mathbf{w}_k^{\top}\varphi(x)+b_k$; the regularisation constant $C=\val{svm-c}$ and balanced class weights are those chosen for the word-and-character linear SVM baseline on the validation data. The scores are calibrated with Platt's sigmoid \cite{niculescu2005},
 \begin{equation}\label{eq:platt}
 q_k(x)=\frac{1}{1+\exp\bigl(A_k s_k(x)+B_k\bigr)},\qquad f_k(x)=\frac{q_k(x)}{\sum_{j=1}^{K}q_j(x)},
 \end{equation}
-where $(A_k,B_k)$ maximise the likelihood of the out-of-fold scores of a \val{calib-folds}-fold cross-validation on the training data, and the final machine is refitted on all training data. In binary tasks a single sigmoid gives the probability of the positive class. Trained without augmentation, this \emph{character model} is the \emph{Lite} operating point: a vectoriser and one linear map, with \val{size-svmchar}~MB of saved files. Trained with augmentation (Section~\ref{sec:obfuscation}), the same model is the first stage of \emph{Full}. In the frozen protocol of the evaluation (Section~\ref{sec:protocol}), the cascade was the method under test and the character model without augmentation was one of its baselines. The names Lite and Full are introduced in this article, and every comparison of Lite with the published methods is post hoc and marked as such.
+where $(A_k,B_k)$ maximise the likelihood of the out-of-fold scores of a \val{calib-folds}-fold cross-validation on the training data, and the final machine is refitted on all training data. In binary tasks a single sigmoid gives the probability of the positive class. Trained without augmentation, this \emph{character model} is the \emph{Lite} operating point: a vectoriser and one linear map, with \val{size-svmchar}~MB of saved files. Trained with augmentation (Section~\ref{sec:obfuscation}), the same model is the first stage of \emph{Full}. In the frozen protocol of the evaluation (Section~\ref{sec:protocol}), the cascade was the method under test and the character model without augmentation was one of its baselines. The names Lite and Full are introduced in this article, and every comparison of Lite with the published methods is post hoc and reported as such.
 
 \subsection{Full: A Cascade with an Explicit Choice of the Threshold}\label{sec:cascade}
 
@@ -85,8 +73,8 @@ where $t_f$ and $t_g$ are the costs of the two stages. Since $c_f(x)\ge 1/K$, ev
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/cascade_diagram}
-\caption{The two operating points. Lite is the calibrated character model alone. Full is a two-stage cascade: the character model, trained with augmentation, answers when its calibrated confidence reaches $\tau$, and the transformer is called only for the remaining messages.\label{fig:cascade}}
+\includegraphics{figures/cascade_diagram}
+\caption{The two operating points. Lite (blue area) is the calibrated character model alone and runs on the device. Full (red area) is a two-stage cascade for an operator gateway: the character model, trained with augmentation, answers when its calibrated confidence reaches $\tau$, and DistilBERT is called only for the remaining messages. The numbers are the median latency per message on one CPU thread, the size of the saved models and the share of the three-class test messages sent to DistilBERT.\label{fig:cascade}}
 \end{figure}
 
 The threshold is chosen on the clean validation data $V$ of the three-class task. Let $\mathcal{S}$ be the training seeds for which validation probabilities of both stages were available (seeds \val{tau-seeds}), and $h^{(s)}_\tau$ the cascade of seed $s$. As a function of $\tau$, the predictions on $V$ change only when $\tau$ crosses a confidence value $c_{f^{(s)}}(x)$, so the candidate set
@@ -109,9 +97,20 @@ L_r=\frac{r\,\mathrm{FN}+\mathrm{FP}}{n},\qquad r\in\{\val{cost-r1},\val{cost-r2
 \end{equation}
 Confusion between smishing and spam costs nothing in this view, and $L_r$ is not defined for the smishing-versus-spam task. All predictions use the argmax rule (\ref{eq:pred}). A rule that minimises the expected loss for a given $r$ would instead flag a message as malicious when its probability of being malicious exceeds $1/(1+r)$; this rule was not part of the frozen protocol and is not evaluated.
 
-\subsection{Statistical Tests}\label{sec:stats}
+\subsection{Evaluation Metrics and Statistical Tests}\label{sec:stats}
 
-Two models $u$ and $v$ are compared on the same test set with the predictions of seed 1. Let $\Delta=\mathrm{F1}_{\mathrm{macro}}(u)-\mathrm{F1}_{\mathrm{macro}}(v)$.
+\emph{Metrics.} For predictions $\hat{y}_1,\dots,\hat{y}_n$, let $\mathrm{TP}_k$, $\mathrm{FP}_k$ and $\mathrm{FN}_k$ be the numbers of true positives, false positives and false negatives of class $k$. The primary metric is the macro-averaged F1 score
+\begin{equation}\label{eq:macrof1}
+\mathrm{F1}_k=\frac{2\,\mathrm{TP}_k}{2\,\mathrm{TP}_k+\mathrm{FP}_k+\mathrm{FN}_k},\qquad
+\mathrm{F1}_{\mathrm{macro}}=\frac{1}{K}\sum_{k=1}^{K}\mathrm{F1}_k,
+\end{equation}
+with $\mathrm{F1}_k=0$ when the denominator is zero. Macro F1 gives the two small malicious classes the same weight as the large ham class. We also report accuracy, the F1 score of each class, the area under the precision-recall curve (average precision of the positive class in binary tasks, which is the malicious class or, in the smishing-versus-spam task, smishing; the mean of the one-versus-rest values for $K=3$) and the expected calibration error of the top label,
+\begin{equation}\label{eq:ece}
+\mathrm{ECE}=\sum_{b=1}^{B}\frac{|I_b|}{n}\,\Bigl|\frac{1}{|I_b|}\sum_{i\in I_b}\mathbf{1}[\hat{y}_i=y_i]-\frac{1}{|I_b|}\sum_{i\in I_b}c_f(x_i)\Bigr|,
+\end{equation}
+where $I_b$ holds the messages whose confidence falls into the $b$-th of $B=\val{ece-bins}$ equal-width bins of $[0,1]$.
+
+\emph{Comparison of two models.} Two models $u$ and $v$ are compared on the same test set with the predictions of seed 1. Let $\Delta=\mathrm{F1}_{\mathrm{macro}}(u)-\mathrm{F1}_{\mathrm{macro}}(v)$.
 
 \emph{Paired bootstrap} \cite{efron1993}. For $j=1,\dots,B$ with $B=\val{boot-n}$, multiplicities $\mathbf{w}^{(j)}\sim\mathrm{Multinomial}(n;\tfrac{1}{n},\dots,\tfrac{1}{n})$ are drawn, which is equivalent to resampling the $n$ test messages with replacement, and $\Delta^{(j)}$ is computed for both models on the same weighted sample (random seed \val{boot-seed}). The 95\% interval is formed by the 2.5 and 97.5 percentiles of $\Delta^{(1)},\dots,\Delta^{(B)}$, and the two-sided $p$-value is
 \begin{equation}\label{eq:bootp}
@@ -134,7 +133,7 @@ is compared with the $\chi^2$ distribution with one degree of freedom. The boots
 \end{equation}
 A difference is called significant if $\tilde{p}\le\alpha=\val{alpha}$; the correction is applied separately to the bootstrap and to the McNemar $p$-values.
 
-\emph{Comparisons.} In each condition Full is compared with the best baseline, defined as the model with the highest mean test macro F1 over the \val{n-seeds} seeds among the baselines. The two stages alone and Lite count as baselines; the cascade without augmentation, the average of the two stages, our earlier designs and the re-implemented published methods do not. Because this baseline is chosen on the test data, the comparison is conservative for Full. In the settings of the published methods, Full is also compared with each re-implemented method. The comparison of Lite with the published methods, with the same tests and the same Holm correction within each condition, was not part of the frozen plan; it is reported as post hoc. Both tests capture the sampling variation of the test set for fixed trained models; the variation between training seeds is reported as the standard deviation over seeds, and a difference of means larger than the larger of the two standard deviations is described as beyond the seed spread.
+\emph{Comparisons.} In each condition Full is compared with the best baseline, defined as the model with the highest mean test macro F1 over the \val{n-seeds} seeds among the baselines. The two stages alone and Lite count as baselines; the cascade without augmentation, the average of the two stages, our earlier designs and the re-implemented published methods do not. Because this baseline is chosen on the test data, the comparison is conservative for Full. In the settings of the published methods, Full is also compared with each re-implemented method. The comparison of Lite with the published methods, with the same tests and the same Holm correction within each condition, was not part of the frozen plan; it is reported as post hoc. Every comparison is listed with its $p$-values in Appendix~\ref{app:full} (Tables~\ref{tab:significance} and \ref{tab:pubtests}); the tables of results carry no significance marks. Both tests capture the sampling variation of the test set for fixed trained models; the variation between training seeds is reported as the standard deviation over seeds, and a difference of means larger than the larger of the two standard deviations is described as beyond the seed spread.
 
 \subsection{Experimental Protocol}\label{sec:protocol}
 
@@ -148,7 +147,7 @@ A difference is called significant if $\tilde{p}\le\alpha=\val{alpha}$; the corr
 
 \emph{Hardware and timing.} Training ran on Kaggle with two NVIDIA T4 GPUs. Latency was measured on a Kaggle CPU with one thread and batch size one: for each model, \val{lat-msgs} test messages after \val{lat-warmup} warm-up calls, reporting the median (p50), the 95th percentile (p95) and the throughput. The cascade was measured end to end on all \val{men-test-n} messages of the three-class test set in file order, with the second stage called whenever $c_f(x)<\tau^{*}$. The few-shot language model needs a GPU for its 4-bit weights and was timed on a T4 GPU only. The re-implemented published methods were timed in the same way on the test messages of their own settings.
 
-\emph{Use of generative AI.} The synthetic adaptation set of the Kazakhstan case study (Section~\ref{sec:kz}) was drafted with a large language model and checked by the authors before use. [Any further use of generative AI tools for code or text is to be stated here by the authors.]
+\emph{Use of generative AI.} The synthetic adaptation set of the Kazakhstan case study (Section~\ref{sec:kz}) was generated with Claude Opus 5.5 (Anthropic) and checked by the authors before use. The same tool assisted with code development, data processing scripts and language editing of the manuscript (see Acknowledgments).
 
 \subsection{Reading the Weights of Lite}\label{sec:explain-method}
 

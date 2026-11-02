@@ -8,6 +8,11 @@ Output: results/step8/{model.json, top_ngrams.csv, test_predictions.csv, example
         results/step8/example_contributions.csv  per example: n-gram (or mask label), contribution to s_smishing,
                                             to s_spam and their difference; all n-grams that overlap a masked span
                                             are summed into one row per mask label
+        results/step8/example_words.csv     per example and word (tokens separated by spaces; a masked span is one
+                                            word): the summed contributions of the n-grams that overlap the word.
+                                            The contribution of an n-gram is split equally over its occurrences and
+                                            an occurrence that spans several words equally over them; the words of a
+                                            message add up to its n-gram total exactly (checked)
 The per-message n-gram list of the kernel (example_ngrams.csv) is not copied: together it spells the message text,
 which is not redistributed (README, data rules).
 Run: python scripts/make_step8_examples.py
@@ -25,12 +30,14 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "results" / "kaggle_runs" / "smishfuse-step8-explain" / "results" / "step8"
 OUT = ROOT / "results" / "step8"
-COPY = ["model.json", "top_ngrams.csv", "test_predictions.csv", "examples.json"]
+COPY = ["model.json", "top_ngrams.csv", "top_ngrams_long.csv", "test_predictions.csv", "examples.json"]
 # order matters: links first (they may contain digits), then phone numbers (5+ digits, X as a hidden digit), then codes
 MASKS = [("URL", re.compile(r"(?:https?://|www\.)\S+|\b[\w-]+\.(?:com|net|org|co\.uk|ac|biz|info)(?:/\S*)?",
                             re.I)),
          ("PHONE", re.compile(r"\+?\d[\dX]{4,}")),
-         ("CODE", re.compile(r"\b(?:code|pin|otp)[: ]+(\w+)", re.I))]  # the code itself is group 1
+         ("CODE", re.compile(r"\b(?:code|pin|otp)[: ]+(\w+)", re.I)),  # the code itself is group 1
+         # personal names, found by reading the three selected messages (only one contains a name)
+         ("NAME", re.compile(r"\bNatalja\b"))]
 
 
 def normalise(text: str) -> str:
@@ -68,6 +75,42 @@ def owner(gram: str, lower: str, spans) -> str | None:
     return labels.pop() if len(labels) == 1 else "+".join(sorted(labels))
 
 
+def word_contributions(t: str, spans, grams: pd.DataFrame) -> pd.DataFrame:
+    """Contributions of the words of the normalised message t (see the module docstring)."""
+    lower = t.lower()
+    tokens = [(m.start(), m.end()) for m in re.finditer(r"\S+", t)]
+
+    def label(a, b):
+        out, i = [], a
+        for s0, s1, lab in spans:
+            if s0 < b and a < s1:
+                out.append(t[i:max(i, s0)])
+                out.append(f"[{lab}]")
+                i = max(i, s1)
+        out.append(t[i:b])
+        word = "".join(out)
+        masked = re.fullmatch(r"\W*(\[[A-Z]+\])\W*", word)
+        return masked.group(1) if masked else (word.strip(".,:;!?") or word)
+    cols = ["contribution_ham", "contribution_smishing", "contribution_spam"]
+    acc = {i: [0.0, 0.0, 0.0] for i in range(len(tokens))}
+    for g in grams.itertuples():
+        starts = [m.start() for m in re.finditer(f"(?={re.escape(g.ngram)})", lower)]
+        if not starts:
+            raise ValueError(f"n-gram {g.ngram!r} not in the message")
+        for s0 in starts:
+            hit = [i for i, (a, b) in enumerate(tokens) if a < s0 + len(g.ngram) and s0 < b]
+            for i in hit:
+                for k, c in enumerate(cols):
+                    acc[i][k] += getattr(g, c) / len(starts) / len(hit)
+    rows = [{"word": label(*tokens[i]), **dict(zip(cols, v))} for i, v in acc.items()]
+    df = pd.DataFrame(rows).groupby("word", sort=False)[cols].sum().reset_index()
+    for c in cols:
+        if abs(df[c].sum() - grams[c].sum()) > 1e-9:
+            raise ValueError("word contributions do not add up to the n-gram contributions")
+    df["diff_smishing_minus_spam"] = df.contribution_smishing - df.contribution_spam
+    return df
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     for name in COPY:
@@ -84,7 +127,7 @@ def main() -> None:
     texts = pd.read_csv(ROOT / "data" / "processed" / "mendeley" / "test.csv", dtype=str,
                         keep_default_na=False).set_index("id").text
     grams = pd.read_csv(SRC / "example_ngrams.csv", keep_default_na=False)
-    masked, rows = {}, []
+    masked, rows, words = {}, [], []
     for key, e in ex.items():
         t = normalise(texts[e["id"]])
         shown, spans = mask(t)
@@ -97,11 +140,15 @@ def main() -> None:
         agg["diff_smishing_minus_spam"] = agg.contribution_smishing - agg.contribution_spam
         agg = agg.reset_index().assign(example=key, id=e["id"])
         rows.append(agg)
-        print(f"{key}: {e['id']}, masks {masked[key]['masks']}")
+        wd = word_contributions(t, spans, g).assign(example=key, id=e["id"])
+        words.append(wd)
+        print(f"{key}: {e['id']}, masks {masked[key]['masks']}, {len(wd)} words")
     (OUT / "examples_masked.json").write_text(json.dumps(masked, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     cols = ["example", "id", "label", "n_ngrams", "contribution_ham", "contribution_smishing", "contribution_spam",
             "diff_smishing_minus_spam"]
     pd.concat(rows)[cols].to_csv(OUT / "example_contributions.csv", index=False)
+    pd.concat(words)[["example", "id", "word", "contribution_ham", "contribution_smishing", "contribution_spam",
+                      "diff_smishing_minus_spam"]].to_csv(OUT / "example_words.csv", index=False)
     print(f"wrote {OUT.relative_to(ROOT)}: {', '.join(sorted(p.name for p in OUT.iterdir()))}")
 
 

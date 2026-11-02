@@ -1,8 +1,9 @@
 {
   "smishing_as_spam": {
     "id": "mendeley_03261",
-    "text": "Natalja (25/F) is inviting you to be her friend. See her: [URL] STOP? Send STOP FRND to [PHONE]",
+    "text": "[NAME] (25/F) is inviting you to be her friend. See her: [URL] STOP? Send STOP FRND to [PHONE]",
     "masks": [
+      "NAME",
       "URL",
       "PHONE"
     ]

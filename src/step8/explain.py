@@ -9,6 +9,7 @@ Outputs (results/step8/):
   model.json         classes, vectorizer settings, vocabulary size, intercepts, Platt (a_k, b_k), and the largest
                      difference between predict_proba and the probabilities recomputed from these parameters
   top_ngrams.csv     class, rank, ngram, weight: the TOP n-grams with the largest coefficient per class
+  top_ngrams_long.csv  the same for the TOP_LONG largest coefficients (the paper merges overlapping n-grams)
   test_predictions.csv  id, y_true, y_pred, prob_*: seed-1 predictions on the clean test set (compared locally
                      with results/final/preds/mendeley_3class/svm_char/clean_seed1.csv)
   examples.json      three test messages chosen by a fixed rule (below): id, labels, probabilities, scores
@@ -43,6 +44,7 @@ from neural.common import RESULTS, write_json  # noqa: E402
 OUT = RESULTS / "step8"
 CLASSES = ["ham", "smishing", "spam"]
 TOP = 15
+TOP_LONG = 60
 GROUPS = {"smishing_correct": ("smishing", "smishing"), "spam_correct": ("spam", "spam"),
           "smishing_as_spam": ("smishing", "spam")}
 
@@ -104,6 +106,11 @@ def main():
         order = np.argsort(-W[k], kind="stable")[:TOP]
         rows += [{"class": c, "rank": r + 1, "ngram": vocab[j], "weight": float(W[k, j])} for r, j in enumerate(order)]
     pd.DataFrame(rows).to_csv(OUT / "top_ngrams.csv", index=False)
+    rows = []
+    for k, c in enumerate(CLASSES):
+        order = np.argsort(-W[k], kind="stable")[:TOP_LONG]
+        rows += [{"class": c, "rank": r + 1, "ngram": vocab[j], "weight": float(W[k, j])} for r, j in enumerate(order)]
+    pd.DataFrame(rows).to_csv(OUT / "top_ngrams_long.csv", index=False)
 
     pred = P.argmax(1)
     tp = pd.DataFrame({"id": ids, "y_true": [CLASSES[i] for i in y], "y_pred": [CLASSES[i] for i in pred],

@@ -179,16 +179,14 @@ def settings_key_table() -> str:
         rows = ["svm_char", "cascade"] + PUB[cond]
         body.append(f"\\multicolumn{{5}}{{l}}{{\\emph{{{title}}}}} \\\\")
         for x in rows:
-            cells = [cell(cond, t, x) + (_marks(cond, t, x) if x in PUB[cond] else "") for t in SET_TESTS]
+            cells = [cell(cond, t, x) for t in SET_TESTS]
             body.append(" & ".join([name(x)] + cells) + " \\\\")
         body.append("\\midrule")
     body.pop()
     head = ["Model & " + " & ".join(SETS[t] for t in SET_TESTS) + " \\\\"]
     note = ("Macro F1, mean $\\pm$ standard deviation over 5 seeds. HO: held-out obfuscation family at the given "
-            "level. Marks on a published method (seed 1, Holm-adjusted, $\\alpha=0.05$): $\\dagger$ Lite is "
-            "significantly better by one test (bootstrap or McNemar), $\\dagger\\dagger$ by both (post hoc, not in "
-            "the frozen plan); $\\ast$ and $\\ast\\ast$ the same for Full (frozen plan). Every marked difference "
-            "favours our model. All models: Table~\\ref{tab:settings}.")
+            "level. Significance tests of Lite and Full against each published method: Table~\\ref{tab:pubtests}. "
+            "All models: Table~\\ref{tab:settings}.")
     return wrap("tab:settings-key", "Lite and Full against re-implemented published detectors in their own task "
                 "settings", "lCCCC", head, body, note)
 
@@ -257,21 +255,6 @@ PUB = {"setting_mahmud": ["mahmud2024_cnn_bigru"],
 SET_TESTS = ["clean", "heldout05", "heldout10", "heldout20"]
 
 
-def _marks(cond, test, other) -> str:
-    sig = pd.read_csv(FINAL / "significance.csv")
-    r = sig[(sig.condition == cond) & (sig.test_set == test) & (sig.comparison == "published") & (sig.other == other)]
-    ph = pd.read_csv(FINAL / "posthoc_significance.csv")
-    q = ph[(ph.condition == cond) & (ph.test_set == test) & (ph.ours == "svm_char") & (ph.other == other)]
-    if len(r) != 1 or len(q) != 1:
-        raise ValueError(f"significance rows missing for {cond}/{test}/{other}")
-    if (r.diff_macro_f1_seed1.iloc[0] <= 0 and (r.significant_bootstrap_holm.iloc[0] or r.significant_mcnemar_holm.iloc[0])) \
-            or (q.diff_macro_f1_seed1.iloc[0] <= 0 and (q.significant_bootstrap_holm.iloc[0] or q.significant_mcnemar_holm.iloc[0])):
-        raise ValueError(f"a significant difference favours the published method: {cond}/{test}/{other}")
-    a = int(r.significant_bootstrap_holm.iloc[0]) + int(r.significant_mcnemar_holm.iloc[0])
-    b = int(q.significant_bootstrap_holm.iloc[0]) + int(q.significant_mcnemar_holm.iloc[0])
-    return "$^{" + "\\dagger" * b + "\\ast" * a + "}$" if a + b else ""
-
-
 def settings_table() -> str:
     body = []
     for cond, title in (("setting_shim", "Shim et al. setting: smishing versus spam"),
@@ -280,15 +263,14 @@ def settings_table() -> str:
         best = {t: best_in(cond, t, rows) for t in SET_TESTS}
         body.append(f"\\multicolumn{{5}}{{l}}{{\\emph{{{title}}}}} \\\\")
         for x in rows:
-            cells = [cell(cond, t, x, bold=best[t] == x) + (_marks(cond, t, x) if x in PUB[cond] else "") for t in SET_TESTS]
+            cells = [cell(cond, t, x, bold=best[t] == x) for t in SET_TESTS]
             body.append(" & ".join([name(x)] + cells) + " \\\\")
         body.append("\\midrule")
     body.pop()
     head = ["Model & " + " & ".join(SETS[t] for t in SET_TESTS) + " \\\\"]
     note = ("Macro F1, mean $\\pm$ standard deviation over 5 seeds; best per column and setting in bold. HO: "
             "held-out obfuscation family at the given level. TF-IDF + SVM: the word-and-character linear SVM "
-            "baseline. Marks on a published method as in Table~\\ref{tab:settings-key}: $\\dagger$ Lite (post hoc), "
-            "$\\ast$ Full (frozen plan); one mark for one significant test, two for both.")
+            "baseline. Significance tests against the published methods: Table~\\ref{tab:pubtests}.")
     return wrap("tab:settings", "All models in the task settings of the re-implemented published methods",
                 "lCCCC", head, body, note)
 
@@ -469,7 +451,104 @@ def tex_gram(g: str) -> str:
     return "\\texttt{" + "".join(esc.get(c, c) for c in g) + "}"
 
 
+def ngram_overlap(a: str, b: str) -> bool:
+    """Two n-gram cores (spaces at the ends removed) overlap: equal; or one inside the other (the shorter of at least
+    two characters); or, within one word (no space in either), the end of one is the start of the other by at least
+    three characters, as clai / laim."""
+    if a == b:
+        return True
+    if min(len(a), len(b)) < 2:
+        return False
+    if a in b or b in a:
+        return True
+    if " " in a or " " in b:
+        return False
+    return any(a.endswith(b[:k]) or b.endswith(a[:k]) for k in range(3, min(len(a), len(b))))
+
+
+def merged_ngrams(cls: str, top: int = 8) -> list[dict]:
+    """The strongest distinct features of a class: n-grams (60 strongest, by weight) join the first, i.e. strongest,
+    group whose first n-gram, or another member of 3 or more characters, they overlap (groups are not chained into
+    each other); the group is shown by its longest
+    n-gram among the members within 75% of its maximal weight, with that maximal weight."""
+    t = pd.read_csv(ROOT / "results" / "step8" / "top_ngrams_long.csv", keep_default_na=False)
+    groups: list[list[tuple[str, float]]] = []
+    for x, w in zip(t[t["class"] == cls].ngram, t[t["class"] == cls].weight):
+        for g in groups:
+            # the strongest n-gram of the group, or another member of at least 3 characters (a 2-character
+            # member such as "to" would chain different words: "to 8" and "ringtone")
+            if ngram_overlap(x.strip(), g[0][0].strip()) or \
+                    any(len(m.strip()) >= 3 and ngram_overlap(x.strip(), m.strip()) for m, _ in g[1:]):
+                g.append((x, w))
+                break
+        else:
+            groups.append([(x, w)])
+    out = []
+    for g in groups[:top]:
+        mx = g[0][1]
+        rep = max([m for m, w in g if w >= 0.75 * mx], key=lambda m: (len(m.strip()), dict(g)[m]))
+        out.append({"ngram": rep, "weight": mx, "n_merged": len(g), "members": [m for m, _ in g]})
+    return out
+
+
+# interpretation of each feature, written from the words of the training messages of the class in which the
+# n-gram occurs most often (data/processed/mendeley/train.csv, counted for the paper; no model involved)
+INTERPRETATION = {
+    ("ham", ".."): "ellipsis in informal writing (ok..., lor...)",
+    ("ham", "i "): "pronoun I",
+    ("ham", ":)"): "emoticon",
+    ("ham", "my "): "pronoun my",
+    ("ham", "so"): "so, sorry, some",
+    ("ham", " m"): "start of my, me, much, make",
+    ("ham", "me "): "me, and come, time, home",
+    ("ham", " it"): "pronoun it",
+    ("smishing", " 0"): "start of a phone number (0800..., 087...)",
+    ("smishing", "00"): "amounts and numbers (\\pounds1000, 0800)",
+    ("smishing", "08"): "phone numbers 08...",
+    ("smishing", "09"): "phone numbers 09...",
+    ("smishing", "20"): "amounts and years (\\pounds2000, 2003)",
+    ("smishing", "all 0"): "request to call a number (call 0...)",
+    ("smishing", "claim"): "prize claim",
+    ("smishing", "50"): "amounts and rates (\\pounds500, 150ppm)",
+    ("spam", "txt"): "txt: subscription and chat services",
+    ("spam", " 8"): "start of a short code (8007, 86688)",
+    ("spam", " to 8"): "reply to a short code (to 86688)",
+    ("spam", "tone"): "ringtone",
+    ("spam", "88"): "digits of a short code (86688)",
+    ("spam", "50"): "prices (150p, \\pounds1.50)",
+    ("spam", "10"): "prices (\\pounds100, \\pounds10)",
+    ("spam", "ms"): "sms, msg",
+}
+
+
 def ngrams_table() -> str:
+    """Main text: the eight strongest distinct features of each class, overlapping n-grams merged."""
+    body = []
+    for cls in ("ham", "smishing", "spam"):
+        body.append(f"\\multicolumn{{5}}{{l}}{{\\emph{{{cls}}}}} \\\\")
+        for i, f in enumerate(merged_ngrams(cls), 1):
+            key = (cls, f["ngram"])
+            if key not in INTERPRETATION:
+                raise ValueError(f"no interpretation for {key}")
+            body.append(" & ".join([str(i), tex_gram(f["ngram"]), f"{f['weight']:.2f}", str(f["n_merged"]),
+                                    INTERPRETATION[key]]) + " \\\\")
+        body.append("\\midrule")
+    body.pop()
+    head = ["Rank & n-gram & $w_{k,g}$ & Merged & Interpretation \\\\"]
+    note = ("Coefficients of the one-versus-rest linear SVM of Lite (seed 1) on lower-cased character n-grams, read "
+            "from the saved weights after the evaluation (post hoc, no training). Overlapping n-grams of a class "
+            "(one inside the other or overlapping within a word, such as claim, laim, aim and clai) are merged: "
+            "among the 60 strongest n-grams of the class, each joins the strongest group it overlaps; a group is "
+            "shown by its longest n-gram within 75\\% of the group's largest weight, with that weight. Merged: "
+            "number of n-grams in the group. Interpretation: from the words of the training messages of the class "
+            "that contain the n-gram most often. \\textvisiblespace{} marks a space. Unmerged list: "
+            "Table~\\ref{tab:ngrams-full}.")
+    return wrap("tab:ngrams", "The strongest distinct character n-gram features of each class in Lite",
+                "clccL", head, body, note, wide=False)
+
+
+def ngrams_full_table() -> str:
+    """Appendix: the fifteen n-grams with the largest coefficients per class, without merging."""
     t = pd.read_csv(ROOT / "results" / "step8" / "top_ngrams.csv", keep_default_na=False)
     classes = ["ham", "smishing", "spam"]
     by = {c: t[t["class"] == c].sort_values("rank").reset_index(drop=True) for c in classes}
@@ -486,16 +565,52 @@ def ngrams_table() -> str:
     head = [" & \\multicolumn{2}{c}{ham} & \\multicolumn{2}{c}{smishing} & \\multicolumn{2}{c}{spam} \\\\",
             "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}",
             "Rank & n-gram & $w_{k,g}$ & n-gram & $w_{k,g}$ & n-gram & $w_{k,g}$ \\\\"]
-    note = ("Coefficients of the one-versus-rest linear SVM of Lite (seed 1) on lower-cased character n-grams; "
-            "\\textvisiblespace{} marks a space. Read from the saved weights after the evaluation (post hoc, no "
-            "training).")
-    return wrap("tab:ngrams", "The character n-grams with the largest coefficient for each class in Lite",
-                "cCCCCCC", head, body, note, wide=False)
+    note = ("Coefficients of the one-versus-rest linear SVM of Lite (seed 1) on lower-cased character n-grams, "
+            "without merging overlapping n-grams; \\textvisiblespace{} marks a space. Read from the saved weights "
+            "after the evaluation (post hoc, no training).")
+    return wrap("tab:ngrams-full", "The fifteen character n-grams with the largest coefficients for each class in "
+                "Lite, unmerged", "cCCCCCC", head, body, note, wide=False)
+
+
+def published_tests_table() -> str:
+    """Appendix: Lite (post hoc) and Full (frozen plan) against each re-implemented published method."""
+    sig = pd.read_csv(FINAL / "significance.csv")
+    ph = pd.read_csv(FINAL / "posthoc_significance.csv")
+    label = {"setting_shim": "Shim", "setting_mahmud": "Mahmud"}
+    body = []
+    for cond in ("setting_shim", "setting_mahmud"):
+        for test in SET_TESTS:
+            for other in PUB[cond]:
+                lite = ph[(ph.condition == cond) & (ph.test_set == test) & (ph.ours == "svm_char") & (ph.other == other)]
+                full = sig[(sig.condition == cond) & (sig.test_set == test) & (sig.comparison == "published")
+                           & (sig.other == other)]
+                if len(lite) != 1 or len(full) != 1:
+                    raise ValueError(f"comparison rows missing: {cond}/{test}/{other}")
+                cells = [label[cond], SETS[test], name(other)]
+                for r, b, m in ((lite.iloc[0], "significant_bootstrap_holm", "significant_mcnemar_holm"),
+                                (full.iloc[0], "significant_bootstrap_holm", "significant_mcnemar_holm")):
+                    pb, pm = pval(r.p_bootstrap_holm), pval(r.p_mcnemar_holm)
+                    cells += [sgn(100 * r.diff_macro_f1_seed1), f"\\textbf{{{pb}}}" if r[b] else pb,
+                              f"\\textbf{{{pm}}}" if r[m] else pm]
+                body.append(" & ".join(cells) + " \\\\")
+        body.append("\\midrule")
+    body.pop()
+    head = [" & & & \\multicolumn{3}{c}{Lite (post hoc)} & \\multicolumn{3}{c}{Full (frozen plan)} \\\\",
+            "\\cmidrule(lr){4-6}\\cmidrule(lr){7-9}",
+            "Setting & Test & Published method & $\\Delta$, pp & $\\tilde{p}$ boot. & $\\tilde{p}$ McN. & "
+            "$\\Delta$, pp & $\\tilde{p}$ boot. & $\\tilde{p}$ McN. \\\\"]
+    note = ("$\\Delta$: macro F1 of Lite or Full minus that of the published method on seed 1, in percentage points. "
+            "$\\tilde{p}$: Holm-adjusted $p$-values of the paired bootstrap and McNemar tests within each condition; "
+            "values $\\le 0.05$ in bold. Every significant difference favours Lite or Full. HO: held-out "
+            "obfuscation family at the given level.")
+    return wrap("tab:pubtests", "Lite and Full against each re-implemented published method: significance tests",
+                "lllCCCCCC", head, body, note, size="\\footnotesize", sep="3pt")
 
 
 def build() -> dict[str, str]:
     return {"corpora.tex": corpora(), "settings_key.tex": settings_key_table(), "key3.tex": key3_table(),
             "operating.tex": operating_table(), "inflation.tex": inflation_table(), "ngrams.tex": ngrams_table(),
+            "ngrams_full.tex": ngrams_full_table(), "pubtests.tex": published_tests_table(),
             "main.tex": main_table(), "settings.tex": settings_table(), "robustness.tex": robustness_table(),
             "lowdata.tex": lowdata_table(), "efficiency.tex": efficiency_table(),
             "significance.tex": significance_table()}

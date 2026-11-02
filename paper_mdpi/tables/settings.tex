@@ -15,9 +15,9 @@ DistilBERT, aug. (stage 2 of Full) & 0.9089 $\pm$ 0.0148 & 0.9034 $\pm$ 0.0082 &
 DistilBERT, stage-2 model, no aug. & 0.8927 $\pm$ 0.0113 & 0.8946 $\pm$ 0.0173 & 0.8057 $\pm$ 0.0613 & 0.5519 $\pm$ 0.1202 \\
 BERT & 0.9007 $\pm$ 0.0112 & 0.8992 $\pm$ 0.0279 & 0.7926 $\pm$ 0.0703 & 0.5755 $\pm$ 0.0976 \\
 TF-IDF + SVM & 0.9196 $\pm$ 0.0031 & 0.9163 $\pm$ 0.0025 & 0.9232 $\pm$ 0.0000 & 0.9101 $\pm$ 0.0029 \\
-Shim et al., BERT & 0.9027 $\pm$ 0.0186$^{\ast}$ & 0.8925 $\pm$ 0.0081$^{\ast\ast}$ & 0.7895 $\pm$ 0.0467$^{\dagger\dagger\ast\ast}$ & 0.5956 $\pm$ 0.0867$^{\dagger\dagger\ast\ast}$ \\
-Shim et al., DistilBERT & 0.8935 $\pm$ 0.0174$^{\ast}$ & 0.8676 $\pm$ 0.0440 & 0.7109 $\pm$ 0.0751$^{\dagger\dagger\ast\ast}$ & 0.4416 $\pm$ 0.0663$^{\dagger\dagger\ast\ast}$ \\
-Shim et al., RoBERTa & 0.8592 $\pm$ 0.0447$^{\dagger\dagger\ast\ast}$ & 0.8705 $\pm$ 0.0380$^{\dagger\dagger\ast\ast}$ & 0.8288 $\pm$ 0.0092$^{\dagger\dagger\ast\ast}$ & 0.6847 $\pm$ 0.1131$^{\dagger\dagger\ast\ast}$ \\
+Shim et al., BERT & 0.9027 $\pm$ 0.0186 & 0.8925 $\pm$ 0.0081 & 0.7895 $\pm$ 0.0467 & 0.5956 $\pm$ 0.0867 \\
+Shim et al., DistilBERT & 0.8935 $\pm$ 0.0174 & 0.8676 $\pm$ 0.0440 & 0.7109 $\pm$ 0.0751 & 0.4416 $\pm$ 0.0663 \\
+Shim et al., RoBERTa & 0.8592 $\pm$ 0.0447 & 0.8705 $\pm$ 0.0380 & 0.8288 $\pm$ 0.0092 & 0.6847 $\pm$ 0.1131 \\
 \midrule
 \multicolumn{5}{l}{\emph{Mahmud et al. setting: ham versus malicious}} \\
 Lite (char SVM) & 0.9864 $\pm$ 0.0009 & 0.9871 $\pm$ 0.0000 & \textbf{0.9886} $\pm$ 0.0000 & \textbf{0.9870} $\pm$ 0.0000 \\
@@ -27,9 +27,9 @@ DistilBERT, aug. (stage 2 of Full) & \textbf{0.9880} $\pm$ 0.0024 & 0.9880 $\pm$
 DistilBERT, stage-2 model, no aug. & 0.9866 $\pm$ 0.0013 & 0.9855 $\pm$ 0.0032 & 0.9703 $\pm$ 0.0112 & 0.9161 $\pm$ 0.0390 \\
 BERT & 0.9838 $\pm$ 0.0030 & 0.9838 $\pm$ 0.0032 & 0.9793 $\pm$ 0.0045 & 0.9716 $\pm$ 0.0057 \\
 TF-IDF + SVM & 0.9855 $\pm$ 0.0000 & 0.9838 $\pm$ 0.0000 & 0.9854 $\pm$ 0.0000 & 0.9704 $\pm$ 0.0000 \\
-Mahmud et al., CNN-BiGRU & 0.9712 $\pm$ 0.0026 & 0.9497 $\pm$ 0.0048$^{\dagger\dagger\ast\ast}$ & 0.9205 $\pm$ 0.0079$^{\dagger\dagger\ast\ast}$ & 0.8555 $\pm$ 0.0084$^{\dagger\dagger\ast\ast}$ \\
+Mahmud et al., CNN-BiGRU & 0.9712 $\pm$ 0.0026 & 0.9497 $\pm$ 0.0048 & 0.9205 $\pm$ 0.0079 & 0.8555 $\pm$ 0.0084 \\
 \bottomrule
 \end{tabularx}
-\noindent{\footnotesize{Macro F1, mean $\pm$ standard deviation over 5 seeds; best per column and setting in bold. HO: held-out obfuscation family at the given level. TF-IDF + SVM: the word-and-character linear SVM baseline. Marks on a published method as in Table~\ref{tab:settings-key}: $\dagger$ Lite (post hoc), $\ast$ Full (frozen plan); one mark for one significant test, two for both.}}
+\noindent{\footnotesize{Macro F1, mean $\pm$ standard deviation over 5 seeds; best per column and setting in bold. HO: held-out obfuscation family at the given level. TF-IDF + SVM: the word-and-character linear SVM baseline. Significance tests against the published methods: Table~\ref{tab:pubtests}.}}
 \end{adjustwidth}
 \end{table}

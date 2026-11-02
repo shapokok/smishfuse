@@ -317,6 +317,26 @@ def main() -> int:
     if tbl_off:
         fails.append(f"{len(tbl_off)} text-width tables not in the text column")
 
+    # 8. figures as SVG with a PNG of at least 600 dpi; cases as equation arrays; data statement left-aligned
+    rels = zf.read("word/_rels/document.xml.rels").decode("utf-8")
+    target = dict(re.findall(r'Id="(rId\w+)"[^>]*Target="([^"]+)"', rels))
+    for k, blip in enumerate(re.findall(r"<a:blip .*?</a:blip>|<a:blip [^>]*/>", body, flags=re.S), 1):
+        svg = re.search(r'svgBlip [^>]*r:embed="(rId\w+)"', blip)
+        png = re.search(r'<a:blip r:embed="(rId\w+)"', blip)
+        if not svg or not target.get(svg.group(1), "").endswith(".svg"):
+            fails.append(f"picture {k}: no SVG version")
+        data = zf.read("word/" + target[png.group(1)])
+        i = data.find(b"pHYs")
+        ppm = int.from_bytes(data[i + 4:i + 8], "big") if i > 0 else 0
+        if ppm * 0.0254 < 599:
+            fails.append(f"picture {k}: PNG at {ppm * 0.0254:.0f} dpi")
+    for m in re.finditer(r'<m:d><m:dPr><m:begChr m:val="\{" ?/>.*?</m:dPr><m:e>(<m:\w+)', body, flags=re.S):
+        if m.group(1) == "<m:m":
+            fails.append("a case distinction is written as a matrix, not as an equation array")
+    da = [b for b in re.findall(r"<w:p(?: [^>]*)?>.*?</w:p>", body, flags=re.S) if "Data Availability Statement" in b]
+    if not da or '<w:jc w:val="left"/>' not in da[0]:
+        fails.append("the data availability statement is not left-aligned")
+
     print(f"paragraphs outside the text column: {len(off)}")
     print(f"docx: {len(paras)} blocks, {len(tables)} tables, {len(figs)} figures, {len(eqs)} numbered equations, "
           f"{len(refs)} references; values checked {len(need)}; paragraphs compared, lost {lost}")

@@ -26,6 +26,7 @@ ALLOWED = {
     "50": "name of the median latency p50",
     "200": "model name NLLB-200",
     "4.0": "licence name CC BY 4.0 (Mendeley data licence)",
+    "5.5": "model name Claude Opus 5.5 (disclosure of the use of generative AI)",
 }
 
 

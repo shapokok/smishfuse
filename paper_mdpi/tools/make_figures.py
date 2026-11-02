@@ -55,6 +55,7 @@ def mean(m, cond, model, s, col="macro_f1"):
 
 
 def save(fig, stem: str) -> None:
+    """Vector copy at the final size (PDF); the Word version and the submission files are made from it."""
     fig.savefig(OUT / f"{stem}.pdf")
 
 
@@ -72,7 +73,10 @@ def main() -> None:
 
     plt.rcParams.update({"font.size": 8, "axes.titlesize": 8, "axes.labelsize": 8, "legend.fontsize": 8,
                          "xtick.labelsize": 8, "ytick.labelsize": 8, "pdf.fonttype": 42, "ps.fonttype": 42,
-                         "font.family": "DejaVu Sans", "legend.handlelength": 2.6})
+                         "font.family": "DejaVu Sans", "legend.handlelength": 2.6,
+                         # lettering of at least 8 pt and lines of at least 0.75 pt at the printed size
+                         "axes.linewidth": 0.8, "xtick.major.width": 0.8, "ytick.major.width": 0.8,
+                         "lines.linewidth": 1.0, "patch.linewidth": 0.75})
     OUT.mkdir(parents=True, exist_ok=True)
     m = pd.read_csv(F / "metrics.csv")
     present3 = set(m[m.condition == "mendeley_3class"].model)
@@ -95,7 +99,7 @@ def main() -> None:
         ax.set_title(title)
         ax.set_xlabel("Held-out obfuscation level, %")
         ax.set_xticks(xs)
-        ax.grid(alpha=0.3, lw=0.5)
+        ax.grid(alpha=0.3, lw=0.75)
     axes[0].set_ylabel("Macro F1 (test, mean $\\pm$ sd of 5 seeds)")
     hs, ls_ = [], []
     for ax in axes:
@@ -117,7 +121,7 @@ def main() -> None:
         ax.set_title("TR family (used in training)" if kind == "train" else "HO family (held out)")
         ax.set_xlabel("Obfuscation level, %")
         ax.set_xticks(xs)
-        ax.grid(alpha=0.3, lw=0.5)
+        ax.grid(alpha=0.3, lw=0.75)
     axes[0].set_ylabel("Macro F1 (test, mean of 5 seeds)")
     h, lab = axes[0].get_legend_handles_labels()
     fig.legend(h, lab, loc="outside lower center", ncol=2, frameon=False)
@@ -138,7 +142,7 @@ def main() -> None:
     ax.minorticks_off()
     ax.set_xlabel("Share of the training data (log scale)")
     ax.set_ylabel("Macro F1 (clean test)")
-    ax.grid(alpha=0.3, lw=0.5)
+    ax.grid(alpha=0.3, lw=0.75)
     fig.legend(loc="outside lower center", ncol=2, frameon=False)
     save(fig, "learning_curve")
     plt.close(fig)
@@ -156,7 +160,7 @@ def main() -> None:
         pts.append((r.p50_ms, q))
         st = style(r.model, i)
         ax.scatter(r.p50_ms, q, s=60 if r.model in ("cascade", "svm_char") else 24, color=st["color"], marker=st["marker"],
-                   zorder=st["zorder"], edgecolor="black", linewidth=0.5, label=name(r.model))
+                   zorder=st["zorder"], edgecolor="black", linewidth=0.75, label=name(r.model))
     front, best = [], -1.0
     for x, y in sorted(pts):
         if y > best:
@@ -166,7 +170,7 @@ def main() -> None:
     ax.set_xscale("log")
     ax.set_xlabel("Median latency p50, ms per message (log scale)")
     ax.set_ylabel("Macro F1 (clean test)")
-    ax.grid(alpha=0.3, lw=0.5)
+    ax.grid(alpha=0.3, lw=0.75)
     fig.legend(loc="outside lower center", ncol=3, frameon=False)
     save(fig, "quality_vs_latency")
     plt.close(fig)
@@ -189,7 +193,7 @@ def main() -> None:
     ax.minorticks_off()
     ax.set_xlabel("Messages sent to DistilBERT, % (symlog scale)")
     ax.set_ylabel("Macro F1 (test, mean of 5 seeds)")
-    ax.grid(alpha=0.3, lw=0.5)
+    ax.grid(alpha=0.3, lw=0.75)
     ax.legend(frameon=False, loc="lower left", handlelength=1.8, borderaxespad=0.3)
     save(fig, "cascade_share_vs_f1")
     plt.close(fig)
@@ -205,7 +209,7 @@ def main() -> None:
     ax.set_ylabel("Precision (malicious)")
     ax.set_xlim(0.80, 1.0)
     ax.set_ylim(0.80, 1.005)
-    ax.grid(alpha=0.3, lw=0.5)
+    ax.grid(alpha=0.3, lw=0.75)
     ax.legend(frameon=False, loc="lower left")
     save(fig, "pr_curves")
     plt.close(fig)
@@ -238,7 +242,7 @@ def main() -> None:
         ax.set_title(title)
         ax.set_xlabel("Adaptation messages")
         ax.set_ylim(0, 1.02)
-        ax.grid(alpha=0.3, lw=0.5)
+        ax.grid(alpha=0.3, lw=0.75)
     axes[0].set_ylabel("Share")
     axes[1].legend(frameon=False, loc="lower right")
     save(fig, "adaptation_curve")
@@ -247,40 +251,52 @@ def main() -> None:
     print("wrote", ", ".join(sorted(p.name for p in OUT.glob("*.pdf"))))
 
 
-def explanation_figure(plt, top: int = 10) -> None:
-    """Three test messages (results/step8, masked): contributions of n-grams to s_smishing - s_spam (eq. contrib).
-    Bars: the TOP labels by absolute value; the rest of the n-grams and the intercept difference as two more bars,
-    so that the bars add up to the margin s_smishing - s_spam of the message."""
-    import textwrap
+def wrap_to_width(text: str, width_pt: float, size_pt: float = 8.0) -> list[str]:
+    """Greedy line breaking by the measured width of the figure font (DejaVu Sans) at size_pt."""
+    from matplotlib import font_manager
+    from PIL import ImageFont
 
+    font = ImageFont.truetype(font_manager.findfont("DejaVu Sans"), 100)
+    lines, cur = [], ""
+    for w in text.split():
+        nxt = (cur + " " + w).strip()
+        if cur and font.getlength(nxt) / 100 * size_pt > width_pt:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = nxt
+    return lines + [cur]
+
+
+def explanation_figure(plt, top: int = 8) -> None:
+    """Three test messages (results/step8, masked): contributions of the words to s_smishing - s_spam (eq. contrib),
+    the TOP words by absolute value; the other words and the intercept are given in the caption (numbers.tex)."""
     s8 = ROOT / "results" / "step8"
     ex = json.loads((s8 / "examples.json").read_text())
     masked = json.loads((s8 / "examples_masked.json").read_text())
-    contrib = pd.read_csv(s8 / "example_contributions.csv", keep_default_na=False)
-    model = json.loads((s8 / "model.json").read_text())
-    b = dict(zip(model["classes"], model["intercept"]))
+    words = pd.read_csv(s8 / "example_words.csv", keep_default_na=False)
     order = [("smishing_correct", "(a)"), ("spam_correct", "(b)"), ("smishing_as_spam", "(c)")]
-    fig, axes = plt.subplots(3, 1, figsize=(TEXT, 17.0 * CM), layout="constrained")
+    fig, axes = plt.subplots(3, 1, figsize=(TEXT, 18.0 * CM))
+    fig.subplots_adjust(left=0.25, right=0.975, top=0.905, bottom=0.075, hspace=0.62)
+    width_pt = TEXT * 72 - 6
     for ax, (key, tag) in zip(axes, order):
-        e, g = ex[key], contrib[contrib.example == key].copy()
-        g = g.reindex(g.diff_smishing_minus_spam.abs().sort_values(ascending=False).index)
-        head, rest = g.head(top), g.iloc[top:]
-        labels = [x if x.startswith("[") else "'" + x.replace(" ", "␣") + "'" for x in head.label]
-        vals = list(head.diff_smishing_minus_spam)
-        labels += [f"other n-grams ({int(rest.n_ngrams.sum())})", "intercept"]
-        vals += [rest.diff_smishing_minus_spam.sum(), b["smishing"] - b["spam"]]
-        margin = e["score"]["smishing"] - e["score"]["spam"]
-        if abs(sum(vals) - margin) > 1e-6:
-            raise ValueError(f"{key}: contributions do not add up to the margin")
-        y = list(range(len(vals)))[::-1]
-        ax.barh(y, vals, color=[CASCADE_COLOR if v > 0 else LITE_COLOR for v in vals], height=0.7)
-        ax.set_yticks(y, labels, fontsize=7)
-        ax.axvline(0, color="black", lw=0.6)
-        ax.grid(axis="x", alpha=0.3, lw=0.5)
-        text = "\n".join(textwrap.wrap(masked[key]["text"], 68))
-        ax.set_title(f"{tag} true: {e['y_true']}, predicted: {e['y_pred']} "
-                     f"(p = {e['prob'][e['y_pred']]:.2f}); margin {margin:+.2f}\n{text}",
-                     fontsize=7, loc="left")
+        e = ex[key]
+        g = words[words.example == key]
+        g = g.reindex(g.diff_smishing_minus_spam.abs().sort_values(ascending=False).index).head(top)
+        y = list(range(len(g)))[::-1]
+        vals = list(g.diff_smishing_minus_spam)
+        ax.barh(y, vals, color=[CASCADE_COLOR if v > 0 else LITE_COLOR for v in vals], height=0.68)
+        ax.set_yticks(y, list(g.word))
+        ax.axvline(0, color="black", lw=0.8)
+        ax.grid(axis="x", alpha=0.3, lw=0.75)
+        ax.set_xlim(-0.65, 0.75)
+        lines = wrap_to_width(masked[key]["text"], width_pt)
+        if len(lines) > 2:
+            raise ValueError(f"{key}: the message needs {len(lines)} lines above its panel")
+        head = f"{tag} true: {e['y_true']}, predicted: {e['y_pred']} (p = {e['prob'][e['y_pred']]:.2f})"
+        ax.annotate(head + "\n" + "\n".join(lines), xy=(0.005, 1.0), xycoords=("figure fraction", "axes fraction"),
+                    xytext=(0, 5), textcoords="offset points", va="bottom", ha="left", fontsize=8,
+                    annotation_clip=False)
     axes[-1].set_xlabel("Contribution to $s_{smishing} - s_{spam}$ (positive: towards smishing)")
     save(fig, "explanation_examples")
     plt.close(fig)

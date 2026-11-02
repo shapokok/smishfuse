@@ -1,338 +1,682 @@
-[{"stream_name":"stderr","time":12.060859707,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
-,{"stream_name":"stderr","time":12.061030692,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
-,{"stream_name":"stderr","time":13.765599121,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
-,{"stream_name":"stderr","time":13.765634364,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
-,{"stream_name":"stderr","time":13.765639723,"data":"0.00s - to python to disable frozen modules.\n"}
-,{"stream_name":"stderr","time":13.765644326,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
-,{"stream_name":"stderr","time":14.831545493,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
-,{"stream_name":"stderr","time":14.83161272,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
-,{"stream_name":"stderr","time":14.831620248,"data":"0.00s - to python to disable frozen modules.\n"}
-,{"stream_name":"stderr","time":14.831625871,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
-,{"stream_name":"stdout","time":16.9971778,"data":"cascade_diagram.tex 467e951602792285e2aeeb230c53f7e44b63873f3a3bd35213bb96a3bf728f8f\n"}
-,{"stream_name":"stdout","time":16.997247766,"data":"logo-mdpi.eps f02d31469c6b2666c9de2da8d8731773bce3751d2fa99a27ff4bcf61a106cdcf\n"}
-,{"stream_name":"stderr","time":22.806953095,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
-,{"stream_name":"stderr","time":23.010294997,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
-,{"stream_name":"stderr","time":23.010361186,"data":"\n"}
-,{"stream_name":"stderr","time":23.01037107,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
-,{"stream_name":"stdout","time":139.433136011,"data":"This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)\n"}
-,{"stream_name":"stdout","time":139.433207325,"data":" restricted \\write18 enabled.\n"}
-,{"stream_name":"stdout","time":139.558058148,"data":"entering extended mode\n"}
-,{"stream_name":"stdout","time":139.560901334,"data":"(./cascade_diagram.tex\n"}
-,{"stream_name":"stdout","time":139.561131917,"data":"LaTeX2e \u003c2023-11-01\u003e patch level 1\n"}
-,{"stream_name":"stdout","time":139.561140153,"data":"L3 programming layer \u003c2024-01-22\u003e\n"}
-,{"stream_name":"stdout","time":139.563747491,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls\n"}
-,{"stream_name":"stdout","time":139.563775266,"data":"Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan\n"}
-,{"stream_name":"stdout","time":139.563782381,"data":"dalone\n"}
-,{"stream_name":"stdout","time":139.567811066,"data":"(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty)\n"}
-,{"stream_name":"stdout","time":139.570472428,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty\n"}
-,{"stream_name":"stdout","time":139.57554731,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))\n"}
-,{"stream_name":"stdout","time":139.575938394,"data":"(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty\n"}
-,{"stream_name":"stdout","time":139.5762803,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex\n"}
-,{"stream_name":"stdout","time":139.576788681,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex\n"}
-,{"stream_name":"stdout","time":139.582797804,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))\n"}
-,{"stream_name":"stdout","time":139.587433905,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg)\n"}
-,{"stream_name":"stdout","time":139.58914247,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\n"}
-,{"stream_name":"stdout","time":139.589174448,"data":"Document Class: article 2023/05/17 v1.4n Standard LaTeX document class\n"}
-,{"stream_name":"stdout","time":139.597673608,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo)))\n"}
-,{"stream_name":"stdout","time":139.601908551,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)\n"}
-,{"stream_name":"stdout","time":139.616193757,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)\n"}
-,{"stream_name":"stdout","time":139.618306054,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty\n"}
-,{"stream_name":"stdout","time":139.620967219,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty\n"}
-,{"stream_name":"stdout","time":139.621144726,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty\n"}
-,{"stream_name":"stdout","time":139.622528065,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)\n"}
-,{"stream_name":"stdout","time":139.625264277,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)\n"}
-,{"stream_name":"stdout","time":139.625690431,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex\n"}
-,{"stream_name":"stdout","time":139.629418884,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))\n"}
-,{"stream_name":"stdout","time":139.631860922,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty\n"}
-,{"stream_name":"stdout","time":139.635148782,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty\n"}
-,{"stream_name":"stdout","time":139.638012138,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty\n"}
-,{"stream_name":"stdout","time":139.640315042,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)\n"}
-,{"stream_name":"stdout","time":139.641904531,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)\n"}
-,{"stream_name":"stdout","time":139.644661425,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.defThis is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)\n"}
-,{"stream_name":"stdout","time":139.644689881,"data":" restricted \\write18 enabled.\n"}
-,{"stream_name":"stdout","time":139.644695126,"data":"entering extended mode\n"}
-,{"stream_name":"stdout","time":139.644699251,"data":"(./cascade_diagram.tex\n"}
-,{"stream_name":"stdout","time":139.644703412,"data":"LaTeX2e \u003c2023-11-01\u003e patch level 1\n"}
-,{"stream_name":"stdout","time":139.644707965,"data":"L3 programming layer \u003c2024-01-22\u003e\n"}
-,{"stream_name":"stdout","time":139.644712207,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls\n"}
-,{"stream_name":"stdout","time":139.644727513,"data":"Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan\n"}
-,{"stream_name":"stdout","time":139.644731973,"data":"dalone\n"}
-,{"stream_name":"stdout","time":139.644735919,"data":"(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty)\n"}
-,{"stream_name":"stdout","time":139.644740005,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty\n"}
-,{"stream_name":"stdout","time":139.644744236,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))\n"}
-,{"stream_name":"stdout","time":139.644748361,"data":"(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty\n"}
-,{"stream_name":"stdout","time":139.644752473,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex\n"}
-,{"stream_name":"stdout","time":139.644756662,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex\n"}
-,{"stream_name":"stdout","time":139.644760709,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))\n"}
-,{"stream_name":"stdout","time":139.644765008,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg)\n"}
-,{"stream_name":"stdout","time":139.644773662,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\n"}
-,{"stream_name":"stdout","time":139.644778233,"data":"Document Class: article 2023/05/17 v1.4n Standard LaTeX document class\n"}
-,{"stream_name":"stdout","time":139.644782451,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo)))\n"}
-,{"stream_name":"stdout","time":139.644786619,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)\n"}
-,{"stream_name":"stdout","time":139.644790803,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)\n"}
-,{"stream_name":"stdout","time":139.644795147,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty\n"}
-,{"stream_name":"stdout","time":139.644799302,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty\n"}
-,{"stream_name":"stdout","time":139.644803445,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty\n"}
-,{"stream_name":"stdout","time":139.64480755,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)\n"}
-,{"stream_name":"stdout","time":139.644811799,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)\n"}
-,{"stream_name":"stdout","time":139.644816121,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex\n"}
-,{"stream_name":"stdout","time":139.644820386,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))\n"}
-,{"stream_name":"stdout","time":139.644824465,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty\n"}
-,{"stream_name":"stdout","time":139.654641546,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty)))\n"}
-,{"stream_name":"stdout","time":139.656386783,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty\n"}
-,{"stream_name":"stdout","time":139.656787414,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex\n"}
-,{"stream_name":"stdout","time":139.660880395,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex\n"}
-,{"stream_name":"stdout","time":139.660934765,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered\n"}
-,{"stream_name":"stdout","time":139.665647586,"data":".code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)\n"}
-,{"stream_name":"stdout","time":139.666307136,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def\n"}
-,{"stream_name":"stdout","time":139.666378989,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de\n"}
-,{"stream_name":"stdout","time":139.669477789,"data":"f)))\n"}
-,{"stream_name":"stdout","time":139.669508112,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.\n"}
-,{"stream_name":"stdout","time":139.671383712,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.671412821,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.\n"}
-,{"stream_name":"stdout","time":139.692520569,"data":"tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty\n"}
-,{"stream_name":"stdout","time":139.697992545,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)\n"}
-,{"stream_name":"stdout","time":139.704385081,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))\n"}
-,{"stream_name":"stdout","time":139.704844723,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex\n"}
-,{"stream_name":"stdout","time":139.705330646,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex\n"}
-,{"stream_name":"stdout","time":139.706237045,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)\n"}
-,{"stream_name":"stdout","time":139.70855775,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)\n"}
-,{"stream_name":"stdout","time":139.709930744,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)\n"}
-,{"stream_name":"stdout","time":139.709957992,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code\n"}
-,{"stream_name":"stdout","time":139.712030841,"data":".tex)\n"}
-,{"stream_name":"stdout","time":139.712059736,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet\n"}
-,{"stream_name":"stdout","time":139.718968315,"data":"ric.code.tex)\n"}
-,{"stream_name":"stdout","time":139.719001789,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod\n"}
-,{"stream_name":"stdout","time":139.720004924,"data":"e.tex)\n"}
-,{"stream_name":"stdout","time":139.720035884,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison\n"}
-,{"stream_name":"stdout","time":139.721798847,"data":".code.tex)\n"}
-,{"stream_name":"stdout","time":139.721826257,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.\n"}
-,{"stream_name":"stdout","time":139.723133649,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.723159072,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code\n"}
-,{"stream_name":"stdout","time":139.724038394,"data":".tex)\n"}
-,{"stream_name":"stdout","time":139.724060093,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.\n"}
-,{"stream_name":"stdout","time":139.725364715,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.725388892,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari\n"}
-,{"stream_name":"stdout","time":139.726369548,"data":"thmetics.code.tex)\n"}
-,{"stream_name":"stdout","time":139.727294626,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)\n"}
-,{"stream_name":"stdout","time":139.735709795,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))\n"}
-,{"stream_name":"stdout","time":139.736363848,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)\n"}
-,{"stream_name":"stdout","time":139.736391907,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te\n"}
-,{"stream_name":"stdout","time":139.739147339,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.739179533,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.\n"}
-,{"stream_name":"stdout","time":139.742380078,"data":"code.tex)\n"}
-,{"stream_name":"stdout","time":139.742411681,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code\n"}
-,{"stream_name":"stdout","time":139.744729202,"data":".tex)\n"}
-,{"stream_name":"stdout","time":139.744760851,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te\n"}
-,{"stream_name":"stdout","time":139.747175887,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.74720711,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c\n"}
-,{"stream_name":"stdout","time":139.748353377,"data":"ode.tex)\n"}
-,{"stream_name":"stdout","time":139.74838177,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation\n"}
-,{"stream_name":"stdout","time":139.749746999,"data":"s.code.tex)\n"}
-,{"stream_name":"stdout","time":139.749773093,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex\n"}
-,{"stream_name":"stdout","time":139.750502214,"data":")\n"}
-,{"stream_name":"stdout","time":139.750525505,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t\n"}
-,{"stream_name":"stdout","time":139.751218246,"data":"ex)\n"}
-,{"stream_name":"stdout","time":139.751234016,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing\n"}
-,{"stream_name":"stdout","time":139.752448119,"data":".code.tex)\n"}
-,{"stream_name":"stdout","time":139.75247567,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te\n"}
-,{"stream_name":"stdout","time":139.761949005,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.761980543,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex\n"}
-,{"stream_name":"stdout","time":139.763697861,"data":")\n"}
-,{"stream_name":"stdout","time":139.763732966,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex\n"}
-,{"stream_name":"stdout","time":139.765188771,"data":")\n"}
-,{"stream_name":"stdout","time":139.765223219,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.\n"}
-,{"stream_name":"stdout","time":139.768405938,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.768531345,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te\n"}
-,{"stream_name":"stdout","time":139.769504574,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.769532528,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c\n"}
-,{"stream_name":"stdout","time":139.770909647,"data":"ode.tex)\n"}
-,{"stream_name":"stdout","time":139.770935976,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.\n"}
-,{"stream_name":"stdout","time":139.771924593,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.772462185,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))\n"}
-,{"stream_name":"stdout","time":139.774026622,"data":")\n"}
-,{"stream_name":"stdout","time":139.774059853,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex\n"}
-,{"stream_name":"stdout","time":139.777497176,"data":") (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex\n"}
-,{"stream_name":"stdout","time":139.783685036,"data":")\n"}
-,{"stream_name":"stdout","time":139.783740823,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65\n"}
-,{"stream_name":"stdout","time":139.792383774,"data":".sty)\n"}
-,{"stream_name":"stdout","time":139.792422185,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18\n"}
-,{"stream_name":"stdout","time":139.802233506,"data":".sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty\n"}
-,{"stream_name":"stdout","time":139.803874555,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty\n"}
-,{"stream_name":"stdout","time":139.807056335,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))\n"}
-,{"stream_name":"stdout","time":139.810068662,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty\n"}
-,{"stream_name":"stdout","time":139.81230274,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))\n"}
-,{"stream_name":"stdout","time":139.817076936,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))\n"}
-,{"stream_name":"stdout","time":139.817111507,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex\n"}
-,{"stream_name":"stdout","time":139.818078565,"data":"\n"}
-,{"stream_name":"stdout","time":139.818100455,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers\n"}
-,{"stream_name":"stdout","time":139.834807288,"data":".code.tex)\n"}
-,{"stream_name":"stdout","time":139.834848031,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex\n"}
-,{"stream_name":"stdout","time":139.839067936,"data":")\n"}
-,{"stream_name":"stdout","time":139.839104778,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty\n"}
-,{"stream_name":"stdout","time":139.83911051,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)\n"}
-,{"stream_name":"stdout","time":139.839115202,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)\n"}
-,{"stream_name":"stdout","time":139.839120237,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))\n"}
-,{"stream_name":"stdout","time":139.839124809,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty\n"}
-,{"stream_name":"stdout","time":139.839129224,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex\n"}
-,{"stream_name":"stdout","time":139.839133676,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex\n"}
-,{"stream_name":"stdout","time":139.83913826,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered\n"}
-,{"stream_name":"stdout","time":139.839143191,"data":".code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)\n"}
-,{"stream_name":"stdout","time":139.839147592,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def\n"}
-,{"stream_name":"stdout","time":139.839151887,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de\n"}
-,{"stream_name":"stdout","time":139.839158345,"data":"f)))\n"}
-,{"stream_name":"stdout","time":139.839168355,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.\n"}
-,{"stream_name":"stdout","time":139.83917212,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.839175033,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.\n"}
-,{"stream_name":"stdout","time":139.839178263,"data":"tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty\n"}
-,{"stream_name":"stdout","time":139.839181297,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)\n"}
-,{"stream_name":"stdout","time":139.83919813,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))\n"}
-,{"stream_name":"stdout","time":139.83920125,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex\n"}
-,{"stream_name":"stdout","time":139.839204298,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex\n"}
-,{"stream_name":"stdout","time":139.839207361,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839210417,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839213414,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839216503,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code\n"}
-,{"stream_name":"stdout","time":139.839219556,"data":".tex)\n"}
-,{"stream_name":"stdout","time":139.839222534,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet\n"}
-,{"stream_name":"stdout","time":139.839225573,"data":"ric.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839228509,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod\n"}
-,{"stream_name":"stdout","time":139.839231539,"data":"e.tex)\n"}
-,{"stream_name":"stdout","time":139.839234402,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison\n"}
-,{"stream_name":"stdout","time":139.839237419,"data":".code.tex)\n"}
-,{"stream_name":"stdout","time":139.839240287,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.\n"}
-,{"stream_name":"stdout","time":139.839243497,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.839247869,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code\n"}
-,{"stream_name":"stdout","time":139.839250928,"data":".tex)\n"}
-,{"stream_name":"stdout","time":139.839253791,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.\n"}
-,{"stream_name":"stdout","time":139.839256843,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.839259665,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari\n"}
-,{"stream_name":"stdout","time":139.839262724,"data":"thmetics.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839265656,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839268653,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))\n"}
-,{"stream_name":"stdout","time":139.839271672,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)\n"}
-,{"stream_name":"stdout","time":139.839274683,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te\n"}
-,{"stream_name":"stdout","time":139.839277727,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.839280574,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.\n"}
-,{"stream_name":"stdout","time":139.839291359,"data":"code.tex)\n"}
-,{"stream_name":"stdout","time":139.839294283,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code\n"}
-,{"stream_name":"stdout","time":139.839297374,"data":".tex)\n"}
-,{"stream_name":"stdout","time":139.839300228,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te\n"}
-,{"stream_name":"stdout","time":139.839306229,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.839312434,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c\n"}
-,{"stream_name":"stdout","time":139.839365862,"data":"ode.tex)\n"}
-,{"stream_name":"stdout","time":139.839375086,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation\n"}
-,{"stream_name":"stdout","time":139.839380579,"data":"s.code.tex)\n"}
-,{"stream_name":"stdout","time":139.83938524,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex\n"}
-,{"stream_name":"stdout","time":139.839389568,"data":")\n"}
-,{"stream_name":"stdout","time":139.839394335,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t\n"}
-,{"stream_name":"stdout","time":139.83939904,"data":"ex)\n"}
-,{"stream_name":"stdout","time":139.839403803,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing\n"}
-,{"stream_name":"stdout","time":139.839409092,"data":".code.tex)\n"}
-,{"stream_name":"stdout","time":139.839413417,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te\n"}
-,{"stream_name":"stdout","time":139.839437927,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.839442384,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex\n"}
-,{"stream_name":"stdout","time":139.839446893,"data":")\n"}
-,{"stream_name":"stdout","time":139.839451137,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex\n"}
-,{"stream_name":"stdout","time":139.839455437,"data":")\n"}
-,{"stream_name":"stdout","time":139.839459594,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.\n"}
-,{"stream_name":"stdout","time":139.839471942,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.839475663,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te\n"}
-,{"stream_name":"stdout","time":139.839478736,"data":"x)\n"}
-,{"stream_name":"stdout","time":139.839481637,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c\n"}
-,{"stream_name":"stdout","time":139.839484678,"data":"ode.tex)\n"}
-,{"stream_name":"stdout","time":139.839487637,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.\n"}
-,{"stream_name":"stdout","time":139.83949602,"data":"tex)\n"}
-,{"stream_name":"stdout","time":139.839499071,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))\n"}
-,{"stream_name":"stdout","time":139.83950212,"data":")\n"}
-,{"stream_name":"stdout","time":139.839505004,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex\n"}
-,{"stream_name":"stdout","time":139.83950801,"data":") (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex\n"}
-,{"stream_name":"stdout","time":139.839511251,"data":")\n"}
-,{"stream_name":"stdout","time":139.839515442,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65\n"}
-,{"stream_name":"stdout","time":139.839518511,"data":".sty)\n"}
-,{"stream_name":"stdout","time":139.839521455,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18\n"}
-,{"stream_name":"stdout","time":139.839524566,"data":".sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty\n"}
-,{"stream_name":"stdout","time":139.839528077,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty\n"}
-,{"stream_name":"stdout","time":139.839531219,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))\n"}
-,{"stream_name":"stdout","time":139.83953914,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty\n"}
-,{"stream_name":"stdout","time":139.839542227,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))\n"}
-,{"stream_name":"stdout","time":139.839545244,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))\n"}
-,{"stream_name":"stdout","time":139.839548269,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex\n"}
-,{"stream_name":"stdout","time":139.839551307,"data":"\n"}
-,{"stream_name":"stdout","time":139.839554137,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers\n"}
-,{"stream_name":"stdout","time":139.839557188,"data":".code.tex)\n"}
-,{"stream_name":"stdout","time":139.83956011,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex\n"}
-,{"stream_name":"stdout","time":139.848961079,"data":")\n"}
-,{"stream_name":"stdout","time":139.848997601,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
-,{"stream_name":"stdout","time":139.852807739,"data":"zlibrarytopaths.code.tex)))\n"}
-,{"stream_name":"stdout","time":139.852833283,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.\n"}
-,{"stream_name":"stdout","time":139.885593165,"data":"code.tex)\n"}
-,{"stream_name":"stdout","time":139.885632456,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
-,{"stream_name":"stdout","time":139.887362184,"data":"zlibrarypositioning.code.tex)\n"}
-,{"stream_name":"stdout","time":139.887391899,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
-,{"stream_name":"stdout","time":139.888005386,"data":"zlibraryshapes.geometric.code.tex\n"}
-,{"stream_name":"stdout","time":139.888019759,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape\n"}
-,{"stream_name":"stdout","time":139.909738414,"data":"s.geometric.code.tex)) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd\n"}
-,{"stream_name":"stdout","time":139.921383386,"data":") (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\n"}
-,{"stream_name":"stdout","time":139.921419743,"data":"No file cascade_diagram.aux.\n"}
-,{"stream_name":"stdout","time":139.923511121,"data":"(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii\n"}
-,{"stream_name":"stdout","time":139.923546315,"data":"[Loading MPS to PDF converter (version 2006.09.02).]\n"}
-,{"stream_name":"stdout","time":139.928604077,"data":") (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty\n"}
-,{"stream_name":"stdout","time":139.935132902,"data":"(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))\n"}
-,{"stream_name":"stdout","time":139.936522634,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)\n"}
-,{"stream_name":"stdout","time":139.937786264,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd)\n"}
-,{"stream_name":"stdout","time":139.939016118,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd)\n"}
-,{"stream_name":"stdout","time":139.940393598,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd)\n"}
-,{"stream_name":"stdout","time":140.018938203,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd) [1{/var/lib/texmf/f\n"}
-,{"stream_name":"stdout","time":140.020525897,"data":"onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip\n"}
-,{"stream_name":"stdout","time":140.026041853,"data":"s/base/8r.enc}] (./cascade_diagram.aux) )\u003c/usr/share/texlive/texmf-dist/fonts/t\n"}
-,{"stream_name":"stdout","time":140.02804962,"data":"ype1/public/amsfonts/cm/cmr10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/pu\n"}
-,{"stream_name":"stdout","time":140.030154418,"data":"blic/amsfonts/cm/cmsy10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/public/m\n"}
-,{"stream_name":"stdout","time":140.031256849,"data":"athpazo/fplmri.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr\n"}
-,{"stream_name":"stdout","time":140.03766111,"data":"8a.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb\u003e\n"}
-,{"stream_name":"stdout","time":140.037695243,"data":"Output written on cascade_diagram.pdf (1 page, 49679 bytes).\n"}
-,{"stream_name":"stdout","time":140.03769947,"data":"Transcript written on cascade_diagram.log.\n"}
-,{"stream_name":"stdout","time":140.05224347,"data":"\n"}
-,{"stream_name":"stdout","time":140.052282659,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
-,{"stream_name":"stdout","time":140.052295596,"data":"zlibrarytopaths.code.tex)))\n"}
-,{"stream_name":"stdout","time":140.052298634,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.\n"}
-,{"stream_name":"stdout","time":140.052301625,"data":"code.tex)\n"}
-,{"stream_name":"stdout","time":140.052304328,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
-,{"stream_name":"stdout","time":140.052307135,"data":"zlibrarypositioning.code.tex)\n"}
-,{"stream_name":"stdout","time":140.052309902,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
-,{"stream_name":"stdout","time":140.052312678,"data":"zlibraryshapes.geometric.code.tex\n"}
-,{"stream_name":"stdout","time":140.052367061,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape\n"}
-,{"stream_name":"stdout","time":140.052376433,"data":"s.geometric.code.tex)) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd\n"}
-,{"stream_name":"stdout","time":140.052381129,"data":") (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\n"}
-,{"stream_name":"stdout","time":140.052385979,"data":"No file cascade_diagram.aux.\n"}
-,{"stream_name":"stdout","time":140.052389876,"data":"(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii\n"}
-,{"stream_name":"stdout","time":140.052393945,"data":"[Loading MPS to PDF converter (version 2006.09.02).]\n"}
-,{"stream_name":"stdout","time":140.052398123,"data":") (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty\n"}
-,{"stream_name":"stdout","time":140.052402248,"data":"(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))\n"}
-,{"stream_name":"stdout","time":140.052406343,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)\n"}
-,{"stream_name":"stdout","time":140.052410607,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd)\n"}
-,{"stream_name":"stdout","time":140.052421447,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd)\n"}
-,{"stream_name":"stdout","time":140.05242447,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd)\n"}
-,{"stream_name":"stdout","time":140.052427137,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd) [1{/var/lib/texmf/f\n"}
-,{"stream_name":"stdout","time":140.052430495,"data":"onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip\n"}
-,{"stream_name":"stdout","time":140.052433189,"data":"s/base/8r.enc}] (./cascade_diagram.aux) )\u003c/usr/share/texlive/texmf-dist/fonts/t\n"}
-,{"stream_name":"stdout","time":140.052436262,"data":"ype1/public/amsfonts/cm/cmr10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/pu\n"}
-,{"stream_name":"stdout","time":140.052454047,"data":"blic/amsfonts/cm/cmsy10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/public/m\n"}
-,{"stream_name":"stdout","time":140.052457092,"data":"athpazo/fplmri.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr\n"}
-,{"stream_name":"stdout","time":140.052459887,"data":"8a.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb\u003e\n"}
-,{"stream_name":"stdout","time":140.052462722,"data":"Output written on cascade_diagram.pdf (1 page, 49679 bytes).\n"}
-,{"stream_name":"stdout","time":140.052465413,"data":"Transcript written on cascade_diagram.log.\n"}
-,{"stream_name":"stdout","time":141.029205297,"data":"wrote cascade_diagram.pdf 49679 bytes\n"}
-,{"stream_name":"stdout","time":141.02924793,"data":"wrote logo-mdpi.pdf 13026 bytes\n"}
-,{"stream_name":"stdout","time":141.029255625,"data":"wrote cascade_diagram.log 19010 bytes\n"}
-,{"stream_name":"stdout","time":141.029260285,"data":"pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)\n"}
-,{"stream_name":"stdout","time":141.02926463,"data":"10.02.1\n"}
-,{"stream_name":"stderr","time":145.013457388,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":145.01350361,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":145.280987034,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":145.281054178,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":146.363288929,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
-,{"stream_name":"stderr","time":146.474287159,"data":"[NbConvertApp] Writing 767734 bytes to __notebook__.ipynb\n"}
-,{"stream_name":"stderr","time":150.135215283,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
-,{"stream_name":"stderr","time":150.841238621,"data":"[NbConvertApp] Writing 1043702 bytes to __results__.html\n"}
+[{"stream_name":"stderr","time":8.64046559,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.640529651,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":9.985638538,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.985674198,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.985686009,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.985689636,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.886405901,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.886448066,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.88645507,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.886460265,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.936272785,"data":"cascade_diagram_h.tex 2d5e5b55246cedb9e02f2095d0e5075127ec37bff662d1cd780e8f9db294463a\n"}
+,{"stream_name":"stdout","time":12.936348541,"data":"cascade_diagram_c.tex 5984c78ff7ef3953fc5c032ca581852293af5d5097eb9f9e1f3da0164cef7be4\n"}
+,{"stream_name":"stdout","time":12.936353685,"data":"numbers.tex 173fbf31cc572f9cf95648dfabc090ec54fb15de8e7a1a03ea066a5e6574a256\n"}
+,{"stream_name":"stdout","time":12.936356782,"data":"logo-mdpi.eps f02d31469c6b2666c9de2da8d8731773bce3751d2fa99a27ff4bcf61a106cdcf\n"}
+,{"stream_name":"stderr","time":17.955939389,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stderr","time":18.1608152,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stderr","time":18.160949629,"data":"\n"}
+,{"stream_name":"stderr","time":18.16095374,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stdout","time":125.332056318,"data":"This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)\n"}
+,{"stream_name":"stdout","time":125.332106136,"data":" restricted \\write18 enabled.\n"}
+,{"stream_name":"stdout","time":125.476449359,"data":"entering extended mode\n"}
+,{"stream_name":"stdout","time":125.479653128,"data":"(./cascade_diagram_h.tex\n"}
+,{"stream_name":"stdout","time":125.479715162,"data":"LaTeX2e \u003c2023-11-01\u003e patch level 1\n"}
+,{"stream_name":"stdout","time":125.479723559,"data":"L3 programming layer \u003c2024-01-22\u003e\n"}
+,{"stream_name":"stdout","time":125.482743574,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls\n"}
+,{"stream_name":"stdout","time":125.482777813,"data":"Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan\n"}
+,{"stream_name":"stdout","time":125.482814395,"data":"dalone\n"}
+,{"stream_name":"stdout","time":125.486486768,"data":"(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty)\n"}
+,{"stream_name":"stdout","time":125.489088847,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty\n"}
+,{"stream_name":"stdout","time":125.493428075,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))\n"}
+,{"stream_name":"stdout","time":125.494009155,"data":"(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty\n"}
+,{"stream_name":"stdout","time":125.494596235,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex\n"}
+,{"stream_name":"stdout","time":125.494951949,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex\n"}
+,{"stream_name":"stdout","time":125.500995825,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))\n"}
+,{"stream_name":"stdout","time":125.505932593,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg)\n"}
+,{"stream_name":"stdout","time":125.507446691,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\n"}
+,{"stream_name":"stdout","time":125.507476088,"data":"Document Class: article 2023/05/17 v1.4n Standard LaTeX document class\n"}
+,{"stream_name":"stdout","time":125.51497888,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo)))\n"}
+,{"stream_name":"stdout","time":125.519036621,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)\n"}
+,{"stream_name":"stdout","time":125.530099949,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)\n"}
+,{"stream_name":"stdout","time":125.532135765,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty\n"}
+,{"stream_name":"stdout","time":125.535212643,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty\n"}
+,{"stream_name":"stdout","time":125.535642406,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty\n"}
+,{"stream_name":"stdout","time":125.537165228,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)\n"}
+,{"stream_name":"stdout","time":125.539910124,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)\n"}
+,{"stream_name":"stdout","time":125.540603621,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex\n"}
+,{"stream_name":"stdout","time":125.544621912,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)\n"}
+,{"stream_name":"stdout","time":125.544647903,"data":" restricted \\write18 enabled.\n"}
+,{"stream_name":"stdout","time":125.544653287,"data":"entering extended mode\n"}
+,{"stream_name":"stdout","time":125.544657773,"data":"(./cascade_diagram_h.tex\n"}
+,{"stream_name":"stdout","time":125.544662274,"data":"LaTeX2e \u003c2023-11-01\u003e patch level 1\n"}
+,{"stream_name":"stdout","time":125.544668343,"data":"L3 programming layer \u003c2024-01-22\u003e\n"}
+,{"stream_name":"stdout","time":125.544673313,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls\n"}
+,{"stream_name":"stdout","time":125.544688062,"data":"Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan\n"}
+,{"stream_name":"stdout","time":125.544693658,"data":"dalone\n"}
+,{"stream_name":"stdout","time":125.544697719,"data":"(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty)\n"}
+,{"stream_name":"stdout","time":125.544701928,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty\n"}
+,{"stream_name":"stdout","time":125.544718069,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))\n"}
+,{"stream_name":"stdout","time":125.544723238,"data":"(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty\n"}
+,{"stream_name":"stdout","time":125.54472767,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex\n"}
+,{"stream_name":"stdout","time":125.544732477,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex\n"}
+,{"stream_name":"stdout","time":125.544737464,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))\n"}
+,{"stream_name":"stdout","time":125.544742887,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg)\n"}
+,{"stream_name":"stdout","time":125.544747883,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\n"}
+,{"stream_name":"stdout","time":125.544752323,"data":"Document Class: article 2023/05/17 v1.4n Standard LaTeX document class\n"}
+,{"stream_name":"stdout","time":125.544756761,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo)))\n"}
+,{"stream_name":"stdout","time":125.544761085,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)\n"}
+,{"stream_name":"stdout","time":125.544765459,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)\n"}
+,{"stream_name":"stdout","time":125.544769873,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty\n"}
+,{"stream_name":"stdout","time":125.544882146,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty\n"}
+,{"stream_name":"stdout","time":125.547478799,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty\n"}
+,{"stream_name":"stdout","time":125.551143241,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty\n"}
+,{"stream_name":"stdout","time":125.553932956,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty\n"}
+,{"stream_name":"stdout","time":125.556352106,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)\n"}
+,{"stream_name":"stdout","time":125.55815736,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)\n"}
+,{"stream_name":"stdout","time":125.569893485,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))\n"}
+,{"stream_name":"stdout","time":125.571700906,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty\n"}
+,{"stream_name":"stdout","time":125.572163686,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex\n"}
+,{"stream_name":"stdout","time":125.577133798,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex\n"}
+,{"stream_name":"stdout","time":125.577172938,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered\n"}
+,{"stream_name":"stdout","time":125.581760592,"data":".code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)\n"}
+,{"stream_name":"stdout","time":125.58248488,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def\n"}
+,{"stream_name":"stdout","time":125.582507699,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de\n"}
+,{"stream_name":"stdout","time":125.585542743,"data":"f)))\n"}
+,{"stream_name":"stdout","time":125.585572101,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.\n"}
+,{"stream_name":"stdout","time":125.587482027,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.587514604,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.\n"}
+,{"stream_name":"stdout","time":125.611044576,"data":"tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty\n"}
+,{"stream_name":"stdout","time":125.616078478,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)\n"}
+,{"stream_name":"stdout","time":125.623236572,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))\n"}
+,{"stream_name":"stdout","time":125.623902354,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex\n"}
+,{"stream_name":"stdout","time":125.624073199,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex\n"}
+,{"stream_name":"stdout","time":125.625147926,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)\n"}
+,{"stream_name":"stdout","time":125.627180738,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)\n"}
+,{"stream_name":"stdout","time":125.62868668,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)\n"}
+,{"stream_name":"stdout","time":125.628714276,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code\n"}
+,{"stream_name":"stdout","time":125.630926094,"data":".tex)\n"}
+,{"stream_name":"stdout","time":125.630953988,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet\n"}
+,{"stream_name":"stdout","time":125.636813947,"data":"ric.code.tex)\n"}
+,{"stream_name":"stdout","time":125.63684985,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod\n"}
+,{"stream_name":"stdout","time":125.637659235,"data":"e.tex)\n"}
+,{"stream_name":"stdout","time":125.637681755,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison\n"}
+,{"stream_name":"stdout","time":125.639413684,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":125.639436145,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.\n"}
+,{"stream_name":"stdout","time":125.640601791,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.640622963,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code\n"}
+,{"stream_name":"stdout","time":125.64139925,"data":".tex)\n"}
+,{"stream_name":"stdout","time":125.641417448,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.\n"}
+,{"stream_name":"stdout","time":125.642867319,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.642886191,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari\n"}
+,{"stream_name":"stdout","time":125.643862115,"data":"thmetics.code.tex)\n"}
+,{"stream_name":"stdout","time":125.644695946,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)\n"}
+,{"stream_name":"stdout","time":125.653540018,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))\n"}
+,{"stream_name":"stdout","time":125.654082069,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)\n"}
+,{"stream_name":"stdout","time":125.654094511,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te\n"}
+,{"stream_name":"stdout","time":125.656797949,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.656829257,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.\n"}
+,{"stream_name":"stdout","time":125.658797177,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":125.658827194,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code\n"}
+,{"stream_name":"stdout","time":125.660790254,"data":".tex)\n"}
+,{"stream_name":"stdout","time":125.660816863,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te\n"}
+,{"stream_name":"stdout","time":125.662892561,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.66291897,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c\n"}
+,{"stream_name":"stdout","time":125.663666183,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":125.66368724,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation\n"}
+,{"stream_name":"stdout","time":125.664971702,"data":"s.code.tex)\n"}
+,{"stream_name":"stdout","time":125.664997656,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex\n"}
+,{"stream_name":"stdout","time":125.665409958,"data":")\n"}
+,{"stream_name":"stdout","time":125.665429745,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t\n"}
+,{"stream_name":"stdout","time":125.666057153,"data":"ex)\n"}
+,{"stream_name":"stdout","time":125.666072238,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing\n"}
+,{"stream_name":"stdout","time":125.666942262,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":125.666960908,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te\n"}
+,{"stream_name":"stdout","time":125.675519025,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.675553885,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex\n"}
+,{"stream_name":"stdout","time":125.677670835,"data":")\n"}
+,{"stream_name":"stdout","time":125.677717136,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex\n"}
+,{"stream_name":"stdout","time":125.679313975,"data":")\n"}
+,{"stream_name":"stdout","time":125.679341854,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.\n"}
+,{"stream_name":"stdout","time":125.682551528,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.682584396,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te\n"}
+,{"stream_name":"stdout","time":125.683235628,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.683272309,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c\n"}
+,{"stream_name":"stdout","time":125.684607498,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":125.68463055,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.\n"}
+,{"stream_name":"stdout","time":125.685452952,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.685967593,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))\n"}
+,{"stream_name":"stdout","time":125.687375344,"data":")\n"}
+,{"stream_name":"stdout","time":125.687396474,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex\n"}
+,{"stream_name":"stdout","time":125.690655604,"data":") (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex\n"}
+,{"stream_name":"stdout","time":125.696221955,"data":")\n"}
+,{"stream_name":"stdout","time":125.696256401,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65\n"}
+,{"stream_name":"stdout","time":125.704591189,"data":".sty)\n"}
+,{"stream_name":"stdout","time":125.70462806,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18\n"}
+,{"stream_name":"stdout","time":125.712410975,"data":".sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty\n"}
+,{"stream_name":"stdout","time":125.713799134,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty\n"}
+,{"stream_name":"stdout","time":125.717126667,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))\n"}
+,{"stream_name":"stdout","time":125.719371537,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty\n"}
+,{"stream_name":"stdout","time":125.721305677,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))\n"}
+,{"stream_name":"stdout","time":125.725063357,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))\n"}
+,{"stream_name":"stdout","time":125.725089204,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex\n"}
+,{"stream_name":"stdout","time":125.725934951,"data":"\n"}
+,{"stream_name":"stdout","time":125.725963103,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers\n"}
+,{"stream_name":"stdout","time":125.73852418,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":125.738569499,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty\n"}
+,{"stream_name":"stdout","time":125.738578304,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)\n"}
+,{"stream_name":"stdout","time":125.738581697,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)\n"}
+,{"stream_name":"stdout","time":125.738584844,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex\n"}
+,{"stream_name":"stdout","time":125.738588119,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))\n"}
+,{"stream_name":"stdout","time":125.73859146,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty\n"}
+,{"stream_name":"stdout","time":125.738594508,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty\n"}
+,{"stream_name":"stdout","time":125.738597575,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty\n"}
+,{"stream_name":"stdout","time":125.738600533,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)\n"}
+,{"stream_name":"stdout","time":125.738603494,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)\n"}
+,{"stream_name":"stdout","time":125.738606534,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))\n"}
+,{"stream_name":"stdout","time":125.738609506,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty\n"}
+,{"stream_name":"stdout","time":125.738612723,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex\n"}
+,{"stream_name":"stdout","time":125.738615784,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex\n"}
+,{"stream_name":"stdout","time":125.738618823,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered\n"}
+,{"stream_name":"stdout","time":125.738621871,"data":".code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)\n"}
+,{"stream_name":"stdout","time":125.738624868,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def\n"}
+,{"stream_name":"stdout","time":125.738628103,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de\n"}
+,{"stream_name":"stdout","time":125.73863115,"data":"f)))\n"}
+,{"stream_name":"stdout","time":125.738634018,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.\n"}
+,{"stream_name":"stdout","time":125.738637215,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.738640054,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.\n"}
+,{"stream_name":"stdout","time":125.73864308899999,"data":"tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty\n"}
+,{"stream_name":"stdout","time":125.738659506,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)\n"}
+,{"stream_name":"stdout","time":125.738662754,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))\n"}
+,{"stream_name":"stdout","time":125.738665739,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex\n"}
+,{"stream_name":"stdout","time":125.738668755,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex\n"}
+,{"stream_name":"stdout","time":125.738671722,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738674692,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738678479,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738684675,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code\n"}
+,{"stream_name":"stdout","time":125.738688035,"data":".tex)\n"}
+,{"stream_name":"stdout","time":125.73869085,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet\n"}
+,{"stream_name":"stdout","time":125.738693844,"data":"ric.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738696703,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod\n"}
+,{"stream_name":"stdout","time":125.738699677,"data":"e.tex)\n"}
+,{"stream_name":"stdout","time":125.738702488,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison\n"}
+,{"stream_name":"stdout","time":125.738705477,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":125.738708263,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.\n"}
+,{"stream_name":"stdout","time":125.738711263,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.738714041,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code\n"}
+,{"stream_name":"stdout","time":125.738717177,"data":".tex)\n"}
+,{"stream_name":"stdout","time":125.738720059,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.\n"}
+,{"stream_name":"stdout","time":125.738723092,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.73872588,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari\n"}
+,{"stream_name":"stdout","time":125.738728828,"data":"thmetics.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738731692,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738734633,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))\n"}
+,{"stream_name":"stdout","time":125.738737594,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738740539,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te\n"}
+,{"stream_name":"stdout","time":125.738743506,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.738746377,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.\n"}
+,{"stream_name":"stdout","time":125.738749415,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":125.738752216,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code\n"}
+,{"stream_name":"stdout","time":125.738755164,"data":".tex)\n"}
+,{"stream_name":"stdout","time":125.738758141,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te\n"}
+,{"stream_name":"stdout","time":125.738764375,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.738767426,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c\n"}
+,{"stream_name":"stdout","time":125.738770405,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":125.738773244,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation\n"}
+,{"stream_name":"stdout","time":125.738776324,"data":"s.code.tex)\n"}
+,{"stream_name":"stdout","time":125.738779158,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex\n"}
+,{"stream_name":"stdout","time":125.73878214,"data":")\n"}
+,{"stream_name":"stdout","time":125.738785106,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t\n"}
+,{"stream_name":"stdout","time":125.738788183,"data":"ex)\n"}
+,{"stream_name":"stdout","time":125.738791025,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing\n"}
+,{"stream_name":"stdout","time":125.738793987,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":125.738796866,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te\n"}
+,{"stream_name":"stdout","time":125.738799957,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.738802735,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex\n"}
+,{"stream_name":"stdout","time":125.73880578,"data":")\n"}
+,{"stream_name":"stdout","time":125.738808633,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex\n"}
+,{"stream_name":"stdout","time":125.738811829,"data":")\n"}
+,{"stream_name":"stdout","time":125.738814604,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.\n"}
+,{"stream_name":"stdout","time":125.738817585,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.738820764,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te\n"}
+,{"stream_name":"stdout","time":125.738823889,"data":"x)\n"}
+,{"stream_name":"stdout","time":125.738827018,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c\n"}
+,{"stream_name":"stdout","time":125.738829996,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":125.738832819,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.\n"}
+,{"stream_name":"stdout","time":125.738835789,"data":"tex)\n"}
+,{"stream_name":"stdout","time":125.738838549,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))\n"}
+,{"stream_name":"stdout","time":125.738841483,"data":")\n"}
+,{"stream_name":"stdout","time":125.738844229,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex\n"}
+,{"stream_name":"stdout","time":125.738847144,"data":") (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex\n"}
+,{"stream_name":"stdout","time":125.738850123,"data":")\n"}
+,{"stream_name":"stdout","time":125.738852874,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65\n"}
+,{"stream_name":"stdout","time":125.738855884,"data":".sty)\n"}
+,{"stream_name":"stdout","time":125.738858692,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18\n"}
+,{"stream_name":"stdout","time":125.738861826,"data":".sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty\n"}
+,{"stream_name":"stdout","time":125.738864756,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty\n"}
+,{"stream_name":"stdout","time":125.73886769,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))\n"}
+,{"stream_name":"stdout","time":125.738873415,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty\n"}
+,{"stream_name":"stdout","time":125.738876509,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))\n"}
+,{"stream_name":"stdout","time":125.738879558,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))\n"}
+,{"stream_name":"stdout","time":125.738882506,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex\n"}
+,{"stream_name":"stdout","time":125.738885475,"data":"\n"}
+,{"stream_name":"stdout","time":125.738888255,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers\n"}
+,{"stream_name":"stdout","time":125.740834715,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":125.740865296,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex\n"}
+,{"stream_name":"stdout","time":125.753042264,"data":")\n"}
+,{"stream_name":"stdout","time":125.75307382,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.756481132,"data":"zlibrarytopaths.code.tex)))\n"}
+,{"stream_name":"stdout","time":125.756511304,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.\n"}
+,{"stream_name":"stdout","time":125.786955285,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":125.786985125,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.788519927,"data":"zlibrarypositioning.code.tex)\n"}
+,{"stream_name":"stdout","time":125.788541763,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.789293201,"data":"zlibraryshapes.geometric.code.tex\n"}
+,{"stream_name":"stdout","time":125.789317402,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape\n"}
+,{"stream_name":"stdout","time":125.797889419,"data":"s.geometric.code.tex))\n"}
+,{"stream_name":"stdout","time":125.797921463,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.798955079,"data":"zlibraryfit.code.tex)\n"}
+,{"stream_name":"stdout","time":125.798979481,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.80142158,"data":"zlibrarybackgrounds.code.tex)\n"}
+,{"stream_name":"stdout","time":125.801443723,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.814333256,"data":"zlibrarycalc.code.tex) (./numbers.tex)\n"}
+,{"stream_name":"stdout","time":125.81709474,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd)\n"}
+,{"stream_name":"stdout","time":125.823561904,"data":"(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\n"}
+,{"stream_name":"stdout","time":125.823619027,"data":"No file cascade_diagram_h.aux.\n"}
+,{"stream_name":"stdout","time":125.825526153,"data":"(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii\n"}
+,{"stream_name":"stdout","time":125.825556206,"data":"[Loading MPS to PDF converter (version 2006.09.02).]\n"}
+,{"stream_name":"stdout","time":125.83065531,"data":") (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty\n"}
+,{"stream_name":"stdout","time":125.86087709,"data":"(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))\n"}
+,{"stream_name":"stdout","time":125.862234422,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)\n"}
+,{"stream_name":"stdout","time":125.863321422,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd)\n"}
+,{"stream_name":"stdout","time":125.864457247,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd)\n"}
+,{"stream_name":"stdout","time":125.865616613,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd)\n"}
+,{"stream_name":"stdout","time":125.943738278,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd)\n"}
+,{"stream_name":"stdout","time":125.943786773,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex\n"}
+,{"stream_name":"stdout","time":125.943792865,"data":")\n"}
+,{"stream_name":"stdout","time":125.943796007,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.943799053,"data":"zlibrarytopaths.code.tex)))\n"}
+,{"stream_name":"stdout","time":125.943802094,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.\n"}
+,{"stream_name":"stdout","time":125.943805206,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":125.943808108,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.943811113,"data":"zlibrarypositioning.code.tex)\n"}
+,{"stream_name":"stdout","time":125.943814123,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.943817133,"data":"zlibraryshapes.geometric.code.tex\n"}
+,{"stream_name":"stdout","time":125.943820126,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape\n"}
+,{"stream_name":"stdout","time":125.943823187,"data":"s.geometric.code.tex))\n"}
+,{"stream_name":"stdout","time":125.943826162,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.943829144,"data":"zlibraryfit.code.tex)\n"}
+,{"stream_name":"stdout","time":125.943832088,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.94383516,"data":"zlibrarybackgrounds.code.tex)\n"}
+,{"stream_name":"stdout","time":125.943838228,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":125.943841258,"data":"zlibrarycalc.code.tex) (./numbers.tex)\n"}
+,{"stream_name":"stdout","time":125.943844216,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd)\n"}
+,{"stream_name":"stdout","time":125.943847138,"data":"(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\n"}
+,{"stream_name":"stdout","time":125.943850526,"data":"No file cascade_diagram_h.aux.\n"}
+,{"stream_name":"stdout","time":125.943853403,"data":"(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii\n"}
+,{"stream_name":"stdout","time":125.943856406,"data":"[Loading MPS to PDF converter (version 2006.09.02).]\n"}
+,{"stream_name":"stdout","time":125.943859338,"data":") (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty\n"}
+,{"stream_name":"stdout","time":125.943862322,"data":"(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))\n"}
+,{"stream_name":"stdout","time":125.943865316,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)\n"}
+,{"stream_name":"stdout","time":125.943868285,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd)\n"}
+,{"stream_name":"stdout","time":125.943871235,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd)\n"}
+,{"stream_name":"stdout","time":125.943887665,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd)\n"}
+,{"stream_name":"stdout","time":125.954504019,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd) [1{/var/lib/texmf/f\n"}
+,{"stream_name":"stdout","time":125.956233472,"data":"onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip\n"}
+,{"stream_name":"stdout","time":125.961052236,"data":"s/base/8r.enc}] (./cascade_diagram_h.aux) )\u003c/usr/share/texlive/texmf-dist/fonts\n"}
+,{"stream_name":"stdout","time":125.962561441,"data":"/type1/public/amsfonts/cm/cmr10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/\n"}
+,{"stream_name":"stdout","time":125.963869939,"data":"public/amsfonts/cm/cmsy10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/public\n"}
+,{"stream_name":"stdout","time":125.96466496,"data":"/mathpazo/fplmri.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up\n"}
+,{"stream_name":"stdout","time":125.969199686,"data":"lb8a.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb\u003e\u003c/u\n"}
+,{"stream_name":"stdout","time":125.973139081,"data":"sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb\u003e\n"}
+,{"stream_name":"stdout","time":125.973171368,"data":"Output written on cascade_diagram_h.pdf (1 page, 62491 bytes).\n"}
+,{"stream_name":"stdout","time":125.973176913,"data":"Transcript written on cascade_diagram_h.log.\n"}
+,{"stream_name":"stdout","time":125.997794897,"data":"This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)\n"}
+,{"stream_name":"stdout","time":125.997846198,"data":" restricted \\write18 enabled.\n"}
+,{"stream_name":"stdout","time":126.128879708,"data":"entering extended mode\n"}
+,{"stream_name":"stdout","time":126.13196704,"data":"(./cascade_diagram_c.tex\n"}
+,{"stream_name":"stdout","time":126.132006218,"data":"LaTeX2e \u003c2023-11-01\u003e patch level 1\n"}
+,{"stream_name":"stdout","time":126.132017523,"data":"L3 programming layer \u003c2024-01-22\u003e\n"}
+,{"stream_name":"stdout","time":126.134864626,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls\n"}
+,{"stream_name":"stdout","time":126.134893082,"data":"Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan\n"}
+,{"stream_name":"stdout","time":126.134898032,"data":"dalone\n"}
+,{"stream_name":"stdout","time":126.138356195,"data":"(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty)\n"}
+,{"stream_name":"stdout","time":126.140236044,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty\n"}
+,{"stream_name":"stdout","time":126.143750641,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))\n"}
+,{"stream_name":"stdout","time":126.143921592,"data":"(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty\n"}
+,{"stream_name":"stdout","time":126.144375466,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex\n"}
+,{"stream_name":"stdout","time":126.144773099,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex\n"}
+,{"stream_name":"stdout","time":126.150362014,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))\n"}
+,{"stream_name":"stdout","time":126.155477521,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg)\n"}
+,{"stream_name":"stdout","time":126.156994998,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\n"}
+,{"stream_name":"stdout","time":126.157027151,"data":"Document Class: article 2023/05/17 v1.4n Standard LaTeX document class\n"}
+,{"stream_name":"stdout","time":126.158215336,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo) [1{/var/lib/texmf/f\n"}
+,{"stream_name":"stdout","time":126.158305654,"data":"onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip\n"}
+,{"stream_name":"stdout","time":126.158338954,"data":"s/base/8r.enc}] (./cascade_diagram_h.aux) )\u003c/usr/share/texlive/texmf-dist/fonts\n"}
+,{"stream_name":"stdout","time":126.158345377,"data":"/type1/public/amsfonts/cm/cmr10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/\n"}
+,{"stream_name":"stdout","time":126.158350705,"data":"public/amsfonts/cm/cmsy10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/public\n"}
+,{"stream_name":"stdout","time":126.158355403,"data":"/mathpazo/fplmri.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up\n"}
+,{"stream_name":"stdout","time":126.158360386,"data":"lb8a.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb\u003e\u003c/u\n"}
+,{"stream_name":"stdout","time":126.158365567,"data":"sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb\u003e\n"}
+,{"stream_name":"stdout","time":126.158370128,"data":"Output written on cascade_diagram_h.pdf (1 page, 62491 bytes).\n"}
+,{"stream_name":"stdout","time":126.158374837,"data":"Transcript written on cascade_diagram_h.log.\n"}
+,{"stream_name":"stdout","time":126.158378821,"data":"This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex)\n"}
+,{"stream_name":"stdout","time":126.158384837,"data":" restricted \\write18 enabled.\n"}
+,{"stream_name":"stdout","time":126.15839291,"data":"entering extended mode\n"}
+,{"stream_name":"stdout","time":126.158395519,"data":"(./cascade_diagram_c.tex\n"}
+,{"stream_name":"stdout","time":126.15839814,"data":"LaTeX2e \u003c2023-11-01\u003e patch level 1\n"}
+,{"stream_name":"stdout","time":126.158400912,"data":"L3 programming layer \u003c2024-01-22\u003e\n"}
+,{"stream_name":"stdout","time":126.158403708,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls\n"}
+,{"stream_name":"stdout","time":126.158406368,"data":"Document Class: standalone 2022/10/10 v1.3b Class to compile TeX sub-files stan\n"}
+,{"stream_name":"stdout","time":126.158416263,"data":"dalone\n"}
+,{"stream_name":"stdout","time":126.158418863,"data":"(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty)\n"}
+,{"stream_name":"stdout","time":126.158421554,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty\n"}
+,{"stream_name":"stdout","time":126.158424169,"data":"(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty))\n"}
+,{"stream_name":"stdout","time":126.158426774,"data":"(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty\n"}
+,{"stream_name":"stdout","time":126.158430257,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex\n"}
+,{"stream_name":"stdout","time":126.158449081,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex\n"}
+,{"stream_name":"stdout","time":126.158453822,"data":"(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))))\n"}
+,{"stream_name":"stdout","time":126.165219921,"data":"(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg)))\n"}
+,{"stream_name":"stdout","time":126.169293662,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)\n"}
+,{"stream_name":"stdout","time":126.181130924,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)\n"}
+,{"stream_name":"stdout","time":126.183133993,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty\n"}
+,{"stream_name":"stdout","time":126.185264869,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty\n"}
+,{"stream_name":"stdout","time":126.185405849,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty\n"}
+,{"stream_name":"stdout","time":126.186677086,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)\n"}
+,{"stream_name":"stdout","time":126.189076897,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)\n"}
+,{"stream_name":"stdout","time":126.189607154,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex\n"}
+,{"stream_name":"stdout","time":126.192867343,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))\n"}
+,{"stream_name":"stdout","time":126.195010498,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty\n"}
+,{"stream_name":"stdout","time":126.19777207,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty\n"}
+,{"stream_name":"stdout","time":126.199784819,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty\n"}
+,{"stream_name":"stdout","time":126.202077252,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)\n"}
+,{"stream_name":"stdout","time":126.20346048,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)\n"}
+,{"stream_name":"stdout","time":126.215175618,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))\n"}
+,{"stream_name":"stdout","time":126.216979643,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty\n"}
+,{"stream_name":"stdout","time":126.217546671,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex\n"}
+,{"stream_name":"stdout","time":126.221789387,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex\n"}
+,{"stream_name":"stdout","time":126.221889195,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered\n"}
+,{"stream_name":"stdout","time":126.226393916,"data":".code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)\n"}
+,{"stream_name":"stdout","time":126.22704121,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def\n"}
+,{"stream_name":"stdout","time":126.227067867,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de\n"}
+,{"stream_name":"stdout","time":126.230556875,"data":"f)))\n"}
+,{"stream_name":"stdout","time":126.230600452,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.\n"}
+,{"stream_name":"stdout","time":126.232590757,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.232621534,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.\n"}
+,{"stream_name":"stdout","time":126.253494551,"data":"tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty\n"}
+,{"stream_name":"stdout","time":126.257462656,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)\n"}
+,{"stream_name":"stdout","time":126.264163521,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))\n"}
+,{"stream_name":"stdout","time":126.264603888,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex\n"}
+,{"stream_name":"stdout","time":126.264971532,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex\n"}
+,{"stream_name":"stdout","time":126.266059055,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)\n"}
+,{"stream_name":"stdout","time":126.268400407,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)\n"}
+,{"stream_name":"stdout","time":126.269833483,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)\n"}
+,{"stream_name":"stdout","time":126.26987666,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code\n"}
+,{"stream_name":"stdout","time":126.271868105,"data":".tex)\n"}
+,{"stream_name":"stdout","time":126.271894095,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet\n"}
+,{"stream_name":"stdout","time":126.277953363,"data":"ric.code.tex)\n"}
+,{"stream_name":"stdout","time":126.277989157,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod\n"}
+,{"stream_name":"stdout","time":126.278813642,"data":"e.tex)\n"}
+,{"stream_name":"stdout","time":126.278840997,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison\n"}
+,{"stream_name":"stdout","time":126.280284523,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":126.28036184,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.\n"}
+,{"stream_name":"stdout","time":126.281403041,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.281424211,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code\n"}
+,{"stream_name":"stdout","time":126.282300521,"data":".tex)\n"}
+,{"stream_name":"stdout","time":126.282322122,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.\n"}
+,{"stream_name":"stdout","time":126.283561018,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.283582561,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari\n"}
+,{"stream_name":"stdout","time":126.284338214,"data":"thmetics.code.tex)\n"}
+,{"stream_name":"stdout","time":126.285213341,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)\n"}
+,{"stream_name":"stdout","time":126.293889657,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))\n"}
+,{"stream_name":"stdout","time":126.294470149,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)\n"}
+,{"stream_name":"stdout","time":126.294492029,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te\n"}
+,{"stream_name":"stdout","time":126.296950082,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.296975342,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.\n"}
+,{"stream_name":"stdout","time":126.29885424,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":126.298880328,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code\n"}
+,{"stream_name":"stdout","time":126.300807408,"data":".tex)\n"}
+,{"stream_name":"stdout","time":126.300833857,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te\n"}
+,{"stream_name":"stdout","time":126.302631642,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.302657736,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c\n"}
+,{"stream_name":"stdout","time":126.303313335,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":126.303335947,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation\n"}
+,{"stream_name":"stdout","time":126.304501236,"data":"s.code.tex)\n"}
+,{"stream_name":"stdout","time":126.304523269,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex\n"}
+,{"stream_name":"stdout","time":126.305024921,"data":")\n"}
+,{"stream_name":"stdout","time":126.305037068,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t\n"}
+,{"stream_name":"stdout","time":126.305660038,"data":"ex)\n"}
+,{"stream_name":"stdout","time":126.305681895,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing\n"}
+,{"stream_name":"stdout","time":126.30663317,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":126.306654346,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te\n"}
+,{"stream_name":"stdout","time":126.314720406,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.314753648,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex\n"}
+,{"stream_name":"stdout","time":126.316266953,"data":")\n"}
+,{"stream_name":"stdout","time":126.3162969,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex\n"}
+,{"stream_name":"stdout","time":126.31759234,"data":")\n"}
+,{"stream_name":"stdout","time":126.317630222,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.\n"}
+,{"stream_name":"stdout","time":126.320764798,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.32079343,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te\n"}
+,{"stream_name":"stdout","time":126.321450138,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.321475206,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c\n"}
+,{"stream_name":"stdout","time":126.322629847,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":126.322650116,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.\n"}
+,{"stream_name":"stdout","time":126.323460256,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.323840166,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))\n"}
+,{"stream_name":"stdout","time":126.325264482,"data":")\n"}
+,{"stream_name":"stdout","time":126.32528495,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex\n"}
+,{"stream_name":"stdout","time":126.327885131,"data":") (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex\n"}
+,{"stream_name":"stdout","time":126.33296937,"data":")\n"}
+,{"stream_name":"stdout","time":126.333012347,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65\n"}
+,{"stream_name":"stdout","time":126.340135892,"data":".sty)\n"}
+,{"stream_name":"stdout","time":126.340172651,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18\n"}
+,{"stream_name":"stdout","time":126.346920045,"data":".sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty\n"}
+,{"stream_name":"stdout","time":126.348041303,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty\n"}
+,{"stream_name":"stdout","time":126.350926882,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))\n"}
+,{"stream_name":"stdout","time":126.353004257,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty\n"}
+,{"stream_name":"stdout","time":126.354864687,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))\n"}
+,{"stream_name":"stdout","time":126.358785136,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex))\n"}
+,{"stream_name":"stdout","time":126.358811147,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls\n"}
+,{"stream_name":"stdout","time":126.358817113,"data":"Document Class: article 2023/05/17 v1.4n Standard LaTeX document class\n"}
+,{"stream_name":"stdout","time":126.358822288,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo)))\n"}
+,{"stream_name":"stdout","time":126.358827218,"data":"(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)\n"}
+,{"stream_name":"stdout","time":126.358847339,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty)\n"}
+,{"stream_name":"stdout","time":126.358852585,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty\n"}
+,{"stream_name":"stdout","time":126.358857624,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty\n"}
+,{"stream_name":"stdout","time":126.358861988,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty\n"}
+,{"stream_name":"stdout","time":126.358866026,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex)\n"}
+,{"stream_name":"stdout","time":126.358870758,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def)\n"}
+,{"stream_name":"stdout","time":126.358876002,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex\n"}
+,{"stream_name":"stdout","time":126.35888167,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)))\n"}
+,{"stream_name":"stdout","time":126.358886748,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty\n"}
+,{"stream_name":"stdout","time":126.358891779,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty\n"}
+,{"stream_name":"stdout","time":126.358896776,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty\n"}
+,{"stream_name":"stdout","time":126.358901936,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)\n"}
+,{"stream_name":"stdout","time":126.358905953,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)\n"}
+,{"stream_name":"stdout","time":126.358910635,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))\n"}
+,{"stream_name":"stdout","time":126.358915242,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty\n"}
+,{"stream_name":"stdout","time":126.358920184,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex\n"}
+,{"stream_name":"stdout","time":126.358924919,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex\n"}
+,{"stream_name":"stdout","time":126.358929413,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered\n"}
+,{"stream_name":"stdout","time":126.358933364,"data":".code.tex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg)\n"}
+,{"stream_name":"stdout","time":126.358937232,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def\n"}
+,{"stream_name":"stdout","time":126.35894113,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de\n"}
+,{"stream_name":"stdout","time":126.358945136,"data":"f)))\n"}
+,{"stream_name":"stdout","time":126.35894883,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.\n"}
+,{"stream_name":"stdout","time":126.358952725,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.358956422,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.\n"}
+,{"stream_name":"stdout","time":126.358960333,"data":"tex)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty\n"}
+,{"stream_name":"stdout","time":126.358964305,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)\n"}
+,{"stream_name":"stdout","time":126.358969258,"data":"(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))\n"}
+,{"stream_name":"stdout","time":126.358973237,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex\n"}
+,{"stream_name":"stdout","time":126.358977342,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex\n"}
+,{"stream_name":"stdout","time":126.358985224,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)\n"}
+,{"stream_name":"stdout","time":126.358989482,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex)\n"}
+,{"stream_name":"stdout","time":126.358993411,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)\n"}
+,{"stream_name":"stdout","time":126.358997445,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code\n"}
+,{"stream_name":"stdout","time":126.359001773,"data":".tex)\n"}
+,{"stream_name":"stdout","time":126.359005921,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet\n"}
+,{"stream_name":"stdout","time":126.359009899,"data":"ric.code.tex)\n"}
+,{"stream_name":"stdout","time":126.359013718,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod\n"}
+,{"stream_name":"stdout","time":126.359017662,"data":"e.tex)\n"}
+,{"stream_name":"stdout","time":126.359021385,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison\n"}
+,{"stream_name":"stdout","time":126.35902533,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":126.359029156,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.\n"}
+,{"stream_name":"stdout","time":126.359033126,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.359036899,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code\n"}
+,{"stream_name":"stdout","time":126.359040976,"data":".tex)\n"}
+,{"stream_name":"stdout","time":126.359045311,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.\n"}
+,{"stream_name":"stdout","time":126.359049319,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.359054035,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari\n"}
+,{"stream_name":"stdout","time":126.359058827,"data":"thmetics.code.tex)\n"}
+,{"stream_name":"stdout","time":126.359063094,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)\n"}
+,{"stream_name":"stdout","time":126.359067456,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex))\n"}
+,{"stream_name":"stdout","time":126.35907155,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)\n"}
+,{"stream_name":"stdout","time":126.359075598,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te\n"}
+,{"stream_name":"stdout","time":126.35907956,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.35908322,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.\n"}
+,{"stream_name":"stdout","time":126.359087226,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":126.359091016,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code\n"}
+,{"stream_name":"stdout","time":126.359095211,"data":".tex)\n"}
+,{"stream_name":"stdout","time":126.35909907,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te\n"}
+,{"stream_name":"stdout","time":126.359103179,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.359106839,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c\n"}
+,{"stream_name":"stdout","time":126.35911088,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":126.359114674,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation\n"}
+,{"stream_name":"stdout","time":126.359118853,"data":"s.code.tex)\n"}
+,{"stream_name":"stdout","time":126.359122607,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex\n"}
+,{"stream_name":"stdout","time":126.359130758,"data":")\n"}
+,{"stream_name":"stdout","time":126.359134819,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t\n"}
+,{"stream_name":"stdout","time":126.359139154,"data":"ex)\n"}
+,{"stream_name":"stdout","time":126.35914387,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing\n"}
+,{"stream_name":"stdout","time":126.35914806,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":126.359151953,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te\n"}
+,{"stream_name":"stdout","time":126.359156105,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.359159928,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex\n"}
+,{"stream_name":"stdout","time":126.359164086,"data":")\n"}
+,{"stream_name":"stdout","time":126.359167885,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex\n"}
+,{"stream_name":"stdout","time":126.359172147,"data":")\n"}
+,{"stream_name":"stdout","time":126.35917599,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.\n"}
+,{"stream_name":"stdout","time":126.359179989,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.359183773,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te\n"}
+,{"stream_name":"stdout","time":126.359188029,"data":"x)\n"}
+,{"stream_name":"stdout","time":126.359192125,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c\n"}
+,{"stream_name":"stdout","time":126.359196277,"data":"ode.tex)\n"}
+,{"stream_name":"stdout","time":126.359200156,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.\n"}
+,{"stream_name":"stdout","time":126.359204471,"data":"tex)\n"}
+,{"stream_name":"stdout","time":126.359208241,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex))\n"}
+,{"stream_name":"stdout","time":126.359212421,"data":")\n"}
+,{"stream_name":"stdout","time":126.359216229,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex\n"}
+,{"stream_name":"stdout","time":126.359220302,"data":") (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex\n"}
+,{"stream_name":"stdout","time":126.359224445,"data":")\n"}
+,{"stream_name":"stdout","time":126.359228235,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65\n"}
+,{"stream_name":"stdout","time":126.35923237,"data":".sty)\n"}
+,{"stream_name":"stdout","time":126.359236291,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18\n"}
+,{"stream_name":"stdout","time":126.359240374,"data":".sty)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty\n"}
+,{"stream_name":"stdout","time":126.359244598,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty\n"}
+,{"stream_name":"stdout","time":126.359275342,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))\n"}
+,{"stream_name":"stdout","time":126.359279784,"data":"(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty\n"}
+,{"stream_name":"stdout","time":126.3592839,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))\n"}
+,{"stream_name":"stdout","time":126.359363139,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex\n"}
+,{"stream_name":"stdout","time":126.359393373,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex\n"}
+,{"stream_name":"stdout","time":126.359415618,"data":"\n"}
+,{"stream_name":"stdout","time":126.35942091,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers\n"}
+,{"stream_name":"stdout","time":126.373772552,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":126.3738074,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex\n"}
+,{"stream_name":"stdout","time":126.384969519,"data":")\n"}
+,{"stream_name":"stdout","time":126.385009774,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.388298647,"data":"zlibrarytopaths.code.tex)))\n"}
+,{"stream_name":"stdout","time":126.388329267,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.\n"}
+,{"stream_name":"stdout","time":126.414646931,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":126.414683208,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.416139529,"data":"zlibrarypositioning.code.tex)\n"}
+,{"stream_name":"stdout","time":126.416184729,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.416726029,"data":"zlibraryshapes.geometric.code.tex\n"}
+,{"stream_name":"stdout","time":126.416750721,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape\n"}
+,{"stream_name":"stdout","time":126.425952266,"data":"s.geometric.code.tex))\n"}
+,{"stream_name":"stdout","time":126.425991444,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.427082082,"data":"zlibraryfit.code.tex)\n"}
+,{"stream_name":"stdout","time":126.427119836,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.4295674,"data":"zlibrarybackgrounds.code.tex)\n"}
+,{"stream_name":"stdout","time":126.429596499,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.442182869,"data":"zlibrarycalc.code.tex) (./numbers.tex)\n"}
+,{"stream_name":"stdout","time":126.445068358,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd)\n"}
+,{"stream_name":"stdout","time":126.452098015,"data":"(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\n"}
+,{"stream_name":"stdout","time":126.45214276,"data":"No file cascade_diagram_c.aux.\n"}
+,{"stream_name":"stdout","time":126.454997555,"data":"(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii\n"}
+,{"stream_name":"stdout","time":126.455050037,"data":"[Loading MPS to PDF converter (version 2006.09.02).]\n"}
+,{"stream_name":"stdout","time":126.459443328,"data":") (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty\n"}
+,{"stream_name":"stdout","time":126.488578597,"data":"(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))\n"}
+,{"stream_name":"stdout","time":126.489786685,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)\n"}
+,{"stream_name":"stdout","time":126.491043863,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd)\n"}
+,{"stream_name":"stdout","time":126.492051629,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd)\n"}
+,{"stream_name":"stdout","time":126.493135406,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd)\n"}
+,{"stream_name":"stdout","time":126.560440419,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd)))\n"}
+,{"stream_name":"stdout","time":126.560519352,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex\n"}
+,{"stream_name":"stdout","time":126.560527471,"data":"\n"}
+,{"stream_name":"stdout","time":126.560532381,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers\n"}
+,{"stream_name":"stdout","time":126.560537512,"data":".code.tex)\n"}
+,{"stream_name":"stdout","time":126.560541471,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex\n"}
+,{"stream_name":"stdout","time":126.56054550100001,"data":")\n"}
+,{"stream_name":"stdout","time":126.560549156,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.560553119,"data":"zlibrarytopaths.code.tex)))\n"}
+,{"stream_name":"stdout","time":126.560557118,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.\n"}
+,{"stream_name":"stdout","time":126.560562956,"data":"code.tex)\n"}
+,{"stream_name":"stdout","time":126.560572096,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.560574866,"data":"zlibrarypositioning.code.tex)\n"}
+,{"stream_name":"stdout","time":126.560577454,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.560580146,"data":"zlibraryshapes.geometric.code.tex\n"}
+,{"stream_name":"stdout","time":126.56058284,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape\n"}
+,{"stream_name":"stdout","time":126.560585556,"data":"s.geometric.code.tex))\n"}
+,{"stream_name":"stdout","time":126.560588115,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.560591101,"data":"zlibraryfit.code.tex)\n"}
+,{"stream_name":"stdout","time":126.560594115,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.560597878,"data":"zlibrarybackgrounds.code.tex)\n"}
+,{"stream_name":"stdout","time":126.560615814,"data":"(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik\n"}
+,{"stream_name":"stdout","time":126.560620482,"data":"zlibrarycalc.code.tex) (./numbers.tex)\n"}
+,{"stream_name":"stdout","time":126.560625138,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd)\n"}
+,{"stream_name":"stdout","time":126.560629743,"data":"(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)\n"}
+,{"stream_name":"stdout","time":126.560634179,"data":"No file cascade_diagram_c.aux.\n"}
+,{"stream_name":"stdout","time":126.560638254,"data":"(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii\n"}
+,{"stream_name":"stdout","time":126.560642245,"data":"[Loading MPS to PDF converter (version 2006.09.02).]\n"}
+,{"stream_name":"stdout","time":126.560646091,"data":") (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty\n"}
+,{"stream_name":"stdout","time":126.560650047,"data":"(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))\n"}
+,{"stream_name":"stdout","time":126.560653971,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd)\n"}
+,{"stream_name":"stdout","time":126.560657974,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd)\n"}
+,{"stream_name":"stdout","time":126.560661983,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd)\n"}
+,{"stream_name":"stdout","time":126.560665952,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd)\n"}
+,{"stream_name":"stdout","time":126.576946026,"data":"(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd) [1{/var/lib/texmf/f\n"}
+,{"stream_name":"stdout","time":126.578504726,"data":"onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip\n"}
+,{"stream_name":"stdout","time":126.58291507,"data":"s/base/8r.enc}] (./cascade_diagram_c.aux) )\u003c/usr/share/texlive/texmf-dist/fonts\n"}
+,{"stream_name":"stdout","time":126.584288271,"data":"/type1/public/amsfonts/cm/cmr10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/\n"}
+,{"stream_name":"stdout","time":126.585522924,"data":"public/amsfonts/cm/cmsy10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/public\n"}
+,{"stream_name":"stdout","time":126.586308097,"data":"/mathpazo/fplmri.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up\n"}
+,{"stream_name":"stdout","time":126.59088204,"data":"lb8a.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb\u003e\u003c/u\n"}
+,{"stream_name":"stdout","time":126.595141498,"data":"sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb\u003e\n"}
+,{"stream_name":"stdout","time":126.595173705,"data":"Output written on cascade_diagram_c.pdf (1 page, 62393 bytes).\n"}
+,{"stream_name":"stdout","time":126.595183945,"data":"Transcript written on cascade_diagram_c.log.\n"}
+,{"stream_name":"stdout","time":126.779750078,"data":" [1{/var/lib/texmf/f\n"}
+,{"stream_name":"stdout","time":126.779792805,"data":"onts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvip\n"}
+,{"stream_name":"stdout","time":126.779797074,"data":"s/base/8r.enc}] (./cascade_diagram_c.aux) )\u003c/usr/share/texlive/texmf-dist/fonts\n"}
+,{"stream_name":"stdout","time":126.779800552,"data":"/type1/public/amsfonts/cm/cmr10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/\n"}
+,{"stream_name":"stdout","time":126.779803549,"data":"public/amsfonts/cm/cmsy10.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/public\n"}
+,{"stream_name":"stdout","time":126.779806521,"data":"/mathpazo/fplmri.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up\n"}
+,{"stream_name":"stdout","time":126.779809329,"data":"lb8a.pfb\u003e\u003c/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb\u003e\u003c/u\n"}
+,{"stream_name":"stdout","time":126.7798129,"data":"sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb\u003e\n"}
+,{"stream_name":"stdout","time":126.779835853,"data":"Output written on cascade_diagram_c.pdf (1 page, 62393 bytes).\n"}
+,{"stream_name":"stdout","time":126.779840681,"data":"Transcript written on cascade_diagram_c.log.\n"}
+,{"stream_name":"stdout","time":127.374181047,"data":"wrote cascade_diagram_h.pdf 62491 bytes\n"}
+,{"stream_name":"stdout","time":127.374217801,"data":"wrote cascade_diagram_c.pdf 62393 bytes\n"}
+,{"stream_name":"stdout","time":127.374222791,"data":"wrote cascade_diagram_h.log 19691 bytes\n"}
+,{"stream_name":"stdout","time":127.37422685,"data":"wrote cascade_diagram_c.log 19691 bytes\n"}
+,{"stream_name":"stdout","time":127.374230835,"data":"wrote logo-mdpi.pdf 13026 bytes\n"}
+,{"stream_name":"stdout","time":127.374235131,"data":"pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)\n"}
+,{"stream_name":"stdout","time":127.374239221,"data":"10.02.1\n"}
+,{"stream_name":"stderr","time":130.794628708,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":130.794669628,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":131.056096094,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":131.056153699,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":132.150889614,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":132.259796872,"data":"[NbConvertApp] Writing 820734 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":135.757296559,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":136.447828588,"data":"[NbConvertApp] Writing 1095591 bytes to __results__.html\n"}
 ]

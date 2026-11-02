@@ -8,9 +8,12 @@
 
 \informedconsent{Not applicable.}
 
+% left-aligned: the long URLs would leave wide gaps in a justified paragraph (\par of the class runs inside this group)
+{\raggedright
 \dataavailability{The corpora analysed in this study are public and are not redistributed with this article: the Mendeley SMS Phishing Dataset (\url{https://doi.org/10.17632/f45bkkt8pr.1}, licence CC BY 4.0) \cite{mendeley2022}, MOZ-Smishing (\url{https://huggingface.co/datasets/MOZNLP/MOZ-Smishing}) \cite{moz2025}, the Super SMS Dataset (\url{https://github.com/smspamresearch/spstudy}; no licence is stated for the data) \cite{salman2024} and the UCI SMS Spam Collection (\url{https://archive.ics.uci.edu/dataset/228/sms+spam+collection}) \cite{almeida2011}. The repository of this study contains the scripts that download these files, check their checksums and rebuild the deduplicated splits, the identifiers of the messages in every split, the lists of removed duplicates and conflicting groups, all predictions and result files, the author-written case-study messages and the synthetic adaptation set. The four real messages of the case study are quoted from public news articles listed in the repository. All code for data preparation, training, evaluation, statistical tests, tables and figures, and the frozen configuration of the final evaluation, is in the same repository; every number in this article is generated from the result files by a script, and a second script checks that the text and tables match these files. Repository: [URL to be added by the authors].}
+}
 
-\acknowledgments{[Acknowledgments to be completed by the authors.] During the preparation of this study, the authors used [tool name and version, to be confirmed by the authors] to draft the synthetic adaptation messages of the Kazakhstan case study (Section~\ref{sec:kz}); every message was checked by the authors before use. [To be confirmed by the authors: whether and how generative AI tools assisted with code or with the text of this manuscript.] The authors have reviewed and edited the output and take full responsibility for the content of this publication.}
+\acknowledgments{[Acknowledgments of support, if any, to be completed by the authors.] During the preparation of this work, the authors used Claude (Anthropic; model Claude Opus 5.5) to assist with code development, data processing scripts, generation of the synthetic adaptation set, and language editing of the manuscript. The authors reviewed and verified all generated content and take full responsibility for the content of this publication.}
 
 \conflictsofinterest{[To be completed by the authors: ``The authors declare no conflicts of interest'' or the relevant declaration.]}
 

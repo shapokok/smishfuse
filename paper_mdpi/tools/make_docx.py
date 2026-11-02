@@ -458,11 +458,14 @@ def prepare() -> tuple[str, dict[str, str]]:
         src = PAPER / (g if g.endswith(".pdf") else g + ".pdf")
         dst = BUILD / "figures" / (src.stem + ".png")
         dst.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(["pdftoppm", "-r", "300", "-png", "-singlefile", str(src), str(dst.with_suffix(""))], check=True)
+        subprocess.run(["pdftoppm", "-r", "600", "-png", "-singlefile", str(src), str(dst.with_suffix(""))], check=True)
+        subprocess.run(["pdftocairo", "-svg", str(src), str(dst.with_suffix(".svg"))], check=True)
         png[g] = dst
     body = re.sub(r"\s*\$\\pm\$\s*", " \u00b1\u00a0", body)   # "0.9276 ±\u00a00.0025": the sd stays with its sign
     body = re.sub(r"\$\^\{((?:\\ast|\\dagger|[a-z0-9])+)\}\$",
                   lambda m: "\\textsuperscript{" + m.group(1).replace("\\ast", "*").replace("\\dagger", "\u2020") + "}", body)
+    order = [png[g].stem for g in re.findall(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}", body)]
+    (BUILD / "figures_order.json").write_text(json.dumps(order) + "\n", encoding="utf-8")
     body = figure_table_equation(body, labels, png)
     body = symbols_as_text(body)
     body = math_segments(body, libreoffice_safe)
@@ -499,6 +502,37 @@ EQ_TABLE = ('<w:tbl><w:tblPr><w:tblW w:w="7859" w:type="dxa"/><w:tblInd w:w="260
             '</w:tblGrid><w:tr><w:tc><w:tcPr><w:tcW w:w="7428" w:type="dxa"/></w:tcPr>{eq}</w:tc><w:tc><w:tcPr>'
             '<w:tcW w:w="431" w:type="dxa"/><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr>'
             '<w:pStyle w:val="MDPI3aequationnumber"/></w:pPr><w:r><w:t>({num})</w:t></w:r></w:p></w:tc></w:tr></w:tbl>')
+
+
+M_NS = "http://schemas.openxmlformats.org/officeDocument/2006/math"
+
+
+def cases_to_eqarr(xml: str) -> str:
+    """pandoc writes cases as a matrix (m:m) inside a left brace; Word's own form is an equation array (m:eqArr):
+    one row per case, the cells of a row separated by a wide space."""
+    import xml.etree.ElementTree as ET
+
+    ET.register_namespace("m", M_NS)
+    ET.register_namespace("w", W)
+    out, i = [], 0
+    rx = re.compile(r'<m:d><m:dPr><m:begChr m:val="\{" ?/>(?:(?!</m:dPr>).)*<m:endChr m:val="" ?/>(?:(?!</m:dPr>).)*'
+                    r'</m:dPr><m:e><m:m>', re.S)
+    while True:
+        m = rx.search(xml, i)
+        if not m:
+            out.append(xml[i:])
+            return "".join(out)
+        start = m.end() - len("<m:m>")
+        end = xml.index("</m:m>", start) + len("</m:m>")
+        frag = ET.fromstring(f'<root xmlns:m="{M_NS}" xmlns:w="{W}">{xml[start:end]}</root>')
+        rows = []
+        for mr in frag.iter(f"{{{M_NS}}}mr"):
+            cells = ["".join(ET.tostring(ch, encoding="unicode") for ch in e) for e in mr.findall(f"{{{M_NS}}}e")]
+            rows.append("<m:e>" + '<m:r><m:t xml:space="preserve">\u2003</m:t></m:r>'.join(cells) + "</m:e>")
+        arr = "<m:eqArr><m:eqArrPr><m:baseJc m:val=\"center\"/></m:eqArrPr>" + "".join(rows) + "</m:eqArr>"
+        arr = re.sub(r' xmlns:(m|w)="[^"]+"', "", arr)
+        out.append(xml[i:start] + arr)
+        i = end
 
 
 def set_style(p: str, sid: str) -> str:
@@ -725,6 +759,7 @@ def table_properties(tblpr: str, total: int, wide: bool) -> str:
 
 
 def postprocess(xml: str, formats: dict[str, str], lists: dict[str, str]) -> str:
+    xml = cases_to_eqarr(xml)
     body_start = xml.index("<w:body>") + len("<w:body>")
     head, body = xml[:body_start], xml[body_start:]
     # tables first (cell paragraphs keep the table body style)
@@ -753,6 +788,9 @@ def postprocess(xml: str, formats: dict[str, str], lists: dict[str, str]) -> str
             m = re.search(r"@@STYLE:(\w+)@@", p)
             if m:
                 p = set_style(drop_marker(p, m.group(0)), m.group(1))
+                if m.group(1) == "MDPI62backmatter" and "Data Availability Statement" in p:
+                    # left-aligned: the long URLs would leave wide gaps in a justified paragraph
+                    p = p.replace('<w:pStyle w:val="MDPI62backmatter"/>', '<w:pStyle w:val="MDPI62backmatter"/><w:jc w:val="left"/>', 1)
                 if m.group(1) == "MDPI81references":   # the numbering of the style, also written on the paragraph
                     p = p.replace(f'<w:pStyle w:val="{m.group(1)}"/>',
                                   f'<w:pStyle w:val="{m.group(1)}"/><w:numPr><w:ilvl w:val="0"/><w:numId w:val="23"/></w:numPr>', 1)
@@ -808,6 +846,25 @@ def postprocess(xml: str, formats: dict[str, str], lists: dict[str, str]) -> str
     return head + "".join(out)
 
 
+IMAGE_REL = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image"
+SVG_EXT = ('<a:extLst><a:ext uri="{{96DAC541-7B7A-43D3-8B79-37D633B846F1}}"><asvg:svgBlip '
+           'xmlns:asvg="http://schemas.microsoft.com/office/drawing/2016/SVG/main" r:embed="rIdSvg{k}"/></a:ext>'
+           '</a:extLst>')
+
+
+def with_svg(xml: str, stems: list[str]) -> str:
+    """Each picture: the PNG (600 dpi) stays the main image for older readers, the SVG is added as the vector image
+    that Word 2016 and later show (a:blip extension svgBlip)."""
+    blips = re.findall(r'<a:blip r:embed="rId\d+" ?/>', xml)
+    if len(blips) != len(stems):
+        raise ValueError(f"{len(blips)} pictures in the document, {len(stems)} figures in the LaTeX order")
+    out, i = [], 0
+    for k, m in enumerate(re.finditer(r'<a:blip (r:embed="rId\d+") ?/>', xml), 1):
+        out.append(xml[i:m.start()] + f"<a:blip {m.group(1)}>" + SVG_EXT.format(k=k) + "</a:blip>")
+        i = m.end()
+    return "".join(out) + xml[i:]
+
+
 def main() -> int:
     if shutil.which("pandoc") is None:
         print("pandoc not found")
@@ -836,13 +893,22 @@ def main() -> int:
         numbering = src.read("word/numbering.xml").decode("utf-8")
         formats = list_formats(numbering)
         lists, numbering = list_numbering(numbering, src.read("word/document.xml").decode("utf-8"))
+        stems = json.loads((BUILD / "figures_order.json").read_text())
         for item in src.infolist():
             data = src.read(item.filename)
             if item.filename == "word/document.xml":
-                data = postprocess(data.decode("utf-8"), formats, lists).encode("utf-8")
+                data = with_svg(postprocess(data.decode("utf-8"), formats, lists), stems).encode("utf-8")
             elif item.filename == "word/numbering.xml":
                 data = numbering.encode("utf-8")
+            elif item.filename == "word/_rels/document.xml.rels":
+                rels = "".join(f'<Relationship Id="rIdSvg{k}" Type="{IMAGE_REL}" Target="media/{st}.svg"/>'
+                               for k, st in enumerate(stems, 1))
+                data = data.decode("utf-8").replace("</Relationships>", rels + "</Relationships>").encode("utf-8")
+            elif item.filename == "[Content_Types].xml" and b'Extension="svg"' not in data:
+                data = data.replace(b"<Default ", b'<Default Extension="svg" ContentType="image/svg+xml"/><Default ', 1)
             dst.writestr(item, data)
+        for st in stems:
+            dst.write(BUILD / "figures" / f"{st}.svg", f"word/media/{st}.svg")
     print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB); {len(labels)} labels numbered")
     return 0
 

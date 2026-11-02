@@ -1,10 +1,11 @@
 """Kaggle CPU kernel that builds two static PDF assets of the MDPI version (LaTeX is not installed locally):
 
-  paper_mdpi/figures/cascade_diagram.pdf   Figure 1, from paper_mdpi/assets/cascade_diagram.tex (standalone, TikZ)
-  paper_mdpi/Definitions/logo-mdpi.pdf     the MDPI logo converted from logo-mdpi.eps with Ghostscript (-dEPSCrop),
-                                           so that pdfLaTeX does not run epstopdf on every compilation
+  cascade_diagram_h.pdf, cascade_diagram_c.pdf   the two variants of Figure 1 (paper_mdpi/assets/*.tex, standalone,
+                                           TikZ, Palatino), with the numbers of paper_mdpi/numbers.tex
+  logo-mdpi.pdf                            the MDPI logo converted once from logo-mdpi.eps with Ghostscript
+                                           (-dEPSCrop), so that pdfLaTeX does not run epstopdf on every compilation
 
-The two input files are embedded in the notebook (base64) together with their SHA-256; the notebook checks the
+The input files are embedded in the notebook (base64) together with their SHA-256; the notebook checks the
 hashes before it runs anything, and kaggle/build/smishfuse-mdpi-assets.sha256 keeps them for the local check.
 Run: python scripts/make_mdpi_assets_kernel.py, then scripts/kaggle_sync.py push / output smishfuse-mdpi-assets
 """
@@ -16,7 +17,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NAME = "smishfuse-mdpi-assets"
 OUT = ROOT / "kaggle" / "kernels" / NAME
-INPUTS = {"cascade_diagram.tex": ROOT / "paper_mdpi" / "assets" / "cascade_diagram.tex",
+INPUTS = {"cascade_diagram_h.tex": ROOT / "paper_mdpi" / "assets" / "cascade_diagram_h.tex",
+          "cascade_diagram_c.tex": ROOT / "paper_mdpi" / "assets" / "cascade_diagram_c.tex",
+          "numbers.tex": ROOT / "paper_mdpi" / "numbers.tex",
           "logo-mdpi.eps": ROOT / "paper_mdpi" / "Definitions" / "logo-mdpi.eps"}
 
 CODE = r'''import base64, hashlib, os, shutil, subprocess
@@ -34,10 +37,12 @@ for name, data in FILES.items():
 subprocess.run("apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends "
                "texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-pictures "
                "texlive-fonts-recommended ghostscript > /tmp/apt.log 2>&1", shell=True, check=True)
-subprocess.run(["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "cascade_diagram.tex"], cwd=work, check=True)
+for v in ("h", "c"):
+    subprocess.run(["pdflatex", "-interaction=nonstopmode", "-halt-on-error", f"cascade_diagram_{{v}}.tex"], cwd=work, check=True)
 subprocess.run(["gs", "-q", "-dSAFER", "-dNOPAUSE", "-dBATCH", "-dEPSCrop", "-sDEVICE=pdfwrite",
                 "-sOutputFile=logo-mdpi.pdf", "logo-mdpi.eps"], cwd=work, check=True)
-for name in ("cascade_diagram.pdf", "logo-mdpi.pdf", "cascade_diagram.log"):
+for name in ("cascade_diagram_h.pdf", "cascade_diagram_c.pdf", "cascade_diagram_h.log", "cascade_diagram_c.log",
+             "logo-mdpi.pdf"):
     shutil.copy(os.path.join(work, name), "/kaggle/working/" + name)
     print("wrote", name, os.path.getsize(os.path.join(work, name)), "bytes")
 print(subprocess.run(["pdflatex", "--version"], capture_output=True, text=True).stdout.splitlines()[0])

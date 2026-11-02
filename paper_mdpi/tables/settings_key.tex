@@ -10,16 +10,16 @@ Model & clean & HO 5\% & HO 10\% & HO 20\% \\
 \multicolumn{5}{l}{\emph{Shim et al. setting: smishing versus spam}} \\
 Lite (char SVM) & 0.9276 $\pm$ 0.0025 & 0.9232 $\pm$ 0.0000 & 0.9233 $\pm$ 0.0000 & 0.9233 $\pm$ 0.0000 \\
 Full (cascade) & 0.9264 $\pm$ 0.0134 & 0.9220 $\pm$ 0.0114 & 0.9178 $\pm$ 0.0078 & 0.9080 $\pm$ 0.0098 \\
-Shim et al., BERT & 0.9027 $\pm$ 0.0186$^{\ast}$ & 0.8925 $\pm$ 0.0081$^{\ast\ast}$ & 0.7895 $\pm$ 0.0467$^{\dagger\dagger\ast\ast}$ & 0.5956 $\pm$ 0.0867$^{\dagger\dagger\ast\ast}$ \\
-Shim et al., DistilBERT & 0.8935 $\pm$ 0.0174$^{\ast}$ & 0.8676 $\pm$ 0.0440 & 0.7109 $\pm$ 0.0751$^{\dagger\dagger\ast\ast}$ & 0.4416 $\pm$ 0.0663$^{\dagger\dagger\ast\ast}$ \\
-Shim et al., RoBERTa & 0.8592 $\pm$ 0.0447$^{\dagger\dagger\ast\ast}$ & 0.8705 $\pm$ 0.0380$^{\dagger\dagger\ast\ast}$ & 0.8288 $\pm$ 0.0092$^{\dagger\dagger\ast\ast}$ & 0.6847 $\pm$ 0.1131$^{\dagger\dagger\ast\ast}$ \\
+Shim et al., BERT & 0.9027 $\pm$ 0.0186 & 0.8925 $\pm$ 0.0081 & 0.7895 $\pm$ 0.0467 & 0.5956 $\pm$ 0.0867 \\
+Shim et al., DistilBERT & 0.8935 $\pm$ 0.0174 & 0.8676 $\pm$ 0.0440 & 0.7109 $\pm$ 0.0751 & 0.4416 $\pm$ 0.0663 \\
+Shim et al., RoBERTa & 0.8592 $\pm$ 0.0447 & 0.8705 $\pm$ 0.0380 & 0.8288 $\pm$ 0.0092 & 0.6847 $\pm$ 0.1131 \\
 \midrule
 \multicolumn{5}{l}{\emph{Mahmud et al. setting: ham versus malicious}} \\
 Lite (char SVM) & 0.9864 $\pm$ 0.0009 & 0.9871 $\pm$ 0.0000 & 0.9886 $\pm$ 0.0000 & 0.9870 $\pm$ 0.0000 \\
 Full (cascade) & 0.9877 $\pm$ 0.0027 & 0.9880 $\pm$ 0.0015 & 0.9873 $\pm$ 0.0013 & 0.9840 $\pm$ 0.0018 \\
-Mahmud et al., CNN-BiGRU & 0.9712 $\pm$ 0.0026 & 0.9497 $\pm$ 0.0048$^{\dagger\dagger\ast\ast}$ & 0.9205 $\pm$ 0.0079$^{\dagger\dagger\ast\ast}$ & 0.8555 $\pm$ 0.0084$^{\dagger\dagger\ast\ast}$ \\
+Mahmud et al., CNN-BiGRU & 0.9712 $\pm$ 0.0026 & 0.9497 $\pm$ 0.0048 & 0.9205 $\pm$ 0.0079 & 0.8555 $\pm$ 0.0084 \\
 \bottomrule
 \end{tabularx}
-\noindent{\footnotesize{Macro F1, mean $\pm$ standard deviation over 5 seeds. HO: held-out obfuscation family at the given level. Marks on a published method (seed 1, Holm-adjusted, $\alpha=0.05$): $\dagger$ Lite is significantly better by one test (bootstrap or McNemar), $\dagger\dagger$ by both (post hoc, not in the frozen plan); $\ast$ and $\ast\ast$ the same for Full (frozen plan). Every marked difference favours our model. All models: Table~\ref{tab:settings}.}}
+\noindent{\footnotesize{Macro F1, mean $\pm$ standard deviation over 5 seeds. HO: held-out obfuscation family at the given level. Significance tests of Lite and Full against each published method: Table~\ref{tab:pubtests}. All models: Table~\ref{tab:settings}.}}
 \end{adjustwidth}
 \end{table}

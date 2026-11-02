@@ -593,36 +593,55 @@ def explain_numbers(R: Registry) -> None:
     sm = top[top["class"] == "smishing"].sort_values("rank").ngram.tolist()
     if not all(any(c.isdigit() for c in g) for g in sm[:4]) or "claim" not in sm:
         raise ValueError("text: the first four smishing n-grams contain digits, and 'claim' is among the top")
+    # Table 7: merged features (tools/make_tables.py merged_ngrams)
+    from make_tables import merged_ngrams
+    merged = {c: merged_ngrams(c) for c in ("ham", "smishing", "spam")}
+    for c, feats in merged.items():
+        for i, f in enumerate(feats, 1):
+            R.add(f"ngm-{c}-{i}", tex_gram(f["ngram"]), src + "top_ngrams_long.csv (merged, make_tables.merged_ngrams)")
+    reps = {c: [f["ngram"] for f in feats] for c, feats in merged.items()}
+    digits = [g for g in reps["smishing"] if g.strip().isdigit()]
+    R.add("ngm-smishing-digits", len(digits), src + "top_ngrams_long.csv (merged smishing features of digits only)")
+    if not ({"i ", "my ", "me ", " it", ":)", ".."} <= set(reps["ham"]) and {"all 0", "claim", " 0", "08", "09"}
+            <= set(reps["smishing"]) and {"txt", " to 8", "tone", " 8"} <= set(reps["spam"])):
+        raise ValueError("text: the features named in Section 5.8 are among the merged top features")
+    R.add("ngm-top", len(merged["ham"]), "tools/make_tables.py merged_ngrams top")
+    long = pd.read_csv(s8 / "top_ngrams_long.csv", keep_default_na=False)
+    R.add("ngm-pool", int(long.groupby("class").size().iloc[0]), "src/step8/explain.py TOP_LONG")
+
+    # Figure 6: contributions aggregated by words (scripts/make_step8_examples.py)
     ex = json.loads((s8 / "examples.json").read_text())
-    c = pd.read_csv(s8 / "example_contributions.csv", keep_default_na=False)
+    words = pd.read_csv(s8 / "example_words.csv", keep_default_na=False)
     b = dict(zip(model["classes"], model["intercept"]))
+    icpt = b["smishing"] - b["spam"]
+    R.add("ex-icpt", signed(icpt), src + "model.json intercepts (smishing - spam)")
+    R.add("ex-top-words", 8, "tools/make_figures.py explanation_figure top")
     for key, k in (("smishing_correct", "sm"), ("spam_correct", "sp"), ("smishing_as_spam", "err")):
-        e, g = ex[key], c[c.example == key].set_index("label")
+        e = ex[key]
+        w = words[words.example == key].set_index("word").diff_smishing_minus_spam
+        margin = e["score"]["smishing"] - e["score"]["spam"]
+        if abs(w.sum() + icpt - margin) > 1e-6:
+            raise ValueError(f"{key}: word contributions do not add up to the margin")
+        order = w.abs().sort_values(ascending=False).index
         R.add(f"ex-{k}-n", e["n_in_group"], src + "examples.json n_in_group")
         R.add(f"ex-{k}-conf", f2(e["prob"][e["y_pred"]]), src + "examples.json")
-        margin = e["score"]["smishing"] - e["score"]["spam"]
-        R.add(f"ex-{k}-margin", f2(abs(margin)), src + "examples.json scores (|s_smishing - s_spam|)")
-        rest = g.drop([x for x in g.index if x.startswith("[")])
-        R.add(f"ex-{k}-ngrams", int(g.n_ngrams.sum()), src + "example_contributions.csv")
-        if abs(g.diff_smishing_minus_spam.sum() + b["smishing"] - b["spam"] - margin) > 1e-6:
-            raise ValueError(f"{key}: contributions do not add up")
-        big = rest.diff_smishing_minus_spam.abs().max()
-        R.add(f"ex-{k}-maxgram", f2(big), src + "example_contributions.csv (largest single unmasked n-gram)")
-    g = c[c.example == "smishing_correct"].set_index("label")
-    R.add("ex-sm-url", f2(g.loc["[URL]", "diff_smishing_minus_spam"]), src + "example_contributions.csv")
-    if g.diff_smishing_minus_spam.idxmax() != "[URL]":
-        raise ValueError("text: the link is the largest single contribution in example (a)")
-    g = c[c.example == "smishing_as_spam"].set_index("label")
-    R.add("ex-err-phone", f2(-g.loc["[PHONE]", "diff_smishing_minus_spam"]), src + "example_contributions.csv")
-    if g.diff_smishing_minus_spam.idxmin() != "[PHONE]":
-        raise ValueError("text: the number is the largest single contribution towards spam in example (c)")
-    top_err = g.drop([x for x in g.index if x.startswith("[")]).diff_smishing_minus_spam.nsmallest(5).index
-    if not all("st" in x or "op" in x or "top" in x for x in top_err):
-        raise ValueError("text: the next largest pushes towards spam come from the word STOP")
-    gs = c[c.example == "spam_correct"].set_index("label")
-    rest = gs.drop([x for x in gs.index if x.startswith("[")])
-    if rest.diff_smishing_minus_spam.abs().max() > 0.05:
-        raise ValueError("text: in example (b) no single n-gram contributes more than 0.05")
+        R.add(f"ex-{k}-margin", signed(margin), src + "examples.json scores (s_smishing - s_spam)")
+        R.add(f"ex-{k}-rest", signed(w[order[8:]].sum()), src + "example_words.csv (words outside the top 8)")
+        R.add(f"ex-{k}-nwords", len(w), src + "example_words.csv")
+        if k == "sm":
+            if order[0] != "[URL]" or w["[URL]"] <= 0:
+                raise ValueError("text: the link is the largest contribution of message (a), towards smishing")
+            R.add("ex-sm-url", f2(w["[URL]"]), src + "example_words.csv")
+            R.add("ex-sm-second", f2(abs(w[order[1]])), src + "example_words.csv (second largest word)")
+        if k == "sp":
+            if not (w < 0).sum() > (w > 0).sum() or w[order[:8]].max() > 0:
+                raise ValueError("text: in message (b) the eight largest words all push towards spam")
+            R.add("ex-sp-max", f2(abs(w[order[0]])), src + "example_words.csv (largest word)")
+        if k == "err":
+            if list(order[:2]) != ["STOP", "[PHONE]"] or w["STOP"] >= 0 or w["[PHONE]"] >= 0:
+                raise ValueError("text: STOP and the short number are the two largest pushes of message (c) to spam")
+            R.add("ex-err-stop", f2(-w["STOP"]), src + "example_words.csv")
+            R.add("ex-err-phone", f2(-w["[PHONE]"]), src + "example_words.csv")
 
 
 def build() -> dict[str, tuple[str, str]]:
