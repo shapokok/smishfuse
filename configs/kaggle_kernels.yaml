@@ -358,3 +358,12 @@ kernels:
       script: src/step6/real.py
       queues: [[run]]
 
+  # Step 8 (MDPI version), POST-HOC: reading the weights of Lite (seed-1 svm_char), no training (CPU only).
+  smishfuse-step8-explain:
+    accelerator: none
+    pip: requirements
+    kernel_sources: [shapok/smishfuse-final-3class]
+    spec:
+      kind: stress
+      script: src/step8/explain.py
+      queues: [[run]]

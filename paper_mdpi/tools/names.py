@@ -1,12 +1,12 @@
 """English model and test-set names shared by the tables and figures of the paper."""
 
 MODELS = {
-    "cascade": "Cascade",
-    "svm_char_aug": "Char SVM, aug. (stage 1)",
-    "svm_char": "Char SVM",
-    "distilbert_aug": "DistilBERT, aug. (stage 2)",
+    "cascade": "Full (cascade)",
+    "svm_char_aug": "Char SVM, aug. (stage 1 of Full)",
+    "svm_char": "Lite (char SVM)",
+    "distilbert_aug": "DistilBERT, aug. (stage 2 of Full)",
     "distilbert": "DistilBERT, stage-2 model, no aug.",
-    "cascade_noaug": "Cascade without aug.",
+    "cascade_noaug": "Full without aug.",
     "average": "Average of the two stages",
     "smishfuse_v1": "Gated fusion v1",
     "smishfuse_v2": "Gated fusion v2, aug.",

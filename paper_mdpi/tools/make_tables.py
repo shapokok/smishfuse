@@ -30,8 +30,8 @@ def js(name: str) -> dict:
 def corpora() -> str:
     names = {"mendeley": ("Mendeley SMS Phishing \\cite{mendeley2022}", "EN"),
              "moz_smishing": ("MOZ-Smishing \\cite{moz2025}", "PT"),
-             "super_sms_clean": ("Super SMS, clean$^{b}$ \\cite{salman2024}", "EN"),
-             "uci_sms": ("UCI SMS Spam$^{c}$ \\cite{almeida2011}", "EN")}
+             "super_sms_clean": ("Super SMS, clean$^{a}$ \\cite{salman2024}", "EN"),
+             "uci_sms": ("UCI SMS Spam$^{b}$ \\cite{almeida2011}", "EN")}
     rows = []
     for key, (label, lang) in names.items():
         if key == "super_sms_clean":
@@ -51,27 +51,16 @@ def corpora() -> str:
         if set(labels) - {"ham", "smishing", "spam"}:
             raise ValueError(f"{key}: unexpected classes {sorted(labels)}")
         rows.append(" & ".join([label, lang, str(before), str(removed), str(kept), *parts, *cls]) + " \\\\")
-    return HEADER + "\n".join([
-        "\\begin{table*}[t]",
-        "\\caption{Corpora after deduplication: messages before and after, splits and classes$^{a}$}",
-        "\\label{tab:corpora}",
-        "\\centering\\footnotesize\\setlength{\\tabcolsep}{3.5pt}",
-        "\\begin{tabular}{llrrrrrrrrr}",
-        "\\hline",
-        " & & & & & \\multicolumn{3}{c}{Split} & \\multicolumn{3}{c}{Classes (kept)} \\\\",
-        "\\cmidrule(lr){6-8}\\cmidrule(lr){9-11}",
-        "Corpus & Lang. & Before & Removed & Kept & Train & Val & Test & ham & smishing & spam \\\\",
-        "\\hline",
-        *rows,
-        "\\hline",
-        "\\end{tabular}",
-        "\\par\\smallskip\\footnotesize",
-        "$^{a}$ Before: valid messages after loading. Removed: exact and near duplicates of a kept message, "
-        "minority-label members of label-conflict groups and whole groups without a majority label "
-        "(Section~\\ref{sec:data}). Splits are stratified by class. "
-        "$^{b}$ Removed within the corpus + removed because of an exact or near match in the Mendeley or UCI "
-        "corpus. $^{c}$ Used only to measure the overlap with the other corpora.",
-        "\\end{table*}", ""])
+    head = [" & & & & & \\multicolumn{3}{c}{Split} & \\multicolumn{3}{c}{Classes (kept)} \\\\",
+            "\\cmidrule(lr){6-8}\\cmidrule(lr){9-11}",
+            "Corpus & Lang. & Before & Removed & Kept & Train & Val & Test & ham & smishing & spam \\\\"]
+    note = ("Before: valid messages after loading. Removed: exact and near duplicates of a kept message, "
+            "minority-label members of label-conflict groups and whole groups without a majority label "
+            "(Section~\\ref{sec:data}). Splits are stratified by class. "
+            "$^{a}$ Removed within the corpus + removed because of an exact or near match in the Mendeley or UCI "
+            "corpus. $^{b}$ Used only to measure the overlap with the other corpora.")
+    return wrap("tab:corpora", "Corpora after deduplication: messages before and after, splits and classes",
+                "lcCCCCCCCCC", head, rows, note, size="\\footnotesize")
 
 
 # ---------------------------------------------------------------- helpers for the result tables
@@ -136,19 +125,107 @@ def pval(p: float) -> str:
     return "$<$0.001" if p < 0.001 else f"{p:.3f}"
 
 
-def wrap(label: str, caption: str, colspec: str, head: list[str], body: list[str], note: str, star=True,
-         size="\\footnotesize", sep="3.5pt") -> str:
-    env = "table*" if star else "table"
-    return HEADER + "\n".join([
-        f"\\begin{{{env}}}[t]", f"\\caption{{{caption}}}", f"\\label{{{label}}}",
-        f"\\centering{size}\\setlength{{\\tabcolsep}}{{{sep}}}", f"\\begin{{tabular}}{{{colspec}}}", "\\hline",
-        *head, "\\hline", *body, "\\hline", "\\end{tabular}", "\\par\\smallskip\\footnotesize", note,
-        f"\\end{{{env}}}", ""])
+def wrap(label: str, caption: str, colspec: str, head: list[str], body: list[str], note: str, wide=True,
+         size="\\small", sep=None) -> str:
+    """MDPI table: caption above, booktabs rules, note below; wide tables extend into the left margin."""
+    width = "\\fulllength" if wide else "\\textwidth"
+    out = ["\\begin{table}[H]", f"\\caption{{{caption}\\label{{{label}}}}}"]
+    if wide:
+        out.append("\\begin{adjustwidth}{-\\extralength}{0cm}")
+    out.append(size)
+    if sep:
+        out.append(f"\\setlength{{\\tabcolsep}}{{{sep}}}")
+    out += [f"\\begin{{tabularx}}{{{width}}}{{{colspec}}}", "\\toprule", *head, "\\midrule", *body,
+            "\\bottomrule", "\\end{tabularx}", f"\\noindent{{\\footnotesize{{{note}}}}}"]
+    if wide:
+        out.append("\\end{adjustwidth}")
+    out.append("\\end{table}")
+    return HEADER + "\n".join(out) + "\n"
 
 
-# ---------------------------------------------------------------- T2 main comparison
+# ---------------------------------------------------------------- key tables of the main text
 
-MAIN_ROWS = ["cascade", "svm_char_aug", "svm_char", "distilbert_aug", "distilbert", "bert", "linear_svm", "logreg",
+KEY3 = ["svm_char", "cascade", "svm_char_aug", "distilbert_aug", "distilbert", "bert", "linear_svm", "qwen_fewshot"]
+
+
+def key3_table() -> str:
+    """Three-class task, key models: clean quality, calibration, strongest held-out obfuscation, error cost."""
+    c = "mendeley_3class"
+    cols = [("clean", "macro_f1"), ("clean", "f1_smishing"), ("clean", "f1_spam"), ("clean", "ece"),
+            ("heldout20", "macro_f1"), ("heldout20", "cost_5to1")]
+    best = {k: best_in(c, k[0], KEY3, k[1], low=k[1] in ("ece", "cost_5to1")) for k in cols}
+    body = []
+    for x in KEY3:
+        row = [name(x)]
+        for k in cols:
+            row.append(cell(c, k[0], x, k[1], sd=k[1] == "macro_f1", bold=best[k] == x))
+        body.append(" & ".join(row) + " \\\\")
+    head = [" & \\multicolumn{4}{c}{Clean test set} & \\multicolumn{2}{c}{HO 20\\%} \\\\",
+            "\\cmidrule(lr){2-5}\\cmidrule(lr){6-7}",
+            "Model & Macro F1 & F1 smishing & F1 spam & ECE & Macro F1 & $L_5$ \\\\"]
+    note = ("Three-class Mendeley test set; mean over 5 seeds ($\\pm$ standard deviation for macro F1). HO 20\\%: "
+            "held-out obfuscation family at the 20\\% level. $L_5$: loss per message (\\ref{eq:cost}) with $r=5$. "
+            "Best value per column among the models shown in bold (lowest for ECE and $L_5$). All models: "
+            "Tables~\\ref{tab:main} and \\ref{tab:robustness}. -- : not evaluated (the few-shot model was run on "
+            "the clean test set only).")
+    return wrap("tab:key3", "Key models on the three-class task", "lCCCCCC", head, body, note)
+
+
+def settings_key_table() -> str:
+    """Lite and Full against the re-implemented published methods, main text (all models: settings_table)."""
+    body = []
+    for cond, title in (("setting_shim", "Shim et al. setting: smishing versus spam"),
+                        ("setting_mahmud", "Mahmud et al. setting: ham versus malicious")):
+        rows = ["svm_char", "cascade"] + PUB[cond]
+        body.append(f"\\multicolumn{{5}}{{l}}{{\\emph{{{title}}}}} \\\\")
+        for x in rows:
+            cells = [cell(cond, t, x) + (_marks(cond, t, x) if x in PUB[cond] else "") for t in SET_TESTS]
+            body.append(" & ".join([name(x)] + cells) + " \\\\")
+        body.append("\\midrule")
+    body.pop()
+    head = ["Model & " + " & ".join(SETS[t] for t in SET_TESTS) + " \\\\"]
+    note = ("Macro F1, mean $\\pm$ standard deviation over 5 seeds. HO: held-out obfuscation family at the given "
+            "level. Marks on a published method (seed 1, Holm-adjusted, $\\alpha=0.05$): $\\dagger$ Lite is "
+            "significantly better by one test (bootstrap or McNemar), $\\dagger\\dagger$ by both (post hoc, not in "
+            "the frozen plan); $\\ast$ and $\\ast\\ast$ the same for Full (frozen plan). Every marked difference "
+            "favours our model. All models: Table~\\ref{tab:settings}.")
+    return wrap("tab:settings-key", "Lite and Full against re-implemented published detectors in their own task "
+                "settings", "lCCCC", head, body, note)
+
+
+OP_ROWS = [("svm_char", "mendeley_3class"), ("svm_char_aug", "mendeley_3class"), ("cascade", "mendeley_3class"),
+           ("distilbert_aug", "mendeley_3class"), ("bert", "mendeley_3class"),
+           ("shim2024_distilbert_base", "setting_shim"), ("shim2024_bert_base", "setting_shim"),
+           ("shim2024_roberta_base", "setting_shim"), ("mahmud2024_cnn_bigru", "setting_mahmud")]
+TASK_SHORT = {"mendeley_3class": "3 classes", "setting_shim": "Shim", "setting_mahmud": "Mahmud"}
+
+
+def operating_table() -> str:
+    """Latency and size of Lite, Full and the transformers (one CPU thread, batch 1)."""
+    lat = pd.read_csv(FINAL / "latency.csv")
+    body = []
+    for x, cond in OP_ROWS:
+        r = lat[(lat.model == x) & (lat.condition == cond)]
+        if len(r) != 1:
+            raise ValueError(f"latency row {x}/{cond}")
+        r = r.iloc[0]
+        share = f"{100 * mean_of(cond, 'clean', x, 'routed_share'):.1f}" if x == "cascade" else "--"
+        body.append(" & ".join([name(x), TASK_SHORT[cond], f"{r.p50_ms:.2f}", f"{r.p95_ms:.2f}",
+                                f"{r.throughput_msg_per_s:.0f}", f"{r.size_mb:.1f}", share]) + " \\\\")
+        if x == "bert":
+            body.append("\\midrule")
+    head = ["Model & Task & p50, ms & p95, ms & msg/s & MB & Routed, \\% \\\\"]
+    note = ("One CPU thread, batch size 1, seed-1 weights; task: the test messages used for timing. Full is "
+            "measured end to end on the whole three-class test set, including the calls of its second stage; "
+            "Routed: share of the clean test messages sent to the second stage, mean over 5 seeds. Size: saved "
+            "model files. All models of the three-class task: Table~\\ref{tab:efficiency}.")
+    return wrap("tab:operating", "Speed and size of the operating points and of the transformer detectors",
+                "lcCCCCC", head, body, note)
+
+
+# ---------------------------------------------------------------- appendix: full tables
+
+MAIN_ROWS = ["svm_char", "cascade", "svm_char_aug", "distilbert_aug", "distilbert", "bert", "linear_svm", "logreg",
              "random_forest", "xgboost", "textcnn", "bilstm", "distilbert_step3", "qwen_fewshot"]
 
 
@@ -162,7 +239,7 @@ def main_table() -> str:
         row = [name(x), cell(c, t, x, bold=best["macro_f1"] == x)]
         row += [cell(c, t, x, col, sd=False, bold=best[col] == x) for col in ("accuracy", "f1_smishing", "f1_spam", "pr_auc", "ece")]
         row.append(cell("super_sms", t, x, bold=best_ss == x))
-        body.append(" & ".join(row) + " \\\\" + (" \\hline" if i == 0 else ""))
+        body.append(" & ".join(row) + " \\\\" + (" \\midrule" if i == 1 else ""))
     head = [" & \\multicolumn{6}{c}{Mendeley, three classes} & Super SMS \\\\",
             "\\cmidrule(lr){2-7}\\cmidrule(lr){8-8}",
             "Model & Macro F1 & Accuracy & F1 smishing & F1 spam & PR-AUC & ECE & Macro F1 \\\\"]
@@ -170,13 +247,11 @@ def main_table() -> str:
             "in bold (lowest for ECE). DistilBERT, stage-2 model: the second-stage architecture trained without "
             "augmentation; DistilBERT: the tuned baseline. For the few-shot model, class probabilities are the softmax "
             "over the logits of the first token of each label word. -- : not run in this condition.")
-    return wrap("tab:main", "Main comparison on the clean test sets: three-class Mendeley task and Super SMS "
-                "(ham versus spam)", "lccccccc", head, body, note)
+    return wrap("tab:main", "All models on the clean test sets: three-class Mendeley task and Super SMS "
+                "(ham versus spam)", "lCCCCCCC", head, body, note, size="\\footnotesize")
 
 
-# ---------------------------------------------------------------- T3 settings of the published methods
-
-SET_ROWS = ["cascade", "svm_char_aug", "svm_char", "distilbert_aug", "distilbert", "bert", "svm_step2"]
+SET_ROWS = ["svm_char", "cascade", "svm_char_aug", "distilbert_aug", "distilbert", "bert", "svm_step2"]
 PUB = {"setting_mahmud": ["mahmud2024_cnn_bigru"],
        "setting_shim": ["shim2024_bert_base", "shim2024_distilbert_base", "shim2024_roberta_base"]}
 SET_TESTS = ["clean", "heldout05", "heldout10", "heldout20"]
@@ -189,37 +264,36 @@ def _marks(cond, test, other) -> str:
     q = ph[(ph.condition == cond) & (ph.test_set == test) & (ph.ours == "svm_char") & (ph.other == other)]
     if len(r) != 1 or len(q) != 1:
         raise ValueError(f"significance rows missing for {cond}/{test}/{other}")
+    if (r.diff_macro_f1_seed1.iloc[0] <= 0 and (r.significant_bootstrap_holm.iloc[0] or r.significant_mcnemar_holm.iloc[0])) \
+            or (q.diff_macro_f1_seed1.iloc[0] <= 0 and (q.significant_bootstrap_holm.iloc[0] or q.significant_mcnemar_holm.iloc[0])):
+        raise ValueError(f"a significant difference favours the published method: {cond}/{test}/{other}")
     a = int(r.significant_bootstrap_holm.iloc[0]) + int(r.significant_mcnemar_holm.iloc[0])
     b = int(q.significant_bootstrap_holm.iloc[0]) + int(q.significant_mcnemar_holm.iloc[0])
-    return "$^{" + "\\ast" * a + "\\dagger" * b + "}$" if a + b else ""
+    return "$^{" + "\\dagger" * b + "\\ast" * a + "}$" if a + b else ""
 
 
 def settings_table() -> str:
     body = []
-    for cond, title in (("setting_mahmud", "Mahmud et al. setting: ham versus malicious"),
-                        ("setting_shim", "Shim et al. setting: smishing versus spam")):
+    for cond, title in (("setting_shim", "Shim et al. setting: smishing versus spam"),
+                        ("setting_mahmud", "Mahmud et al. setting: ham versus malicious")):
         rows = SET_ROWS + PUB[cond]
         best = {t: best_in(cond, t, rows) for t in SET_TESTS}
         body.append(f"\\multicolumn{{5}}{{l}}{{\\emph{{{title}}}}} \\\\")
         for x in rows:
             cells = [cell(cond, t, x, bold=best[t] == x) + (_marks(cond, t, x) if x in PUB[cond] else "") for t in SET_TESTS]
             body.append(" & ".join([name(x)] + cells) + " \\\\")
-        body.append("\\hline")
+        body.append("\\midrule")
     body.pop()
     head = ["Model & " + " & ".join(SETS[t] for t in SET_TESTS) + " \\\\"]
     note = ("Macro F1, mean $\\pm$ standard deviation over 5 seeds; best per column and setting in bold. HO: "
-            "held-out obfuscation family at the given level. Marks on a published method (seed 1, Holm-adjusted, "
-            "$\\alpha=0.05$): $\\ast$ the cascade is significantly better by one test (bootstrap or McNemar), "
-            "$\\ast\\ast$ by both; $\\dagger$ and $\\dagger\\dagger$ the same for the character SVM without "
-            "augmentation (post-hoc comparison, not in the frozen plan). In every marked case the difference "
-            "favours our model.")
-    return wrap("tab:settings", "Comparison with re-implemented published methods in their own task settings",
-                "lcccc", head, body, note)
+            "held-out obfuscation family at the given level. TF-IDF + SVM: the word-and-character linear SVM "
+            "baseline. Marks on a published method as in Table~\\ref{tab:settings-key}: $\\dagger$ Lite (post hoc), "
+            "$\\ast$ Full (frozen plan); one mark for one significant test, two for both.")
+    return wrap("tab:settings", "All models in the task settings of the re-implemented published methods",
+                "lCCCC", head, body, note)
 
 
-# ---------------------------------------------------------------- T4 robustness and ablations
-
-ROB_MAIN = ["cascade", "svm_char_aug", "svm_char", "distilbert_aug", "distilbert", "bert", "linear_svm", "logreg",
+ROB_MAIN = ["svm_char", "cascade", "svm_char_aug", "distilbert_aug", "distilbert", "bert", "linear_svm", "logreg",
             "random_forest", "xgboost", "textcnn", "bilstm", "distilbert_step3"]
 ROB_ABL = ["cascade_noaug", "average", "smishfuse_v1", "smishfuse_v2", "smishfuse_v2_noaug"]
 ROB_TESTS = ["clean", "train05", "train10", "train20", "heldout05", "heldout10", "heldout20"]
@@ -230,28 +304,26 @@ def robustness_table() -> str:
     allrows = ROB_MAIN + ROB_ABL
     best = {t: best_in(c, t, allrows) for t in ROB_TESTS}
     body = []
-    for i, x in enumerate(ROB_MAIN):
+    for x in ROB_MAIN:
         body.append(" & ".join([name(x)] + [stacked(c, t, x, bold=best[t] == x) for t in ROB_TESTS]) + " \\\\")
-    body.append("\\hline")
-    body.append(f"\\multicolumn{{{len(ROB_TESTS) + 1}}}{{l}}{{\\emph{{Ablations of the cascade and earlier designs}}}} \\\\")
+    body.append("\\midrule")
+    body.append(f"\\multicolumn{{{len(ROB_TESTS) + 1}}}{{l}}{{\\emph{{Ablations of Full and earlier designs}}}} \\\\")
     for x in ROB_ABL:
         body.append(" & ".join([name(x)] + [stacked(c, t, x, bold=best[t] == x) for t in ROB_TESTS]) + " \\\\")
-    body.append("\\hline")
+    body.append("\\midrule")
     share = [f"{100 * mean_of(c, t, 'cascade', 'routed_share'):.1f}" for t in ROB_TESTS]
-    body.append(" & ".join(["Cascade: share routed to stage 2, \\%"] + share) + " \\\\")
-    head = [" & & \\multicolumn{3}{c}{TRAIN family} & \\multicolumn{3}{c}{HELD-OUT family} \\\\",
+    body.append(" & ".join(["Full: share routed to stage 2, \\%"] + share) + " \\\\")
+    head = [" & & \\multicolumn{3}{c}{TR family} & \\multicolumn{3}{c}{HO family} \\\\",
             "\\cmidrule(lr){3-5}\\cmidrule(lr){6-8}",
             "Model & clean & 5\\% & 10\\% & 20\\% & 5\\% & 10\\% & 20\\% \\\\"]
     note = ("Three-class Mendeley test set, macro F1, mean $\\pm$ standard deviation over 5 seeds; best per "
-            "column in bold. Percentages are obfuscation levels $\\lambda$. The TRAIN family is used in the "
-            "augmentation of the models marked aug.; the HELD-OUT family is never used in training.")
-    return wrap("tab:robustness", "Robustness to character obfuscation and ablations of the cascade",
-                "l" + "c" * len(ROB_TESTS), head, body, note, sep="3pt")
+            "column in bold. Percentages are obfuscation levels $\\lambda$. The TR family is used in the "
+            "augmentation of the models marked aug.; the HO family is never used in training.")
+    return wrap("tab:robustness", "Robustness to character obfuscation and ablations of Full, all models",
+                "l" + "C" * len(ROB_TESTS), head, body, note, size="\\footnotesize")
 
 
-# ---------------------------------------------------------------- T5 low data and transfer
-
-LD_ROWS = ["cascade", "svm_char_aug", "svm_char", "distilbert_aug", "distilbert", "bert", "linear_svm", "logreg",
+LD_ROWS = ["svm_char", "cascade", "svm_char_aug", "distilbert_aug", "distilbert", "bert", "linear_svm", "logreg",
            "smishfuse_v1", "smishfuse_v2"]
 
 
@@ -262,22 +334,20 @@ def lowdata_table() -> str:
     best = {cc: best_in(cc[0], cc[1], LD_ROWS) for cc in cols}
     body = [" & ".join([name(x)] + [stacked(a, b, x, bold=best[(a, b)] == x) for a, b in cols]) + " \\\\"
             for x in LD_ROWS]
-    body.append("\\hline")
+    body.append("\\midrule")
     share = [f"{100 * mean_of(a, b, 'cascade', 'routed_share'):.1f}" for a, b in cols]
-    body.append(" & ".join(["Cascade: share routed to stage 2, \\%"] + share) + " \\\\")
+    body.append(" & ".join(["Full: share routed to stage 2, \\%"] + share) + " \\\\")
     head = [" & \\multicolumn{5}{c}{Share of the Mendeley training data} & \\multicolumn{2}{c}{Transfer to MOZ-Smishing} \\\\",
             "\\cmidrule(lr){2-6}\\cmidrule(lr){7-8}",
             "Model & " + " & ".join(f"{int(f)}\\%" for f in fr) + " & 100\\% & zero-shot & fine-tuned \\\\"]
     note = ("Macro F1 on the clean test set, mean $\\pm$ standard deviation over 5 seeds; best per column in bold. "
-            "Low data: three-class Mendeley task, nested stratified subsets of the training data, cascade with the "
+            "Low data: three-class Mendeley task, nested stratified subsets of the training data, Full with the "
             "frozen $\\tau^{*}$. Transfer: trained on ham versus malicious in the Mendeley corpus, tested on "
             "MOZ-Smishing without target data (zero-shot) and after fine-tuning on 10\\% of its training data; "
             "the transformer is the multilingual DistilBERT. -- : not run in this condition.")
-    return wrap("tab:lowdata", "Low-data regime and transfer to Portuguese messages", "l" + "c" * len(cols),
-                head, body, note, sep="3pt")
+    return wrap("tab:lowdata", "Low-data regime and transfer to Portuguese messages", "l" + "C" * len(cols),
+                head, body, note, size="\\footnotesize")
 
-
-# ---------------------------------------------------------------- T6 efficiency and cost
 
 def efficiency_table() -> str:
     lat = pd.read_csv(FINAL / "latency.csv")
@@ -302,16 +372,14 @@ def efficiency_table() -> str:
             "\\multicolumn{3}{c}{$L_r$, HO 20\\%} \\\\",
             "\\cmidrule(lr){2-5}\\cmidrule(lr){6-8}\\cmidrule(lr){9-11}",
             "Model & p50, ms & p95, ms & msg/s & MB & $r=1$ & $r=5$ & $r=10$ & $r=1$ & $r=5$ & $r=10$ \\\\"]
-    note = ("Latency per message on the three-class Mendeley test messages; the cascade is measured end to end on "
+    note = ("Latency per message on the three-class Mendeley test messages; Full is measured end to end on "
             "the whole test set, including the calls of the second stage. Size: saved model files. $L_r$: "
             "loss per message (\\ref{eq:cost}) in the ham-versus-malicious view, mean over 5 seeds; lowest per "
             "column in bold. $^{a}$ 4-bit model on a T4 GPU (median only), not comparable with the CPU rows. "
             "$^{b}$ Ablation; not timed (it runs both stages on every message).")
-    return wrap("tab:efficiency", "Efficiency and cost of errors on the three-class task",
-                "l" + "c" * 10, head, body, note, sep="2.5pt")
+    return wrap("tab:efficiency", "Efficiency and cost of errors on the three-class task, all models",
+                "l" + "C" * 10, head, body, note, size="\\footnotesize", sep="3pt")
 
-
-# ---------------------------------------------------------------- T7 significance against the best baseline
 
 COND_LABEL = {"mendeley_3class": "Mendeley, 3 classes", "low_data_frac01": "Low data 1\\%",
               "low_data_frac05": "Low data 5\\%", "low_data_frac10": "Low data 10\\%",
@@ -336,14 +404,14 @@ def significance_table() -> str:
                                 sgn(100 * r.diff_macro_f1_seed1),
                                 f"[{sgn(100 * r.ci95_low)}, {sgn(100 * r.ci95_high)}]",
                                 f"{r.mcnemar_b_cascade_only_correct}/{r.mcnemar_c_other_only_correct}", pb, pm]) + " \\\\")
-    head = ["Condition & Test & Best baseline & Cascade & Baseline & $\\Delta$, pp & 95\\% CI, pp & $b/c$ & "
+    head = ["Condition & Test & Best baseline & Full & Baseline & $\\Delta$, pp & 95\\% CI, pp & $b/c$ & "
             "$\\tilde{p}$ boot. & $\\tilde{p}$ McN. \\\\"]
-    note = ("Cascade and baseline: mean macro F1 over 5 seeds. $\\Delta$: macro F1 of the cascade minus that of "
+    note = ("Full and baseline: mean macro F1 over 5 seeds. $\\Delta$: macro F1 of Full minus that of "
             "the baseline on seed 1, in percentage points, with the 95\\% paired bootstrap interval. $b/c$: test "
-            "messages classified correctly only by the cascade / only by the baseline. $\\tilde{p}$: "
+            "messages classified correctly only by Full / only by the baseline. $\\tilde{p}$: "
             "Holm-adjusted $p$-values of the bootstrap and McNemar tests; values $\\le 0.05$ in bold.")
-    return wrap("tab:significance", "Cascade against the best baseline of each condition", "lllccccccc",
-                head, body, note, sep="2.5pt")
+    return wrap("tab:significance", "Full against the best baseline of each condition", "lllCCCCCCC",
+                head, body, note, size="\\footnotesize", sep="3pt")
 
 
 # ---------------------------------------------------------------- T8 duplicate inflation
@@ -389,14 +457,15 @@ def inflation_table() -> str:
             "the raw labels; clean: our deduplicated data. dup.: share of dirty test-fold messages with a duplicate "
             "in the training folds. $^{a}$ difference within the larger seed standard deviation.")
     return wrap("tab:inflation", "Effect of duplicates on cross-validated scores (dirty minus clean data)",
-                "lllccccccc", head, body, note, sep="2.5pt")
+                "lllCCCCCCC", head, body, note, size="\\footnotesize", sep="3pt")
 
 
 def build() -> dict[str, str]:
-    return {"corpora.tex": corpora(), "main.tex": main_table(), "settings.tex": settings_table(),
-            "robustness.tex": robustness_table(), "lowdata.tex": lowdata_table(),
-            "efficiency.tex": efficiency_table(), "significance.tex": significance_table(),
-            "inflation.tex": inflation_table()}
+    return {"corpora.tex": corpora(), "settings_key.tex": settings_key_table(), "key3.tex": key3_table(),
+            "operating.tex": operating_table(), "inflation.tex": inflation_table(),
+            "main.tex": main_table(), "settings.tex": settings_table(), "robustness.tex": robustness_table(),
+            "lowdata.tex": lowdata_table(), "efficiency.tex": efficiency_table(),
+            "significance.tex": significance_table()}
 
 
 if __name__ == "__main__":

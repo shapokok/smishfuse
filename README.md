@@ -98,6 +98,12 @@
     обрезанного скриншота, real04 — фрагмент. Они используются как качественная иллюстрация, без метрики
     recall. Ложные тревоги на реальных данных не оценивались. После этого шага эксперименты закрыты,
     следующий шаг — текст статьи.
+23. **Шаг 8: чтение весов Lite для версии MDPI (2026-11-02).** Пост-хок, не эксперимент: без обучения и
+    подбора. Финальная `svm_char` (seed 1, веса `smishfuse-final-3class`) читается на Kaggle CPU: топ-15
+    n-грамм по коэффициенту для каждого класса и вклады n-грамм для трёх тестовых сообщений, выбранных
+    фиксированным правилом до запуска (медианная уверенность в группах: верный smishing, верный spam,
+    smishing -> spam). Тексты сообщений ядро не выводит; в статье они показаны с масками [PHONE], [URL],
+    [CODE] (решение автора), набор Mendeley цитируется (CC BY 4.0).
 
 ## Воспроизведение данных
 
@@ -303,6 +309,16 @@ uv pip install --python .venv/bin/python -r requirements.txt
 ```
 
 Код: [src/step6/real.py](src/step6/real.py). Отчёт: [reports/step6c_kz_real.md](reports/step6c_kz_real.md).
+
+## Шаг 8: чтение весов Lite (решение 23, Kaggle CPU)
+
+```bash
+.venv/bin/python scripts/kaggle_sync.py code      # новая версия кода (хэш сверяется перед запуском)
+.venv/bin/python scripts/kaggle_sync.py push smishfuse-step8-explain
+.venv/bin/python scripts/kaggle_sync.py output smishfuse-step8-explain
+```
+
+Код: [src/step8/explain.py](src/step8/explain.py). Результаты: `results/step8/`.
 
 ## Датасеты: источники и лицензии
 
