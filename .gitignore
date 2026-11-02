@@ -39,3 +39,7 @@ paper_mdpi.zip
 # Word version, built by paper_mdpi/tools/make_docx.py (intermediate files in paper_mdpi/build_docx)
 paper_mdpi.docx
 paper_mdpi/build_docx/
+
+# rendering kernel of the Word version (embeds the generated docx)
+kaggle/kernels/smishfuse-docx-render/
+results/kaggle_runs/smishfuse-docx-render/*.pdf

@@ -1,0 +1,33 @@
+[{"stream_name":"stderr","time":9.180475126,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":9.180537688,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":10.65389796,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.653942392,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.653948895,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.653953214,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":11.52975128,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":11.529786079,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":11.52979176,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":11.529803126000001,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":13.21825823,"data":"paper_mdpi.docx 6ca082fb9f21526eb10422665971cc6c79f05d013c5eaa5461495e0b8e3eaf49\n"}
+,{"stream_name":"stderr","time":21.21353867,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stderr","time":21.415472888,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stderr","time":21.415513333,"data":"\n"}
+,{"stream_name":"stderr","time":21.415518736,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stdout","time":83.656295461,"data":"convert /tmp/render/paper_mdpi.docx as a Writer document -\u003e /tmp/render/paper_mdpi.pdf using filter : writer_pdf_Export\n"}
+,{"stream_name":"stdout","time":83.656330934,"data":" Warning: failed to launch javaldx - java may not function correctly\n"}
+,{"stream_name":"stdout","time":83.656336861,"data":"\n"}
+,{"stream_name":"stdout","time":83.656460253,"data":"LibreOffice 24.2.7.2 420(Build:2)\n"}
+,{"stream_name":"stdout","time":83.656474022,"data":"\n"}
+,{"stream_name":"stdout","time":83.656478968,"data":"\n"}
+,{"stream_name":"stdout","time":83.656483605,"data":"P052-Roman.otf: \"P052\" \"Roman\"\n"}
+,{"stream_name":"stdout","time":83.656488863,"data":"DejaVuMathTeXGyre.ttf: \"DejaVu Math TeX Gyre\" \"Regular\"\n"}
+,{"stream_name":"stdout","time":83.656494007,"data":"\n"}
+,{"stream_name":"stderr","time":87.05800571,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":87.05806361,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":87.320437861,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":87.320487578,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":88.298427823,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":88.390024445,"data":"[NbConvertApp] Writing 3884 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":91.717743969,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":92.411676804,"data":"[NbConvertApp] Writing 280157 bytes to __results__.html\n"}
+]

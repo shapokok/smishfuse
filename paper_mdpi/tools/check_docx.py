@@ -18,6 +18,7 @@ import json
 import re
 import subprocess
 import sys
+import unicodedata
 import zipfile
 from collections import Counter
 from pathlib import Path
@@ -169,14 +170,24 @@ def main() -> int:
         fails.append(f"{imgs} images for {len(figs)} figure captions")
     rest = re.sub(r"\$\$.*?\$\$", " ", flat, flags=re.S)
     n_disp, n_inline = len(re.findall(r"\$\$.*?\$\$", flat, flags=re.S)), len(re.findall(r"(?<!\\)\$.*?(?<!\\)\$", rest, flags=re.S))
-    xml_para = re.findall(r"<m:oMathPara>.*?</m:oMathPara>", body, flags=re.S)
-    inline_omml = len(re.findall(r"<m:oMath>", body)) - sum(len(re.findall(r"<m:oMath>", b)) for b in xml_para)
-    if (n_disp, n_inline) != (len(xml_para), inline_omml):
-        fails.append(f"equations: LaTeX {n_disp} display / {n_inline} inline, Word {len(xml_para)} / {inline_omml}")
+    # numbered equations: one m:oMath alone in the equation cell of their table; the others are inline
+    eq_cells = [re.findall(r"<w:tc>.*?</w:tc>", t, flags=re.S)[0]
+                for t in re.findall(r"<w:tbl>.*?</w:tbl>", body, flags=re.S) if "MDPI39equation" in t]
+    display = sum(1 for cell in eq_cells if cell.count("<m:oMath>") == 1 and not re.search(r"<w:t[ >]", cell))
+    inline_omml = len(re.findall(r"<m:oMath>", body)) - len(eq_cells)
+    if (n_disp, n_inline) != (display, inline_omml) or "<m:oMathPara>" in body:
+        fails.append(f"equations: LaTeX {n_disp} display / {n_inline} inline, Word {display} / {inline_omml}")
     refs = [t for st, t in paras if st == "MDPI81references"]
-    nbib = len(re.findall(r"\\bibitem\{", (PAPER / "bibliography.tex").read_text(encoding="utf-8")))
-    if [int(t.split(".", 1)[0]) for t in refs] != list(range(1, nbib + 1)):
-        fails.append(f"reference list is not 1..{nbib}")
+    bib = re.split(r"\\bibitem\{[^}]+\}", (PAPER / "bibliography.tex").read_text(encoding="utf-8"))[1:]
+    nbib = len(bib)
+    def lt(s):   # letters only, accents dropped (Unicode in Word, accent macros in LaTeX)
+        s = re.sub(r"\\[`'^\"~=.]|\\[a-zA-Z]+", "", s)
+        s = "".join(ch for ch in unicodedata.normalize("NFKD", s) if not unicodedata.combining(ch))
+        return re.sub(r"[^a-z]", "", s.lower())[:30]
+    if len(refs) != nbib or any(lt(a) != lt(b) for a, b in zip(refs, bib)):
+        fails.append(f"reference list differs from bibliography.tex ({len(refs)} entries, {nbib} expected)")
+    if len(re.findall(r'MDPI81references"/><w:numPr><w:ilvl w:val="0"/><w:numId w:val="23"/>', body)) != nbib:
+        fails.append("references are not numbered by the template numbering of MDPI_8.1_references")
     cited = set()
     for st, t in paras:
         if st != "MDPI81references":
@@ -219,6 +230,9 @@ def main() -> int:
     for i, t in enumerate(data_tbls, 1):
         if '<w:tblLayout w:type="fixed"/>' not in t:
             fails.append(f"table {i}: no fixed layout")
+        rows = re.findall(r"<w:tr(?: [^>]*)?>.*?</w:tr>", t, flags=re.S)
+        if len(rows) <= mk.KEEP_TOGETHER_ROWS and any("<w:keepNext/>" not in r for r in rows[:-1]):
+            fails.append(f"table {i}: a short table is not kept on one page")
         grid = [int(x) for x in re.findall(r'<w:gridCol w:w="(\d+)"', t)]
         pt = 8.0 if '<w:sz w:val="16"/>' in t else 10.0
         for r in re.findall(r"<w:tr(?: [^>]*)?>.*?</w:tr>", t, flags=re.S):
@@ -251,6 +265,59 @@ def main() -> int:
     if "Information 2026, 17" not in head_text or "2025" in head_text:
         fails.append("running head is not 'Information 2026, 17, x'")
 
+    # 7. left edge of every paragraph of the running text = the text column of the template (2608 twips): style
+    #    chain (w:basedOn), numbering level and direct formatting resolved as Word does; lists have a hanging
+    #    indent with the marker at the column. Exempt: article type, title, authors (the template places them
+    #    differently), figures, paragraphs in tables, and the reference list (full width in the template).
+    zf = zipfile.ZipFile(DOCX)
+    styles = zf.read("word/styles.xml").decode("utf-8")
+    numbering = zf.read("word/numbering.xml").decode("utf-8")
+    sblocks = {m.group(1): m.group(0) for m in re.finditer(r'<w:style [^>]*w:styleId="([^"]+)".*?</w:style>', styles, re.S)}
+
+    def attrs(xml):
+        m = re.search(r"<w:ind ([^>]*?)/?>", xml or "")
+        return {k: int(v) for k, v in re.findall(r'w:(left|hanging|firstLine)="(-?\d+)"', m.group(1))} if m else {}
+
+    def style_ind(sid, seen=()):
+        """Indent of a style. Stricter than Word: a style with its own w:ind does not inherit the rest of the
+        indent (as in LibreOffice), so an incomplete w:ind in a derived style is caught."""
+        ppr = re.search(r"<w:pPr>.*?</w:pPr>", sblocks.get(sid, ""), re.S)
+        mine = attrs(ppr.group(0) if ppr else "")
+        if mine:
+            return mine
+        b = re.search(r'<w:basedOn w:val="([^"]+)"', sblocks.get(sid, ""))
+        return style_ind(b.group(1), seen + (sid,)) if b and b.group(1) not in seen else {}
+    absn = {m.group(1): m.group(2) for m in re.finditer(r'<w:num w:numId="(\d+)"[^>]*>\s*<w:abstractNumId w:val="(\d+)"', numbering)}
+
+    def num_ind(num, lvl="0"):
+        a = re.search(r'<w:abstractNum w:abstractNumId="%s".*?</w:abstractNum>' % absn.get(num, "x"), numbering, re.S)
+        lv = re.search(r'<w:lvl w:ilvl="%s".*?</w:lvl>' % lvl, a.group(0), re.S) if a else None
+        return attrs(lv.group(0)) if lv else {}
+    exempt = {"MDPI11articletype", "MDPI12title", "MDPI13authornames", "MDPI52figure", "MDPI81references"}
+    outside = re.sub(r"<w:tbl>.*?</w:tbl>", "", body, flags=re.S)
+    off = []
+    for blk in re.findall(r"<w:p(?: [^>]*)?>.*?</w:p>", outside, flags=re.S):
+        st = re.search(r'<w:pStyle w:val="([^"]+)"', blk)
+        sid = st.group(1) if st else "Normal"
+        if sid in exempt or not re.search(r"<w:t[ >]", blk):
+            continue
+        ind = style_ind(sid)
+        num = re.search(r'<w:numId w:val="(\d+)"', blk) or re.search(r'<w:numId w:val="(\d+)"', sblocks.get(sid, ""))
+        if num and num.group(1) != "0":
+            ind = {**ind, **num_ind(num.group(1))}
+        ppr = re.search(r"<w:pPr>.*?</w:pPr>", blk, re.S)
+        ind = {**ind, **attrs(ppr.group(0) if ppr else "")}
+        start = ind.get("left", 0) - ind.get("hanging", 0)
+        if start != 2608:
+            off.append(f"[{sid}] start {start} twips: {text_of(blk)[:60]!r}")
+    for o in off:
+        fails.append("paragraph outside the text column " + o)
+    tbl_off = [t for t in re.findall(r"<w:tbl>.*?</w:tbl>", body, flags=re.S)
+               if 'w:type="pct"' not in t and '<w:tblW w:w="10466"' not in t and '<w:tblInd w:w="2608"' not in t]
+    if tbl_off:
+        fails.append(f"{len(tbl_off)} text-width tables not in the text column")
+
+    print(f"paragraphs outside the text column: {len(off)}")
     print(f"docx: {len(paras)} blocks, {len(tables)} tables, {len(figs)} figures, {len(eqs)} numbered equations, "
           f"{len(refs)} references; values checked {len(need)}; paragraphs compared, lost {lost}")
     for f in fails:

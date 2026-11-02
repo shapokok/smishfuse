@@ -33,6 +33,37 @@ W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
 # ---------------------------------------------------------------- 1. reference.docx from the MDPI template
 
+IND_ATTRS = ("left", "start", "right", "end", "firstLine", "hanging")
+
+
+def explicit_indents(styles: str) -> str:
+    """Write the complete indent of every paragraph style that inherits part of it (w:basedOn): Word merges an
+    incomplete w:ind with the base style, LibreOffice replaces it (MDPI_3.2_text_no_indent sets only firstLine=0
+    and lost the left indent of MDPI_3.1_text there)."""
+    blocks = {m.group(1): m.group(0) for m in re.finditer(r'<w:style [^>]*w:styleId="([^"]+)".*?</w:style>', styles, re.S)}
+
+    def own(sid):
+        m = re.search(r"<w:ind ([^>]*?)/?>", blocks.get(sid, ""))
+        return dict(re.findall(r'w:(\w+)="([^"]*)"', m.group(1))) if m else {}
+
+    def resolved(sid, seen=()):
+        b = re.search(r'<w:basedOn w:val="([^"]+)"', blocks.get(sid, ""))
+        base = resolved(b.group(1), seen + (sid,)) if b and b.group(1) not in seen else {}
+        mine = own(sid)
+        if "firstLine" in mine:
+            base.pop("hanging", None)
+        if "hanging" in mine:
+            base.pop("firstLine", None)
+        return {**base, **mine}
+
+    for sid, block in blocks.items():
+        if '<w:basedOn ' in block and re.search(r"<w:ind ", block) and 'w:type="paragraph"' in block:
+            ind = resolved(sid)
+            new = "<w:ind " + " ".join(f'w:{k}="{ind[k]}"' for k in IND_ATTRS if k in ind) + "/>"
+            styles = styles.replace(block, re.sub(r"<w:ind [^>]*>", new, block, count=1), 1)
+    return styles
+
+
 def make_reference() -> None:
     REF.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(TEMPLATE) as src, zipfile.ZipFile(REF, "w", zipfile.ZIP_DEFLATED) as dst:
@@ -44,10 +75,18 @@ def make_reference() -> None:
                 # running head of the template: "Information 2025, 16, x" -> the volume of 2026
                 data = data.replace(b"<w:t>2025</w:t>", b"<w:t>2026</w:t>")
                 data = data.replace(b'<w:t xml:space="preserve"> 16</w:t>', b'<w:t xml:space="preserve"> 17</w:t>')
+                # "FOR PEER REVIEW <right> N of M": the absolute tab (w:ptab) of the template is not supported by
+                # LibreOffice; the paragraph has a right tab stop at the margin, so an ordinary tab does the same
+                data = re.sub(rb"<w:ptab [^>]*/>", b"<w:tab/>", data)
+            elif item.filename == "word/styles.xml":
+                data = explicit_indents(data.decode("utf-8")).encode("utf-8")
             elif item.filename == "word/document.xml":
                 text = data.decode("utf-8")
                 body_start = text.index("<w:body>") + len("<w:body>")
                 sect = re.findall(r"<w:sectPr[ >].*?</w:sectPr>", text, flags=re.S)[-1]
+                # <w:bidi/> marks the section right-to-left; Word ignores it for this text, LibreOffice mirrors the
+                # cells of tables (the number of an equation went to the left of the equation)
+                sect = re.sub(r"<w:bidi ?/>", "", sect)
                 text = text[:body_start] + "<w:p/>" + sect + "</w:body></w:document>"
                 data = text.encode("utf-8")
             dst.writestr(item, data)
@@ -289,6 +328,97 @@ def figure_table_equation(body: str, labels: dict[str, str], png: dict[str, Path
     return body
 
 
+SYMBOL_TEXT = {"\\ast": "*", "\\dagger": "\u2020", "\\pm": "\u00b1", "+": "+", "-": "\u2212", "<": "<", ">": ">"}
+
+
+def symbols_as_text(body: str) -> str:
+    """Formulas that are only signs or marks ($+$, $-$, $<$, $\\ast\\ast$, $\\dagger$) become text."""
+    def repl(m):
+        toks = re.findall(r"\\[a-z]+|[+\-<>]", m.group(1))
+        if toks and "".join(toks) == m.group(1).replace(" ", "") and all(t in SYMBOL_TEXT for t in toks):
+            return "".join(SYMBOL_TEXT[t] for t in toks)
+        return m.group(0)
+    return re.sub(r"(?<![\\$])\$([^$]{1,40})\$(?!\$)", repl, body)
+
+
+def pair_delimiters(math: str) -> str:
+    """Write every delimiter pair as \\left ... \\right: Word shows the same, and LibreOffice, which reads bare
+    [ ], \\{ \\} and | | as its own grouping signs, no longer marks the formula as an error. Pairs are matched within
+    one brace group and one line (\\\\ and & end a line)."""
+    math = re.sub(r"\\[Bb]ig{1,2}l(?![a-z])", r"\\left", math)
+    math = re.sub(r"\\[Bb]ig{1,2}r(?![a-z])", r"\\right", math)
+    out, i, depth = [], 0, 0
+    stack = []                       # (depth, kind, index in out)
+    bars = {}                        # depth -> index in out of an open |
+    while i < len(math):
+        if math.startswith("\\left", i) or math.startswith("\\right", i):
+            m = re.match(r"\\(left|right)(\\[{}|]|\\[a-z]+|.)", math[i:])
+            out.append(m.group(0))
+            i += len(m.group(0))
+            continue
+        if math.startswith("\\\\", i) or math[i] == "&":
+            stack = [x for x in stack if x[0] < depth]
+            bars.pop(depth, None)
+            tok = "\\\\" if math.startswith("\\\\", i) else "&"
+            out.append(tok)
+            i += len(tok)
+            continue
+        if math.startswith("\\{", i) or math[i] == "[":
+            tok = "\\{" if math[i] == "\\" else "["
+            stack.append((depth, tok, len(out)))
+            out.append(tok)
+            i += len(tok)
+            continue
+        if math.startswith("\\}", i) or math[i] == "]":
+            tok = "\\}" if math[i] == "\\" else "]"
+            want = "\\{" if tok == "\\}" else "["
+            if stack and stack[-1][0] == depth and stack[-1][1] == want:
+                _, _, j = stack.pop()
+                out[j] = "\\left" + want
+                out.append("\\right" + tok)
+            else:
+                out.append(tok)
+            i += len(tok)
+            continue
+        if math.startswith("\\", i):
+            m = re.match(r"\\([a-zA-Z]+|.)", math[i:])
+            out.append(m.group(0))
+            i += len(m.group(0))
+            continue
+        c = math[i]
+        if c == "{":
+            depth += 1
+        elif c == "}":
+            stack = [x for x in stack if x[0] < depth]
+            bars.pop(depth, None)
+            depth -= 1
+        elif c == "|":
+            if depth in bars:
+                out[bars.pop(depth)] = "\\left|"
+                out.append("\\right|")
+                i += 1
+                continue
+            bars[depth] = len(out)
+        out.append(c)
+        i += 1
+    return "".join(out)
+
+
+def libreoffice_safe(math: str) -> str:
+    # a star as superscript (tau*, Sigma*) as text: as an operator symbol LibreOffice reads it as an operator
+    math = math.replace("^{*}", "^{\\text{*}}").replace("^{\\ast}", "^{\\text{*}}")
+    math = math.replace("\\begin{aligned}", "\\begin{gathered}").replace("\\end{aligned}", "\\end{gathered}")
+    if "\\begin{gathered}" in math:
+        math = math.replace("&", "")
+    return pair_delimiters(math)
+
+
+def math_segments(body: str, fn) -> str:
+    """Apply fn to the content of every $$...$$ and $...$ (not to \\$)."""
+    body = re.sub(r"\$\$(.*?)\$\$", lambda m: "$$" + fn(m.group(1)) + "$$", body, flags=re.S)
+    return re.sub(r"(?<![\\$])\$(?!\$)((?:\\\$|[^$])+?)(?<!\\)\$(?!\$)", lambda m: "$" + fn(m.group(1)) + "$", body)
+
+
 def cite_numbers() -> dict[str, int]:
     keys = re.findall(r"\\bibitem\{([^}]+)\}", read(PAPER / "bibliography.tex"))
     return {k: i + 1 for i, k in enumerate(keys)}
@@ -310,7 +440,7 @@ def references(body: str) -> str:
     def items(m):
         out = []
         for i, it in enumerate(re.split(r"\\bibitem\{[^}]+\}", m.group(1))[1:], 1):
-            out.append(style("MDPI81references", f"{i}. " + " ".join(it.split())))
+            out.append(style("MDPI81references", " ".join(it.split())))   # numbered by the style (template numbering)
         return "".join(out)
     return re.sub(r"\\begin\{thebibliography\}\{[^}]*\}(.*?)\\end\{thebibliography\}", items, body, flags=re.S)
 
@@ -334,6 +464,8 @@ def prepare() -> tuple[str, dict[str, str]]:
     body = re.sub(r"\$\^\{((?:\\ast|\\dagger|[a-z0-9])+)\}\$",
                   lambda m: "\\textsuperscript{" + m.group(1).replace("\\ast", "*").replace("\\dagger", "\u2020") + "}", body)
     body = figure_table_equation(body, labels, png)
+    body = symbols_as_text(body)
+    body = math_segments(body, libreoffice_safe)
     nums = cite_numbers()
     body = re.sub(r"\\cite\{([^}]+)\}", lambda m: compress([nums[k.strip()] for k in m.group(1).split(",")]), body)
     body = re.sub(r"\\ref\{([^}]+)\}", lambda m: labels[m.group(1)], body)
@@ -361,7 +493,7 @@ PSTYLE = {"Heading1": "MDPI21heading1", "Heading2": "MDPI22heading2", "Heading3"
           "ImageCaption": "MDPI51figurecaption", "CaptionedFigure": "MDPI52figure", "Figure": "MDPI52figure",
           "TableCaption": "MDPI41tablecaption"}
 EQ_TABLE = ('<w:tbl><w:tblPr><w:tblW w:w="7859" w:type="dxa"/><w:tblInd w:w="2608" w:type="dxa"/>'
-            '<w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="0" w:type="dxa"/></w:tblCellMar>'
+            '<w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="0" w:type="dxa"/><w:right w:w="0" w:type="dxa"/></w:tblCellMar>'
             '<w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" '
             'w:noHBand="0" w:noVBand="1"/></w:tblPr><w:tblGrid><w:gridCol w:w="7428"/><w:gridCol w:w="431"/>'
             '</w:tblGrid><w:tr><w:tc><w:tcPr><w:tcW w:w="7428" w:type="dxa"/></w:tcPr>{eq}</w:tc><w:tc><w:tcPr>'
@@ -382,6 +514,30 @@ def drop_marker(p: str, marker: str) -> str:
     if marker in p:
         return p.replace(marker, "", 1)
     raise ValueError(f"marker {marker} split over runs")
+
+
+def list_numbering(numbering: str, document: str) -> tuple[dict[str, str], str]:
+    """Map the list numbering of pandoc to the list numbering of the template: bullets -> the num of MDPI_3.8_bullet,
+    each numbered list -> a new num on the abstract numbering of MDPI_3.7_itemize that restarts at 1. Returns the map
+    pandoc numId -> numId and the numbering part with the new nums."""
+    styles_num = {"bullet": "20", "decimal": "22"}       # numIds of MDPI_3.8_bullet and MDPI_3.7_itemize in styles.xml
+    abstract = {m.group(1): m.group(2) for m in
+                re.finditer(r'<w:num w:numId="(\d+)"[^>]*>\s*<w:abstractNumId w:val="(\d+)"', numbering)}
+    formats = list_formats(numbering)
+    used = []
+    for n in re.findall(r'<w:numId w:val="(\d+)" ?/>', document):
+        if n not in used and n != "0":
+            used.append(n)
+    mapping, new, next_id = {}, [], max(int(x) for x in abstract) + 1
+    for n in used:
+        if formats.get(n) == "decimal":
+            mapping[n] = str(next_id)
+            new.append(f'<w:num w:numId="{next_id}"><w:abstractNumId w:val="{abstract[styles_num["decimal"]]}"/>'
+                       f'<w:lvlOverride w:ilvl="0"><w:startOverride w:val="1"/></w:lvlOverride></w:num>')
+            next_id += 1
+        else:
+            mapping[n] = styles_num["bullet"]
+    return mapping, numbering.replace("</w:numbering>", "".join(new) + "</w:numbering>")
 
 
 def list_formats(numbering: str) -> dict[str, str]:
@@ -495,6 +651,9 @@ def font_size(xml: str, half_points: int) -> str:
     return re.sub(r"</w:pPr>", f"<w:rPr>{sz}</w:rPr></w:pPr>", xml)
 
 
+KEEP_TOGETHER_ROWS = 25   # longer tables (appendix) break across pages with a repeated header
+
+
 def format_table(t: str, wide: bool, n_head: int) -> str:
     """Fixed column widths, font size, repeated header rows, rows that do not break across pages."""
     total, pt = (FULL_TW, 8.0) if wide else (TEXT_TW, 10.0)
@@ -531,6 +690,9 @@ def format_table(t: str, wide: bool, n_head: int) -> str:
         trpr = "<w:cantSplit/>" + ("<w:tblHeader/>" if i < n_head else "")
         r = re.sub(r"(<w:tr(?: [^>]*)?>)", rf"\1<w:trPr>{trpr}</w:trPr>", r, count=1)
         new_rows.append(r)
+    if len(new_rows) <= KEEP_TOGETHER_ROWS:   # a short table stays on one page with its caption
+        new_rows = [re.sub(r"<w:p(?: [^>]*)?>.*?</w:p>", lambda m: keep_next(m.group(0)), r, flags=re.S)
+                    for r in new_rows[:-1]] + new_rows[-1:]
     for old, new in zip(rows, new_rows):
         t = t.replace(old, new, 1)
     return font_size(t, 16) if wide else t
@@ -562,7 +724,7 @@ def table_properties(tblpr: str, total: int, wide: bool) -> str:
     return "<w:tblPr>" + "".join(items[k] for k in TBLPR_ORDER if k in items) + "</w:tblPr>"
 
 
-def postprocess(xml: str, formats: dict[str, str]) -> str:
+def postprocess(xml: str, formats: dict[str, str], lists: dict[str, str]) -> str:
     body_start = xml.index("<w:body>") + len("<w:body>")
     head, body = xml[:body_start], xml[body_start:]
     # tables first (cell paragraphs keep the table body style)
@@ -573,7 +735,7 @@ def postprocess(xml: str, formats: dict[str, str]) -> str:
         return t
     body = re.sub(r"<w:tbl>.*?</w:tbl>", table, body, flags=re.S)
     parts = re.split(r"(<w:tbl>.*?</w:tbl>)", body, flags=re.S)
-    out, after_eq, pending = [], False, None
+    out, after_eq, pending, eq_number = [], False, None, None
     for part in parts:
         if part.startswith("<w:tbl>"):
             # wide LaTeX tables span the page between the margins (8 pt); the others the text column of the
@@ -591,15 +753,28 @@ def postprocess(xml: str, formats: dict[str, str]) -> str:
             m = re.search(r"@@STYLE:(\w+)@@", p)
             if m:
                 p = set_style(drop_marker(p, m.group(0)), m.group(1))
-                if m.group(1) == "MDPI81references":
+                if m.group(1) == "MDPI81references":   # the numbering of the style, also written on the paragraph
                     p = p.replace(f'<w:pStyle w:val="{m.group(1)}"/>',
-                                  f'<w:pStyle w:val="{m.group(1)}"/><w:numPr><w:ilvl w:val="0"/><w:numId w:val="0"/></w:numPr>', 1)
+                                  f'<w:pStyle w:val="{m.group(1)}"/><w:numPr><w:ilvl w:val="0"/><w:numId w:val="23"/></w:numPr>', 1)
                 out.append(p)
                 continue
             m = re.search(r"@@EQ:(\w+)@@", p)
             if m:
-                p = set_style(drop_marker(p, m.group(0)), "MDPI39equation")
-                out.append(EQ_TABLE.format(eq=p, num=m.group(1)))
+                # pandoc writes the marker and the display equation as two paragraphs: the number is kept and the
+                # equation paragraph that follows goes into the equation cell
+                if eq_number is not None or re.search(r"<m:oMath", p):
+                    raise ValueError(f"unexpected layout around equation {m.group(1)}")
+                eq_number = m.group(1)
+                continue
+            if eq_number is not None:
+                if "<m:oMathPara>" not in p or re.search(r"<w:t[ >]", p):
+                    raise ValueError(f"equation {eq_number}: the paragraph after the marker is not a display equation")
+                p = set_style(p, "MDPI39equation")
+                # the equation alone in its cell as m:oMath: Word shows an equation that is alone in its paragraph
+                # in display mode, and LibreOffice keeps it on the line of its number
+                p = re.sub(r"<m:oMathPara>(?:<m:oMathParaPr>.*?</m:oMathParaPr>)?(.*?)</m:oMathPara>", r"\1", p, flags=re.S)
+                out.append(EQ_TABLE.format(eq=p, num=eq_number))
+                eq_number = None
                 continue
             if "@@AFTEREQ@@" in p:
                 p = drop_marker(p, "@@AFTEREQ@@")
@@ -616,13 +791,18 @@ def postprocess(xml: str, formats: dict[str, str]) -> str:
             if "<w:numPr>" in p and sid in ("Compact", "BodyText", "FirstParagraph"):
                 num = re.search(r'<w:numId w:val="(\d+)"', p).group(1)
                 p = set_style(p, "MDPI37itemize" if formats.get(num) == "decimal" else "MDPI38bullet")
+                p = re.sub(r'<w:numId w:val="\d+" ?/>', f'<w:numId w:val="{lists[num]}"/>', p, count=1)
+                p = re.sub(r"<w:ind [^>]*/>", "", p)
             elif sid in PSTYLE:
                 new = PSTYLE[sid]
                 if after_eq and new == "MDPI31text":
                     new = "MDPI32textnoindent"
                 p = set_style(p, new)
-                if new in ("MDPI41tablecaption", "MDPI52figure"):   # caption with its table; image with its caption
+                if new in ("MDPI41tablecaption", "MDPI52figure", "MDPI21heading1", "MDPI22heading2", "MDPI23heading3"):
+                    # caption with its table, image with its caption, heading with its first paragraph
                     p = keep_next(p)
+                if new == "MDPI52figure":   # figures of text width centred in the text column, as in the PDF
+                    p = re.sub(r"(<w:keepNext/>)", r'\1<w:ind w:left="2608"/>', p, count=1)
             after_eq = False
             out.append(p)
     return head + "".join(out)
@@ -653,11 +833,15 @@ def main() -> int:
         print("pandoc:", r.stderr.strip())
     (BUILD / "labels.json").write_text(json.dumps(labels, indent=1) + "\n", encoding="utf-8")
     with zipfile.ZipFile(raw) as src, zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as dst:
-        formats = list_formats(src.read("word/numbering.xml").decode("utf-8"))
+        numbering = src.read("word/numbering.xml").decode("utf-8")
+        formats = list_formats(numbering)
+        lists, numbering = list_numbering(numbering, src.read("word/document.xml").decode("utf-8"))
         for item in src.infolist():
             data = src.read(item.filename)
             if item.filename == "word/document.xml":
-                data = postprocess(data.decode("utf-8"), formats).encode("utf-8")
+                data = postprocess(data.decode("utf-8"), formats, lists).encode("utf-8")
+            elif item.filename == "word/numbering.xml":
+                data = numbering.encode("utf-8")
             dst.writestr(item, data)
     print(f"wrote {OUT.relative_to(ROOT)} ({OUT.stat().st_size // 1024} KB); {len(labels)} labels numbered")
     return 0
