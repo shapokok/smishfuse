@@ -195,7 +195,7 @@ def main() -> int:
 
     # 5. lost text: every prepared paragraph (pandoc plain) in the docx, compared on letters only and without
     #    equations (display equations are checked by number in step 4, inline ones are compared as gaps)
-    clean = re.sub(r"@@(STYLE:\w+|EQ:\w+|AFTEREQ|WIDE)@@", "", flat)
+    clean = re.sub(r"@@(STYLE:\w+|EQ:\w+|AFTEREQ|TAB:\w+:\d+)@@", "", flat)
     clean = re.sub(r"\$\$.*?\$\$", " ", clean, flags=re.S)
     clean = re.sub(r"(?<!\\)\$.*?(?<!\\)\$", " ", clean, flags=re.S)
     plain = subprocess.run(["pandoc", "-f", "latex", "-t", "plain", "--wrap=none"], input=clean, text=True,
@@ -212,6 +212,45 @@ def main() -> int:
         if head not in dl or tail not in dl:
             lost += 1
             fails.append(f"paragraph not found in the docx: {para[:90]!r}")
+    # 6. layout of the tables: fixed widths that hold the longest word of every cell, repeated header rows as in
+    #    the LaTeX head, rows that do not break, caption kept with its table; plus-minus as text; running head
+    heads = [int(x) for x in re.findall(r"@@TAB:\w+:(\d+)@@", flat)]
+    data_tbls = [t for t in re.findall(r"<w:tbl>.*?</w:tbl>", body, flags=re.S) if "MDPI39equation" not in t]
+    for i, t in enumerate(data_tbls, 1):
+        if '<w:tblLayout w:type="fixed"/>' not in t:
+            fails.append(f"table {i}: no fixed layout")
+        grid = [int(x) for x in re.findall(r'<w:gridCol w:w="(\d+)"', t)]
+        pt = 8.0 if '<w:sz w:val="16"/>' in t else 10.0
+        for r in re.findall(r"<w:tr(?: [^>]*)?>.*?</w:tr>", t, flags=re.S):
+            if "<w:cantSplit/>" not in r:
+                fails.append(f"table {i}: a row may break across pages")
+            col = 0
+            for tc in re.findall(r"<w:tc>.*?</w:tc>", r, flags=re.S):
+                sp = re.search(r'<w:gridSpan w:val="(\d+)"', tc)
+                n = int(sp.group(1)) if sp else 1
+                width = sum(grid[col:col + n])
+                for word in mk.words(mk.cell_text(tc)):
+                    if mk.text_tw(word, pt) + mk.CELL_PAD_TW > width + 1:
+                        fails.append(f"table {i}: {word!r} wider than its column ({width} twips)")
+                col += n
+    caption_idx = [k for k, (st, _) in enumerate(paras) if st == "MDPI41tablecaption"]
+    table_idx = [k for k, (st, _) in enumerate(paras) if st == "TABLE"]
+    for k, n_head in zip(caption_idx, heads):
+        nxt = [j for j in table_idx if j > k][0]
+        t = data_tbls[table_idx.index(nxt)]
+        if t.count("<w:tblHeader/>") != n_head:
+            fails.append(f"table after caption {paras[k][1][:12]!r}: {t.count('<w:tblHeader/>')} header rows, LaTeX {n_head}")
+    for cap in re.findall(r"<w:p(?: [^>]*)?>(?:(?!</w:p>).)*MDPI41tablecaption.*?</w:p>", body, flags=re.S):
+        if "<w:keepNext/>" not in cap:
+            fails.append("a table caption is not kept with its table")
+    if re.search(r"<m:t>\u00b1</m:t>", body):
+        fails.append("plus-minus written as an equation")
+    zf = zipfile.ZipFile(DOCX)
+    heads_xml = "".join(zf.read(n).decode("utf-8") for n in zf.namelist() if re.fullmatch(r"word/(header|footer)\d\.xml", n))
+    head_text = re.sub(r"<[^>]+>", "", heads_xml)
+    if "Information 2026, 17" not in head_text or "2025" in head_text:
+        fails.append("running head is not 'Information 2026, 17, x'")
+
     print(f"docx: {len(paras)} blocks, {len(tables)} tables, {len(figs)} figures, {len(eqs)} numbered equations, "
           f"{len(refs)} references; values checked {len(need)}; paragraphs compared, lost {lost}")
     for f in fails:

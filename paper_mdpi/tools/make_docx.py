@@ -40,6 +40,10 @@ def make_reference() -> None:
             data = src.read(item.filename)
             if item.filename == "[Content_Types].xml":
                 data = data.replace(b"wordprocessingml.template.main+xml", b"wordprocessingml.document.main+xml")
+            elif re.fullmatch(r"word/(header|footer)\d\.xml", item.filename):
+                # running head of the template: "Information 2025, 16, x" -> the volume of 2026
+                data = data.replace(b"<w:t>2025</w:t>", b"<w:t>2026</w:t>")
+                data = data.replace(b'<w:t xml:space="preserve"> 16</w:t>', b'<w:t xml:space="preserve"> 17</w:t>')
             elif item.filename == "word/document.xml":
                 text = data.decode("utf-8")
                 body_start = text.index("<w:body>") + len("<w:body>")
@@ -266,8 +270,9 @@ def figure_table_equation(body: str, labels: dict[str, str], png: dict[str, Path
             return "\\begin{tabular}{" + spec + "}"
         t = re.sub(r"\\begin\{tabularx\}\{([^}]*)\}\{([^}]*)\}", tabx, t)
         t = t.replace("\\end{tabularx}", "\\end{tabular}")
-        if wide:
-            t = t.replace("\\caption{", "\\caption{@@WIDE@@", 1)
+        top = t.find("\\toprule")
+        n_head = t[top:t.find("\\midrule", top)].count("\\\\") if top >= 0 else 0
+        t = t.replace("\\caption{", f"\\caption{{@@TAB:{'wide' if wide else 'text'}:{n_head}@@", 1)
         after = style("MDPI43tablefooter", note.group(1)) if note else ""
         return t + after
 
@@ -325,6 +330,9 @@ def prepare() -> tuple[str, dict[str, str]]:
         dst.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(["pdftoppm", "-r", "300", "-png", "-singlefile", str(src), str(dst.with_suffix(""))], check=True)
         png[g] = dst
+    body = re.sub(r"\s*\$\\pm\$\s*", " \u00b1\u00a0", body)   # "0.9276 ±\u00a00.0025": the sd stays with its sign
+    body = re.sub(r"\$\^\{((?:\\ast|\\dagger|[a-z0-9])+)\}\$",
+                  lambda m: "\\textsuperscript{" + m.group(1).replace("\\ast", "*").replace("\\dagger", "\u2020") + "}", body)
     body = figure_table_equation(body, labels, png)
     nums = cite_numbers()
     body = re.sub(r"\\cite\{([^}]+)\}", lambda m: compress([nums[k.strip()] for k in m.group(1).split(",")]), body)
@@ -384,6 +392,176 @@ def list_formats(numbering: str) -> dict[str, str]:
             for m in re.finditer(r'<w:num w:numId="(\d+)"[^>]*>\s*<w:abstractNumId w:val="(\d+)"', numbering)}
 
 
+TEXT_TW, FULL_TW = 7859, 10466        # text column and full width between the margins of the template, twips
+CELL_PAD_TW = 260                      # left + right cell margins of a Word table (108 twips each) and a reserve
+
+
+# advance widths in em of Palatino (the font of the template is Palatino Linotype), measured once with Pillow from
+# the system font for the characters of the tables; a reserve covers metric differences and font substitution
+PALATINO_EM = {
+    ' ': 0.25, '!': 0.278, '"': 0.371, '#': 0.606, '$': 0.5, '%': 0.84, '&': 0.778, "'": 0.208, '(': 0.333,
+    ')': 0.333, '*': 0.389, '+': 0.606, ',': 0.25, '-': 0.333, '.': 0.25, '/': 0.606, '0': 0.5, '1': 0.5, '2': 0.5,
+    '3': 0.5, '4': 0.5, '5': 0.5, '6': 0.5, '7': 0.5, '8': 0.5, '9': 0.5, ':': 0.25, ';': 0.25, '<': 0.606,
+    '=': 0.606, '>': 0.606, '?': 0.444, '@': 0.747, 'A': 0.778, 'B': 0.611, 'C': 0.709, 'D': 0.774, 'E': 0.611,
+    'F': 0.556, 'G': 0.763, 'H': 0.832, 'I': 0.337, 'J': 0.333, 'K': 0.726, 'L': 0.611, 'M': 0.946, 'N': 0.831,
+    'O': 0.786, 'P': 0.604, 'Q': 0.786, 'R': 0.668, 'S': 0.525, 'T': 0.613, 'U': 0.778, 'V': 0.722, 'W': 1.0,
+    'X': 0.667, 'Y': 0.667, 'Z': 0.667, '[': 0.333, '\\': 0.606, ']': 0.333, '^': 0.606, '_': 0.5, '`': 0.333,
+    'a': 0.5, 'b': 0.553, 'c': 0.444, 'd': 0.611, 'e': 0.479, 'f': 0.333, 'g': 0.556, 'h': 0.582, 'i': 0.291,
+    'j': 0.234, 'k': 0.556, 'l': 0.291, 'm': 0.883, 'n': 0.582, 'o': 0.546, 'p': 0.601, 'q': 0.56, 'r': 0.395,
+    's': 0.424, 't': 0.326, 'u': 0.603, 'v': 0.565, 'w': 0.834, 'x': 0.516, 'y': 0.556, 'z': 0.5, '{': 0.333,
+    '|': 0.606, '}': 0.333, '~': 0.606, '±': 0.549, 'Δ': 0.689, '–': 0.5, '†': 0.5, '−': 0.606, '␣': 0.75,
+}
+WIDTH_RESERVE = 1.12
+
+
+def char_em(c: str) -> float:
+    return PALATINO_EM.get(c, 0.0 if c == "\u200b" else 0.75)
+
+
+def text_tw(text: str, pt: float) -> float:
+    return sum(char_em(c) for c in text) * pt * 20 * WIDTH_RESERVE
+
+
+def cell_text(xml: str) -> str:
+    return "".join(re.findall(r"<(?:w|m):t(?: [^>]*)?>([^<]*)</(?:w|m):t>", xml)).replace("&amp;", "&")
+
+
+def words(text: str) -> list[str]:
+    """Units that Word does not break: separated by ordinary spaces only (a no-break space joins)."""
+    return [x for x in re.split(r"[ \t\n]+", text) if x]
+
+
+def column_widths(cells: list[list[tuple[str, int]]], ncols: int, total: int, pt: float) -> list[int]:
+    """Widths in twips: every column at least as wide as its longest word (no word is broken), then towards the width
+    of its longest cell (the first column, with the names of models or corpora, up to 38% of the table)."""
+    word = [0.0] * ncols
+    full = [0.0] * ncols
+    spans = []
+    for row in cells:
+        col = 0
+        for text, span in row:
+            w_word = max([text_tw(x, pt) for x in words(text)] or [0]) + CELL_PAD_TW
+            w_full = text_tw(text, pt) + CELL_PAD_TW
+            if span == 1:
+                word[col] = max(word[col], w_word)
+                full[col] = max(full[col], w_full)
+            else:
+                spans.append((col, span, w_word))
+            col += span
+    target = [max(word[0], min(full[0], 0.38 * total))] + [max(word[c], full[c]) for c in range(1, ncols)]
+    if sum(word) > total:
+        raise ValueError(f"table too narrow: the longest words need {sum(word):.0f} of {total} twips")
+    extra = [t - w for t, w in zip(target, word)]
+    room = total - sum(word)
+    if sum(extra) <= room:
+        widths = target[:]
+        left = room - sum(extra)
+        widths = [w + left * w / sum(widths) for w in widths]
+    else:
+        widths = [w + e * room / sum(extra) for w, e in zip(word, extra)]
+    for col, span, need in spans:   # a header that spans columns must fit its longest word too
+        have = sum(widths[col:col + span])
+        if have < need:
+            others = [c for c in range(ncols) if not col <= c < col + span]
+            take = need - have
+            spare = sum(widths[c] - word[c] for c in others)
+            if spare < take:
+                raise ValueError("spanning header does not fit")
+            for c in others:
+                widths[c] -= take * (widths[c] - word[c]) / spare
+            for c in range(col, col + span):
+                widths[c] += take / span
+    out = [int(round(w)) for w in widths]
+    out[0] += total - sum(out)
+    return out
+
+
+RPR_AFTER_SZ = ("<w:highlight", "<w:u ", "<w:u>", "<w:effect", "<w:bdr", "<w:shd", "<w:fitText", "<w:vertAlign",
+                "<w:rtl", "<w:cs", "<w:em ", "<w:lang", "<w:eastAsianLayout", "<w:specVanish", "<w:oMath")
+
+
+def with_size(rpr_inner: str, sz: str) -> str:
+    """Insert w:sz / w:szCs at their place in the sequence of run properties."""
+    rpr_inner = re.sub(r"<w:szCs? [^>]*/>", "", rpr_inner)
+    cut = min([i for i in (rpr_inner.find(t) for t in RPR_AFTER_SZ) if i >= 0] or [len(rpr_inner)])
+    return rpr_inner[:cut] + sz + rpr_inner[cut:]
+
+
+def font_size(xml: str, half_points: int) -> str:
+    sz = f'<w:sz w:val="{half_points}"/><w:szCs w:val="{half_points}"/>'
+    xml = re.sub(r"<w:r>(?:<w:rPr>(.*?)</w:rPr>)?", lambda m: f"<w:r><w:rPr>{with_size(m.group(1) or '', sz)}</w:rPr>",
+                 xml, flags=re.S)
+    xml = re.sub(r"<m:r>(<m:rPr>.*?</m:rPr>)?", lambda m: f"<m:r>{m.group(1) or ''}<w:rPr>{sz}</w:rPr>", xml, flags=re.S)
+    return re.sub(r"</w:pPr>", f"<w:rPr>{sz}</w:rPr></w:pPr>", xml)
+
+
+def format_table(t: str, wide: bool, n_head: int) -> str:
+    """Fixed column widths, font size, repeated header rows, rows that do not break across pages."""
+    total, pt = (FULL_TW, 8.0) if wide else (TEXT_TW, 10.0)
+    rows = re.findall(r"<w:tr(?: [^>]*)?>.*?</w:tr>", t, flags=re.S)
+    cells = []
+    for r in rows:
+        row = []
+        for tc in re.findall(r"<w:tc>.*?</w:tc>", r, flags=re.S):
+            span = re.search(r'<w:gridSpan w:val="(\d+)"', tc)
+            row.append((cell_text(tc), int(span.group(1)) if span else 1))
+        cells.append(row)
+    ncols = len(re.findall(r"<w:gridCol ", t))
+    widths = column_widths(cells, ncols, total, pt)
+    t = re.sub(r"<w:tblPr>(.*?)</w:tblPr>", lambda m: table_properties(m.group(1), total, wide), t, count=1, flags=re.S)
+    t = re.sub(r"<w:tblGrid>.*?</w:tblGrid>",
+               "<w:tblGrid>" + "".join(f'<w:gridCol w:w="{w}"/>' for w in widths) + "</w:tblGrid>", t, count=1, flags=re.S)
+    new_rows = []
+    for i, r in enumerate(rows):
+        col = 0
+
+        def cell(m):
+            nonlocal col
+            tc = m.group(0)
+            span = re.search(r'<w:gridSpan w:val="(\d+)"', tc)
+            n = int(span.group(1)) if span else 1
+            tcw = f'<w:tcW w:w="{sum(widths[col:col + n])}" w:type="dxa"/>'
+            col += n
+            tc = re.sub(r"<w:tcW [^>]*/>", "", tc)
+            tc = tc.replace("<w:tcPr />", f"<w:tcPr>{tcw}</w:tcPr>", 1) if "<w:tcPr />" in tc else \
+                tc.replace("<w:tcPr>", f"<w:tcPr>{tcw}", 1)
+            return tc
+        r = re.sub(r"<w:tc>.*?</w:tc>", cell, r, flags=re.S)
+        r = re.sub(r"<w:trPr>.*?</w:trPr>|<w:trPr ?/>", "", r, flags=re.S)
+        trpr = "<w:cantSplit/>" + ("<w:tblHeader/>" if i < n_head else "")
+        r = re.sub(r"(<w:tr(?: [^>]*)?>)", rf"\1<w:trPr>{trpr}</w:trPr>", r, count=1)
+        new_rows.append(r)
+    for old, new in zip(rows, new_rows):
+        t = t.replace(old, new, 1)
+    return font_size(t, 16) if wide else t
+
+
+def keep_next(p: str) -> str:
+    if "<w:keepNext" in p:
+        return p
+    return re.sub(r'(<w:pStyle w:val="[^"]*"/>)', r"\1<w:keepNext/>", p, count=1)
+
+
+TBLPR_ORDER = ["tblStyle", "tblpPr", "tblOverlap", "bidiVisual", "tblStyleRowBandSize", "tblStyleColBandSize", "tblW",
+               "jc", "tblCellSpacing", "tblInd", "tblBorders", "shd", "tblLayout", "tblCellMar", "tblLook",
+               "tblCaption", "tblDescription"]
+
+
+def table_properties(tblpr: str, total: int, wide: bool) -> str:
+    """tblPr rebuilt in the order of the OOXML schema, with width, indent and fixed layout."""
+    items = {m.group(1): m.group(0) for m in
+             re.finditer(r"<w:(\w+)(?: [^>]*)?(?:/>|>.*?</w:\1>)", tblpr, flags=re.S)}
+    items["tblW"] = f'<w:tblW w:w="{total}" w:type="dxa"/>'
+    items.pop("tblInd", None)
+    if not wide:
+        items["tblInd"] = '<w:tblInd w:w="2608" w:type="dxa"/>'
+    items["tblLayout"] = '<w:tblLayout w:type="fixed"/>'
+    unknown = set(items) - set(TBLPR_ORDER)
+    if unknown:
+        raise ValueError(f"unexpected table properties {unknown}")
+    return "<w:tblPr>" + "".join(items[k] for k in TBLPR_ORDER if k in items) + "</w:tblPr>"
+
+
 def postprocess(xml: str, formats: dict[str, str]) -> str:
     body_start = xml.index("<w:body>") + len("<w:body>")
     head, body = xml[:body_start], xml[body_start:]
@@ -395,18 +573,15 @@ def postprocess(xml: str, formats: dict[str, str]) -> str:
         return t
     body = re.sub(r"<w:tbl>.*?</w:tbl>", table, body, flags=re.S)
     parts = re.split(r"(<w:tbl>.*?</w:tbl>)", body, flags=re.S)
-    out, after_eq, wide_next = [], False, False
+    out, after_eq, pending = [], False, None
     for part in parts:
         if part.startswith("<w:tbl>"):
-            # wide LaTeX tables span the page between the margins; the others the text column of the template
-            # (indent 2608 twips, width 7859 twips, as the sample tables of the template)
-            if wide_next:
-                part = re.sub(r"<w:tblW [^>]*/>", '<w:tblW w:w="5000" w:type="pct"/>', part, count=1)
-                wide_next = False
-            else:
-                part = re.sub(r"<w:tblW [^>]*/>", '<w:tblW w:w="7859" w:type="dxa"/>', part, count=1)
-                part = part.replace("<w:tblPr>", '<w:tblPr><w:tblInd w:w="2608" w:type="dxa"/>', 1)
-            out.append(part)
+            # wide LaTeX tables span the page between the margins (8 pt); the others the text column of the
+            # template (indent 2608 twips, width 7859 twips, as its sample tables); tables without a caption
+            # (abbreviations) are text-column tables without a header row
+            wide, n_head = pending or (False, 0)
+            out.append(format_table(part, wide, n_head))
+            pending = None
             continue
         paras = re.split(r"(<w:p(?: [^>]*)?>.*?</w:p>|<w:p/>)", part, flags=re.S)
         for p in paras:
@@ -432,9 +607,10 @@ def postprocess(xml: str, formats: dict[str, str]) -> str:
                 after_eq = bool(re.search(r"<w:t[ >][^<]*\S", p))
                 if not after_eq:
                     continue
-            if "@@WIDE@@" in p:
-                p = drop_marker(p, "@@WIDE@@")
-                wide_next = True
+            tm = re.search(r"@@TAB:(wide|text):(\d+)@@", p)
+            if tm:
+                p = drop_marker(p, tm.group(0))
+                pending = (tm.group(1) == "wide", int(tm.group(2)))
             sm = re.search(r'<w:pStyle w:val="([^"]*)" ?/>', p)
             sid = sm.group(1) if sm else "BodyText"
             if "<w:numPr>" in p and sid in ("Compact", "BodyText", "FirstParagraph"):
@@ -445,6 +621,8 @@ def postprocess(xml: str, formats: dict[str, str]) -> str:
                 if after_eq and new == "MDPI31text":
                     new = "MDPI32textnoindent"
                 p = set_style(p, new)
+                if new in ("MDPI41tablecaption", "MDPI52figure"):   # caption with its table; image with its caption
+                    p = keep_next(p)
             after_eq = False
             out.append(p)
     return head + "".join(out)
