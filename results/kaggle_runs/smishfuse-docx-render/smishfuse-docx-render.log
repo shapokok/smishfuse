@@ -1,33 +1,33 @@
-[{"stream_name":"stderr","time":8.053232289,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
-,{"stream_name":"stderr","time":8.053285643,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
-,{"stream_name":"stderr","time":9.303249198,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
-,{"stream_name":"stderr","time":9.303283279,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
-,{"stream_name":"stderr","time":9.303289647,"data":"0.00s - to python to disable frozen modules.\n"}
-,{"stream_name":"stderr","time":9.303294892,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
-,{"stream_name":"stderr","time":10.127720528,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
-,{"stream_name":"stderr","time":10.127762477,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
-,{"stream_name":"stderr","time":10.127768278,"data":"0.00s - to python to disable frozen modules.\n"}
-,{"stream_name":"stderr","time":10.127772962,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
-,{"stream_name":"stdout","time":12.140861815,"data":"paper_mdpi.docx 3bfeafbf03da4a96811656f381921527d24e23575200f88498120888ba78b2a7\n"}
-,{"stream_name":"stderr","time":17.493459749,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
-,{"stream_name":"stderr","time":17.696370707,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
-,{"stream_name":"stderr","time":17.696409932999998,"data":"\n"}
-,{"stream_name":"stderr","time":17.696415841,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
-,{"stream_name":"stdout","time":70.093647669,"data":"convert /tmp/render/paper_mdpi.docx as a Writer document -\u003e /tmp/render/paper_mdpi.pdf using filter : writer_pdf_Export\n"}
-,{"stream_name":"stdout","time":70.093722837,"data":" Warning: failed to launch javaldx - java may not function correctly\n"}
-,{"stream_name":"stdout","time":70.093731266,"data":"\n"}
-,{"stream_name":"stdout","time":70.093736543,"data":"LibreOffice 24.2.7.2 420(Build:2)\n"}
-,{"stream_name":"stdout","time":70.093742087,"data":"\n"}
-,{"stream_name":"stdout","time":70.093747532,"data":"\n"}
-,{"stream_name":"stdout","time":70.093752669,"data":"P052-Roman.otf: \"P052\" \"Roman\"\n"}
-,{"stream_name":"stdout","time":70.093758441,"data":"DejaVuMathTeXGyre.ttf: \"DejaVu Math TeX Gyre\" \"Regular\"\n"}
-,{"stream_name":"stdout","time":70.093764393,"data":"\n"}
-,{"stream_name":"stderr","time":73.474820344,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":73.474858359,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":73.702692473,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":73.702740111,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":74.665185546,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
-,{"stream_name":"stderr","time":74.762835302,"data":"[NbConvertApp] Writing 3884 bytes to __notebook__.ipynb\n"}
-,{"stream_name":"stderr","time":78.104636396,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
-,{"stream_name":"stderr","time":78.780292975,"data":"[NbConvertApp] Writing 280157 bytes to __results__.html\n"}
+[{"stream_name":"stderr","time":8.057795027,"data":"/usr/local/lib/python3.13/dist-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.\n"}
+,{"stream_name":"stderr","time":8.057848195,"data":"  _validate(nbdict, ref, version, version_minor, relax_add_props)\n"}
+,{"stream_name":"stderr","time":9.299436183,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.299470985,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.299477123,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.299482496,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":10.126262542,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":10.126322277,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":10.126331091,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":10.126336194,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.060834629,"data":"paper_mdpi.docx 7b2e3f406b7bda80e6661f3dccc6ba7279ad316590ad7eb2372b2953f2a59c50\n"}
+,{"stream_name":"stderr","time":18.883344664,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stderr","time":19.086402561,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stderr","time":19.086443477,"data":"\n"}
+,{"stream_name":"stderr","time":19.08644991,"data":"W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu noble InRelease' does not seem to provide it (sources.list entry misspelt?)\n"}
+,{"stream_name":"stdout","time":89.028442419,"data":"convert /tmp/render/paper_mdpi.docx as a Writer document -\u003e /tmp/render/paper_mdpi.pdf using filter : writer_pdf_Export\n"}
+,{"stream_name":"stdout","time":89.028478519,"data":" Warning: failed to launch javaldx - java may not function correctly\n"}
+,{"stream_name":"stdout","time":89.028485418,"data":"\n"}
+,{"stream_name":"stdout","time":89.028491591,"data":"LibreOffice 24.2.7.2 420(Build:2)\n"}
+,{"stream_name":"stdout","time":89.028495854,"data":"\n"}
+,{"stream_name":"stdout","time":89.028499808,"data":"\n"}
+,{"stream_name":"stdout","time":89.028503478,"data":"P052-Roman.otf: \"P052\" \"Roman\"\n"}
+,{"stream_name":"stdout","time":89.028507606,"data":"DejaVuMathTeXGyre.ttf: \"DejaVu Math TeX Gyre\" \"Regular\"\n"}
+,{"stream_name":"stdout","time":89.028511827,"data":"\n"}
+,{"stream_name":"stderr","time":92.528832348,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":92.528871715,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":92.764382559,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":92.764430263,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":93.746031446,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":93.842787587,"data":"[NbConvertApp] Writing 3884 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":97.287235247,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":97.972571651,"data":"[NbConvertApp] Writing 280157 bytes to __results__.html\n"}
 ]

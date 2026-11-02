@@ -8,7 +8,7 @@ Output: results/step8/{model.json, top_ngrams.csv, test_predictions.csv, example
         results/step8/example_contributions.csv  per example: n-gram (or mask label), contribution to s_smishing,
                                             to s_spam and their difference; all n-grams that overlap a masked span
                                             are summed into one row per mask label
-        results/step8/example_words.csv     per example and word (tokens separated by spaces; a masked span is one
+        results/step8/example_words.csv     per example and word (runs of letters and digits; a masked span is one
                                             word): the summed contributions of the n-grams that overlap the word.
                                             The contribution of an n-gram is split equally over its occurrences and
                                             an occurrence that spans several words equally over them; the words of a
@@ -75,22 +75,20 @@ def owner(gram: str, lower: str, spans) -> str | None:
     return labels.pop() if len(labels) == 1 else "+".join(sorted(labels))
 
 
-def word_contributions(t: str, spans, grams: pd.DataFrame) -> pd.DataFrame:
-    """Contributions of the words of the normalised message t (see the module docstring)."""
-    lower = t.lower()
-    tokens = [(m.start(), m.end()) for m in re.finditer(r"\S+", t)]
+WORD = re.compile(r"[^\W_]+(?:[/'][^\W_]+)*")   # letters and digits, with an inner / or ' (25/F, don't)
 
-    def label(a, b):
-        out, i = [], a
-        for s0, s1, lab in spans:
-            if s0 < b and a < s1:
-                out.append(t[i:max(i, s0)])
-                out.append(f"[{lab}]")
-                i = max(i, s1)
-        out.append(t[i:b])
-        word = "".join(out)
-        masked = re.fullmatch(r"\W*(\[[A-Z]+\])\W*", word)
-        return masked.group(1) if masked else (word.strip(".,:;!?") or word)
+
+def word_contributions(t: str, spans, grams: pd.DataFrame) -> pd.DataFrame:
+    """Contributions of the words of the normalised message t (see the module docstring). Words: a masked span is one
+    word; elsewhere runs of letters and digits, so that spaces, punctuation and brackets separate words. An n-gram
+    is split equally over its occurrences, an occurrence equally over the words it overlaps; an occurrence made
+    only of spaces and punctuation goes in equal parts to the words just before and after it."""
+    lower = t.lower()
+    tokens = [(a, b, f"[{lab}]") for a, b, lab in spans]
+    for m in WORD.finditer(t):
+        if not any(a < m.end() and m.start() < b for a, b, _ in spans):
+            tokens.append((m.start(), m.end(), m.group(0)))
+    tokens.sort()
     cols = ["contribution_ham", "contribution_smishing", "contribution_spam"]
     acc = {i: [0.0, 0.0, 0.0] for i in range(len(tokens))}
     for g in grams.itertuples():
@@ -98,11 +96,16 @@ def word_contributions(t: str, spans, grams: pd.DataFrame) -> pd.DataFrame:
         if not starts:
             raise ValueError(f"n-gram {g.ngram!r} not in the message")
         for s0 in starts:
-            hit = [i for i, (a, b) in enumerate(tokens) if a < s0 + len(g.ngram) and s0 < b]
+            s1 = s0 + len(g.ngram)
+            hit = [i for i, (a, b, _) in enumerate(tokens) if a < s1 and s0 < b]
+            if not hit:
+                before = [i for i, (a, b, _) in enumerate(tokens) if b <= s0]
+                after = [i for i, (a, b, _) in enumerate(tokens) if a >= s1]
+                hit = ([before[-1]] if before else []) + ([after[0]] if after else [])
             for i in hit:
                 for k, c in enumerate(cols):
                     acc[i][k] += getattr(g, c) / len(starts) / len(hit)
-    rows = [{"word": label(*tokens[i]), **dict(zip(cols, v))} for i, v in acc.items()]
+    rows = [{"word": tokens[i][2], **dict(zip(cols, v))} for i, v in acc.items()]
     df = pd.DataFrame(rows).groupby("word", sort=False)[cols].sum().reset_index()
     for c in cols:
         if abs(df[c].sum() - grams[c].sum()) > 1e-9:
