@@ -571,6 +571,7 @@ def lite_numbers(R: Registry) -> None:
     R.add("speed-ratio-min", f"{min(sh) / lite:.0f}", "results/final/latency.csv p50 Shim / p50 svm_char")
     R.add("speed-ratio-max", f"{max(sh) / lite:.0f}", "results/final/latency.csv p50 Shim / p50 svm_char")
     R.add("size-svmchar", f"{lat.loc['svm_char', 'size_mb']:.1f}", "results/final/latency.csv size_mb")
+    R.add("explain-top", const("src/step8/explain.py", "TOP"), "src/step8/explain.py TOP")
 
 
 def build() -> dict[str, tuple[str, str]]:
