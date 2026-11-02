@@ -1,3 +1,53 @@
 \section{Threat Model}\label{sec:threat}
 
-[Section in preparation.]
+This section states what the attacker can do, what constrains the defender, and which part of this threat our evaluation covers. It describes the setting of the study and involves no experiment.
+
+\subsection{Attacker}\label{sec:threat-attacker}
+
+The attacker sends text messages that imitate a trusted sender and wants them to reach the recipient unflagged. A message has to stay readable and persuasive for a person, so every evasion is limited by what a reader still understands. Within this limit, the attacker can:
+\begin{itemize}
+\item replace characters by look-alike ASCII symbols (0 for o, 1 for l, @ for a, \$ for s);
+\item replace Latin letters by visually identical letters of another script, such as Cyrillic, or insert invisible Unicode characters \cite{boucher2022};
+\item insert spaces inside words, double letters or drop vowels, which keeps a word recognisable while changing its spelling;
+\item paraphrase the message, by hand or with a language model, so that the wording differs from known campaigns while the request stays the same;
+\item write in another language or script, for example in Russian or Kazakh, or transliterate Cyrillic text into Latin letters;
+\item adapt to the detector: send variants, observe which ones are delivered and keep the edits that pass (black-box access), or, in the worst case, compute edits from the model itself (white-box access).
+\end{itemize}
+The attacker's goal in this study is evasion at test time. Poisoning of the training data \cite{tang2025} and attacks on the link target, such as URL shorteners or compromised domains, are outside the scope; our detectors see only the text of a message.
+
+\subsection{Defender}\label{sec:threat-defender}
+
+The defender is either a handset application or a filter at the gateway of a mobile operator, and both work under constraints that rule out some detectors.
+\begin{itemize}
+\item \emph{Latency and throughput.} A gateway must classify every message as it passes, and a handset must not delay the notification noticeably. The cost per message, not only the accuracy, decides whether a detector can be deployed.
+\item \emph{Memory and energy.} On a handset the model has to be small and cheap to evaluate on a CPU, without a GPU.
+\item \emph{Privacy.} Private messages should not be sent to an external service for classification. A detector that runs on the device or inside the operator network keeps the content local, while a hosted large language model does not.
+\item \emph{Unequal error costs.} A missed smishing message can cause direct financial loss, while a false alarm costs the attention of the user or a delayed legitimate notification. We express this by the cost ratio $r$ in Section~\ref{sec:cost}.
+\end{itemize}
+These constraints lead to the two operating points of this study: Lite for a handset, where only a small model fits, and Full for a gateway, where a transformer can be afforded for a small share of the messages.
+
+\subsection{What the Evaluation Covers}\label{sec:threat-scope}
+
+Table~\ref{tab:threat} maps the attacker capabilities to the evaluation. Obfuscation is modelled as a random string transformation (Section~\ref{sec:obfuscation}) with two families of operations. The family TR (look-alike substitution and inserted spaces) is used for training augmentation and for testing. The family HO (Latin-to-Cyrillic homoglyphs, letter doubling and vowel deletion) is never used in training and models an attacker whose trick the defender has not anticipated. Each family is tested at \val{lvl-a}\%, \val{lvl-b}\% and \val{lvl-c}\% of the characters of a message.
+
+\begin{table}[H]
+\caption{Attacker capabilities and how they are covered by the evaluation. TR: obfuscation family used in training; HO: held-out family, used only at test time.\label{tab:threat}}
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\textbf{Capability} & \textbf{Modelled} & \textbf{Where evaluated}\\
+\midrule
+Look-alike ASCII substitution & yes, family TR & augmentation; TR test sets\\
+Inserted spaces & yes, family TR & augmentation; TR test sets\\
+Latin-to-Cyrillic homoglyphs & yes, family HO & HO test sets only\\
+Letter doubling, vowel deletion & yes, family HO & HO test sets only\\
+Cyrillic-to-Latin look-alikes & partly & Kazakhstan case study (qualitative)\\
+Another language (Russian, Kazakh) & partly & Kazakhstan case study (qualitative); transfer to Portuguese\\
+Invisible characters, reordering & no & \\
+Paraphrasing, generated rewording & no & \\
+Adaptive attacks (black-box or white-box) & no & \\
+Data poisoning, attacks on the link target & no (out of scope) & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The obfuscation model is random and non-adaptive: positions and operations are drawn independently of the detector, the edits do not interact, and the attacker has no access to the model. An attacker who chooses edits to fool a particular detector, or who paraphrases the message, can do at least as well. Our results under obfuscation are therefore an optimistic estimate of the robustness of every detector, including ours, and their main value is the comparison between detectors under the same perturbations. Since the homoglyph and vowel operations act on Latin letters only, on Cyrillic text the held-out family reduces mostly to letter doubling.
