@@ -571,7 +571,10 @@ def lite_numbers(R: Registry) -> None:
     R.add("speed-ratio-min", f"{min(sh) / lite:.0f}", "results/final/latency.csv p50 Shim / p50 svm_char")
     R.add("speed-ratio-max", f"{max(sh) / lite:.0f}", "results/final/latency.csv p50 Shim / p50 svm_char")
     R.add("size-svmchar", f"{lat.loc['svm_char', 'size_mb']:.1f}", "results/final/latency.csv size_mb")
+    R.add("size-qwen-gb", f"{lat.loc['qwen_fewshot', 'size_mb'] / 1000:.1f}", "results/final/latency.csv size_mb / 1000")
     R.add("explain-top", const("src/step8/explain.py", "TOP"), "src/step8/explain.py TOP")
+    ng = cfg("step4c")["char_branch"]["ngram_range"]
+    R.add("ngrams-per-char", sum(range(ng[0], ng[1] + 1)), "configs/step4c.yaml char_branch (n-grams covering one character)")
 
 
 def explain_numbers(R: Registry) -> None:
