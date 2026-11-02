@@ -12,7 +12,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT / "paper_mdpi"
 # MDPI class files (MDPI_template_ACS.zip, unchanged); template.tex and template.pdf are not needed to compile
-TEMPLATE = sorted(p.relative_to(PAPER).as_posix() for p in (PAPER / "Definitions").iterdir() if p.is_file())
+# EPS logos are left out: main.tex uses logo-mdpi.pdf (no epstopdf run); logo-updates.eps is not used with "submit"
+TEMPLATE = sorted(p.relative_to(PAPER).as_posix() for p in (PAPER / "Definitions").iterdir()
+                  if p.is_file() and p.suffix != ".eps")
 TEXT = ["main.tex", "numbers.tex", "bibliography.tex", "references.bib"]
 
 

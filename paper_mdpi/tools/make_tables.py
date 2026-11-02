@@ -60,7 +60,7 @@ def corpora() -> str:
             "$^{a}$ Removed within the corpus + removed because of an exact or near match in the Mendeley or UCI "
             "corpus. $^{b}$ Used only to measure the overlap with the other corpora.")
     return wrap("tab:corpora", "Corpora after deduplication: messages before and after, splits and classes",
-                "lcCCCCCCCCC", head, rows, note, size="\\footnotesize")
+                "lcCCCCCCCCC", head, rows, note, size="\\footnotesize", sep="4pt")
 
 
 # ---------------------------------------------------------------- helpers for the result tables

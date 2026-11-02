@@ -21,8 +21,17 @@
 \datepublished{ }
 
 %=================================================================
-% Packages beyond those loaded by the class (the class loads booktabs, tikz, xcolor, multirow, tabularx, amsmath).
-\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+% No packages beyond those of the class (it loads graphicx, booktabs, tabularx, xcolor, amsmath, etoolbox, geometry,
+% tikz for the ORCID icon, and others). Figure 1 is a precompiled PDF (assets/cascade_diagram.tex), so no TikZ
+% libraries are needed here.
+% Faster compilation: the class inserts the MDPI logo as Definitions/logo-mdpi.eps, which pdfLaTeX would convert
+% with epstopdf on every run; the same logo, converted once with Ghostscript, is used as a PDF instead.
+\makeatletter
+\patchcmd{\@maketitle}{Definitions/logo-mdpi.eps}{Definitions/logo-mdpi.pdf}{}{\typeout{MDPI logo: patch not applied}}
+\patchcmd{\@maketitle}{Definitions/logo-mdpi.eps}{Definitions/logo-mdpi.pdf}{}{}
+\makeatother
+% fancyhdr asks for a taller header box; with includehead, geometry keeps the page margins and shortens the body
+\geometry{headheight=21pt}
 \input{numbers}
 
 %=================================================================
