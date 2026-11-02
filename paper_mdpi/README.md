@@ -27,3 +27,15 @@ Regenerate and check (from the repository root):
     .venv/bin/python scripts/make_step8_examples.py      # step 8 outputs -> results/step8 (masked examples)
     .venv/bin/python paper_mdpi/tools/make_figures.py
     .venv/bin/python paper_mdpi/tools/make_zip.py        # runs the generators and the checker, then packs
+
+## Word version (generated from the LaTeX sources)
+
+    .venv/bin/python paper_mdpi/tools/make_docx.py    # -> paper_mdpi.docx (repository root, not committed)
+    .venv/bin/python paper_mdpi/tools/check_docx.py   # numbers, tables, numbering, equations, lost text
+
+Needs pandoc (no LaTeX). `word/reference.docx` is made from the MDPI Word template `information-template.dot`
+(repository root, an OOXML template: content type switched to a document, body emptied; styles, A4 page set-up,
+line numbers, headers and footers kept). `make_docx.py` expands `\val`, numbers sections, figures, tables and
+equations as in the PDF, replaces `\ref` and `\cite` by their numbers, converts the figures to PNG at 300 dpi,
+runs pandoc (equations as Word equations) and assigns the MDPI styles. `check_docx.py` compares the result with
+`numbers.tex` and the LaTeX tables. Intermediate files go to `build_docx/` (not committed).

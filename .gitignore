@@ -35,3 +35,7 @@ results/kaggle_runs/smishfuse-step8-explain/results/step8/example_ngrams.csv
 
 # Overleaf upload of the MDPI version, built by paper_mdpi/tools/make_zip.py
 paper_mdpi.zip
+
+# Word version, built by paper_mdpi/tools/make_docx.py (intermediate files in paper_mdpi/build_docx)
+paper_mdpi.docx
+paper_mdpi/build_docx/
