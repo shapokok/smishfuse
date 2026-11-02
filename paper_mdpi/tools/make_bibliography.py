@@ -1,0 +1,154 @@
+"""paper_mdpi/references.bib -> paper_mdpi/bibliography.tex in the ACS style of the MDPI template (numbered \\bibitem list in citation order).
+
+Only cited entries are written; the script fails on a \\cite key missing from references.bib and lists bib
+entries that are never cited. Run: python paper_mdpi/tools/make_bibliography.py
+"""
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+PAPER = Path(__file__).resolve().parents[1]
+MAX_AUTHORS = 10
+
+
+def tex_sources() -> list[Path]:
+    """main.tex and its \\input files in document order."""
+    out = []
+
+    def walk(p: Path):
+        out.append(p)
+        for name in re.findall(r"^[^%\n]*\\input\{([^}]+)\}", p.read_text(encoding="utf-8"), flags=re.M):
+            q = PAPER / (name if name.endswith(".tex") else name + ".tex")
+            if q.name not in ("numbers.tex", "bibliography.tex") and q.exists():
+                walk(q)
+    walk(PAPER / "main.tex")
+    return out
+
+
+def cited_keys() -> list[str]:
+    keys = []
+    for p in tex_sources():
+        text = re.sub(r"(?<!\\)%.*", "", p.read_text(encoding="utf-8"))
+        for group in re.findall(r"\\cite\{([^}]+)\}", text):
+            for k in group.split(","):
+                k = k.strip()
+                if k and k not in keys:
+                    keys.append(k)
+    return keys
+
+
+def parse_bib(text: str) -> dict[str, dict]:
+    entries = {}
+    for m in re.finditer(r"@(\w+)\{([^,]+),", text):
+        i, depth = m.end(), 1
+        while depth:
+            depth += {"{": 1, "}": -1}.get(text[i], 0)
+            i += 1
+        body = text[m.end():i - 1]
+        fields, j = {}, 0
+        for fm in re.finditer(r"(\w+)\s*=\s*\{", body):
+            if fm.start() < j:
+                continue
+            k, d = fm.end(), 1
+            while d:
+                d += {"{": 1, "}": -1}.get(body[k], 0)
+                k += 1
+            fields[fm.group(1).lower()] = body[fm.end():k - 1].strip()
+            j = k
+        entries[m.group(2).strip()] = {"type": m.group(1).lower(), **fields}
+    return entries
+
+
+def first_char(token: str) -> str:
+    if token.startswith("{"):
+        d, i = 0, 0
+        while True:
+            d += {"{": 1, "}": -1}.get(token[i], 0)
+            i += 1
+            if d == 0:
+                return token[:i]
+    return token[0]
+
+
+def initials(given: str) -> str:
+    """'Tiago A.' -> 'T.A.'; 'Jang-Sun' -> 'J.-S.' (ACS style, no spaces between initials)."""
+    parts = []
+    for word in given.split():
+        sub = [w for w in word.split("-") if w]
+        parts.append("-".join(first_char(w) + "." for w in sub))
+    return "".join(parts)
+
+
+def author(name: str) -> str:
+    name = name.strip()
+    if name.startswith("{") and name.endswith("}"):
+        return name[1:-1]
+    family, _, given = name.partition(",")
+    ini = initials(given.strip())
+    return f"{family.strip()}, {ini}" if ini else family.strip()
+
+
+def authors(field: str) -> str:
+    names = [author(a) for a in re.split(r"\s+and\s+", field)]
+    if len(names) > MAX_AUTHORS:
+        return "; ".join(names[:MAX_AUTHORS]) + "; et~al."
+    return "; ".join(names)
+
+
+def title(t: str) -> str:
+    return t[1:-1] if t.startswith("{") and t.endswith("}") else t
+
+
+def end(s: str) -> str:
+    return s if s.endswith((".", "?", "!")) else s + "."
+
+
+def item(key: str, e: dict) -> str:
+    """One reference in the ACS variant of the MDPI template (template.tex, 'ACS format')."""
+    a, t, y = authors(e["author"]), end(title(e["title"])), e["year"]
+    typ = e["type"]
+    if typ == "article":
+        vol = f", \\emph{{{e['volume']}}}" if "volume" in e else ""
+        pg = f", {e['pages']}" if "pages" in e else ""
+        s = f"{a} {t} \\emph{{{e['journal']}}} \\textbf{{{y}}}{vol}{pg}."
+    elif typ in ("inproceedings", "incollection"):
+        series = (f"; {e['series']}" + (f", Vol. {e['volume']}" if "volume" in e else "")) if "series" in e else ""
+        pub = f"; {e['publisher']}" if "publisher" in e else ""
+        pg = f"; pp. {e['pages']}" if "pages" in e else ""
+        s = f"{a} {t} In \\emph{{{e['booktitle']}}}{series}{pub}, {y}{pg}."
+    elif typ == "book":
+        s = f"{a} \\emph{{{title(e['title'])}}}; {e['publisher']}, {y}."
+    elif "eprint" in e:
+        s = f"{a} {t} \\emph{{arXiv}} \\textbf{{{y}}}, arXiv:{e['eprint']}."
+    else:
+        s = f"{a} {t} {e.get('howpublished', '')}, {y}."
+    if "doi" in e:
+        s += f" \\url{{https://doi.org/{e['doi']}}}."
+    elif "url" in e:
+        s += f" Available online: \\url{{{e['url']}}}."
+    return f"\\bibitem{{{key}}}\n{s}"
+
+
+def main() -> int:
+    bib = parse_bib((PAPER / "references.bib").read_text(encoding="utf-8"))
+    keys = cited_keys()
+    missing = [k for k in keys if k not in bib]
+    if missing:
+        print("cited but not in references.bib:", ", ".join(missing))
+        return 1
+    unused = [k for k in bib if k not in keys]
+    lines = ["% Generated by paper_mdpi/tools/make_bibliography.py from references.bib (citation order). Do not edit.",
+             "\\begin{thebibliography}{999}", ""]
+    lines += [item(k, bib[k]) + "\n" for k in keys]
+    lines.append("\\end{thebibliography}\n")
+    (PAPER / "bibliography.tex").write_text("\n".join(lines), encoding="utf-8")
+    print(f"wrote paper_mdpi/bibliography.tex ({len(keys)} cited)")
+    if unused:
+        print("in references.bib but not cited yet:", ", ".join(unused))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
