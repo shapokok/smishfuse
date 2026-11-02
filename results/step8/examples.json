@@ -1,0 +1,50 @@
+{
+  "smishing_as_spam": {
+    "id": "mendeley_03261",
+    "n_in_group": 7,
+    "prob": {
+      "ham": 0.00011572317525090629,
+      "smishing": 0.15149550899147607,
+      "spam": 0.8483887678332731
+    },
+    "score": {
+      "ham": -0.754321417621204,
+      "smishing": -0.27497237023901655,
+      "spam": 0.6507869522086245
+    },
+    "y_pred": "spam",
+    "y_true": "smishing"
+  },
+  "smishing_correct": {
+    "id": "mendeley_02350",
+    "n_in_group": 91,
+    "prob": {
+      "ham": 6.596846278241344e-05,
+      "smishing": 0.9655984275402298,
+      "spam": 0.034335603996987575
+    },
+    "score": {
+      "ham": -0.8283266942607751,
+      "smishing": 0.8015063444168216,
+      "spam": -0.7237092811532742
+    },
+    "y_pred": "smishing",
+    "y_true": "smishing"
+  },
+  "spam_correct": {
+    "id": "mendeley_02431",
+    "n_in_group": 75,
+    "prob": {
+      "ham": 0.004825217258008028,
+      "smishing": 0.03562595613478852,
+      "spam": 0.9595488266072034
+    },
+    "score": {
+      "ham": -0.3709268627613743,
+      "smishing": -0.6128143349083395,
+      "spam": 0.34703743742145177
+    },
+    "y_pred": "spam",
+    "y_true": "spam"
+  }
+}

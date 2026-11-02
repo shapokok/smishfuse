@@ -574,10 +574,58 @@ def lite_numbers(R: Registry) -> None:
     R.add("explain-top", const("src/step8/explain.py", "TOP"), "src/step8/explain.py TOP")
 
 
+def explain_numbers(R: Registry) -> None:
+    """Reading the weights of Lite (results/step8, post hoc); every textual claim about them is checked here."""
+    s8 = ROOT / "results" / "step8"
+    src = "results/step8/"
+    model = json.loads((s8 / "model.json").read_text())
+    if not all(a < 0 for a in model["platt_a"]) or model["max_abs_diff_recomputed_proba"] > 1e-6:
+        raise ValueError("text: all Platt slopes negative and probabilities recomputed exactly")
+    R.add("ex-n-features", f"{model['n_features']:,}".replace(",", "\\,"), src + "model.json n_features")
+    sys.path.insert(0, str(PAPER / "tools"))
+    from make_tables import tex_gram
+    top = pd.read_csv(s8 / "top_ngrams.csv", keep_default_na=False)
+    for r in top.itertuples():
+        R.add(f"ng-{r[1]}-{r.rank}", tex_gram(r.ngram), src + "top_ngrams.csv")
+    sm = top[top["class"] == "smishing"].sort_values("rank").ngram.tolist()
+    if not all(any(c.isdigit() for c in g) for g in sm[:4]) or "claim" not in sm:
+        raise ValueError("text: the first four smishing n-grams contain digits, and 'claim' is among the top")
+    ex = json.loads((s8 / "examples.json").read_text())
+    c = pd.read_csv(s8 / "example_contributions.csv", keep_default_na=False)
+    b = dict(zip(model["classes"], model["intercept"]))
+    for key, k in (("smishing_correct", "sm"), ("spam_correct", "sp"), ("smishing_as_spam", "err")):
+        e, g = ex[key], c[c.example == key].set_index("label")
+        R.add(f"ex-{k}-n", e["n_in_group"], src + "examples.json n_in_group")
+        R.add(f"ex-{k}-conf", f2(e["prob"][e["y_pred"]]), src + "examples.json")
+        margin = e["score"]["smishing"] - e["score"]["spam"]
+        R.add(f"ex-{k}-margin", f2(abs(margin)), src + "examples.json scores (|s_smishing - s_spam|)")
+        rest = g.drop([x for x in g.index if x.startswith("[")])
+        R.add(f"ex-{k}-ngrams", int(g.n_ngrams.sum()), src + "example_contributions.csv")
+        if abs(g.diff_smishing_minus_spam.sum() + b["smishing"] - b["spam"] - margin) > 1e-6:
+            raise ValueError(f"{key}: contributions do not add up")
+        big = rest.diff_smishing_minus_spam.abs().max()
+        R.add(f"ex-{k}-maxgram", f2(big), src + "example_contributions.csv (largest single unmasked n-gram)")
+    g = c[c.example == "smishing_correct"].set_index("label")
+    R.add("ex-sm-url", f2(g.loc["[URL]", "diff_smishing_minus_spam"]), src + "example_contributions.csv")
+    if g.diff_smishing_minus_spam.idxmax() != "[URL]":
+        raise ValueError("text: the link is the largest single contribution in example (a)")
+    g = c[c.example == "smishing_as_spam"].set_index("label")
+    R.add("ex-err-phone", f2(-g.loc["[PHONE]", "diff_smishing_minus_spam"]), src + "example_contributions.csv")
+    if g.diff_smishing_minus_spam.idxmin() != "[PHONE]":
+        raise ValueError("text: the number is the largest single contribution towards spam in example (c)")
+    top_err = g.drop([x for x in g.index if x.startswith("[")]).diff_smishing_minus_spam.nsmallest(5).index
+    if not all("st" in x or "op" in x or "top" in x for x in top_err):
+        raise ValueError("text: the next largest pushes towards spam come from the word STOP")
+    gs = c[c.example == "spam_correct"].set_index("label")
+    rest = gs.drop([x for x in gs.index if x.startswith("[")])
+    if rest.diff_smishing_minus_spam.abs().max() > 0.05:
+        raise ValueError("text: in example (b) no single n-gram contributes more than 0.05")
+
+
 def build() -> dict[str, tuple[str, str]]:
     R = Registry()
     for fn in (data_numbers, main_numbers, published_numbers, latency_numbers, config_numbers, results_numbers,
-               kz_numbers, lite_numbers):
+               kz_numbers, lite_numbers, explain_numbers):
         fn(R)
     return R.v
 

@@ -1,0 +1,32 @@
+{
+  "analyzer": "char",
+  "classes": [
+    "ham",
+    "smishing",
+    "spam"
+  ],
+  "intercept": [
+    0.8407776660956535,
+    -1.0331307614308272,
+    -0.9397157508199168
+  ],
+  "lowercase": true,
+  "max_abs_diff_recomputed_proba": 0.0,
+  "n_features": 136176,
+  "ngram_range": [
+    2,
+    5
+  ],
+  "platt_a": [
+    -9.186569904926804,
+    -5.380235529022501,
+    -5.056822430737407
+  ],
+  "platt_b": [
+    1.9961679632164249,
+    0.07826498280831864,
+    -0.3443941440818905
+  ],
+  "sublinear_tf": true,
+  "weights": "seed 1, smishfuse-final-3class"
+}

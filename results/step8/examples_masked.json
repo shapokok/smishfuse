@@ -1,0 +1,25 @@
+{
+  "smishing_as_spam": {
+    "id": "mendeley_03261",
+    "text": "Natalja (25/F) is inviting you to be her friend. See her: [URL] STOP? Send STOP FRND to [PHONE]",
+    "masks": [
+      "URL",
+      "PHONE"
+    ]
+  },
+  "smishing_correct": {
+    "id": "mendeley_02350",
+    "text": "IMPORTANT INFORMATION 4 ORANGE USER [PHONE]. TODAY IS UR LUCKY DAY!2 FIND OUT WHY LOG ONTO [URL]",
+    "masks": [
+      "PHONE",
+      "URL"
+    ]
+  },
+  "spam_correct": {
+    "id": "mendeley_02431",
+    "text": "MAAC(leader in 3d animation, vfx, multimedia, gaming)announces free seminar NEXT IN BOLLYWOOD, on 28MAY by industry professionals.Call now [PHONE] for passes.",
+    "masks": [
+      "PHONE"
+    ]
+  }
+}

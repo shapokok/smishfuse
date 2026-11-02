@@ -1,3 +1,35 @@
-\section[\appendixname~\thesection]{Additional Tables and Figures}\label{app:full}
+\section[\appendixname~\thesection]{Full Tables and Additional Figures}\label{app:full}
 
-[Appendix in preparation.]
+This appendix gives the results of all models that are summarised in Section~\ref{sec:results}: the clean test sets (Table~\ref{tab:main}), the settings of the published methods (Table~\ref{tab:settings}), obfuscation and ablations (Table~\ref{tab:robustness}), low data and transfer (Table~\ref{tab:lowdata} and Figure~\ref{fig:learning}), efficiency and cost (Table~\ref{tab:efficiency}), and every comparison of Full with the best baseline (Table~\ref{tab:significance}). Figures~\ref{fig:pr} and \ref{fig:confusion} show the precision-recall curves and the confusion matrix of Full, and Figure~\ref{fig:adaptation} the adaptation curve of the Kazakhstan case study.
+
+\input{tables/main}
+\input{tables/settings}
+\input{tables/robustness}
+\input{tables/lowdata}
+
+\begin{figure}[H]
+\centering
+\includegraphics{figures/learning_curve}
+\caption{Macro F1 on the clean three-class test set as a function of the share of the training data.\label{fig:learning}}
+\end{figure}
+
+\input{tables/efficiency}
+\input{tables/significance}
+
+\begin{figure}[H]
+\centering
+\includegraphics{figures/pr_curves}
+\caption{Precision-recall curves of the malicious class (smishing and spam against ham) on the clean three-class test set, seed 1.\label{fig:pr}}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{figures/confusion_cascade}
+\caption{Confusion matrix of Full on the clean three-class test set, seed 1.\label{fig:confusion}}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{figures/adaptation_curve}
+\caption{Kazakhstan case study: adaptation of Lite with a synthetic set of Russian, Kazakh and English messages. Left: correct labels on the \val{kz-orig} original case-study messages; right: fraudulent messages labelled smishing. Points: mean $\pm$ standard deviation over five random subsets.\label{fig:adaptation}}
+\end{figure}

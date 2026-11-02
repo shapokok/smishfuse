@@ -460,9 +460,42 @@ def inflation_table() -> str:
                 "lllCCCCCCC", head, body, note, size="\\footnotesize", sep="3pt")
 
 
+# ---------------------------------------------------------------- reading the weights of Lite (step 8)
+
+def tex_gram(g: str) -> str:
+    """An n-gram in typewriter type with visible spaces and escaped special characters."""
+    esc = {"\\": "\\textbackslash{}", "#": "\\#", "$": "\\$", "%": "\\%", "&": "\\&", "_": "\\_", "{": "\\{",
+           "}": "\\}", "~": "\\textasciitilde{}", "^": "\\textasciicircum{}", " ": "\\textvisiblespace{}"}
+    return "\\texttt{" + "".join(esc.get(c, c) for c in g) + "}"
+
+
+def ngrams_table() -> str:
+    t = pd.read_csv(ROOT / "results" / "step8" / "top_ngrams.csv", keep_default_na=False)
+    classes = ["ham", "smishing", "spam"]
+    by = {c: t[t["class"] == c].sort_values("rank").reset_index(drop=True) for c in classes}
+    n = len(by["ham"])
+    if any(len(by[c]) != n for c in classes):
+        raise ValueError("unequal number of n-grams per class")
+    body = []
+    for i in range(n):
+        cells = [str(i + 1)]
+        for c in classes:
+            r = by[c].iloc[i]
+            cells += [tex_gram(r.ngram), f"{r.weight:.2f}"]
+        body.append(" & ".join(cells) + " \\\\")
+    head = [" & \\multicolumn{2}{c}{ham} & \\multicolumn{2}{c}{smishing} & \\multicolumn{2}{c}{spam} \\\\",
+            "\\cmidrule(lr){2-3}\\cmidrule(lr){4-5}\\cmidrule(lr){6-7}",
+            "Rank & n-gram & $w_{k,g}$ & n-gram & $w_{k,g}$ & n-gram & $w_{k,g}$ \\\\"]
+    note = ("Coefficients of the one-versus-rest linear SVM of Lite (seed 1) on lower-cased character n-grams; "
+            "\\textvisiblespace{} marks a space. Read from the saved weights after the evaluation (post hoc, no "
+            "training).")
+    return wrap("tab:ngrams", "The character n-grams with the largest coefficient for each class in Lite",
+                "cCCCCCC", head, body, note, wide=False)
+
+
 def build() -> dict[str, str]:
     return {"corpora.tex": corpora(), "settings_key.tex": settings_key_table(), "key3.tex": key3_table(),
-            "operating.tex": operating_table(), "inflation.tex": inflation_table(),
+            "operating.tex": operating_table(), "inflation.tex": inflation_table(), "ngrams.tex": ngrams_table(),
             "main.tex": main_table(), "settings.tex": settings_table(), "robustness.tex": robustness_table(),
             "lowdata.tex": lowdata_table(), "efficiency.tex": efficiency_table(),
             "significance.tex": significance_table()}
