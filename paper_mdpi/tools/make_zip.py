@@ -11,7 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PAPER = ROOT / "paper_mdpi"
-TEMPLATE = ["NSP1.cls", "everyshi.sty", "psfig.sty", "logo7pt.eps"]
+# MDPI class files (MDPI_template_ACS.zip, unchanged); template.tex and template.pdf are not needed to compile
+TEMPLATE = sorted(p.relative_to(PAPER).as_posix() for p in (PAPER / "Definitions").iterdir() if p.is_file())
 TEXT = ["main.tex", "numbers.tex", "bibliography.tex", "references.bib"]
 
 
@@ -22,7 +23,7 @@ def main() -> int:
             print(f"{script} failed; paper_mdpi.zip not written")
             return 1
     files = [PAPER / f for f in TEMPLATE + TEXT]
-    for folder, pattern in (("sections", "*.tex"), ("tables", "*.tex"), ("figures", "*.eps"), ("figures", "*.pdf")):
+    for folder, pattern in (("sections", "*.tex"), ("tables", "*.tex"), ("figures", "*.pdf")):
         files += sorted((PAPER / folder).glob(pattern))
     out = ROOT / "paper_mdpi.zip"
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
