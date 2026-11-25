@@ -14,7 +14,8 @@ The run stops if a recomputed probability differs from its frozen value by more 
 Outputs (models/, not committed; copied into the app repo):
   lite_base.json, lite_adapted.json  classes, vectorizer settings, vocabulary (list: vocabulary[j] = n-gram of column j),
       idf (float32), one entry per calibrated classifier of CalibratedClassifierCV (coef, intercept, Platt a / b),
-      tau of the cascade, provenance and check results.
+      tau of the cascade, the cost rule (`cost`: r not chosen, candidates of configs/final.yaml; the app ignores it,
+      step 6d / smishfuse-app plan decision 5), provenance and check results.
   golden.json  300 messages with sklearn probabilities of both models. No dataset text is used: author-written KZ case
       rows (data/kz_cases), adaptation messages (data/kz_adapt), the templates below, TRAIN-type (TR) and HELD-OUT (HO)
       obfuscation of src/eval/obfuscation.py at 10% / 20%, and edge cases of the preprocessing (empty text, whitespace
@@ -228,7 +229,19 @@ def f32(x: float) -> float:
     return float(np.format_float_positional(np.float32(x), unique=True, trim="-"))
 
 
-def export(clf, name: str, description: str, params: dict, fixed: dict, train_info: dict, checks: dict, tau: float):
+def cost_rule(cost_ratios: list) -> dict:
+    """The cost rule for the app (README decision 24): not chosen yet, the app ignores the field."""
+    return {"rule": "alarm (smishing) if p(smishing) >= 1 / (1 + r): the cost rule of the paper (section 4.5) applied to "
+                    "p(smishing); the paper states it for p(malicious) = p(smishing) + p(spam)",
+            "probability": "smishing",
+            "r": None,
+            "status": "not chosen: the app uses argmax; r is chosen on the pilot data (smishfuse-app plan, decision 5); "
+                      "the known-sender rule of the app uses r = 1; ignored by the app",
+            "candidates": [{"r": r, "threshold": 1.0 / (1.0 + r)} for r in cost_ratios]}
+
+
+def export(clf, name: str, description: str, params: dict, fixed: dict, train_info: dict, checks: dict, tau: float,
+           cost: dict):
     vec, cal = clf.vectorizer, clf.model
     if list(cal.classes_) != [0, 1, 2]:
         raise SystemExit(f"unexpected classes {cal.classes_}")
@@ -262,6 +275,7 @@ def export(clf, name: str, description: str, params: dict, fixed: dict, train_in
                         "rule": "p_k = expit(-(a_k * s_k + b_k)); p /= sum(p) (uniform if 0); mean over classifiers"},
         "calibrated_classifiers": ccs,
         "tau": tau,
+        "cost": cost,
         "provenance": {"sklearn": sklearn.__version__, "train": train_info, "checks": checks},
     }
 
@@ -368,7 +382,9 @@ def main():
     task = load_yaml("configs/step2.yaml")["tasks"]["mendeley_3class"]
     if task["classes"] != CLASSES:
         raise SystemExit(f"unexpected classes {task['classes']}")
-    tau = float(load_yaml("configs/final.yaml")["method"]["tau"])
+    final = load_yaml("configs/final.yaml")
+    tau = float(final["method"]["tau"])
+    cost = cost_rule(list(final["metrics"]["cost_ratios"]))
     tr_ids, tr_texts, tr_y = load_split(task, "train")
     va_ids, va_texts, _ = load_split(task, "val")
     cases = pd.read_csv(ROOT / "data" / "kz_cases" / "cases.csv", dtype=str, keep_default_na=False)
@@ -415,7 +431,7 @@ def main():
     }
     exported, sha = {}, {}
     for name, (clf, desc, info, chk) in models.items():
-        exported[name] = export(clf, name, desc, params, fixed, info, chk, tau)
+        exported[name] = export(clf, name, desc, params, fixed, info, chk, tau, cost)
         sha[name] = write(exported[name], out / f"lite_{name}.json")
         prepare(exported[name])
 
